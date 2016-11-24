@@ -51,7 +51,7 @@ def request_html(url):
 
 def open_browser_scroll(url, filename):
     global html_name
-    driver = webdriver.Chrome('/Users/zhaodan/Documents/workspace/python/nothing/chromedriver')  # Optional argument, if not specified will search path.
+    driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
 
     username = driver.find_element_by_name("email")
