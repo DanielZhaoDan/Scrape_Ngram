@@ -1,4 +1,4 @@
-<a href="http://www.thetenthfloor.com/wp-content/uploads/2016/11/Jp6udayico.png"><img class="size-medium wp-image-419 aligncenter" src="http://www.thetenthfloor.com/wp-content/uploads/2016/11/Jp6udayico-300x150.png" alt="dots" width="300" height="150" /></a>
+<img class="size-medium wp-image-419 aligncenter" src="http://www.thetenthfloor.com/wp-content/uploads/2016/11/Jp6udayico-300x150.png" alt="dots" width="300" height="150" />
 
 <strong style="font-size: 26px;">Digital Data For Everyone</strong>
 
@@ -40,13 +40,16 @@ Optional but good to have: Microsoft Office
 3. Pay the fees
 4. Receive email confirmation with detailed break down of the learning modules and training location
 
-<select style="float:left;">
-  <option>-- select location --</option>
-  <option>Singapore</option>
-  <option>Indonesia</option>
-  <option>India</option>
-  <option>Malaysia</option>
+<select style="float:left;" id="jumpCountry" onChange="showButtons()">
+  <option value="-1">-- select location --</option>
+  <option value="SG">Singapore</option>
+  <option value="ID">Indonesia</option>
+  <option value="IN">India</option>
+  <option value="MY">Malaysia</option>
 </select>
 <div class="col grid_5_of_12" style="position:relative; top:-18px">
     <p class="border">You will be eligible to attend sessions only in your selected location</p>
 </div>
+<div class="clearfix"></div>
+<div><input type="submit" class="JumpButton" style="width: 300px; display: none; font-size: 16px;" onClick="jumpTo('4')" value="Sign me up for 4 days after work"><input type="submit" class="JumpButton" style="width: 300px; display: none; font-size: 16px; margin-left: 50px" onClick="jumpTo('2')" value="Sign me up for 2 days sessions"></div>
+<div><input type="submit" style="width: 650px; font-size: 16px; margin-top:20px" onClick="window.location.href='http://www.thetenthfloor.com/about-the-principal/'" value="Learn about the trainer"></div>

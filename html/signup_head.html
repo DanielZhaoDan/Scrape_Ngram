@@ -1,0 +1,45 @@
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<style>
+.entry-content p {
+    text-align: center;
+}
+.entry-title {
+    display:none;
+}
+</style>
+<script>
+$(document).ready(function(){
+    changeDateLocaleTitle();
+})
+function changeDateLocaleTitle() {
+    var country = GetQueryString('country');
+    var type = GetQueryString('type');
+    var countryTitle = 'Singapore';
+    if(country == 'ID')
+        countryTitle = 'Indonesia';
+    else if (country == 'IN')
+        countryTitle = 'India';
+    else if (country == 'MY')
+        countryTitle = 'Malaysia';
+    var title = countryTitle + ' ' + type + ' days session, ';
+    var dateTitle = 'January-2017, 13, 14 <br> 9 am - 5 pm'; 
+    var imgSrc = 'http://www.thetenthfloor.com/wp-content/uploads/2016/11/session2.png';
+    if (type == '4') {
+        dateTitle = 'January-2017, 16, 17, 18, 19<br>7pm - 9pm';
+        imgSrc = 'http://www.thetenthfloor.com/wp-content/uploads/2016/11/session4.png';
+    }
+    $('#dateLocale').html(title+dateTitle);
+    $('#dateLocale').css('display', '');
+    $('#thanksEmail').css('display','');
+    $('#sessionPic').attr('src',imgSrc);
+    $('#sessionPic').css('display','');
+}
+function GetQueryString(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
+function initPayment() {
+}
+</script>

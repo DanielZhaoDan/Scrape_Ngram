@@ -29,7 +29,7 @@ p {
 </style>
 <script>
 $(document).ready(function(){
-
+    
 })
 function selectedCountry(country) {
     var indiaContent = '<b>IND 1000 per seat</b>India test,test,test';
@@ -45,5 +45,20 @@ function selectedCountry(country) {
         $('#countryPrice').html(MYContent);
    else
         $('#countryPrice').html(SGContent);
+}
+function jumpTo(value) {
+    var country = $('#jumpCountry').val();
+    if (country == '-1')
+        alert('please select a country');
+    else
+        window.location.href = 'http://www.thetenthfloor.com/signup?type='+value+'&country='+country;
+}
+function showButtons() {
+    var country = $('#jumpCountry').val();
+    console.log(country);
+    if (country == '-1') 
+        $('.JumpButton').css('display','none');
+    else
+        $('.JumpButton').css('display','');
 }
 </script>
