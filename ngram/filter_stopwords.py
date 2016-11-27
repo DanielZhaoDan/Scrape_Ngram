@@ -77,7 +77,7 @@ def load_data_from_excel(filename, start):
 
     return alldata
 
-file_list = walk('ngram_resultdata')
+file_list = walk('ngram_data')
 
 for files in file_list:
     try:

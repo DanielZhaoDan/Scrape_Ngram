@@ -9,21 +9,23 @@ import xlwt
 import sys
 import os
 
-data = [['Date','Location','Profile Name','Profile URL','Is fanpage','Fanpage about','Post Link','Content','Links in Content','Media Type','Headline','Body','Website','emotion count','Comment count','Share count','View count']]
-profile_isfan = []
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; _ga=GA1.2.905364245.1476499425; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=gg-TFkXk6ygDB3WFT8S3NQgw; c_user=100006957738125; xs=196%3AZqliNb7ajY5nOw%3A2%3A1477666718%3A20772; fr=1pJP65hZ44wMFk9by.AWW44F9g-ph48sUmf7MsykLo628.BXg4k5.ss.FgT.0.0.BYNC-4.AWX3s7bH; csm=2; s=Aa5x7GMcTBJohGaj.BYE2ef; p=-2; presence=EDvF3EtimeF1479815214EuserFA21B06957738125A2EstateFDt2F_5b_5dElm2FnullEuct2F147981449B0EtrFnullEtwF1591607096EatF1479815201758G479815214722CEchFDp_5f1B06957738125F5CC'
-url = 'https://www.facebook.com/search/top/?q=singapore%20holiday&filters_rp_location=102173726491792&filters_rp_creation_time=%7B%22start_year%22%3A%222016%22%2C%22end_year%22%3A%222016%22%7D'
-file_prefix = "Jakarta-Singapore"
+data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; fr=03NniPbnhahIjspAF.AWU_WSpCDYg_GGqe4pYt01CyNl8.BXorjj.xL.Fg2.0.0.BYNqKs.AWW8-LR3; act=1479975844160%2F3; p=-2; presence=EDvF3EtimeF1479976601EuserFA21B06957738125A2EstateFDutF1479976601687Et2F_5b_5dElm2FnullEuct2F1479969715BEtrFA2loadA2EtwF3507171580EatF1479976599454CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=bali&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
+file_prefix = "Singapore-Bali-02"
 save_img = False
 
-def write(html,filename):
+
+def write(html, filename):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
-    fp = open(filename,"w")
+    fp = open(filename, "w")
     fp.write(html)
     fp.close()
     print "write over"
+
 
 def write_excel(filename):
     d = os.path.dirname(filename)
@@ -32,22 +34,24 @@ def write_excel(filename):
     w = xlwt.Workbook(encoding='utf-8')
     ws = w.add_sheet('old', cell_overwrite_ok=True)
     ##column name.*?<td>(.*?)<
-    for row in range(0,len(data)):
+    for row in range(0, len(data)):
         one_row = data[row]
         for col in range(0, len(one_row)):
-            ws.write(row,col,one_row[col])
+            ws.write(row, col, one_row[col])
     w.save(filename)
-    print filename+"===========over============"
+    print filename + "===========over============"
+
 
 def request_html(url):
     req = urllib2.Request(url)
-    req.add_header("Cookie",cookie)
-    req.add_header("user-agent","Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
+    req.add_header("Cookie", cookie)
+    req.add_header("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
     req.add_header("accept", "*/*")
     req.add_header("connection", "Keep-Alive")
     res_data = urllib2.urlopen(req)
     res = res_data.read()
     return res
+
 
 def open_browser_scroll(url, filename):
     global html_name
@@ -57,12 +61,12 @@ def open_browser_scroll(url, filename):
     username = driver.find_element_by_name("email")
     password = driver.find_element_by_name("pass")
 
-    username.send_keys("mymicro@live.com") ##your username, need to be replaced
-    password.send_keys("54zcy54ZCY252729") ##your password, need to be replaced
+    username.send_keys("mymicro@live.com")  ##your username, need to be replaced
+    password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
 
     driver.find_element_by_id("u_0_9").click()
 
-    for i in range(1, 1000):
+    for i in range(1, 2000):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(3)
@@ -73,46 +77,40 @@ def open_browser_scroll(url, filename):
             if '<div class="phm _64f">End of results</div>' in data:
                 break
 
+
 def parse_html(html, flag):
-    if(html == ""):
+    if (html == ""):
         return
-    html = html.replace("&quot;","")
-    ##0: raw_like; 1:profile_link; 2:profile_name; 3:post link; 4:timestamp; 5:raw_location
-    reg = 'class="userContentWrapper _5pcr"(.*?)class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?'
-    ##6: raw_content; 7:raw_media_type; 8:raw_likes
-    reg += '_5pbx userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn"(.*?)class="_3399 _a7s clearfix"'
+    html = html.replace("&quot;", "")
+    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?_5pbx userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn"(.*?)class="_3399 _a7s clearfix"'
     params_list = re.compile(reg).findall(html)
-    print("ALL LIST: "+str(len(params_list)))
+    print("ALL LIST: " + str(len(params_list)))
+    print params_list[0]
 
     i = 1
     for params in params_list:
-        is_fanpage = 'Y'
-        if "uiLikePageButton" not in str(params[0]):
-            is_fanpage = 'N'
-        profile_link = str(params[1])
-        profile_name = remove_html_tag(str(params[2]))
-        post_link = str(params[3])
+        post_link = str(params[2])
         if 'https://www.facebook.com' not in post_link:
             post_link = 'https://www.facebook.com' + post_link
-        date = format_date(str(params[4]))
-        location = get_location(str(params[5]))
-        content = cleanup(remove_html_tag(params[6]))
-        url_in_content = get_url_from_content(params[6])
-        media_params = get_post_media(str(params[7]))
-        likes_paramas = get_likes(str(params[8]))
-        fan_name = 'N/A'
-        if flag=='open':
-            try:
-                fan_name = get_fan_param(request_html(profile_link))
-            except:
-                print "ERROR fan name: "+profile_link
+        profile_link = str(params[0])
+        profile_name = str(params[1])
 
-        one_row = [date, location, profile_name, profile_link, is_fanpage, fan_name, post_link, content, url_in_content] + media_params + likes_paramas
+        date = format_date(str(params[3]))
+        location = get_location(str(params[4]))
+        content = cleanup(remove_html_tag(params[5]))
+        url_in_content = get_url_from_content(params[6])
+        media_params = get_post_media(str(params[6]))
+        likes_paramas = get_likes(str(params[7]))
+
+        one_row = [date, location, profile_name, profile_link, post_link, content,
+                   url_in_content] + media_params + likes_paramas
         data.append(one_row)
-        profile_isfan.append([profile_link, is_fanpage])
-        if flag == 'open':
-            print [i]+one_row
-        i+=1
+        i += 1
+
+
+def get_profile_name(q):
+    return ''
+
 
 def get_likes(ori):
     emotion = 0
@@ -140,9 +138,11 @@ def get_likes(ori):
         emotion = emotion_list[0]
     return [emotion, comment, share, view]
 
+
 def save_image(url):
     url = remove_html_tag(url)
-    urllib.urlretrieve(url, file_prefix+'_image/'+str(time.time())+'.jpg')
+    urllib.urlretrieve(url, file_prefix + '_image/' + str(time.time()) + '.jpg')
+
 
 def get_post_media(ori):
     media_type = 'unknown'
@@ -181,22 +181,26 @@ def get_post_media(ori):
     returnVal += [a, b, c]
     return returnVal
 
+
 def format_date(timestamp):
-    ltime=time.localtime(long(timestamp))
-    timeStr=time.strftime("%d/%m/%Y", ltime)
+    ltime = time.localtime(long(timestamp))
+    timeStr = time.strftime("%d/%m/%Y", ltime)
     return timeStr
+
 
 def get_location(ori):
     location = 'unknown'
-    if "class=\"_5pcq\"" in ori :
+    if "class=\"_5pcq\"" in ori:
         reg = 'class=\"_5pcq\".*?>(.*?)<'
         location = re.compile(reg).findall(ori)[0]
     return str(location)
 
+
 def remove_html_tag(ori):
-    dr = re.compile(r'<[^>]+>',re.S)
+    dr = re.compile(r'<[^>]+>', re.S)
     dd = dr.sub('', ori)
     return str(HTMLParser.HTMLParser().unescape(dd))
+
 
 def cleanup(s, remove=('\n', '\t')):
     newString = ''
@@ -204,11 +208,15 @@ def cleanup(s, remove=('\n', '\t')):
         # Remove special characters defined above.
         # Then we remove anything that is not printable (for instance \xe2)
         # Finally we remove duplicates within the string matching certain characters.
-        if c in remove: continue
-        elif not c in string.printable: continue
-        elif len(newString) > 0 and c == newString[-1] and c in ('\n', ' ', ',', '.'): continue
+        if c in remove:
+            continue
+        elif not c in string.printable:
+            continue
+        elif len(newString) > 0 and c == newString[-1] and c in ('\n', ' ', ',', '.'):
+            continue
         newString += c
     return newString
+
 
 def get_url_from_content(ori):
     reg = 'onmouseover="LinkshimAsyncLink.swap\(this,(.*?)\)'
@@ -217,17 +225,19 @@ def get_url_from_content(ori):
     for url in url_list:
         if returnVal != '':
             returnVal += "|"
-        returnVal += str(url).replace("\\","")
+        returnVal += str(url).replace("\\", "")
     return returnVal
 
+
 def get_fan_param(ori):
-    ori = unicode(ori, 'unicode-escape').replace("\\","").replace("&quot;","").replace("&#039;","'")
+    ori = unicode(ori, 'unicode-escape').replace("\\", "").replace("&quot;", "").replace("&#039;", "'")
     reg = '"_2kcr _42ef".*?onmouseover="LinkshimAsyncLink.swap\(this, (.*?)\)'
     if '"_2kcr _42ef"' in ori:
         res = re.compile(reg).findall(ori)
-        if(len(res)>0):
+        if (len(res) > 0):
             return str(res[0])
     return "N/A"
+
 
 def read_file(filename):
     file = open(filename)
@@ -237,19 +247,20 @@ def read_file(filename):
         file.close()
     return content
 
+
 def write_list_into_file(a, filename):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
-    f = file(filename,"w+")
+    f = file(filename, "w+")
     for data in a:
-        f.writelines(data[0]+" "+data[1]+'\n')
-    print filename+'===========over============'
+        f.writelines(data[0] + " " + data[1] + '\n')
+    print filename + '===========over============'
+
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-open_browser_scroll(url, 'html/'+file_prefix)
+open_browser_scroll(url, 'html/' + file_prefix)
 
-parse_html(read_file('html/'+file_prefix+".html"),"close")
-write_excel('data/'+file_prefix+'.xls')
-write_list_into_file(profile_isfan, 'in/'+file_prefix+'.txt')
+parse_html(read_file('html/' + file_prefix + ".html"), "close")
+write_excel('data/' + file_prefix + '.xls')
