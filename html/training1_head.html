@@ -1,0 +1,49 @@
+<style>
+.border {
+    border:1px solid #ccc!important;
+    border-color: #000!important;
+    padding: 0.01em 10px;
+    margin-top: 16px!important;
+}
+.entry-title {
+    display:none
+}
+.grid_8_of_12 {
+    width: 100%;
+    font-size: 14px;
+}
+.countryRatio {
+    margin: 8px 0 8px 0;
+}
+.countryRatio label{
+    font-size: 16px;
+}
+.countryRatio input{
+    margin-right: 12px;
+    margin-left: 12px;
+    font-size: 20px;
+}
+p {
+    margin:0 0 10px 0;
+}
+</style>
+<script>
+$(document).ready(function(){
+
+})
+function selectedCountry(country) {
+    var indiaContent = '<b>IND 1000 per seat</b>India test,test,test';
+    var IDContent = '<b>IND 1000 per seat</b>Indonesia test,test,test';
+    var MYContent = '<b>IND 1000 per seat</b>Malaysia test,test,test';
+    var SGContent = '<b>SGD 1000 per seat</b><br>Singapore, 20 mins from CBD area, you will receive exact address in your confirmation email<br>4 days, after work sessions on January-2017 - 16, 17, 18, 19 | 7pm - 9pm<br>2 full days sessions on January-2017 - 13, 14 | 9am - 5pm';
+
+    if(country == 'India')
+        $('#countryPrice').html(indiaContent);
+   else if(country == 'Indonesia')
+        $('#countryPrice').html(IDContent);
+   else if(country == 'Malaysia')
+        $('#countryPrice').html(MYContent);
+   else
+        $('#countryPrice').html(SGContent);
+}
+</script>
