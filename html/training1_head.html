@@ -1,4 +1,16 @@
 <style>
+.imgContainer {
+    background-image: url('http://www.thetenthfloor.com/wp-content/uploads/2016/12/bgrd.png');
+    width: 80%;
+    padding-left: 10%;
+    margin-left: 10%;
+}
+.imgContainer img {
+    margin: 10px 30px 10px 10px;
+}
+table, th, td {
+    border: 1px solid #EAC8C8;
+}
 .border {
     border:1px solid #ccc!important;
     border-color: #000!important;
@@ -29,8 +41,20 @@ p {
 </style>
 <script>
 $(document).ready(function(){
-    
+    changeMobileStyle()
 })
+function changeMobileStyle() {
+    if(isMobile()) {
+        $("[type='submit']").css('width', '100%');
+        $("[type='submit']").css('margin-left', '0px');
+        $(".grid_5_of_12").css('top', '0px');
+        $('.size-medium').css('height', '');
+        $('.size-medium').css('width', '95%');
+        $('.imgContainer').css('width', '100%');
+        $('.imgContainer').css('margin-left', '0px');
+        $('.imgContainer').css('padding-left', '0px');
+    }
+}
 function selectedCountry(country) {
     var indiaContent = '<b>IND 1000 per seat</b>India test,test,test';
     var IDContent = '<b>IND 1000 per seat</b>Indonesia test,test,test';
@@ -56,7 +80,7 @@ function jumpTo(value) {
 function showButtons() {
     var country = $('#jumpCountry').val();
     console.log(country);
-    if (country == '-1') 
+    if (country == '-1')
         $('.JumpButton').css('display','none');
     else
         $('.JumpButton').css('display','');

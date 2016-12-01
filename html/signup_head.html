@@ -1,5 +1,8 @@
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <style>
+table, th, thead, td {
+    border: 1px solid #EAC8C8;
+}
 .entry-content p {
     text-align: center;
 }
@@ -22,17 +25,16 @@ function changeDateLocaleTitle() {
     else if (country == 'MY')
         countryTitle = 'Malaysia';
     var title = countryTitle + ' ' + type + ' days session, ';
-    var dateTitle = 'January-2017, 13, 14 <br> 9 am - 5 pm'; 
-    var imgSrc = 'http://www.thetenthfloor.com/wp-content/uploads/2016/11/session2.png';
+    var dateTitle = 'January-2017, 13, 14 <br> 9 am - 5 pm';
     if (type == '4') {
         dateTitle = 'January-2017, 16, 17, 18, 19<br>7pm - 9pm';
-        imgSrc = 'http://www.thetenthfloor.com/wp-content/uploads/2016/11/session4.png';
+        $('#table_4').css('display', '');
+    } else {
+        $('#table_2').css('display', '');
     }
     $('#dateLocale').html(title+dateTitle);
     $('#dateLocale').css('display', '');
     $('#thanksEmail').css('display','');
-    $('#sessionPic').attr('src',imgSrc);
-    $('#sessionPic').css('display','');
 }
 function GetQueryString(name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
