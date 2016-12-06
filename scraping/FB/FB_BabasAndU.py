@@ -26,9 +26,8 @@ second_four_col = {}
 third_four_col = []
 alldata = []
 
-tasks = ['https://www.facebook.com/AmericanExpressThailand/', 'https://www.facebook.com/VisaThailandTH/', 'https://www.facebook.com/MastercardTH/', 'https://www.facebook.com/VisaID/', 'https://www.facebook.com/MasterCardID/', 'https://www.facebook.com/VisaMalaysia/', 'https://www.facebook.com/MasterCardMY/', 'https://www.facebook.com/MasterCardVN/', 'https://www.facebook.com/Visa.com.vn/', 'https://www.facebook.com/VisaPhilippines/', 'https://www.facebook.com/mastercardph/']
-tasks = ['https://www.facebook.com/Visa.com.vn/']
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; act=1480390289889%2F0; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; fr=03NniPbnhahIjspAF.AWVzQXKZNl_6hLbVhx5vFcUDpIE.BXorjj.xL.Fg2.0.0.BYPSD8.AWWISw75; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; p=-2; presence=EDvF3EtimeF1480401353EuserFA21B06957738125A2EstateFDutF1480401353749Et2F_5b_5dElm2FnullEuct2F1480389448BEtrFA2loadA2EtwF2847172570EatF1480401350928CEchFDp_5f1B06957738125F2CC'
+end_Date = '2014'
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; fr=03NniPbnhahIjspAF.AWUokgGvmwmdT-inPx40ySPj1UM.BXorjj.xL.Fg2.0.0.BYRnR2.AWWEdBT8; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; p=-2; presence=EDvF3EtimeF1481012573EuserFA21B06957738125A2EstateFDutF1481012573179Et2F_5b_5dElm2FnullEuct2F1481011741BEtrFnullEtwF896633074EatF1481012572061CEchFDp_5f1B06957738125F2CC; wd=1439x440'
 req_list_ = []
 tail = '&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175'
 page_id = "381777845197641"
@@ -143,7 +142,6 @@ def get_req(page_id, time_line, minus8, timestamp):
 
     data += tail
     url += data
-    print(url)
     req = urllib2.Request(url)
     req.add_header("Cookie", cookie)
     req.add_header("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
@@ -151,7 +149,14 @@ def get_req(page_id, time_line, minus8, timestamp):
     req.add_header("connection", "Keep-Alive")
     res_data = urllib2.urlopen(req)
     res = res_data.read()
-    return unicode(res, 'unicode-escape').replace("\\", "").decode("utf-8")
+    res = unicode(res, 'unicode-escape').replace("\\", "").decode("utf-8")
+
+    if 'www_pages_reaction_see_more_unit' in res:
+        res = res.replace('&amp;', '&')
+        next_reg = 'uiMorePagerPrimary.*?ajaxify="(.*?)&surface'
+        next_req = re.compile(next_reg).findall(res)[0]
+        next_url = "https://www.facebook.com" + next_req + tail
+    return res, next_url
 
 
 def get_req_first(url):
@@ -162,7 +167,13 @@ def get_req_first(url):
     req.add_header("connection", "Keep-Alive")
     res_data = urllib2.urlopen(req)
     res = res_data.read()
-    return unicode(res, 'unicode-escape').replace("\\", "").decode("utf-8")
+    res = unicode(res, 'unicode-escape').replace("\\", "").decode("utf-8")
+    if 'www_pages_reaction_see_more_unit' in res:
+        res = res.replace('&amp;', '&')
+        next_reg = 'uiMorePagerPrimary.*?ajaxify="(.*?)&surface'
+        next_req = re.compile(next_reg).findall(res)[0]
+        next_url = "https://www.facebook.com" + next_req + tail
+    return res, next_url
 
 
 def savevalue(filename, ori_url):
@@ -179,19 +190,20 @@ def savevalue(filename, ori_url):
     time_line = '04611686018427387904'
     minus8 = 9223372036854775746
     ##timestamp = '1420099199' ##2014
-    timestamp = '1452228093'
+    timestamp = str(int(time.time()))
     full_time_format = '%A, %B %d, %Y at %H:%M'
     time_format = '%A, %B %d, %Y'
+    next_url = ''
 
     while (i >= 0):
-        if (i < len(req_list_)):
+        if next_url != '':
             full_time_format = '%A, %d %B %Y at %H:%M'
             time_format = '%A, %d %B %Y'
-            response = get_req_first(req_list_[i])
+            response, next_url = get_req_first(next_url)
         else:
             full_time_format = '%A, %d %B %Y at %H:%M'
             time_format = '%A, %d %B %Y'
-            response = get_req(page_id, time_line, minus8, timestamp)
+            response, next_url = get_req(page_id, time_line, minus8, timestamp)
             minus8 -= 8
         response = response.replace("\n", "").replace("\r", "")
         timestamp = get_first_four_column(response, full_time_format, time_format)
@@ -217,6 +229,8 @@ def write_excel(filename):
 
     for i in range(0, len(first_four_col)):
         first_four = first_four_col[i]
+        if end_Date in first_four[2]:
+            break
         ws.write(i + 1, 0, i + 1)
         ws.write(i + 1, 1, first_four[0])
         ws.write(i + 1, 2, first_four[1])
@@ -257,13 +271,16 @@ def set_page_id():
 
 
 def load_list_from_file(filename):
-    with open(filename) as f:
-        return f.readlines()
+    lines = [line.rstrip('\n') for line in open(filename)]
+    return lines
 
 
 if __name__ == '__main__':
     reload(sys)
     sys.setdefaultencoding('utf8')
+
+    tasks = load_list_from_file('tasks.txt')
+    print len(tasks)
 
     for task in tasks:
         ori_url = task
