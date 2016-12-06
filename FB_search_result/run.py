@@ -11,9 +11,9 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; fr=03NniPbnhahIjspAF.AWU_WSpCDYg_GGqe4pYt01CyNl8.BXorjj.xL.Fg2.0.0.BYNqKs.AWW8-LR3; act=1479975844160%2F3; p=-2; presence=EDvF3EtimeF1479976601EuserFA21B06957738125A2EstateFDutF1479976601687Et2F_5b_5dElm2FnullEuct2F1479969715BEtrFA2loadA2EtwF3507171580EatF1479976599454CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=bali&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
-file_prefix = "Singapore-Bali-02"
+cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; _ga=GA1.2.905364245.1476499425; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=gg-TFkXk6ygDB3WFT8S3NQgw; c_user=100006957738125; xs=196%3AZqliNb7ajY5nOw%3A2%3A1477666718%3A20772; fr=1pJP65hZ44wMFk9by.AWXV81oG5OtMrmzCBT6OAm2WBrQ.BXg4k5.ss.FhF.0.0.BYRsee.AWUYFGvt; csm=2; s=Aa5x7GMcTBJohGaj.BYE2ef; p=-2; presence=EDvF3EtimeF1481033634EuserFA21B06957738125A2EstateFDutF1481033634206Et2F_5b_5dElm2FnullEuct2F148095286B0EtrFA2loadA2EtwF3261839300EatF1481033633696CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=shopping&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222016%22%2C%22end_year%22%3A%222016%22%7D'
+file_prefix = "Shopping_2015"
 save_img = False
 
 
@@ -64,7 +64,7 @@ def open_browser_scroll(url, filename):
     username.send_keys("mymicro@live.com")  ##your username, need to be replaced
     password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
 
-    driver.find_element_by_id("u_0_9").click()
+    driver.find_element_by_id("u_0_0").click()
 
     for i in range(1, 2000):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -82,10 +82,9 @@ def parse_html(html, flag):
     if (html == ""):
         return
     html = html.replace("&quot;", "")
-    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?_5pbx userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn"(.*?)class="_3399 _a7s clearfix"'
+    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?_5pbx userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix"'
     params_list = re.compile(reg).findall(html)
     print("ALL LIST: " + str(len(params_list)))
-    print params_list[0]
 
     i = 1
     for params in params_list:
