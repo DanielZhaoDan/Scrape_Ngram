@@ -27,7 +27,7 @@ third_four_col = []
 alldata = []
 
 end_Date = '2014'
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; fr=03NniPbnhahIjspAF.AWUokgGvmwmdT-inPx40ySPj1UM.BXorjj.xL.Fg2.0.0.BYRnR2.AWWEdBT8; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; p=-2; presence=EDvF3EtimeF1481012573EuserFA21B06957738125A2EstateFDutF1481012573179Et2F_5b_5dElm2FnullEuct2F1481011741BEtrFnullEtwF896633074EatF1481012572061CEchFDp_5f1B06957738125F2CC; wd=1439x440'
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; lu=ggkhyGMMRWBzff1O4u6b2aYQ; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; act=1481018884451%2F3; c_user=100006957738125; xs=211%3Au8xvNfoQBeHOBg%3A2%3A1471083324%3A20772; fr=03NniPbnhahIjspAF.AWWVBjRGZiUUNPwpTZiIoN140-Q.BXorjj.xL.Fg2.0.0.BYR2V6.AWUk5Vrh; csm=2; s=Aa5TJvuFso68hFHv.BXrvM9; p=-2; presence=EDvF3EtimeF1481074275EuserFA21B06957738125A2EstateFDt2F_5b_5dElm2FnullEuct2F1481011741BEtrFA2loadA2EtwF2103420092EatF1481074275358G481074275705CEchFDp_5f1B06957738125F3CC'
 req_list_ = []
 tail = '&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175'
 page_id = "381777845197641"
@@ -89,17 +89,20 @@ def get_second_four_column(html):
     ''' analysis response to get value of second four columns in excel'''
     global second_four_col
     '''i[0]: comment count; i[1]: like count; i[2]: message URL; i[3]: sharecount; i[4]: comment list'''
-    reg = '"canviewerreact":.*?,"commentcount":(.*?),.*?lc":.*?"likecount":(.*?),.*?"permalink":"(.*?)".*?"sharecount":(.*?),.*?,"comments":(.*?),"profiles"'
+    reg = '"canviewerreact":.*?,"commentcount":(.*?),.*?lc":.*?"likecount":(.*?),.*?"permalink":"(.*?)".*?"sharecount":(.*?),.*?,'
+    comment_list_reg = '"comments":(.*?),"profiles"'
     likeshare = re.compile(reg).findall(html)
     length = 1
+    j = 0
     for i in likeshare:
-        one_row = [i[1], i[0], str(get_last_comment_date(i[4])), i[3]]
+        one_row = [i[1], i[0], 'N/A', i[3]]
         if "https://www.facebook.com" in str(i[2]):
             key = str(i[2])
         else:
             key = "https://www.facebook.com" + str(i[2])
         key.replace("amp;", "")
         print key + "   " + one_row[0] + "  " + one_row[1] + "  " + one_row[2] + "  " + one_row[3]
+        j += 1
         second_four_col[key] = one_row
         length += 1
     return length
