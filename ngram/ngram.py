@@ -140,10 +140,10 @@ def each_ori_file(filename, col_index):
     # kkma = Kkma()
     # words = kkma.morphs(content)
 
-    print '----unigram----'+filename
-    li = get_unigram(words, True)
-    result = remove_stopwords(li, 1)
-    write_excel(NGRAM_RESULT_FOLDER+filename.replace('.','-Uni.'), result)
+    # print '----unigram----'+filename
+    # li = get_unigram(words, True)
+    # result = remove_stopwords(li, 1)
+    # write_excel(NGRAM_RESULT_FOLDER+filename.replace('.','-Uni.'), result)
 
     print '----bigram----'
     li = get_bigram(words, True)
@@ -194,18 +194,12 @@ def walk(rootDir):
             walk(path)
     return files
 
-col_indexs = []
-for i in range(0, 9):
-    col_indexs.append([8])
-for i in range(0, 9):
-    col_indexs.append([2])
-
-col_indexs = [[5,8,9], [5,8,9]]
+col_indexs = [[1]]
 
 filenames = walk('data')
 
 for i in range(0, len(filenames)):
-    each_ori_file(filenames[i], col_indexs[i])
+    each_ori_file(filenames[i], col_indexs[0])
     # try:
     #     each_ori_file(filenames[i], col_indexs[i])
     # except Exception:

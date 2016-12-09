@@ -42,7 +42,7 @@ def write_excel(filename):
     w.save(filename)
     print filename+"===========over============"
 
-folder = '10_09'
+folder = 'sh'
 files = walk(folder)
 for fi in files:
     try:

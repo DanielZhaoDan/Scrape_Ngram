@@ -11,9 +11,9 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; _ga=GA1.2.905364245.1476499425; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=gg-TFkXk6ygDB3WFT8S3NQgw; c_user=100006957738125; xs=196%3AZqliNb7ajY5nOw%3A2%3A1477666718%3A20772; fr=1pJP65hZ44wMFk9by.AWWmU-nxCZQPZIePEkTseue1HMo.BXg4k5.ss.FhF.0.0.BYSALR.AWX4ITPh; csm=2; s=Aa5x7GMcTBJohGaj.BYE2ef; p=-2; presence=EDvF3EtimeF1481114325EuserFA21B06957738125A2EstateFDutF1481114325828Et2F_5b_5dElm2FnullEuct2F1481113719BEtrFnullEtwF1134394384EatF1481114325253CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=property%20loan&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
-file_prefix = "property_loan_2015"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggaqO1ZvUqf0VW61zQ-_5_fg; c_user=100006957738125; xs=188%3A1f-H5dls-NmQoQ%3A2%3A1481098345%3A20772; fr=03NniPbnhahIjspAF.AWV4-NdcVaBVdpS5Ek729F01tro.BXorjj.xL.Fg2.0.0.BYSLcR.AWVENgO0; csm=2; s=Aa4MH2RC4s41XDQT.BYR8Rq; p=-2; presence=EDvF3EtimeF1481160718EuserFA21B06957738125A2EstateFDt2F_5b_5dElm2FnullEuct2F1481097746BEtrFA2loadA2EtwF3294065896EatF1481160718289G481160718499CEchFDp_5f1B06957738125F2CC; act=1481160748770%2F4; wd=1252x275'
+url = 'https://www.facebook.com/search/top/?q=sitex&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D&filters_rp_location=105565836144069'
+file_prefix = "SITEX_2015"
 save_img = False
 
 
@@ -57,16 +57,21 @@ def open_browser_scroll(url, filename):
     global html_name
     driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
+    time.sleep(2)
 
     username = driver.find_element_by_name("email")
     password = driver.find_element_by_name("pass")
-
     username.send_keys("mymicro@live.com")  ##your username, need to be replaced
     password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
+    time.sleep(2)
 
-    driver.find_element_by_id("u_0_0").click()
+    try:
+        driver.find_element_by_id("loginbutton").click()
+    except:
+        driver.find_element_by_id("u_0_0").click()
+    time.sleep(2)
 
-    for i in range(1, 1000):
+    for i in range(1, 501):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(2)

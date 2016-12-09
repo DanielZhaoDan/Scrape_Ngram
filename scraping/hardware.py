@@ -12,7 +12,6 @@ import xlrd
 sheet1_data = [['Keyword', 'Forum title', 'Forum link', 'Replies', 'Views']]
 sheet2_data = [['Forum title', 'Forum text', 'Date']]
 
-urls = ['http://forums.vr-zone.com/search.php?searchid=1107112', 'http://forums.vr-zone.com/search.php?searchid=1107122', 'http://forums.vr-zone.com/search.php?searchid=1107123', 'http://forums.vr-zone.com/search.php?searchid=1107124', 'http://forums.vr-zone.com/search.php?searchid=1107128']
 keywords = ['IT show', 'PC show', 'Comex', 'SITEX', 'Singtel']
 
 cookie = '__cfduid=d52b7a6f2feca97b1c48998c888c517981481214002; cX_S=iwgkprrgasx9gzq5; __utma=98462808.202309017.1481214242.1481214242.1481214242.1; __utmc=98462808; __utmz=98462808.1481214242.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); PHPSESSID=e9117d08d75f0612d6cbb11d4fa33866; bb_sessionhash=94fff2833ba8117bbe4571fe83b92a90; bb_lastvisit=1481214098; bb_lastactivity=0; bb_forum_view=57972b5cfc0102c7b6e58e0703c3868c1a61fd3ca-1-%7Bi-473_i-1481285483_%7D; _gat=1; _ga=GA1.2.202309017.1481214242; __asc=266b94af158e3777ff53912ac42; __auc=3d194a02158df3fab81ed66b668; cX_P=iwgkprrlcweqjrg7; __atuvc=69%7C49; __atuvs=584a9d91986fd2e6003'
@@ -44,7 +43,7 @@ def write_excel(filename, alldata, flag=None):
     print filename+"===========over============"
 
 
-def request_sheet1(keyword, url, size):
+def request_sheet1(keyword, url):
     global sheet1_data
     # link, name, replies, views
     reg = 'class="searchtitle">.*?<a.*?href="(.*?)".*?>(.*?)<.*?"understate">(.*?)<.*?Views: (.*?)<'
@@ -139,48 +138,9 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-# i = 0
-# size = [16, 18, 17, 15, 17]
-# for i in range(len(urls)):
-#     request_sheet1(keywords[i], urls[i], size[i])
-#     write_excel(keywords[i].replace(' ', '_')+'.xls', sheet1_data)
-#     sheet1_data = [['Keyword', 'Forum title', 'Forum link', 'Replies', 'Views']]
-#     sheet2_data = [['Forum title', 'Forum text', 'Date']]
-files = []
-
-
-def walk(rootDir):
-    for lists in os.listdir(rootDir):
-        path = os.path.join(rootDir, lists)
-        if '.xls' in path or 'txt' in path:
-            files.append(path)
-        if os.path.isdir(path):
-            walk(path)
-    return files
-
-
-def load_data_from_excel(filename):
-    ret = []
-    data = xlrd.open_workbook(filename)
-    table = data.sheets()[0]
-    for i in range(1, table.nrows):
-        ret.append([table.row(i)[1].value, table.row(i)[2].value])
-    return ret
-
-
-def each_file(filename):
-    global sheet2_data
-    rows = load_data_from_excel(filename)
-    i = 1
-    for row in rows:
-        request_sheet2(row[0], row[1])
-        if i % 50 == 0:
-            write_excel(filename.replace('sheet1', 'sheet2'), sheet2_data, flag=i)
-            sheet2_data = [['Forum title', 'Forum text', 'Date']]
-        i += 1
-
-
-filenames = walk('sheet1')
-for i in range(0, len(filenames)):
-    print(filenames[i])
-    each_file(filenames[i])
+i = 0
+for i in range(len(keywords)):
+    url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=0&cx=011134908705750190689:daz50x-t54k&q=site%3Aforums.hardwarezone.com.sg%2F%20IT%20Show&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'
+    request_sheet1(keywords[i], url)
+    write_excel(keywords[i].replace(' ', '_')+'.xls', sheet1_data)
+    sheet1_data = [['Keyword', 'Forum title', 'Forum link', 'Replies', 'Views']]
