@@ -8,9 +8,11 @@ from datetime import datetime
 import HTMLParser
 import os
 import xlrd
+import gc
 
-sheet1_data = [['Keyword', 'Forum title', 'Forum link', 'Replies', 'Views']]
-sheet2_data = [['Forum title', 'Forum text', 'Date']]
+sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-forum link', 'Text']]
+sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
+sheet3_data = [['Thread title', 'Date', 'Comment text']]
 
 keywords = ['IT show', 'PC show', 'Comex', 'SITEX', 'Singtel']
 
@@ -27,9 +29,6 @@ def write(html, filename):
 def write_excel(filename, alldata, flag=None):
     if flag:
         filename = filename.replace('.xls', '_'+str(flag)+'.xls')
-    d = os.path.dirname(filename)
-    if not os.path.exists(d):
-        os.makedirs(d)
     w = xlwt.Workbook(encoding='utf-8')
     ws = w.add_sheet('old', cell_overwrite_ok=True)
     for row in range(0, len(alldata)):
@@ -46,30 +45,49 @@ def write_excel(filename, alldata, flag=None):
 def request_sheet1(keyword, url):
     global sheet1_data
     # link, name, replies, views
-    reg = 'class="searchtitle">.*?<a.*?href="(.*?)".*?>(.*?)<.*?"understate">(.*?)<.*?Views: (.*?)<'
+    start_index = [0, 20, 40, 60, 80]
+    reg_1 = 'GsearchResultClass.*?"title":"(.*?)".*?"url":"(.*?)"'
+
+    for start in start_index:
+        real_url = url
+        print '---'+keyword+'--'+str(start)+'---'
+        req_url = real_url.replace('#start#', str(start))
+        try:
+            html = get_request(req_url)
+            title_url_list = re.compile(reg_1).findall(html)
+            for title_url in title_url_list:
+                one_row = [keyword, remove_html_tag(title_url[0]), title_url[1]]
+                if 'special-events' in title_url[1]:
+                    sub_forum = get_special_event(title_url[1])
+                    for item in sub_forum:
+                        sheet1_data.append(one_row + item)
+                        if item[1].endswith('.html'):
+                            request_sheet3(item[0], item[1])
+                        else:
+                            request_sheet2(item[0], item[1])
+                else:
+                    sheet1_data.append(one_row + ['N/A', 'N/A', 'N/A'])
+                    if title_url[1].endswith('.html'):
+                        request_sheet3(title_url[0], title_url[1])
+                    else:
+                        request_sheet2(title_url[0], title_url[1])
+        except:
+            print 'ERROR--sheet1---'+url
+
+
+def get_special_event(url):
     html = get_request(url)
-    total_page = size
-    data_list = re.compile(reg).findall(html)
-    for data in data_list:
-        sheet2_url = data[0]
-        if 'http://forums.vr-zone.com/' not in sheet2_url:
-            sheet2_url = 'http://forums.vr-zone.com/' + sheet2_url
-        one_row = [keyword, data[1], sheet2_url, int(data[2].replace(',', '')), int(data[3].replace(',', ''))]
-        sheet1_data.append(one_row)
-
-        # request_sheet2(data[1], sheet2_url)
-    for i in range(2, total_page):
-        next_url = url + '&pp=&page=' + str(i)
-        html = get_request(next_url)
-        data_list = re.compile(reg).findall(html)
-        for data in data_list:
-            sheet2_url = data[0]
-            if 'http://forums.vr-zone.com/' not in sheet2_url:
-                sheet2_url = 'http://forums.vr-zone.com/' + sheet2_url
-            one_row = [keyword, data[1], sheet2_url, int(data[2].replace(',', '')), int(data[3].replace(',', ''))]
-            sheet1_data.append(one_row)
-
-            # request_sheet2(data[1], sheet2_url)
+    ret = []
+    reg = '<div><a href="(.*?)".*?<strong>(.*?)</strong>.*?smallfont.*?>(.*?)<.*?<strong>'
+    temp_list = re.compile(reg).findall(html)
+    for temp in temp_list:
+        name = temp[1]
+        link = temp[0]
+        if 'http://forums.hardwarezone.com.sg' not in link:
+            link = 'http://forums.hardwarezone.com.sg' + link
+        text = temp[2]
+        ret.append([name, link, text])
+    return ret
 
 
 def total_page(html):
@@ -80,47 +98,92 @@ def total_page(html):
     return 1
 
 
+def get_total_page(html):
+    reg_number = 'pagination.*?of (.*?)<.'
+    page_number = 0
+    if 'pagination' in html:
+        number_body = re.compile(reg_number).findall(html)
+        if number_body:
+            page_number = int(number_body[0])
+    if page_number > 50:
+        page_number = 50
+    return page_number
+
+
 def request_sheet2(name, url):
-    global sheet2_data
-    url = url.split('?')[0]
-    print url
     try:
         html = get_request(url)
-        page_number = total_page(html)
-        if page_number > 100:
-            page_number = 100
-        reg = 'class="date">(.*?)&.*?class="content".*?<blockquote.*?>(.*?)</block'
-
-        for i in range(1, page_number+1):
-            if i != 1:
-                next_url = url.replace('.html', '-'+str(i)+'.html')
-                try:
-                    html = get_request(next_url)
-                    data_list = re.compile(reg).findall(html)
-                    for data in data_list:
-                        date = get_date(data[0])
-                        content = remove_html_tag(data[1])
-                        if not content.startswith(' Originally Posted by'):
-                            one_row = [name, content, date]
-                            sheet2_data.append(one_row)
-                except:
-                    print 'EROR======'+next_url
     except:
-        print 'ERROR======' + url
+        print 'ERROR---sheet2--'+url
+        return
+    page_number = get_total_page(html)
+    get_sheet2_body(name, html)
+    for i in range(2, page_number+1):
+        next_url = url+'index'+str(i)+'.html'
+        try:
+            html = get_request(next_url)
+            get_sheet2_body(name, html)
+        except:
+            print 'ERROR--sheet2---'+next_url
 
 
+def get_sheet2_body(name, html):
+    global sheet2_data
+    reg = 'id="td_threadtitle_.*?href="(.*?)".*?>(.*?)<.*?Replies: (.*?), Views: (.*?)"'
+    thread_list = re.compile(reg).findall(html)
+    for thread in thread_list:
+        link = thread[0]
+        if 'http://forums.hardwarezone.com.sg' not in link:
+            link = 'http://forums.hardwarezone.com.sg' + link
+        t_name = remove_html_tag(thread[1].replace('**', ''))
+        reply = thread[2].replace(',', '')
+        view = thread[3].replace(',', '')
+        one_row = [remove_html_tag(name), remove_html_tag(t_name), link, reply, view]
+        sheet2_data.append(one_row)
+        request_sheet3(t_name, link)
 
-def remove_html_tag(ori):
-    dr = re.compile(r'<[^>]+>', re.S)
-    dd = dr.sub('', ori)
-    return str(HTMLParser.HTMLParser().unescape(dd))
+
+def request_sheet3(name, url):
+    print 'sheet3--' + url
+    try:
+        html = get_request(url)
+    except:
+        print 'ERROR---sheet3--'+url
+        return
+    get_sheet3_body(name, html)
+    page_number = get_total_page(html)
+    for i in range(2, page_number+1):
+        next_url = url.replace('.html', '-'+str(i)+'.html')
+        try:
+            html = get_request(next_url)
+            get_sheet3_body(name, html)
+        except:
+            print 'ERROR--sheet3---'+next_url
+
+
+def get_sheet3_body(name, html):
+    global sheet3_data
+    reg = '<a name="post\d*?">.*?</a>(.*?)<.*?id="post_message_.*?>(.*?)</div'
+    text_list = re.compile(reg).findall(html)
+    for text in text_list:
+        date = get_date(text[0])
+        text = remove_html_tag(text[1])
+        one_row = [remove_html_tag(name), date, text.replace('=', '')]
+        sheet3_data.append(one_row)
 
 
 def get_date(ori):
-    temp = ori.replace('st', '').replace('nd', '').replace('rd', '').replace('th', '')
-    d = datetime.strptime(temp, '%b %d, %y,')
+    d = datetime.strptime(ori, '%d-%m-%Y, %I:%M %p')
     date = d.strftime('%-d/%-m/%Y')
     return date
+
+
+def remove_html_tag(ori):
+    ori = unicode(ori, 'unicode-escape')
+    s = ori.encode('utf-8')
+    dr = re.compile(r'<[^>]+>', re.S)
+    dd = dr.sub('', s)
+    return str(HTMLParser.HTMLParser().unescape(dd))
 
 
 def get_request(get_url):
@@ -139,8 +202,18 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 i = 0
+
 for i in range(len(keywords)):
-    url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=0&cx=011134908705750190689:daz50x-t54k&q=site%3Aforums.hardwarezone.com.sg%2F%20IT%20Show&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'
+    site = 'site%3Aforums.hardwarezone.com.sg%2F%20' + keywords[i].replace(' ', '%20')
+    url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=20&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=#start#&cx=011134908705750190689:daz50x-t54k&q=#site#&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'.replace('#site#', site)
     request_sheet1(keywords[i], url)
-    write_excel(keywords[i].replace(' ', '_')+'.xls', sheet1_data)
-    sheet1_data = [['Keyword', 'Forum title', 'Forum link', 'Replies', 'Views']]
+    write_excel(keywords[i].replace(' ', '_')+'_1.xls', sheet1_data)
+    write_excel(keywords[i].replace(' ', '_')+'_2.xls', sheet2_data)
+    write_excel(keywords[i].replace(' ', '_')+'_3.xls', sheet3_data)
+    del sheet1_data
+    sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-forum link', 'Text']]
+    del sheet2_data
+    sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
+    del sheet3_data
+    sheet3_data = [['Thread title', 'Date', 'Comment text']]
+    gc.collect()
