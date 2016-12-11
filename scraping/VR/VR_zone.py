@@ -110,7 +110,6 @@ def request_sheet2(name, url):
         print 'ERROR======' + url
 
 
-
 def remove_html_tag(ori):
     dr = re.compile(r'<[^>]+>', re.S)
     dd = dr.sub('', ori)

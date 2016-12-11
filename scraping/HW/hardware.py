@@ -14,7 +14,7 @@ sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-
 sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
 sheet3_data = [['Thread title', 'Date', 'Comment text']]
 
-keywords = ['IT show', 'PC show', 'Comex', 'SITEX', 'Singtel']
+keywords = ['Singtel', 'PC show']
 
 cookie = '__cfduid=d52b7a6f2feca97b1c48998c888c517981481214002; cX_S=iwgkprrgasx9gzq5; __utma=98462808.202309017.1481214242.1481214242.1481214242.1; __utmc=98462808; __utmz=98462808.1481214242.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); PHPSESSID=e9117d08d75f0612d6cbb11d4fa33866; bb_sessionhash=94fff2833ba8117bbe4571fe83b92a90; bb_lastvisit=1481214098; bb_lastactivity=0; bb_forum_view=57972b5cfc0102c7b6e58e0703c3868c1a61fd3ca-1-%7Bi-473_i-1481285483_%7D; _gat=1; _ga=GA1.2.202309017.1481214242; __asc=266b94af158e3777ff53912ac42; __auc=3d194a02158df3fab81ed66b668; cX_P=iwgkprrlcweqjrg7; __atuvc=69%7C49; __atuvs=584a9d91986fd2e6003'
 
@@ -62,6 +62,13 @@ def request_sheet1(keyword, url):
                     for item in sub_forum:
                         sheet1_data.append(one_row + item)
                         if item[1].endswith('.html'):
+                            m = re.search(r'index\d{1,2}\.html$', url)
+                            if m:
+                                request_sheet2(item[0], item[1])
+                            elif item[1].endswith('index.html'):
+                                request_sheet2(item[0], item[1])
+                            else:
+                                request_sheet3(item[0], item[1])
                             request_sheet3(item[0], item[1])
                         else:
                             request_sheet2(item[0], item[1])
@@ -111,6 +118,9 @@ def get_total_page(html):
 
 
 def request_sheet2(name, url):
+    m = re.search(r'index\d{1,2}\.html$', url)
+    if m:
+        url = url[:m.start()]+'.html'
     try:
         html = get_request(url)
     except:
@@ -144,6 +154,11 @@ def get_sheet2_body(name, html):
 
 
 def request_sheet3(name, url):
+    if 'record-breaking' in url:
+        return
+    m = re.search(r'-\d{1,2}\.html$', url)
+    if m:
+        url = url[:m.start()]+'.html'
     print 'sheet3--' + url
     try:
         html = get_request(url)
@@ -173,9 +188,12 @@ def get_sheet3_body(name, html):
 
 
 def get_date(ori):
-    d = datetime.strptime(ori, '%d-%m-%Y, %I:%M %p')
-    date = d.strftime('%-d/%-m/%Y')
-    return date
+    try:
+        d = datetime.strptime(ori, '%d-%m-%Y, %I:%M %p')
+        date = d.strftime('%-d/%-m/%Y')
+        return date
+    except:
+        return datetime.now().strftime('%-d/%-m/%Y')
 
 
 def remove_html_tag(ori):
@@ -202,7 +220,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 i = 0
-
 for i in range(len(keywords)):
     site = 'site%3Aforums.hardwarezone.com.sg%2F%20' + keywords[i].replace(' ', '%20')
     url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=20&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=#start#&cx=011134908705750190689:daz50x-t54k&q=#site#&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'.replace('#site#', site)

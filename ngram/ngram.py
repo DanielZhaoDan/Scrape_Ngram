@@ -15,12 +15,15 @@ NGRAM_RESULT_FOLDER = 'ngram_'
 
 def load_data_from_excel(filename, col_indexs):
     content = ''
-    data = xlrd.open_workbook(filename)
+    data = xlrd.open_workbook(filename, encoding_override='utf-8')
     table = data.sheets()[0]
     for i in range(1, table.nrows):
         for col_index in col_indexs:
-            if 'N/A' != table.row(i)[col_index].value and '' != table.row(i)[col_index].value:
-                content = content + table.row(i)[col_index].value + '\n'
+            try:
+                if 'N/A' != table.row(i)[col_index].value and '' != table.row(i)[col_index].value:
+                    content = content + table.row(i)[col_index].value + '\n'
+            except:
+                continue
     return content
 
 
@@ -122,10 +125,11 @@ def map_into_list(results):
 
 
 def each_ori_file(filename, col_index):
+    print '----start loading----'+filename
     content = ''
     if '.txt' in filename:
         content = load_data_from_txt(filename)
-        content = content.decode('utf-8')
+        content = content.decode('utf-16')
     else:
         content = load_data_from_excel(filename, col_index)
 
@@ -194,7 +198,7 @@ def walk(rootDir):
             walk(path)
     return files
 
-col_indexs = [[1]]
+col_indexs = [[2]]
 
 filenames = walk('data')
 
