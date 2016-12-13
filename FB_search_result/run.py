@@ -11,9 +11,9 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggaqO1ZvUqf0VW61zQ-_5_fg; c_user=100006957738125; xs=188%3A1f-H5dls-NmQoQ%3A2%3A1481098345%3A20772; fr=03NniPbnhahIjspAF.AWV4-NdcVaBVdpS5Ek729F01tro.BXorjj.xL.Fg2.0.0.BYSLcR.AWVENgO0; csm=2; s=Aa4MH2RC4s41XDQT.BYR8Rq; p=-2; presence=EDvF3EtimeF1481160718EuserFA21B06957738125A2EstateFDt2F_5b_5dElm2FnullEuct2F1481097746BEtrFA2loadA2EtwF3294065896EatF1481160718289G481160718499CEchFDp_5f1B06957738125F2CC; act=1481160748770%2F4; wd=1252x275'
-url = 'https://www.facebook.com/search/top/?q=sitex&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D&filters_rp_location=105565836144069'
-file_prefix = "SITEX_2015"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggaqO1ZvUqf0VW61zQ-_5_fg; act=1481537833698%2F0; c_user=100006957738125; xs=188%3A1f-H5dls-NmQoQ%3A2%3A1481098345%3A20772; fr=03NniPbnhahIjspAF.AWWdWs-Pwrz0DTkLwLAbR4wLYiQ.BXorjj.xL.Fg2.0.0.BYT0ip.AWUvHs6g; csm=2; s=Aa4MH2RC4s41XDQT.BYR8Rq; p=-2; presence=EDvF3EtimeF1481591206EuserFA21B06957738125A2EstateFDutF1481591206882CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=zuji&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
+file_prefix = "Zuji_2016"
 save_img = False
 
 
@@ -71,7 +71,7 @@ def open_browser_scroll(url, filename):
         driver.find_element_by_id("u_0_0").click()
     time.sleep(2)
 
-    for i in range(1, 501):
+    for i in range(1, 601):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(2)
@@ -97,7 +97,7 @@ def parse_html(html, flag):
         if 'https://www.facebook.com' not in post_link:
             post_link = 'https://www.facebook.com' + post_link
         profile_link = str(params[0])
-        profile_name = str(params[1])
+        profile_name = remove_html_tag(str(params[1]))
 
         date = format_date(str(params[3]))
         location = get_location(str(params[4]))
