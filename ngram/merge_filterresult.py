@@ -38,19 +38,27 @@ def read_count_into_dict(filename, start):
 def walk(rootDir):
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
-        if '.xls' in path and '_2016' in path:
+        if '.xls' in path and '2016' in path:
             files.append(path)
         if os.path.isdir(path):
             walk(path)
     return files
 
-walk('merge')
+walk('filtered_data')
 
 for filename in files:
     print '---'+filename+'---'
-    filename_2 = filename.replace('_2016', '_2015')
+    filename_2 = filename.replace('2016', '2015')
+    filename_3 = filename.replace('2016', '2014')
     read_count_into_dict(filename, 1)
-    read_count_into_dict(filename_2, 1)
+    try:
+        read_count_into_dict(filename_2, 1)
+    except:
+        pass
+    try:
+        read_count_into_dict(filename_3, 1)
+    except:
+        pass
     sorted_alldata = sorted(alldata.items(), key=operator.itemgetter(1), reverse=True)
-    write_excel(filename.replace('_2016', ''), sorted_alldata)
+    write_excel(filename.replace('2016', ''), sorted_alldata)
     alldata = {}

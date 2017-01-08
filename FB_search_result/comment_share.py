@@ -1,9 +1,22 @@
 import xlrd, xlwt
 import urllib
 import re
+import os
 
 alldata = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
-         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio', 'Year', 'Keyword']]
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio']]
+files = []
+
+
+def walk(rootDir):
+    for lists in os.listdir(rootDir):
+        path = os.path.join(rootDir, lists)
+        if '.xls' in path or 'txt' in path:
+            files.append(path)
+        if os.path.isdir(path):
+            walk(path)
+    return files
+
 
 def read_count_into_dict(filename, start):
     global alldata
@@ -34,10 +47,6 @@ def read_count_into_dict(filename, start):
                     except:
                         ratio = 0
                     data.append(ratio)
-                elif j == 17:
-                    data.append(int(table.row(i)[j-2].value))
-                elif j > 17:
-                    data.append(table.row(i)[j-2].value)
                 else:
                     data.append(table.row(i)[j].value)
             alldata.append(data)
@@ -45,17 +54,20 @@ def read_count_into_dict(filename, start):
             continue
     print i
 
+
 def write(html, filename):
     fp = open(filename, "w")
     fp.write(html)
     fp.close()
     print "write over"
 
+
 def get_ori_html(url):
     page = urllib.urlopen(url)
     html = page.read()
     page.close()
     return html
+
 
 def get_share_comment(link):
     try:
@@ -67,7 +79,11 @@ def get_share_comment(link):
         print 'ERROR==='+link
         return 0, 0
 
+
 def write_excel(filename, data):
+    d = os.path.dirname(filename)
+    if not os.path.exists(d):
+        os.makedirs(d)
     w = xlwt.Workbook(encoding='utf-8')
     ws = w.add_sheet('old', cell_overwrite_ok=True)
     for row in range(0, len(data)):
@@ -77,6 +93,11 @@ def write_excel(filename, data):
     w.save(filename)
     print filename + "===========over============"
 
-read_count_into_dict('exp-Consolidated Report.xlsx', 1)
-write_excel('result.xls', alldata)
-# print(get_share_comment('https://www.facebook.com/fatclaychua/posts/469206499935530?match=YWlyYm5i'))
+
+filenames = walk('data')
+for filename in filenames:
+    read_count_into_dict(filename, 1)
+    write_excel('result_'+filename, alldata)
+    del alldata
+    alldata = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio']]

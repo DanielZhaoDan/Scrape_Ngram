@@ -11,9 +11,9 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggaqO1ZvUqf0VW61zQ-_5_fg; act=1481537833698%2F0; c_user=100006957738125; xs=188%3A1f-H5dls-NmQoQ%3A2%3A1481098345%3A20772; fr=03NniPbnhahIjspAF.AWWdWs-Pwrz0DTkLwLAbR4wLYiQ.BXorjj.xL.Fg2.0.0.BYT0ip.AWUvHs6g; csm=2; s=Aa4MH2RC4s41XDQT.BYR8Rq; p=-2; presence=EDvF3EtimeF1481591206EuserFA21B06957738125A2EstateFDutF1481591206882CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=zuji&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
-file_prefix = "Zuji_2016"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggkE4Q3jhmpzhS4Vq9qOWrUg; c_user=100006957738125; xs=143%3ABDBOYTN-TdFxqQ%3A2%3A1481599132%3A20772; csm=2; s=Aa7VeDi7QMAj7a6i.BYT2ic; fr=03NniPbnhahIjspAF.AWXw3wHDCbogbkeULYNKxs89aXE.BXorjj.xL.FhR.0.0.BYUfTe.AWVwx66L; act=1481767140909%2F29; p=-2; presence=EDvF3EtimeF1481768951EuserFA21B06957738125A2EstateFDutF1481768951196CEchFDp_5f1B06957738125F2CC; wd=1437x386'
+url = 'https://www.facebook.com/search/top/?q=travel&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222014%22%2C%22end_year%22%3A%222014%22%7D'
+file_prefix = "Travel_sg-2014"
 save_img = False
 
 
@@ -71,11 +71,11 @@ def open_browser_scroll(url, filename):
         driver.find_element_by_id("u_0_0").click()
     time.sleep(2)
 
-    for i in range(1, 601):
+    for i in range(1, 11):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(2)
-        if (i % 50 == 0):
+        if (i % 10 == 0):
             html_source = driver.page_source
             data = html_source.encode('utf-8')
             write(data, filename + ".html")
