@@ -57,7 +57,7 @@ def write_excel(filename, alldata):
 
 def load_data_from_excel(filename, start):
     stop_word = stop_words
-    add_stop_word = filename.lower().split('/')[-1].split('_')[:-1]
+    add_stop_word = filename.lower().split('/')[-1].split('-')[:-1]
     stop_word += add_stop_word
     alldata = [['words', 'frequency']]
     data = xlrd.open_workbook(filename)

@@ -198,7 +198,7 @@ def walk(rootDir):
             walk(path)
     return files
 
-col_indexs = [[2]]
+col_indexs = [[1]]
 
 filenames = walk('data')
 

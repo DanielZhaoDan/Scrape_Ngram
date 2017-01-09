@@ -7,6 +7,7 @@ import operator
 alldata = {}
 files = []
 
+
 def write_excel(filename, alldata):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
@@ -22,6 +23,7 @@ def write_excel(filename, alldata):
             ws.write(row+1, col, one_row[col])
     w.save(filename)
 
+
 def read_count_into_dict(filename, start):
     global alldata
     data = xlrd.open_workbook(filename)
@@ -30,35 +32,34 @@ def read_count_into_dict(filename, start):
         try:
             data = str(table.row(i)[0].value).strip()
             count = alldata.get(data, 0)
-            count = count + int(table.row(i)[1].value)
+            count += int(table.row(i)[1].value)
             alldata[data] = count
         except:
             continue
 
+
 def walk(rootDir):
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
-        if '.xls' in path and '2016' in path:
+        if '.xls' in path:
             files.append(path)
         if os.path.isdir(path):
             walk(path)
     return files
 
-walk('filtered_data')
+walk('filtered_data/Only_Comment')
 
 for filename in files:
     print '---'+filename+'---'
-    filename_2 = filename.replace('2016', '2015')
-    filename_3 = filename.replace('2016', '2014')
-    read_count_into_dict(filename, 1)
+    filename_2 = filename.replace('Only_Comment', 'Only_text')
+    try:
+        read_count_into_dict(filename, 1)
+    except:
+        pass
     try:
         read_count_into_dict(filename_2, 1)
     except:
         pass
-    try:
-        read_count_into_dict(filename_3, 1)
-    except:
-        pass
     sorted_alldata = sorted(alldata.items(), key=operator.itemgetter(1), reverse=True)
-    write_excel(filename.replace('2016', ''), sorted_alldata)
+    write_excel(filename.replace('Only_Comment', 'Both'), sorted_alldata)
     alldata = {}

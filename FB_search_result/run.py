@@ -11,10 +11,14 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggkE4Q3jhmpzhS4Vq9qOWrUg; c_user=100006957738125; xs=143%3ABDBOYTN-TdFxqQ%3A2%3A1481599132%3A20772; csm=2; s=Aa7VeDi7QMAj7a6i.BYT2ic; fr=03NniPbnhahIjspAF.AWXw3wHDCbogbkeULYNKxs89aXE.BXorjj.xL.FhR.0.0.BYUfTe.AWVwx66L; act=1481767140909%2F29; p=-2; presence=EDvF3EtimeF1481768951EuserFA21B06957738125A2EstateFDutF1481768951196CEchFDp_5f1B06957738125F2CC; wd=1437x386'
-url = 'https://www.facebook.com/search/top/?q=travel&filters_rp_location=105565836144069&filters_rp_creation_time=%7B%22start_year%22%3A%222014%22%2C%22end_year%22%3A%222014%22%7D'
-file_prefix = "Travel_sg-2014"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1483866890604%2F12; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWX0OlfijSOZ1xMXRlDsaxIMbcY.BXorjj.xL.Fhs.0.0.BYcuZK.AWWBJCfu; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1483925941EuserFA21B06957738125A2EstateFDutF1483925941816CEchFDp_5f1B06957738125F2CC; wd=1376x463'
+url = 'https://www.facebook.com/search/top/?q=holiday&filters_rp_location=102173726491792&filters_rp_creation_time=%7B%22start_year%22%3A%222013%22%2C%22end_year%22%3A%222013%22%7D'
+file_prefix = "holiday-2013"
 save_img = False
+is_need_comment = False
+url_comment = [['Post url', 'Comment']]
+end_index = 601
+model_index = 50
 
 
 def write(html, filename):
@@ -27,13 +31,12 @@ def write(html, filename):
     print "write over"
 
 
-def write_excel(filename):
+def write_excel(filename, data):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
     w = xlwt.Workbook(encoding='utf-8')
     ws = w.add_sheet('old', cell_overwrite_ok=True)
-    ##column name.*?<td>(.*?)<
     for row in range(0, len(data)):
         one_row = data[row]
         for col in range(0, len(one_row)):
@@ -71,11 +74,11 @@ def open_browser_scroll(url, filename):
         driver.find_element_by_id("u_0_0").click()
     time.sleep(2)
 
-    for i in range(1, 11):
+    for i in range(1, end_index):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(2)
-        if (i % 10 == 0):
+        if (i % model_index == 0):
             html_source = driver.page_source
             data = html_source.encode('utf-8')
             write(data, filename + ".html")
@@ -87,7 +90,7 @@ def parse_html(html, flag):
     if (html == ""):
         return
     html = html.replace("&quot;", "")
-    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?_5pbx userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix"'
+    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix"'
     params_list = re.compile(reg).findall(html)
     print("ALL LIST: " + str(len(params_list)))
 
@@ -101,10 +104,10 @@ def parse_html(html, flag):
 
         date = format_date(str(params[3]))
         location = get_location(str(params[4]))
-        content = cleanup(remove_html_tag(params[5]))
+        content = cleanup(remove_html_tag(params[5])).replace('See Translation', '')
         url_in_content = get_url_from_content(params[6])
         media_params = get_post_media(str(params[6]))
-        likes_paramas = get_likes(str(params[7]))
+        likes_paramas = get_likes(str(params[7]), post_link)
 
         one_row = [date, location, profile_name, profile_link, post_link, content,
                    url_in_content] + media_params + likes_paramas
@@ -116,31 +119,43 @@ def get_profile_name(q):
     return ''
 
 
-def get_likes(ori):
+def get_likes(ori, post_url):
     emotion = 0
     comment = 0
     share = 0
     view = 0
-    if 'Comments' in ori or 'Comment' in ori:
+    if '{count} Comment' in ori:
         try:
-            comment = ori.split("Comment")[0][-7:-1].split('>')[1]
+            reg = '{count} Comment.*?-->.*?(.*?) Comment'
+            comment = re.compile(reg).findall(ori)[0]
         except:
             comment = 0
-    if 'Shares' in ori or 'Share' in ori:
+    if '{count} Share' in ori:
         try:
-            share = ori.split("Share")[0][-7:-1].split('>')[1]
+            reg = '{count} Share.*?-->.*?(.*?) Share'
+            share = re.compile(reg).findall(ori)[0]
         except:
             share = 0
-    if 'Views' in ori or 'View' in ori:
+    if '{count} View' in ori:
         try:
-            view = ori.split('View')[0][-7:-1].split('>')[1]
+            reg = '{count} View.*?-->.*?(.*?) View'
+            view = re.compile(reg).findall(ori)[0]
         except:
             view = 0
     reg = 'class="_4arz"><span.*?>(.*?)</span>'
     emotion_list = re.compile(reg).findall(ori)
     if len(emotion_list) > 0:
-        emotion = emotion_list[0]
-    return [emotion, comment, share, view]
+        emotion = str(emotion_list[0])
+    ret = [str(emotion), str(comment), str(share), str(view)]
+    for i in range(len(ret)):
+        if 'k' in ret[i]:
+            ret[i] = ret[i].replace('k', '')
+            if '.' in ret[i]:
+                ret[i] += '00'
+                ret[i] = ret[i].replace('.', '')
+            else:
+                ret[i] += '000'
+    return ret
 
 
 def save_image(url):
@@ -150,11 +165,12 @@ def save_image(url):
 
 def get_post_media(ori):
     media_type = 'unknown'
-    if save_img and 'uiScaledImageContainer' in ori:
+    if 'uiScaledImageContainer' in ori:
         media_type = "Image"
-        img_reg = 'uiScaledImageContainer.*?src="(.*?)"'
-        url = re.compile(img_reg).findall(ori)[0]
-        save_image(url)
+        if save_img:
+            img_reg = 'uiScaledImageContainer.*?src="(.*?)"'
+            url = re.compile(img_reg).findall(ori)[0]
+            save_image(url)
     if '</video>' in ori or 'aria-label="Loading..."' in ori:
         media_type = "Video"
     returnVal = [media_type]
@@ -262,9 +278,19 @@ def write_list_into_file(a, filename):
     print filename + '===========over============'
 
 
+def get_comment_detail(data):
+    for i in range(1, len(data)):
+        entry = data[i]
+        if int(entry[12]) > 0:
+            comment_detail(entry[4])
+
+
 reload(sys)
 sys.setdefaultencoding('utf8')
 open_browser_scroll(url, 'html/' + file_prefix)
 
 parse_html(read_file('html/' + file_prefix + ".html"), "close")
-write_excel('data/' + file_prefix + '.xls')
+write_excel('data/' + file_prefix + '.xls', data)
+if is_need_comment:
+    get_comment_detail(data)
+    write_excel('data/' + file_prefix + '_comments.xls', url_comment)

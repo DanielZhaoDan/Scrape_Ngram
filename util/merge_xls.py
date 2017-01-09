@@ -4,6 +4,7 @@ import os
 alldata = []
 files = []
 
+
 def walk(rootDir):
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
@@ -15,19 +16,18 @@ def walk(rootDir):
     return files
 
 
-def read_excel(filename):
+def read_excel(filename, start):
     print('process -> '+filename)
     data = xlrd.open_workbook(filename, encoding_override="cp1252")
     table = data.sheets()[0]
 
-    for i in range(0, table.nrows):
+    for i in range(start, table.nrows):
         row = table.row(i)
         try:
-            name = row[0].value
-            email = row[1].value
-            url = row[2].value
-            if email != 'N/A':
-                alldata.append([name, email, url])
+            one_row = []
+            for j in range(0, table.ncols):
+                one_row.append(row[j].value)
+            alldata.append(one_row)
         except:
             print(i)
 
@@ -42,11 +42,9 @@ def write_excel(filename):
     w.save(filename)
     print filename+"===========over============"
 
-folder = 'sh'
-files = walk(folder)
-for fi in files:
-    try:
-        read_excel(fi)
-    except:
-        print(fi)
-write_excel(folder + '/result.xls')
+prefix = 'vacation'
+# read_excel('data/'+prefix+'-2016.xls', 0)
+# read_excel('data/'+prefix+'-2015.xls', 1)
+read_excel('data/'+prefix+'-2014.xls', 1)
+read_excel('data/'+prefix+'-2013.xls', 1)
+write_excel(prefix+'.xls')
