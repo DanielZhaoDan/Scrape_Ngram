@@ -13,6 +13,8 @@ table, th, thead, td {
 <script>
 $(document).ready(function(){
     changeDateLocaleTitle();
+    $('#ticket_25 iframe').height('600px');
+    $('#ticket_26 iframe').height('600px');
 })
 function changeDateLocaleTitle() {
     var country = GetQueryString('country');
@@ -24,10 +26,14 @@ function changeDateLocaleTitle() {
         countryTitle = 'India';
     else if (country == 'MY')
         countryTitle = 'Malaysia';
-    var title = countryTitle + ' ' + type + ' days session, ';
-    var dateTitle = 'January-2017, 13, 14 <br> 9 am - 5 pm';
+    var title = 'Feb ' + type + 'th session ';
+    if (type == 25)
+        $('#ticket_25').css('display', '');
+    else
+        $('#ticket_26').css('display', '');
+    var dateTitle = ''; 
     if (type == '4') {
-        dateTitle = 'January-2017, 16, 17, 18, 19<br>7pm - 9pm';
+        dateTitle = '';
         $('#table_4').css('display', '');
     } else {
         $('#table_2').css('display', '');
@@ -41,7 +47,5 @@ function GetQueryString(name) {
     var r = window.location.search.substr(1).match(reg);
     if (r != null) return unescape(r[2]);
     return null;
-}
-function initPayment() {
 }
 </script>

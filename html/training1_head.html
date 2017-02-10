@@ -1,14 +1,33 @@
 <style>
-.imgContainer {
-    background-image: url('http://www.thetenthfloor.com/wp-content/uploads/2016/12/bgrd.png');
-    width: 80%;
-    padding-left: 10%;
-    margin-left: 10%;
+#icon_table_mobile td, th {
+    border: none;
+    padding: 0;
+}
+#icon_table_mobile {
+    border-bottom: none;
+}
+#icon_table_mobile img{
+    margin: 0px 15px 0px 0px;
+}
+#icon_table td, th {
+    border: none;
+    padding: 0;
+}
+#icon_table {
+    border-bottom: none;
+}
+#icon_table img{
+    margin: 0px 15px 0px 0px;
+}
+.icon_text {
+    display: inline;
+    position: relative;
+    top :18px;
 }
 .imgContainer img {
     margin: 10px 30px 10px 10px;
 }
-table, th, td {
+#session_table  th, td {
     border: 1px solid #EAC8C8;
 }
 .border {
@@ -40,6 +59,9 @@ p {
 }
 </style>
 <script>
+var countryCode = get_req_country_code();
+if(countryCode!='IN' && countryCode!='SG')
+    window.location.href='http://www.thetenthfloor.com/';
 $(document).ready(function(){
     changeMobileStyle()
 })
@@ -52,7 +74,14 @@ function changeMobileStyle() {
         $('.size-medium').css('width', '95%');
         $('.imgContainer').css('width', '100%');
         $('.imgContainer').css('margin-left', '0px');
-        $('.imgContainer').css('padding-left', '0px');
+        $('.imgContainer').css('padding-left', '0px'); 
+        $('.wp-image-419').css('margin-left', ' 0');
+        $('.wp-image-41').css('width', '40%');
+        $('#clients').css('margin-left', '32%');
+        $('#img7').css('margin-left', '30%'); 
+        $('#img5').css('margin-left', '0px'); 
+        $('#icon_table_mobile').css('display', '');
+        $('#icon_table').css('display', 'none');
     }
 }
 function selectedCountry(country) {
@@ -80,7 +109,7 @@ function jumpTo(value) {
 function showButtons() {
     var country = $('#jumpCountry').val();
     console.log(country);
-    if (country == '-1')
+    if (country == '-1') 
         $('.JumpButton').css('display','none');
     else
         $('.JumpButton').css('display','');

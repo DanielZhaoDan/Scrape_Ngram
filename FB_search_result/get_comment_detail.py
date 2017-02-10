@@ -7,7 +7,7 @@ import urllib2
 
 url_comment = [['Post url', 'Comment']]
 files = []
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1483866890604%2F12; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWWaZXtEQQHPvSyxn0zJRQ0GBrM.BXorjj.xL.Fhs.0.0.BYcyAt.AWWKTneu; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1483943444EuserFA21B06957738125A2EstateFDutF1483943444673CEchFDp_5f1B06957738125F2CC; wd=1769x717'
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWWSVR1WTg_vjadIAnz_iWaJvR8.BXorjj.xL.FiB.0.0.BYhY2g.AWWfdkIS; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1485147555EuserFA21B06957738125A2EstateFDutF1485147555532CEchFDp_5f1B06957738125F2CC'
 
 
 def walk(rootDir):

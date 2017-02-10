@@ -11,13 +11,13 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1483866890604%2F12; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWX0OlfijSOZ1xMXRlDsaxIMbcY.BXorjj.xL.Fhs.0.0.BYcuZK.AWWBJCfu; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1483925941EuserFA21B06957738125A2EstateFDutF1483925941816CEchFDp_5f1B06957738125F2CC; wd=1376x463'
-url = 'https://www.facebook.com/search/top/?q=holiday&filters_rp_location=102173726491792&filters_rp_creation_time=%7B%22start_year%22%3A%222013%22%2C%22end_year%22%3A%222013%22%7D'
-file_prefix = "holiday-2013"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1484885669808%2F2; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWWKkadjWqzBKlG_VUH1cfCaByc.BXorjj.xL.FiB.0.0.BYhEJl.AWVMc3vu; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1485062771EuserFA21B06957738125A2EstateFDutF1485062771191CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=uber&ref=eyJzaWQiOiIwLjU0MjkzMDM5NjA4MzYyOTgiLCJxcyI6IkpUVkNKVEl5ZFdKbGNpVXlNaVUxUkEiLCJndiI6ImJlZTA5ZjkzZmE3MzJjZmE1OWExY2I2ZDlmNDUwZDM4OTI0MjRlNDkifQ&filters_rp_location=103728359665916'
+file_prefix = "uber"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
-end_index = 601
+end_index = 5001
 model_index = 50
 
 
@@ -60,7 +60,7 @@ def open_browser_scroll(url, filename):
     global html_name
     driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
-    time.sleep(2)
+    time.sleep(3)
 
     username = driver.find_element_by_name("email")
     password = driver.find_element_by_name("pass")
