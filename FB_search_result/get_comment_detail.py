@@ -37,10 +37,14 @@ def comment_detail(url):
     reg = 'body:{text:"(.*?)"'
     try:
         html = request_html(url)
-        comments = re.compile(comment_list_reg).findall(html)[0]
-        comment_list = re.compile(reg).findall(comments)
+        comments = re.compile(comment_list_reg).findall(html)
+        if comments:
+            comment_list = re.compile(reg).findall(comments[0])
+        else:
+            comment_list = re.compile('\{\"body\":\{\"text\":\"(.*?)\"').findall(html)
         for obj in comment_list:
             url_comment.append([url, obj])
+        print(url, len(comment_list))
     except:
         pass
 
