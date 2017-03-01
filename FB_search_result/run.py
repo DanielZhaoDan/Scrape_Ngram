@@ -11,13 +11,14 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1484885669808%2F2; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWWKkadjWqzBKlG_VUH1cfCaByc.BXorjj.xL.FiB.0.0.BYhEJl.AWVMc3vu; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1485062771EuserFA21B06957738125A2EstateFDutF1485062771191CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=uber&ref=eyJzaWQiOiIwLjU0MjkzMDM5NjA4MzYyOTgiLCJxcyI6IkpUVkNKVEl5ZFdKbGNpVXlNaVUxUkEiLCJndiI6ImJlZTA5ZjkzZmE3MzJjZmE1OWExY2I2ZDlmNDUwZDM4OTI0MjRlNDkifQ&filters_rp_location=103728359665916'
-file_prefix = "uber"
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1487726709365%2F5; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWUAl_uzfHXEyoBVHwE8gP6xuzg.BXorjj.xL.Fil.0.0.BYrrD-.AWW_Cjjv; csm=2; p=-2; presence=EDvF3EtimeF1487843583EuserFA21B06957738125A2EstateFDutF1487843583918CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=augmentin&filters_rp_creation_time=%7B%22start_year%22%3A%222016%22%2C%22end_year%22%3A%222016%22%7D '
+
+file_prefix = "augmentin_2016"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
-end_index = 5001
+end_index = 301
 model_index = 50
 
 
@@ -78,7 +79,7 @@ def open_browser_scroll(url, filename):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
         time.sleep(2)
-        if (i % model_index == 0):
+        if i % model_index == 0:
             html_source = driver.page_source
             data = html_source.encode('utf-8')
             write(data, filename + ".html")
@@ -87,7 +88,7 @@ def open_browser_scroll(url, filename):
 
 
 def parse_html(html, flag):
-    if (html == ""):
+    if html == "":
         return
     html = html.replace("&quot;", "")
     reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix"'
@@ -104,7 +105,7 @@ def parse_html(html, flag):
 
         date = format_date(str(params[3]))
         location = get_location(str(params[4]))
-        content = cleanup(remove_html_tag(params[5])).replace('See Translation', '')
+        content = remove_html_tag(params[5]).replace('See Translation', '')
         url_in_content = get_url_from_content(params[6])
         media_params = get_post_media(str(params[6]))
         likes_paramas = get_likes(str(params[7]), post_link)
