@@ -10,11 +10,11 @@ import os
 import xlrd
 
 sheet1_data = [['Topic', 'No. Replies', 'No. Views', 'Date of First Post', 'Day of the Week', 'Date of Last Post', 'Day of the Week']]
-sheet2_data = [['Topic', 'Replies', 'Date', 'Day of the Week']]
+sheet2_data = [['Topic', 'Replies', 'Date', 'Day of the Week', 'Reply Url']]
 
-url_base = 'https://www.kiasuparents.com/kiasu/forum/viewforum.php?f=30&start=%s'
+url_base = 'https://www.kiasuparents.com/kiasu/forum/viewforum.php?f=32&start=%s'
 
-cookie = 'phpbb3_e5hmi_wps_u=1; phpbb3_e5hmi_wps_k=; phpbb3_e5hmi_wps_sid=64778e7d97e12f8dfde10c5c88c75062; _gat_UA-2531648-1=1; style_cookie=printonly; _ga=GA1.2.2127770656.1486522026; __atuvc=16%7C6; __atuvs=589a86aa96ff4ad700f'
+cookie = 'phpbb3_e5hmi_wps_u=1; phpbb3_e5hmi_wps_k=; phpbb3_e5hmi_wps_sid=739a57b7aaa99dc8ab5fe6cdf2349a3b; _gat_UA-2531648-1=1; _gat_UA-2531648-4=1; style_cookie=printonly; _ga=GA1.2.2127770656.1486522026; __atuvc=25%7C6%2C0%7C7%2C0%7C8%2C4%7C9; __atuvs=58b671ca99b08fb4003'
 
 
 def write(html, filename):
@@ -82,12 +82,16 @@ def request_sheet2(topic, number, url2_base):
     for i in range(number):
         url = url2_base + '&start=' + str(i*10)
         print url
-        html = get_request(url)
+        try:
+            html = get_request(url)
+        except:
+            print 'ERR---'+url
+            continue
         reply_lists = re.compile(reg).findall(html)
         for reply in reply_lists:
             date, day = get_date(reply[0])
             content = remove_html_tag(reply[1])
-            one_row = [topic, content, date, str(day)]
+            one_row = [topic, content, date, str(day), url]
             sheet2_data.append(one_row)
 
 
@@ -118,7 +122,7 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-size = 9
+size = 22
 for i in range(size):
     print '-----Level 1 Page ' + str(i) + '-----'
     url = url_base % str(i*50)
