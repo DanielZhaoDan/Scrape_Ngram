@@ -1,4 +1,5 @@
-import xlwt, xlrd
+import xlrd
+import xlsxwriter
 import os
 
 alldata = []
@@ -33,18 +34,16 @@ def read_excel(filename, start):
 
 
 def write_excel(filename):
-    w = xlwt.Workbook(encoding='utf-8')
-    ws = w.add_sheet('old', cell_overwrite_ok=True)
+    w = xlsxwriter.Workbook(filename)
+    ws = w.add_worksheet()
     for row in range(0, len(alldata)):
         one_row = alldata[row]
         for col in range(0, len(one_row)):
             ws.write(row, col, one_row[col])
-    w.save(filename)
+    w.close()
     print filename+"===========over============"
 
-prefix = 'vacation'
-# read_excel('data/'+prefix+'-2016.xls', 0)
-# read_excel('data/'+prefix+'-2015.xls', 1)
-read_excel('data/'+prefix+'-2014.xls', 1)
-read_excel('data/'+prefix+'-2013.xls', 1)
-write_excel(prefix+'.xls')
+files = walk('data')
+for i in range(len(files)):
+    read_excel(files[i], 0 if i == 0 else 1)
+write_excel('result2'+'.xlsx')
