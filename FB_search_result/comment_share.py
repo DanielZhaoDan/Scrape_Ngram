@@ -97,7 +97,9 @@ def write_excel(filename, data):
 filenames = walk('data')
 for filename in filenames:
     read_count_into_dict(filename, 1)
-    write_excel('result_'+filename, alldata)
+    write_excel('result_'+filename.replace('.xlsx', '.xls'), alldata)
     del alldata
     alldata = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio']]
+
+os.system('say "your program has finished"')

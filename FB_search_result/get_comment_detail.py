@@ -7,7 +7,7 @@ import urllib2
 
 url_comment = [['Post url', 'Comment']]
 files = []
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWWSVR1WTg_vjadIAnz_iWaJvR8.BXorjj.xL.FiB.0.0.BYhY2g.AWWfdkIS; csm=2; s=Aa5XdK0l3reLVT9K.BYcgIT; p=-2; presence=EDvF3EtimeF1485147555EuserFA21B06957738125A2EstateFDutF1485147555532CEchFDp_5f1B06957738125F2CC'
+cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWXsODaDHngR4opBoJmsVrD5auE.BXg4k5.ss.Fjw.0.0.BY8XeJ.AWVwsm1l; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; act=1492221590532%2F3; presence=EDvF3EtimeF1492221935EuserFA21B06957738125A2EstateFDutF1492221935853CEchFDp_5f1B06957738125F3CC; wd=1234x419'
 
 
 def walk(rootDir):
@@ -44,7 +44,8 @@ def comment_detail(url):
             comment_list = re.compile('\{\"body\":\{\"text\":\"(.*?)\"').findall(html)
         for obj in comment_list:
             url_comment.append([url, obj])
-        print(url, len(comment_list))
+        if len(comment_list) > 0:
+            print(url, len(comment_list))
     except:
         pass
 
@@ -83,7 +84,7 @@ def write_excel(filename, data):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
-    w = xlwt.Workbook(encoding='utf-8')
+    w = xlwt.Workbook(encoding="UTF-8")
     ws = w.add_sheet('old', cell_overwrite_ok=True)
     for row in range(0, len(data)):
         one_row = data[row]
@@ -95,6 +96,7 @@ def write_excel(filename, data):
 
 filenames = walk('data')
 for filename in filenames:
+    print '======start========='+filename
     read_excel(filename, 1)
     write_excel('result_'+filename, url_comment)
     del url_comment

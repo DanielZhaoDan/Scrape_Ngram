@@ -11,15 +11,15 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggXBrbDSWNraGSW_RDaCMmoQ; act=1487726709365%2F5; c_user=100006957738125; xs=93%3AA003Pi-A4eHQ4A%3A2%3A1483866643%3A20772; fr=03NniPbnhahIjspAF.AWUAl_uzfHXEyoBVHwE8gP6xuzg.BXorjj.xL.Fil.0.0.BYrrD-.AWW_Cjjv; csm=2; p=-2; presence=EDvF3EtimeF1487843583EuserFA21B06957738125A2EstateFDutF1487843583918CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=augmentin&filters_rp_creation_time=%7B%22start_year%22%3A%222016%22%2C%22end_year%22%3A%222016%22%7D '
+cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; sb=ZYmDVwozRepnSPcjn8-p-9Ul; lu=ggl6pL49sdYQPor60UiER4pw; c_user=100006957738125; xs=39%3ApTlpao8qlnk4TQ%3A2%3A1481728527%3A20772; fr=1pJP65hZ44wMFk9by.AWXT2YHUwuTMfCbnXyE7LGxSzic.BXg4k5.ss.Fjw.0.0.BY8OvU.AWX53MwS; act=1492184092821%2F4; presence=EDvF3EtimeF1492184208EuserFA21B06957738125A2EstateFDutF1492184208493CEchFDp_5f1B06957738125F14CC; wd=1234x420'
+url = 'https://www.facebook.com/search/top/?q=hr%20information%20systems&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D&filters_rp_location=107769809246142'
 
-file_prefix = "augmentin_2016"
+file_prefix = "HRIS_CN_2015"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
 end_index = 301
-model_index = 50
+model_index = 5
 
 
 def write(html, filename):
@@ -61,19 +61,19 @@ def open_browser_scroll(url, filename):
     global html_name
     driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
-    time.sleep(3)
+    time.sleep(2)
 
     username = driver.find_element_by_name("email")
     password = driver.find_element_by_name("pass")
     username.send_keys("mymicro@live.com")  ##your username, need to be replaced
     password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
-    time.sleep(2)
+    time.sleep(1)
 
     try:
         driver.find_element_by_id("loginbutton").click()
     except:
         driver.find_element_by_id("u_0_0").click()
-    time.sleep(2)
+    time.sleep(1)
 
     for i in range(1, end_index):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -91,7 +91,7 @@ def parse_html(html, flag):
     if html == "":
         return
     html = html.replace("&quot;", "")
-    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix"'
+    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix'
     params_list = re.compile(reg).findall(html)
     print("ALL LIST: " + str(len(params_list)))
 
@@ -295,3 +295,6 @@ write_excel('data/' + file_prefix + '.xls', data)
 if is_need_comment:
     get_comment_detail(data)
     write_excel('data/' + file_prefix + '_comments.xls', url_comment)
+
+
+os.system('say "your program has finished"')
