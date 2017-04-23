@@ -14,7 +14,7 @@ P_ID = 1
 sheet1_data = [['ID', 'Key Words', 'Name', 'Personal page', 'Occupition', 'Company', 'Location']]
 sheet2_data = [['url', 'content', 'date', 'Likes', 'Comments']]
 
-cookie = 'bcookie="v=2&74219b48-1ccd-4aeb-8466-f59864535f9c"; bscookie="v=1&201608091552185c8d9623-6d9e-4a35-8691-d110a1d88056AQGZm-7AEvD7o3e2bz1bNcK_8yK41Y9o"; visit="v=1&M"; join_wall=v=2&AQHGNl4BBq9GOAAAAVt3jR2WyM_EPzUNytO02L3Zstuq5G80RQUH17hnPqEIbwQYd-9a0cs8n0gMsX0tyD2GR1sM0B-sNCOk-06Q9ldyi_caz_t-7Cee-pEESd0zgpGPKVKyIh-EajCNLbF4FthwPZrs; lang=v=2&lang=en-us; _ga=GA1.2.1479882839.1470758235; _lipt=CwEAAAFbd5l58ipXyJn5bTGILuniam0Vmk1-4Yq477iKqlbtP6ZPw-GfARusxcBTk_ihqWQYwOhth0rOM4R6TB-ctZh3Drk9J50tbiXu3XQ2uDbZDXu_kbh1GATcmZHkoQ-eioqQsm1f07c_d9oGmIlIlBn5REHnB3kvA9rWt-GslztG9qgoDHyRohD-lrfEeHrsaZFEnGp3aNMzjEE28PPycAX2KiCSwexP53NAVJxFdLItdpdwvNmiyoLey4Ablz4T4T0rXzMXg9lAEGAJpw4n09gxnELbsApkPfy_JyHyJ626V3PybUwbe10Ln0jLI0Q7ECd-xu6TA72MNPZQLGCh1Wzc02s4pwnUYalod9uJUzTzYw; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; li_at=AQEDARo-DEsDDqohAAABW3eNNUUAAAFbevmQjVEAZYPlfprQ8Zd7DZhD-cVHReWDOlaqpxqc2nhFR2ut5dT86wpODxGDAS54EmtFLsJyUn25jfIzV1j5s803QlZLVb8PGUzt2u9yeY_ZJZC5JsXiVTpL; liap=true; sl="v=1&dOFm-"; JSESSIONID="ajax:7848834846581413184"; lidc="b=SB95:g=22:u=40:i=1492395502:t=1492407562:s=AQGM0NIjCy8PEkgibN5BuW-ymqlfkigO"'
+cookie = 'bcookie="v=2&94ede669-f96d-4d7f-88df-20bb8b9ed56c"; bscookie="v=1&201608050319286fb0d9d7-11eb-4c4f-853f-2819c04ac829AQHDI3jFjJtWbtizwwj8_RtdcWBWfmiO"; visit="v=1&M"; _chartbeat2=Va5crvXhgBBqAl5L.1476436594042.1476440427196.1; __utma=226841088.1514381064.1470817606.1483846988.1487305243.2; __utmz=226841088.1483846988.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); bspNotice=2%7CMozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_10%3B%20rv%3A33.0)%20Gecko%2F20100101%20Firefox%2F33.0; sl="v=1&NT_jl"; lang="v=2&lang=en-us"; li_at=AQEDARo-DEsArRRNAAABW4A4aOIAAAFbge_c4lEAtKF46jhcitxrY6C3KgKYI8URCuoIk3dRSKmaZHYIqr6ksaGWFZ81gJR_n6J8Nne8LA5VNv_Da5GSwYa3ZKTYla9nhXSfHTas5OoAiKCSly9F-QH1; JSESSIONID="ajax:3940183104206872464"; liap=true; lidc="b=SB95:g=22:u=40:i=1492504832:t=1492516458:s=AQFtEz67bzdsHI5MgzIAHnlMFmacLIau"; RT=s=1492504956204&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Flogin%3Ftrk%3Dgf%26trkInfo%3DAQHx4Xn31VZ8LgAAAVuAOFxInTx1jGjaPa9H3Qc55sx9khVYLUHIGpf-AW1bCnlcDxe3k283wtEDMnYuPPL-KTbWl3I1rogt4sDjvSs%3D%26session_redirect%3Dhttps%253A%252F%252Fwww.linkedin.com%252Fin%252Fnitikanarula; _gat=1; _ga=GA1.2.1514381064.1470817606; _lipt=CwEAAAFbgDw74qX52X3zsAv0XZXdceBZQe1YZo4gL7iwO5zx_nJnOrMAIrQJHe3kXcRPWKe65QLhfOhxpnMw4gC6eWBwALthwRG9WYe0LiqxlyAdwvuq_rr0bomZGUHACsRCTRaM6yN8yxkOqq_hrDM_37JaVNDqLCbBlbWnDdeXvBxFDAyPQEARDloV3EqewoLNP4GiVZpTkQi8RpeYBYeOuHM4Ak-l1gjGceWikZF_PSpU7tuMMd-stParvpp1WYZA0UYIzGlW5e4aA8CIWgHCDXSmNWbEZ4q4Gp2Z-VcNdFTO93qeahx5_prKwaFITj4SGMDX9l2mBwF1iUJvJEHrfj6gQu0P73xLZ8Zccgj3nFwejQ'
 
 urls = [
     'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22cn%3A0%22%2C%22in%3A0%22%2C%22sg%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=workforce%20analytics&page=',
@@ -113,7 +113,7 @@ def get_token(html):
     return ''
 
 
-def get_sheet2_data(html, id, flag):
+def get_sheet2_data(profile_id, html, url, flag):
     global sheet2_data
     token = get_token(html)
     if token == '':
@@ -145,11 +145,12 @@ def get_sheet2_data(html, id, flag):
         text = contents_dict.get(activity_id, '')
         date = dates_dict.get(activity_id, 'N/A')
         if text != '':
-            one_row = [id, text, date, like_count, comment_count]
+            one_row = [profile_id, url, text, date, like_count, comment_count]
             sheet2_data.append(one_row)
     return token
 
-def request_sheet2(base_url):
+
+def request_sheet2(id, base_url):
     global sheet2_data
     print base_url
     url = base_url
@@ -158,7 +159,7 @@ def request_sheet2(base_url):
     flag = 1
     while True:
         html = get_request(url)
-        token = get_sheet2_data(html, base_url, flag)
+        token = get_sheet2_data(id, html, base_url, flag)
         if token == '':
             break
         if profile_id == '':
@@ -179,12 +180,14 @@ def get_profile_id(html):
         return profiles[0]
     return 'end'
 
+
 def get_date(timestamp):
     try:
         ret = datetime.fromtimestamp(int(timestamp)/1000).strftime('%d/%m/%Y')
         return ret
     except:
         return 'N/A'
+
 
 def remove_html_tag(ori):
     dr = re.compile(r'<[^>]+>', re.S)
@@ -198,7 +201,7 @@ def get_request(get_url):
     req.add_header("connection", "Keep-Alive")
     req.add_header("Referer", 'https://www.linkedin.com/')
     req.add_header("Cookie", cookie)
-    req.add_header('csrf-token', 'ajax:7848834846581413184')
+    req.add_header('csrf-token', 'ajax:3940183104206872464')
     res_data = urllib2.urlopen(req, timeout=10)
     res = res_data.read()
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
@@ -207,15 +210,18 @@ def get_request(get_url):
 
 def read_excel(filename, start=1):
     print('process -> '+filename)
-    data = xlrd.open_workbook(filename, encoding_override="cp1252")
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
 
     for i in range(start, table.nrows-1):
         row = table.row(i)
+        if i % 100 == 0:
+            print 'processing ===> ' + str(i)
         try:
+            id = row[0].value
             profile_url = row[3].value
-            request_sheet2(profile_url+'/recent-activity/')
-            request_sheet2(profile_url+'/recent-activity/shares/')
+            request_sheet2(id, profile_url+'/recent-activity/')
+            request_sheet2(id, profile_url+'/recent-activity/shares/')
         except:
             print(i)
 
@@ -227,7 +233,7 @@ filenames = walk('data')
 
 for filename in filenames:
     read_excel(filename)
-    write_excel(filename.replace('sheet1', 'sheet2'), sheet2_data)
+    write_excel('2+'+filename, sheet2_data)
     sheet2_data = [['url', 'content', 'date', 'Likes', 'Comments']]
 
 
