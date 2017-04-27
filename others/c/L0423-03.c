@@ -6,8 +6,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <string.h>
 
 #define MAX_DATASET_SIZE 50001
 #define FILENAME_SIZE 20
@@ -41,6 +39,7 @@ void do_step_2(record data_set[], int data_set_length);
 void do_step_3(record data_set[], int data_set_length, double avg_min_temp[], double avg_max_temp[]);
 void print_step3_each_month_data(int index, int n_valid_min_temp, int n_valid_max_temp, double avg_min_temp, double avg_max_temp);
 void do_step_4(record data_set[], int data_set_length, double total_avg_min_temp[], double total_avg_max_temp[]);
+double my_fabs(double ori_data);
 
 /* main function */
 int
@@ -116,6 +115,16 @@ do_step_1(record data_set[], int data_set_length) {
     printf("\n");
 }
 
+/*
+@function: fabs function to calculate the absolute value of value
+@params: -0.0001
+@return: 0.0001
+*/
+double
+my_fabs(double ori_data) {
+  return (ori_data > 0) ? ori_data : -ori_data;
+}
+
 void
 do_step_2(record data_set[], int data_set_length) {
     int i;
@@ -142,22 +151,23 @@ do_step_2(record data_set[], int data_set_length) {
     int n_valid_min_temp[array_length];
     int n_valid_max_temp[array_length];
 
-    /* memset function from string.h to initialize the arrays */
-    memset(avg_max_temp, 0.0, sizeof(avg_max_temp));
-    memset(avg_min_temp, 0.0, sizeof(avg_min_temp));
-    memset(n_valid_min_temp, 0, sizeof(n_valid_min_temp));
-    memset(n_valid_max_temp, 0, sizeof(n_valid_max_temp));
+    /* initialize the arrays */
+    for (i=0; i<array_length; i++) {
+      avg_max_temp[i] = 0.0;
+      avg_max_temp[i] = 0.0;
+      n_valid_min_temp[i] = 0;
+      n_valid_max_temp[i] = 0;
+    }
 
     for (i=0; i<data_set_length; i++) {
         int index = data_set[i].year - min_year;
         /* compare if temperature is -999 */
-        /* fabs function from math.h to calculate the absolute value of value fabs(-0.1) = 0.1 */
-        if (fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_min_temp = avg_min_temp[index] * n_valid_min_temp[index] + data_set[i].min_temp;
             n_valid_min_temp[index]++;
             avg_min_temp[index] = total_min_temp / n_valid_min_temp[index];
         }
-        if (fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_max_temp = avg_max_temp[index] * n_valid_max_temp[index] + data_set[i].max_temp;
             n_valid_max_temp[index]++;
             avg_max_temp[index] = total_max_temp / n_valid_max_temp[index];
@@ -193,12 +203,12 @@ do_step_3(record data_set[], int data_set_length, double avg_min_temp[], double 
     for (i = 0; i < data_set_length; i++) {
         int index = data_set[i].month - 1;
         /* compare if temperature is -999 */
-        if (fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_min_temp = avg_min_temp[index] * n_valid_min_temp[index] + data_set[i].min_temp;
             n_valid_min_temp[index]++;
             avg_min_temp[index] = total_min_temp / n_valid_min_temp[index];
         }
-        if (fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_max_temp = avg_max_temp[index] * n_valid_max_temp[index] + data_set[i].max_temp;
             n_valid_max_temp[index]++;
             avg_max_temp[index] = total_max_temp / n_valid_max_temp[index];
@@ -233,6 +243,7 @@ print_step3_each_month_data(int index, int n_valid_min_temp, int n_valid_max_tem
 void
 do_step_4(record data_set[], int data_set_length, double total_avg_min_temp[], double total_avg_max_temp[]) {
     int i;
+    int j;
     int min_year = DEFAULT_MIN_YEAR;
     int max_year = DEFAULT_MAX_YEAR;
 
@@ -259,22 +270,25 @@ do_step_4(record data_set[], int data_set_length, double total_avg_min_temp[], d
     int n_valid_min_temp[array_length][MONTH_NUMBER];
     int n_valid_max_temp[array_length][MONTH_NUMBER];
 
-    memset(avg_max_temp, 0.0, sizeof(avg_max_temp));
-    memset(avg_min_temp, 0.0, sizeof(avg_min_temp));
-    memset(n_valid_min_temp, 0, sizeof(n_valid_min_temp));
-    memset(n_valid_max_temp, 0, sizeof(n_valid_max_temp));
+    /* initialize 2-d array */
+    for (i=0; i<array_length; i++)
+        for (j=0; j<MONTH_NUMBER; j++) {
+          avg_min_temp[i][j] = 0.0;
+          avg_max_temp[i][j] = 0.0;
+          n_valid_min_temp[i][j] = 0;
+          n_valid_max_temp[i][j] = 0;
+        }
 
     for (i=0; i<data_set_length; i++) {
         int year_index = data_set[i].year - min_year;
         int month_index = data_set[i].month - 1;
-        /* compare if temperature is -999 */
-        if (fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_min_temp =
               avg_min_temp[year_index][month_index] * n_valid_min_temp[year_index][month_index] + data_set[i].min_temp;
             n_valid_min_temp[year_index][month_index]++;
             avg_min_temp[year_index][month_index] = total_min_temp / n_valid_min_temp[year_index][month_index];
         }
-        if (fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
+        if (my_fabs(data_set[i].max_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_max_temp =
               avg_max_temp[year_index][month_index] * n_valid_max_temp[year_index][month_index] + data_set[i].max_temp;
             n_valid_max_temp[year_index][month_index]++;
@@ -282,9 +296,7 @@ do_step_4(record data_set[], int data_set_length, double total_avg_min_temp[], d
         }
     }
 
-    int result[array_length];
-    memset(result, 0, sizeof(result));
-    int j;
+    int result[50] = {0};
 
     printf("Stage 4\n-------\n");
     for (i = 0; i < array_length; i++) {
