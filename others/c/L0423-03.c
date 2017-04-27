@@ -35,7 +35,7 @@ typedef struct {
 } record;
 
 /* function prototypes */
-int read_data_from_file_into_memory(char filename[], record data_set[], int n_line);
+int read_data_from_file_into_memory(record data_set[], int n_line);
 void do_step_1(record data_set[], int data_set_length);
 void do_step_2(record data_set[], int data_set_length);
 void do_step_3(record data_set[], int data_set_length, double avg_min_temp[], double avg_max_temp[]);
@@ -52,12 +52,7 @@ main(int argc, char*argv[]) {
     double avg_min_temp[MONTH_NUMBER] = {0.0};
     double avg_max_temp[MONTH_NUMBER] = {0.0};
 
-    if(argc!=2) {
-        printf("Please enter filename!\n");
-        exit(0);
-    }
-
-    data_set_length = read_data_from_file_into_memory(argv[1], data_set, MAX_DATASET_SIZE);
+    data_set_length = read_data_from_file_into_memory(data_set, MAX_DATASET_SIZE);
 
     do_step_1(data_set, data_set_length);
     do_step_2(data_set, data_set_length);
@@ -76,24 +71,18 @@ main(int argc, char*argv[]) {
 @return: number of record loaded from file
 */
 int
-read_data_from_file_into_memory(char filename[], record data_set[], int n_line) {
-    FILE *fd;
+read_data_from_file_into_memory(record data_set[], int n_line) {
     int i=0;
-    if((fd=fopen(filename,"r"))==NULL) {
-        perror("fopen");
-        exit(1);
-    }
-
+    // read titles 'Product code,BoM station,Year,Month,Day,Maximum (C),Minimum (C)'
     char title[TITLE_SIZE];
-    fgets(title, TITLE_SIZE, fd);
+    gets(title);
 
-    while (fscanf(fd,"IDCJAC0010,%d,%d,%d,%d,%lf,%lf\n",
+    while (scanf("IDCJAC0010,%d,%d,%d,%d,%lf,%lf\n",
                   &data_set->bom_station_code, &data_set->year, &data_set->month,
                   &data_set->day, &data_set->max_temp, &data_set->min_temp) != EOF) {
         if(++i == n_line) break;
         data_set++;
     }
-    fclose(fd);
     return i;
 }
 
@@ -153,6 +142,7 @@ do_step_2(record data_set[], int data_set_length) {
     int n_valid_min_temp[array_length];
     int n_valid_max_temp[array_length];
 
+    /* memset function from string.h to initialize the arrays */
     memset(avg_max_temp, 0.0, sizeof(avg_max_temp));
     memset(avg_min_temp, 0.0, sizeof(avg_min_temp));
     memset(n_valid_min_temp, 0, sizeof(n_valid_min_temp));
@@ -161,6 +151,7 @@ do_step_2(record data_set[], int data_set_length) {
     for (i=0; i<data_set_length; i++) {
         int index = data_set[i].year - min_year;
         /* compare if temperature is -999 */
+        /* fabs function from math.h to calculate the absolute value of value fabs(-0.1) = 0.1 */
         if (fabs(data_set[i].min_temp - INVALID_TEMP) > DOUBLE_DELTA) {
             double total_min_temp = avg_min_temp[index] * n_valid_min_temp[index] + data_set[i].min_temp;
             n_valid_min_temp[index]++;
