@@ -40,6 +40,7 @@ void do_step_3(record data_set[], int data_set_length, double avg_min_temp[], do
 void print_step3_each_month_data(int index, int n_valid_min_temp, int n_valid_max_temp, double avg_min_temp, double avg_max_temp);
 void do_step_4(record data_set[], int data_set_length, double total_avg_min_temp[], double total_avg_max_temp[]);
 double my_fabs(double ori_data);
+int my_getchar(char* line, int max_size);
 
 /* main function */
 int
@@ -74,15 +75,35 @@ read_data_from_file_into_memory(record data_set[], int n_line) {
     int i=0;
     // read titles 'Product code,BoM station,Year,Month,Day,Maximum (C),Minimum (C)'
     char title[TITLE_SIZE];
-    gets(title);
-
-    while (scanf("IDCJAC0010,%d,%d,%d,%d,%lf,%lf\n",
-                  &data_set->bom_station_code, &data_set->year, &data_set->month,
-                  &data_set->day, &data_set->max_temp, &data_set->min_temp) != EOF) {
+    // gets(title);
+    my_getchar(title, TITLE_SIZE);
+    int location, yy, mm, dd;
+    double max, min;
+    while (scanf("IDCJAC0010,%d,%d,%d,%d,%lf,%lf\n",&location,&yy,&mm,&dd,&max,&min) != EOF) {
+        data_set->bom_station_code = location;
+        data_set->year = yy;
+        data_set->month = mm;
+        data_set->day = dd;
+        data_set->max_temp = max;
+        data_set->min_temp = min;
         if(++i == n_line) break;
         data_set++;
     }
     return i;
+}
+
+
+int
+my_getchar(char* line, int max_size) {
+    int c;
+    int len = 0;
+    while( (c = getchar()) != EOF && len < max_size ){
+        line[len++] = c;
+        if('\n' == c)
+            break;
+    }
+    line[len] = '\0';
+    return len;
 }
 
 /*
