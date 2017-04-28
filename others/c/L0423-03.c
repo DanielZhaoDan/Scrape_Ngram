@@ -143,7 +143,9 @@ do_step_1(record data_set[], int data_set_length) {
 */
 double
 my_fabs(double ori_data) {
-  return (ori_data > 0) ? ori_data : -ori_data;
+  if (ori_data > 0)
+    return ori_data;
+  return -ori_data;
 }
 
 void
