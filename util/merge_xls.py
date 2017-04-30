@@ -39,11 +39,11 @@ def write_excel(filename):
     for row in range(0, len(alldata)):
         one_row = alldata[row]
         for col in range(0, len(one_row)):
-            ws.write(row, col, one_row[col])
+            ws.write_string(row, col, (one_row[col]))
     w.close()
     print filename+"===========over============"
 
 files = walk('data')
 for i in range(len(files)):
     read_excel(files[i], 0 if i == 0 else 1)
-write_excel('result'+'.xlsx')
+write_excel('result2'+'.xlsx')
