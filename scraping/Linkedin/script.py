@@ -8,25 +8,25 @@ import HTMLParser
 import os
 import xlrd
 import requests
+import json
+import sets
 
 P_ID = 1
 sheet1_data = [['ID', 'Key Words', 'Name', 'Personal page', 'Occupition', 'Company', 'Location']]
-sheet2_data = [['url', 'content', 'date', 'Likes', 'Comments']]
+sheet2_data = [['ID', 'url', 'content', 'date', 'Comments', 'Likes', 'Total Engagement']]
 
-cookie = 'bcookie="v=2&74219b48-1ccd-4aeb-8466-f59864535f9c"; bscookie="v=1&201608091552185c8d9623-6d9e-4a35-8691-d110a1d88056AQGZm-7AEvD7o3e2bz1bNcK_8yK41Y9o"; visit="v=1&M"; lang="v=2&lang=en-us"; sl="v=1&F_2qT"; liap=true; li_at=AQEDARo-DEsCI0uZAAABW8m1X-gAAAFby2zT6FEAAAXdq8FT4mNWPYo_OfB8y_joJ3DNMPRjcbFafPSbGDkCB5BMqlH4upEj-J8Oe6uZ6ZiOTh0isc-LoTshKYcSPsBGZB_ILDlomzM5CaQZ9ao3TVT6; JSESSIONID="ajax:7848834846581413184"; _ga=GA1.2.1479882839.1470758235; lidc="b=SB95:g=22:u=40:i=1493738537:t=1493824142:s=AQE38-7rNvuBDh_yIv1ef5Waha1TO2Dm"; _lipt=CwEAAAFbycf7giVcJ6qCOkjgSY34TmRhFdWAjp4luw1A73wZEg5tGqgEDj76OOcXi26O-heZroSYLUsh4Fpmjv0irDlqnFJgxEB61XfKXC5AmWu0F2iuePH4gMm75hRqL0rZEgs6X7G_-8yTa9JLPovYkqW2ZM5qf7gML13asjDml4ujrNNkqWrTcQeijAT8BW0Hn4iJ8eeB4phpozrT9wUu8LgQn7yR5ZHAlzTd2Bss8JRMaKgQGk5POUwjfJDnLZFGyOQ69t0n5nxQI4ucOeoNw98avS4uBrPayZzMpIZ6dnjLMNeTG5VnaGzil36FP_K9_dCvcmdPsBTSCliswVVl143CHfgu6v1j5GG9QZlqI43D9I3CtNr4Ag7zJHeC0FQR3Ye7sWMFH5Na9wEedrMmv-5NvXCW_4TdwtOKbiexkztqfoY28vHAWA3kOvcbUHsBKjUm1H636ZQ0WOJrUDhEtBaCUL7w17QAYZLhr8568A2hA4jOdfz1wYAy2CQv2RWNvKh7lYPCoTDbTMf13TlhuvuusFANipT6eQ1QG2DTRS-bG9Ubz_KiduUawiSKtjRVReIod72sh08tb38m7ifR5GJAQKZHcEHVC1cKc-ek3EIH8pQA2E7iCwc8XRFoi_A2XT9oCF4f8E6TlB2j5fDdf35Kezk5dkBSW0AvbvUevOFftkyo5r8wtZvMyRKKIwI4efVyJtSsji9PJZqfUbf_HyYrnLG5PiPBN1UK33pcEORBnfJe9BQ2m3WJ_yNJrdd7RdE28OHYXL74XYOm54fpAiCLoneL8nUqMzlH2P2kNwxZ2xnLJft_2_rnXRx6aI0G1ieWUgfWm8mbMTIU1-Ya2LBpfJ4P5CDAlgccgTHs95eoUTV83BIQjwp3_KmVlpU6Zzlx3MOnRFicHPAs20cr0dnLFFHnhbfc3vcFMHjRF-j3ylJQHto43q87gvUxOJeu_a9tXfiJpNeaSDZ3D-gLYa2RQELvEHOwnyjTGWV7DJlecPnNMyOaEsb199b9Rnm6zhTAGMUfun0mNlNc3qWCqOlG0JywjCSV9RqHoF4qTeIL7oBhmmnXHf7eIU5YuzqXo-pW139bsgPzxgS5hmn5Kwm1igIxVOG2e4Z_bx7L_WpVwaKLV8_0T8tULYCv-dUrP-2Lvub7lNUQBI-hT2te4Uu0lTVHOxHVcXg'
+cookie = 'bcookie="v=2&94ede669-f96d-4d7f-88df-20bb8b9ed56c"; bscookie="v=1&201608050319286fb0d9d7-11eb-4c4f-853f-2819c04ac829AQHDI3jFjJtWbtizwwj8_RtdcWBWfmiO"; visit="v=1&M"; _chartbeat2=Va5crvXhgBBqAl5L.1476436594042.1476440427196.1; __utma=226841088.1514381064.1470817606.1483846988.1487305243.2; __utmz=226841088.1483846988.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); bspNotice=2%7CMozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_10%3B%20rv%3A33.0)%20Gecko%2F20100101%20Firefox%2F33.0; sl="v=1&OpLtf"; lang="v=2&lang=en-us"; liap=true; li_at=AQEDARo-DEsFFm8GAAABW80RLFMAAAFbzsigU04AP1qR1JoVYgGjG754eAqlMIp8WUO27gM7Lf6PpexqeQSShKp90HvDNqhOdDf9xTbHH__WQVlDpIxUZmsPjYRBQkYu3qaqPDHsOmiooqj3mPgYua-x; JSESSIONID="ajax:3940183104206872464"; _ga=GA1.2.1514381064.1470817606; lidc="b=TB95:g=558:u=41:i=1493794142:t=1493840426:s=AQFdf_38OCduusH1eRon4dV5M_Xbo3f9"; _lipt=CwEAAAFbzR7VZ_HyrFE0wYpC0KsSdZl42Klrip4sfjMollqcZ6hPdLle6HcafPV4x_WKUOMtOEl74b_TGYWCqi60kd429nHfqQjtTT8m3Es0akRw0J4mRnpBifpnx7iWpa_zHJWQTJtEjYxJsTuW7Ckzv3YcCxCSTwN0T0AYj2pQ1yxzY1GaCo03hFVrNEiiPugy1pWAb5-idoW0Sn-ejpUSAXSqdk3KdLwzja2RgakQUo8tvcYfKhr-Jt4o1ZFL8Omn8Ygt8dXGcysbEYZpfdBK5nBSZWAUgSPLthcahGnOm6pVlcocU8a8VrjkGjYF4Cs3yVImTBPNOALbNXnA9QIIfsR23OCHMNkYNwNWFgmw3dO0qA'
 
 urls = [
-    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22cn%3A0%22%2C%22in%3A0%22%2C%22sg%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=workforce%20analytics&page=',
-    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22in%3A0%22%2C%22sg%3A0%22%2C%22cn%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=hr%20analytics&page=',
-    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22in%3A0%22%2C%22sg%3A0%22%2C%22cn%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=hr%20metrics&page=',
-    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22in%3A0%22%2C%22sg%3A0%22%2C%22cn%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=hr%20information%20systems&page=',
+    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22cn%3A0%22%2C%22in%3A0%22%2C%22sg%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=employee%20retention&page=',
+    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22in%3A0%22%2C%22sg%3A0%22%2C%22cn%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=employee%20productivity&page=',
 ]
 key_words = [
-    'workforce analytics',
-    'hr nalytics',
-    'hr metrics',
-    'hr information systems',
+    'employee retention',
+    'employee productivity',
 ]
+
+unique_set = set()
 
 files = []
 
@@ -72,9 +72,9 @@ def write_excel(filename, alldata, flag=None):
 
 
 def request_sheet1(url, key_word):
-    global sheet1_data, P_ID
+    global sheet1_data, P_ID, unique_set
     raw_reg = '"firstName":"(.*?)","lastName":"(.*?)".*?"occupation":"(.*?)".*?"objectUrn":"(.*?)".*?"publicIdentifier":"(.*?)"'
-    html = HTMLParser.HTMLParser().unescape(get_request(url))
+    html = get_request(url)
     profiles = re.compile(raw_reg).findall(html)
     location_reg = '"backendUrn":"(.*?)".*?location":"(.*?)"'
     member_location = re.compile(location_reg).findall(html)
@@ -96,10 +96,13 @@ def request_sheet1(url, key_word):
             company = occupation_company[-1]
             location = member_loca_dict.get(member_id, '')
             personal_url = 'https://www.linkedin.com/in/' + profile[4]
+            if personal_url in unique_set:
+                continue
+            unique_set.add(personal_url)
             one_row = [P_ID, key_word, name, personal_url, occupation, company, location]
             sheet1_data.append(one_row)
             P_ID += 1
-            request_sheet2(P_ID, personal_url)
+            # request_sheet2(P_ID, personal_url)
         except:
             print 'ERR---level 1---' + url
 
@@ -112,7 +115,54 @@ def get_token(html):
     return ''
 
 
-def get_sheet2_data(html, id, flag):
+def get_sheet2_data_by_json(html, id):
+    resp_obj = json.loads(html)
+    token = resp_obj.get('metadata', {}).get('paginationToken', '')
+    posts = resp_obj.get('elements', [])
+    for post in posts:
+        post_link = post.get('permalink', '')
+        like_comment = post.get('socialDetail', {}).get('totalSocialActivityCounts', {})
+        like = like_comment.get('numComments', 0)
+        comment = like_comment.get('numLikes', 0)
+        content_values = ''
+
+        value = post.get('value', {})
+        date = 'N/A'
+        for k, v in value.items():
+            if v.get('createdTime'):
+                date = get_date(v['createdTime'])
+            if v.get('content'):
+                content_values = get_text_from_content(v.get('content'))
+            if v.get('text'):
+                values = v.get('text').get('values',[])
+                for value in values:
+                    content_values += value.get('value', '')
+            if 'Reshare' in k:
+                new_value = v.get('originalUpdate', {}).get('value', {})
+                for new_k, new_v in new_value.items():
+                    if new_v.get('content'):
+                        content_values += get_text_from_content(new_v.get('content'))
+
+        one_row = [id, post_link, content_values, date, like, comment, int(like)+int(comment)]
+        sheet2_data.append(one_row)
+
+    return token
+
+
+def get_text_from_content(ori):
+    content = ori
+    for kk, vv in content.items():
+        if vv.get('text'):
+            content_values = vv['text'].get('values', [''])[0]
+            if content_values != '':
+                content_values = content_values.get('value', '')
+            return content_values
+    return ''
+
+
+def get_sheet2_data(uid, html, base_url, flag):
+    if flag == 0:
+        return get_sheet2_data_by_json(html, uid)
     global sheet2_data
     token = get_token(html)
     if token == '':
@@ -144,21 +194,21 @@ def get_sheet2_data(html, id, flag):
         text = contents_dict.get(activity_id, '')
         date = dates_dict.get(activity_id, 'N/A')
         if text != '':
-            one_row = [id, text, date, like_count, comment_count]
-            sheet2_data.append(one_row)
+            one_row = [uid, base_url, text, date, like_count, comment_count, int(like_count) + int(comment_count)]
+            # sheet2_data.append(one_row)
     return token
 
-def request_sheet2(base_url):
+
+def request_sheet2(base_url, uid):
     global sheet2_data
-    print base_url
     url = base_url
     profile_id = ''
     starter = 5
     flag = 1
     while True:
+        print url
         html = get_request(url)
-        write(html, str(starter)+'.html')
-        token = get_sheet2_data(html, base_url, flag)
+        token = get_sheet2_data(uid, html, base_url, flag)
         if token == '':
             break
         if profile_id == '':
@@ -179,12 +229,14 @@ def get_profile_id(html):
         return profiles[0]
     return 'end'
 
+
 def get_date(timestamp):
     try:
         ret = datetime.fromtimestamp(int(timestamp)/1000).strftime('%d/%m/%Y')
         return ret
     except:
         return 'N/A'
+
 
 def remove_html_tag(ori):
     dr = re.compile(r'<[^>]+>', re.S)
@@ -198,7 +250,7 @@ def get_request(get_url):
     req.add_header("connection", "Keep-Alive")
     req.add_header("Referer", 'https://www.linkedin.com/')
     req.add_header("Cookie", cookie)
-    req.add_header('csrf-token', 'ajax:7848834846581413184')
+    req.add_header('csrf-token', 'ajax:3940183104206872464')
     res_data = urllib2.urlopen(req, timeout=10)
     res = res_data.read()
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
@@ -214,19 +266,27 @@ def read_excel(filename, start=1):
         row = table.row(i)
         try:
             profile_url = row[3].value
-            request_sheet2(profile_url+'/recent-activity/')
-            request_sheet2(profile_url+'/recent-activity/shares/')
+            id = row[0].value
+            request_sheet2(profile_url+'/recent-activity/', id)
+            request_sheet2(profile_url+'/recent-activity/shares/', id)
         except:
             print(i)
 
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-request_sheet2('https://www.linkedin.com/in/kanikaagarwaltech/recent-activity/shares/')
 
-# filenames = walk('data')
-#
-# for filename in filenames:
-#     read_excel(filename)
-#     write_excel(filename.replace('sheet1', 'sheet2'), sheet2_data)
-#     sheet2_data = [['url', 'content', 'date', 'Likes', 'Comments']]
+# request_sheet2('https://www.linkedin.com/in/kanikaagarwaltech/recent-activity/shares/', 'id')
+
+filename = 'data/employee_productivity.xls'
+read_excel(filename)
+write_excel('data/res1.xls', sheet2_data)
+
+# for i in range(len(key_words)):
+#     key_word = key_words[i]
+#     filename = 'data/' + key_word.replace(' ', '_') + '.xls'
+#     for j in range(1, 100):
+#         url = urls[i] + str(j)
+#         request_sheet1(url, key_word)
+# write_excel(filename, sheet1_data)
+
