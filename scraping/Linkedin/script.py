@@ -14,8 +14,9 @@ import sets
 P_ID = 1
 sheet1_data = [['ID', 'Key Words', 'Name', 'Personal page', 'Occupition', 'Company', 'Location']]
 sheet2_data = [['ID', 'url', 'content', 'date', 'Comments', 'Likes', 'Total Engagement']]
+company_data = [['ID', 'Key Words', 'Name', 'Personal page', 'Occupition', 'Company', 'Location', 'Organization Url', 'Industry', 'No. of Employee', 'Location of Organization']]
 
-cookie = 'bcookie="v=2&94ede669-f96d-4d7f-88df-20bb8b9ed56c"; bscookie="v=1&201608050319286fb0d9d7-11eb-4c4f-853f-2819c04ac829AQHDI3jFjJtWbtizwwj8_RtdcWBWfmiO"; visit="v=1&M"; _chartbeat2=Va5crvXhgBBqAl5L.1476436594042.1476440427196.1; __utma=226841088.1514381064.1470817606.1483846988.1487305243.2; __utmz=226841088.1483846988.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); bspNotice=2%7CMozilla%2F5.0%20(Macintosh%3B%20Intel%20Mac%20OS%20X%2010_10%3B%20rv%3A33.0)%20Gecko%2F20100101%20Firefox%2F33.0; sl="v=1&OpLtf"; lang="v=2&lang=en-us"; liap=true; li_at=AQEDARo-DEsFFm8GAAABW80RLFMAAAFbzsigU04AP1qR1JoVYgGjG754eAqlMIp8WUO27gM7Lf6PpexqeQSShKp90HvDNqhOdDf9xTbHH__WQVlDpIxUZmsPjYRBQkYu3qaqPDHsOmiooqj3mPgYua-x; JSESSIONID="ajax:3940183104206872464"; _ga=GA1.2.1514381064.1470817606; lidc="b=TB95:g=558:u=41:i=1493794142:t=1493840426:s=AQFdf_38OCduusH1eRon4dV5M_Xbo3f9"; _lipt=CwEAAAFbzR7VZ_HyrFE0wYpC0KsSdZl42Klrip4sfjMollqcZ6hPdLle6HcafPV4x_WKUOMtOEl74b_TGYWCqi60kd429nHfqQjtTT8m3Es0akRw0J4mRnpBifpnx7iWpa_zHJWQTJtEjYxJsTuW7Ckzv3YcCxCSTwN0T0AYj2pQ1yxzY1GaCo03hFVrNEiiPugy1pWAb5-idoW0Sn-ejpUSAXSqdk3KdLwzja2RgakQUo8tvcYfKhr-Jt4o1ZFL8Omn8Ygt8dXGcysbEYZpfdBK5nBSZWAUgSPLthcahGnOm6pVlcocU8a8VrjkGjYF4Cs3yVImTBPNOALbNXnA9QIIfsR23OCHMNkYNwNWFgmw3dO0qA'
+cookie = 'bcookie="v=2&2f6c9444-0b2f-466a-8183-ef73e05efa35"; bscookie="v=1&2017041006541990b97a3b-1e52-4da3-8e47-33e0e8e1e3aeAQGgvnt_FYPCpH58BfQhdPydnY6jBTcZ"; visit="v=1&M"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; join_wall=v=2&AQFhNUYNvP5n8AAAAVvSGU2GWS-2YElFKFQfNLC9Lu27yuc26LdeUp9IUsKvRn7BvDIJPGj6Zt09FXQUVCLbJE5T4W0KMdm9iux6K5mfVuB5Al9lYuJTWUBl0xM5cg4AMo4OmPiAUgPTTiMJIvsvxX3_7b8rimV18UwuwyE_ICE9FB5ZyYrBVwHPGg; _gid=GA1.2.990777859.1493878542; sl="v=1&sHIVY"; lang="v=2&lang=en-us"; li_at=AQEDARo-DEsAlf1eAAABW9IZzwoAAAFb09FDClYAzTg2ibTPV-O_Dqr3MSP-yhBB8KrNn4Sa9FY7OP-sBHXfvSDGKlzMJUbF12JOgmIxNmG6sXSF3r4_PKBUvZu-f2F3gCEr560b6Dh1BVf4llZka-Qo; JSESSIONID="ajax:1423185689819717669"; liap=true; lidc="b=TB95:g=558:u=43:i=1493878607:t=1493887866:s=AQFM0gn66ojmBqIFbNtwViz-OMqniwCu"; _ga=GA1.2.610623672.1491807398; _gat=1; _lipt=CwEAAAFb0mlL-HRaJDSReqC3hAtYV6Gup6SrDmh9grOcTvZEwbVaZrD-Js3CtvzL2XQ5DsbJ1aTSgvt48xo9T6UM8oP5utFRJ53syRDWfYqRUCQnjHn-AFyM7d-TySMlw7lVj3eigG4NQFSEpO1mmy1XA5S9_r2Ie4UjKVH90oKCl1PPzy_xQKRFP3ijNfrmn7dHnVfyWApPdWiWijUTNjra8ApDgf7DIiFGK7mZGx5CJ_aYGnD1XC8N-UWnv5LcTCzos3rB3VxRHzjjioox1ZtLKrVdKo_M55QfM85UL6RcwUbbGx0iPa_T_fRshq1RrwkgZKtPAnOlGeOoGnYQdv6p4D7mCgKUbdFYDiZrViiYjqzFAw'
 
 urls = [
     'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22cn%3A0%22%2C%22in%3A0%22%2C%22sg%3A0%22%2C%22id%3A0%22%2C%22th%3A0%22%5D&keywords=employee%20retention&page=',
@@ -199,6 +200,63 @@ def get_sheet2_data(uid, html, base_url, flag):
     return token
 
 
+def get_newest_index(li):
+    max = 0
+    max_index = 0
+    for i in range(len(li)):
+        l = li[i]
+        if int(l[0]) > max:
+            max = int(l[0])
+            max_index = i
+    return max_index
+
+
+def request_company(url):
+    company_reg = 'companyName":.*?timePeriod":.*?,(.*?)\)(.*?)\$type'
+    html = get_request(url)
+    company_list = re.compile(company_reg).findall(html)
+    if company_list:
+        newest_company_index = get_newest_index(company_list)
+        company = company_list[newest_company_index][1]
+        detail_reg = '"company":".*?",.*?"title":".*?",.*?"companyUrn":".*?:(\d*?)"'
+        company_id = re.compile(detail_reg).findall(company)
+        if company_id:
+            company_url = 'https://www.linkedin.com/company-beta/' + company_id[0] + '/'
+            return [company_url] + get_company_detail(company_url)
+    return ['N/A', 'N/A', 'N/A', 'N/A']
+
+
+def get_company_detail(url):
+    html = get_request(url)
+
+    city_reg = '"city":"(.*?)"'
+    citys = re.compile(city_reg).findall(html)
+    if citys:
+        city = citys[0]
+    else:
+        city = 'N/A'
+
+    industry_reg = 'industries":\["(.*?)\]'
+    industries = re.compile(industry_reg).findall(html)
+    if industries:
+        industry = industries[0]
+    else:
+        industry = 'N/A'
+
+    staff_count_reg = 'permissions"},(.*?)\}'
+    staffs = re.compile(staff_count_reg).findall(html)
+    if staffs:
+        staff = staffs[0] + '}'
+        staff_obj = json.loads(staff)
+        start = staff_obj.get('start', '0')
+        end = staff_obj.get('end', '')
+        staff_str = str(start) + '-' + str(end)
+    else:
+        staff_str = 'N/A'
+
+    return [industry, staff_str, city]
+
+
 def request_sheet2(base_url, uid):
     global sheet2_data
     url = base_url
@@ -258,6 +316,7 @@ def get_request(get_url):
 
 
 def read_excel(filename, start=1):
+    global company_data
     print('process -> '+filename)
     data = xlrd.open_workbook(filename, encoding_override="cp1252")
     table = data.sheets()[0]
@@ -267,8 +326,14 @@ def read_excel(filename, start=1):
         try:
             profile_url = row[3].value
             id = row[0].value
-            request_sheet2(profile_url+'/recent-activity/', id)
-            request_sheet2(profile_url+'/recent-activity/shares/', id)
+            # request_sheet2(profile_url+'/recent-activity/', id)
+            # request_sheet2(profile_url+'/recent-activity/shares/', id)
+            companys = request_company(profile_url)
+            one_row = [row[0].value, row[1].value, row[2].value, row[3].value, row[4].value, row[5].value, row[6].value] + companys
+            print one_row
+            company_data.append(one_row)
+            if i % 400 == 0:
+                write_excel('data/res'+str(i)+'.xls', company_data)
         except:
             print(i)
 
@@ -276,12 +341,7 @@ def read_excel(filename, start=1):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-# request_sheet2('https://www.linkedin.com/in/kanikaagarwaltech/recent-activity/shares/', 'id')
-
-filename = 'data/employee_productivity.xls'
-read_excel(filename)
-write_excel('data/res1.xls', sheet2_data)
-
+# scrape profile data
 # for i in range(len(key_words)):
 #     key_word = key_words[i]
 #     filename = 'data/' + key_word.replace(' ', '_') + '.xls'
@@ -289,4 +349,14 @@ write_excel('data/res1.xls', sheet2_data)
 #         url = urls[i] + str(j)
 #         request_sheet1(url, key_word)
 # write_excel(filename, sheet1_data)
+
+# from profile data to posts data
+# filename = 'data/employee_productivity.xls'
+# read_excel(filename)
+# write_excel('data/res1.xls', sheet2_data)
+
+#from profile data to company data
+filename = 'data/2keywords.xls'
+read_excel(filename)
+write_excel('data/resend.xls', company_data)
 
