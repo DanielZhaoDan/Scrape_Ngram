@@ -49,4 +49,4 @@ def write_excel(filename):
 files = walk('data')
 for i in range(len(files)):
     read_excel(files[i], 0 if i == 0 else 1)
-write_excel('result2'+'.xlsx')
+write_excel('result2'+'.xls')
