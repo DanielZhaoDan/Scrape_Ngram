@@ -20,7 +20,7 @@ def walk(rootDir):
 
 def read_count_into_dict(filename, start):
     global alldata
-    data = xlrd.open_workbook(filename)
+    data = xlrd.open_workbook(filename, encoding_override='utf-8')
     table = data.sheets()[0]
     for i in range(start, table.nrows):
         if i % 100 == 0:

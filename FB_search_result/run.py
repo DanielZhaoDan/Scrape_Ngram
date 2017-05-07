@@ -11,15 +11,15 @@ import os
 
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; sb=ZYmDVwozRepnSPcjn8-p-9Ul; lu=ggl6pL49sdYQPor60UiER4pw; c_user=100006957738125; xs=39%3ApTlpao8qlnk4TQ%3A2%3A1481728527%3A20772; fr=1pJP65hZ44wMFk9by.AWXT2YHUwuTMfCbnXyE7LGxSzic.BXg4k5.ss.Fjw.0.0.BY8OvU.AWX53MwS; act=1492184092821%2F4; presence=EDvF3EtimeF1492184208EuserFA21B06957738125A2EstateFDutF1492184208493CEchFDp_5f1B06957738125F14CC; wd=1234x420'
-url = 'https://www.facebook.com/search/top/?q=hr%20information%20systems&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D&filters_rp_location=107769809246142'
+cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWXMQRU7gsA2YVqfcwwziCFoHKo.BXg4k5.ss.Fjw.0.0.BZBcX4.AWWpQU3j; presence=EDvF3EtimeF1493551442EuserFA21B06957738125A2EstateFDutF1493551442268CEchFDp_5f1B06957738125F2CC'
+url = 'https://www.facebook.com/search/top/?q=good%20muslim%20values&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
 
-file_prefix = "HRIS_CN_2015"
+file_prefix = "good_muslim_values_2015"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
-end_index = 301
-model_index = 5
+end_index = 1001
+model_index = 50
 
 
 def write(html, filename):

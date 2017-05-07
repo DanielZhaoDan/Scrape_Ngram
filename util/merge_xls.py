@@ -39,7 +39,10 @@ def write_excel(filename):
     for row in range(0, len(alldata)):
         one_row = alldata[row]
         for col in range(0, len(one_row)):
-            ws.write_string(row, col, (one_row[col]))
+            try:
+                ws.write_string(row, col, (one_row[col]))
+            except:
+                ws.write(row, col, (one_row[col]))
     w.close()
     print filename+"===========over============"
 
