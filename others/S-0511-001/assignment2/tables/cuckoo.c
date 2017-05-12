@@ -14,6 +14,7 @@
 
 #define MAX_LOOP_DEPTH 100
 #define INNER_TABLE_SIZE 2
+#define MAX_LOAD 0.8
 
 // an inner table represents one of the two internal tables for a cuckoo
 // hash table. it stores two parallel arrays: 'slots' for storing keys and
@@ -32,6 +33,7 @@ struct cuckoo_table {
 	int failedSize;
 };
 
+// user customized h1 and h2 hash function because the max size of original h1 and h2 function is too large
 int h1_for_cuckoo_hash(int size, int key) {
 	return h1(key) % size;
 }
@@ -41,7 +43,8 @@ int h2_for_cuckoo_hash(int size, int key) {
 }
 
 // initialise a cuckoo hash table with 'size' slots in each table
-CuckooHashTable *new_cuckoo_hash_table(int size) {
+CuckooHashTable *new_cuckoo_hash_table(int totalSize) {
+	int size = totalSize / 2;
 	assert(size < MAX_TABLE_SIZE && "error: table has grown too large!");
 	CuckooHashTable *newCuckooHashTable = malloc(sizeof *newCuckooHashTable);
 	assert(newCuckooHashTable);
@@ -57,8 +60,8 @@ CuckooHashTable *new_cuckoo_hash_table(int size) {
 		assert(newCuckooHashTable->innerTable[i]->inuse);
 	}
 
+	// failedInsertKeys to store failed inserted keys
 	newCuckooHashTable->failedInsertKeys = malloc((sizeof *newCuckooHashTable->failedInsertKeys) * size);
-
 	newCuckooHashTable->size = size;
 	newCuckooHashTable->load = 0;
 	newCuckooHashTable->failedSize = 0;
@@ -108,6 +111,18 @@ bool do_cuckoo_hash_table_insert(CuckooHashTable *table, int innerTableIndex, in
 	return false;
 }
 
+// expand cuckoo hash table into larger size: newSize
+void expand_cuckoo_table(CuckooHashTable *table, int newSize) {
+	table->size = newSize;
+	int i=0;
+	for (i=0; i<INNER_TABLE_SIZE; i++) {
+		table->innerTable[i]->slots = realloc(table->innerTable[i]->slots, (sizeof *table->innerTable[i]->slots) * newSize);
+		assert(table->innerTable[i]->slots);
+		table->innerTable[i]->inuse = realloc(table->innerTable[i]->inuse, (sizeof *table->innerTable[i]->inuse) * newSize);
+		assert(table->innerTable[i]->inuse);
+	}
+}
+
 
 // insert 'key' into 'table', if it's not in there already
 // returns true if insertion succeeds, false if it was already in there
@@ -116,6 +131,12 @@ bool cuckoo_hash_table_insert(CuckooHashTable *table, int64 key) {
 	// check if key has been added
 	if (cuckoo_hash_table_lookup(table, key))
 		return false;
+
+	// if load of hash table exceeds MAX_LOAD, double size the hash table
+	if ((int)(table->size * 2 * MAX_LOAD) < table->load) {
+		printf("%d %d\n", table->size, table->load);
+		expand_cuckoo_table(table, 2*table->size);
+	}
 
 	// start insert by trying innerTable[0]
 	bool insertResult = do_cuckoo_hash_table_insert(table, 0, key, 1);
@@ -183,9 +204,9 @@ void cuckoo_hash_table_stats(CuckooHashTable *table) {
 	printf("--- table stats ---\n");
 
 	// print some information about the table
-	printf("current size: %d slots\n", 2*table->size);
+	printf("current size: %d slots\n", 2 * table->size);
 	printf("current load: %d items\n", table->load);
-	printf("load factor: %.3f%%\n", table->load * 100.0 / 2 / table->size);
+	printf("load factor: %.3f%%\n", table->load * 100.0  / 2 / table->size);
 	printf("Failed to insert: %d\n", table->failedSize);
 	printf("\n--- end stats ---\n");
 }
