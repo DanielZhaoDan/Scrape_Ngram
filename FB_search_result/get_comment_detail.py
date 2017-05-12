@@ -7,7 +7,7 @@ import urllib2
 
 url_comment = [['Post url', 'Comment']]
 files = []
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWXMQRU7gsA2YVqfcwwziCFoHKo.BXg4k5.ss.Fjw.0.0.BZBcX4.AWWpQU3j; presence=EDvF3EtimeF1493551442EuserFA21B06957738125A2EstateFDutF1493551442268CEchFDp_5f1B06957738125F2CC'
+cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWWRhxaGZRa4MIExErpXCkmUqVg.BXg4k5.ss.Fjw.0.0.BZDy0X.AWXhYQGl; presence=EDvF3EtimeF1494166823EuserFA21B06957738125A2EstateFDutF1494166823066CEchFDp_5f1B06957738125F2CC'
 
 
 def walk(rootDir):
