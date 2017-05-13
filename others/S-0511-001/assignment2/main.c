@@ -41,7 +41,7 @@ int get_command(char *operation, int64 *key);
 void run_interpreter(HashTable *table);
 
 int main(int argc, char **argv) {
-	
+
 	// get command line options (to determine table type, size, etc.)
 	Options options = get_options(argc, argv);
 
@@ -67,13 +67,13 @@ void print_operations() {
 
 // run the interpreter, reading and performing commands until 'quit'
 void run_interpreter(HashTable *table) {
-	
+
 	// print a prompt at the beginning
 	printf("enter a command (h for help):\n");
-	
+
 	char op;
 	int64 key;
-	
+
 	// then loop, getting and executing commands, until 'quit'
 	while (true) {
 
@@ -89,7 +89,6 @@ void run_interpreter(HashTable *table) {
 				if (argc < 2) {
 					// insert commands must have an argument
 					printf("syntax: %c number\n", INSERT);
-				
 				} else {
 					// perform the insertion
 					if (hash_table_insert(table, key)) {
@@ -134,7 +133,7 @@ void run_interpreter(HashTable *table) {
 				printf("available operations:\n");
 				print_operations();
 				break;
-				
+
 			case QUIT:
 				// leave the interpreter loop
 				printf("exiting\n");
@@ -149,7 +148,7 @@ void run_interpreter(HashTable *table) {
 // returns the number of tokens successfully read (e.g. 0 for none,
 // 1 for operation only, 2 for both operation and integer)
 int get_command(char *operation, int64 *key) {
-	
+
 	// read a line from stdin, up to MAX_LINE_LENGTH, into character buffer
 	char line[MAX_LINE_LEN];
 	fgets(line, MAX_LINE_LEN, stdin);
@@ -159,7 +158,7 @@ int get_command(char *operation, int64 *key) {
 	int argc = sscanf(line, "%c %llu", operation, key);
 	// note: since llu is unsigned, a command like 'i -1' will overflow,
 	// resulting in *key = 18446744073709551615 (2^64-1). this is a feature.
-	
+
 	// return the number of variables successfully read, as required
 	return argc;
 }
@@ -170,7 +169,7 @@ int get_command(char *operation, int64 *key) {
 // scans command line arguments for program options,
 // prints usage info and exits if commands are missing or otherwise invalid
 Options get_options(int argc, char** argv) {
-	
+
 	// create the Options structure with defaults
 	Options options = { .type = NOTYPE, .initial_size = DEFAULT_SIZE };
 
@@ -191,7 +190,7 @@ Options get_options(int argc, char** argv) {
 
 	// validation and printing error / usage messages
 	bool valid = true;
-		
+
 	// check part validity
 	if(options.type == NOTYPE){
 		fprintf(stderr,

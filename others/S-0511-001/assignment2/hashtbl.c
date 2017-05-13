@@ -53,7 +53,7 @@ struct table {
 // initialise a hash table of type 'type' with initial size 'size',
 // and return its pointer
 HashTable *new_hash_table(TableType type, int size) {
-	
+
 	// allocate space for the table wrapper
 	HashTable *table = malloc(sizeof *table);
 	assert(table);
