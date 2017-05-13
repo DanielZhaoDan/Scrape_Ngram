@@ -234,13 +234,14 @@ bool xtndbln_hash_table_insert(XtndblNHashTable *table, int64 key) {
 
 	address = rightmostnbits(table->depth, h1(key));
 	// if not inserted, make space in the table until our target bucket has space
-	while (table->buckets[address]->nkeys >= table->size) {
+	while (table->buckets[address]->nkeys >= table->bucketsize) {
 		split_bucket(table, address);
 		// and recalculate address because we might now need more bits
 		address = rightmostnbits(table->depth, h1(key));
 	}
 
 	// there's now space! we can insert this key
+	printf("key index: %d->%d\n", table->buckets[address]->nkeys, table->bucketsize);
 	table->buckets[address]->keys[table->buckets[address]->nkeys] = key;
 	table->buckets[address]->nkeys++;
 	table->stats.nkeys++;
