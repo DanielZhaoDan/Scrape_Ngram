@@ -23,6 +23,8 @@ struct linear_table {
 	bool  *inuse;	// is this slot in use or not?
 	int size;		// the size of both of these arrays right now
 	int load;		// number of keys in the table right now
+	int collisions; //number of collisions
+	int totalSlotChecked; // Length of average probe sequence
 };
 
 
@@ -46,6 +48,8 @@ static void initialise_table(LinearHashTable *table, int size) {
 
 	table->size = size;
 	table->load = 0;
+	table->collisions = 0;
+	table->totalSlotChecked = 0;
 }
 
 
@@ -112,6 +116,9 @@ bool linear_hash_table_insert(LinearHashTable *table, int64 key) {
 
 	// step along the array until we find a free space (inuse[]==false),
 	// or until we visit every cell
+	if (table->inuse[h] && table->slots[h] != key) {
+		table->collisions++;
+	}
 	while (table->inuse[h] && steps < table->size) {
 		if (table->slots[h] == key) {
 			// this key already exists in the table! no need to insert
@@ -121,6 +128,7 @@ bool linear_hash_table_insert(LinearHashTable *table, int64 key) {
 		// else, keep stepping through the table looking for a free slot
 		h = (h + STEP_SIZE) % table->size;
 		steps++;
+		table->totalSlotChecked++;
 	}
 
 	// if we used up all of our steps, then we're back where we started and the
@@ -209,6 +217,8 @@ void linear_hash_table_stats(LinearHashTable *table) {
 	printf("current load: %d items\n", table->load);
 	printf(" load factor: %.3f%%\n", table->load * 100.0 / table->size);
 	printf("   step size: %d slots\n", STEP_SIZE);
+	printf("  collisions: %d\n", table->collisions);
+	printf("Avg sequence: %d\n", table->totalSlotChecked / table->load);
 
 	printf("--- end stats ---\n");
 }
