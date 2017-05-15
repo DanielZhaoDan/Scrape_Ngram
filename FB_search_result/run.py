@@ -12,9 +12,9 @@ import os
 data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
 cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWWRhxaGZRa4MIExErpXCkmUqVg.BXg4k5.ss.Fjw.0.0.BZDy0X.AWXhYQGl; presence=EDvF3EtimeF1494166823EuserFA21B06957738125A2EstateFDutF1494166823066CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=maxis&filters_rp_location=107674002595670&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
 
-file_prefix = "maxis_2015"
+url = 'https://www.facebook.com/search/top/?q=credit%20card&amp%3Bfilters_rp_location=104081596294838&amp%3Bfilters_rp_creation_time=%7B%22start_year%22%3A%222013%22%2C%22end_year%22%3A%222013%22%7D&filters_rp_creation_time=%7B%22start_year%22%3A%222013%22%2C%22end_year%22%3A%222013%22%7D'
+file_prefix = "CreditCard_2013"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
@@ -75,10 +75,13 @@ def open_browser_scroll(url, filename):
         driver.find_element_by_id("u_0_0").click()
     time.sleep(1)
 
+    driver.get(url)
+    time.sleep(3)
+
     for i in range(1, end_index):
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         print(i)
-        time.sleep(2)
+        time.sleep(1)
         if i % model_index == 0:
             html_source = driver.page_source
             data = html_source.encode('utf-8')
@@ -289,7 +292,7 @@ def get_comment_detail(data):
 
 reload(sys)
 sys.setdefaultencoding('utf8')
-open_browser_scroll(url, 'html/' + file_prefix)
+# open_browser_scroll(url, 'html/' + file_prefix)
 
 parse_html(read_file('html/' + file_prefix + ".html"), "close")
 write_excel('data/' + file_prefix + '.xls', data)

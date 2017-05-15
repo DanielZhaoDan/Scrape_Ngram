@@ -29,7 +29,6 @@ struct cuckoo_table {
 	InnerTable *innerTable[INNER_TABLE_SIZE]; // inner tables
 	int size;			// size of each table
 	int load;
-	int64 *failedInsertKeys;
 	int failedSize;
 };
 
@@ -60,8 +59,6 @@ CuckooHashTable *new_cuckoo_hash_table(int totalSize) {
 		assert(newCuckooHashTable->innerTable[i]->inuse);
 	}
 
-	// failedInsertKeys to store failed inserted keys
-	newCuckooHashTable->failedInsertKeys = malloc((sizeof *newCuckooHashTable->failedInsertKeys) * size);
 	newCuckooHashTable->size = size;
 	newCuckooHashTable->load = 0;
 	newCuckooHashTable->failedSize = 0;
@@ -111,16 +108,45 @@ bool do_cuckoo_hash_table_insert(CuckooHashTable *table, int innerTableIndex, in
 	return false;
 }
 
+
 // expand cuckoo hash table into larger size: newSize
 void expand_cuckoo_table(CuckooHashTable *table, int newSize) {
+	int i;
+	int j;
+	//reset table property for new table
+	int size = table->size;
+	table->load = 0;
+	table->failedSize = 0;
+	int64 values[size][INNER_TABLE_SIZE];
+	// storedValue is to flag if 2-d array is stored old value or not
+	bool storedValue[size][INNER_TABLE_SIZE];
 	table->size = newSize;
-	int i=0;
-	for (i=0; i<INNER_TABLE_SIZE; i++) {
-		table->innerTable[i]->slots = realloc(table->innerTable[i]->slots, (sizeof *table->innerTable[i]->slots) * newSize);
-		assert(table->innerTable[i]->slots);
-		table->innerTable[i]->inuse = realloc(table->innerTable[i]->inuse, (sizeof *table->innerTable[i]->inuse) * newSize);
-		assert(table->innerTable[i]->inuse);
+
+	// store inserted key into 2-d array
+	for(j=0; j<INNER_TABLE_SIZE; j++) {
+		for(i=0; i<size; i++)
+			if(table->innerTable[j]->inuse[i]) {
+				storedValue[i][j] = true;
+				values[i][j] = table->innerTable[j]->slots[i];
+				table->innerTable[j]->inuse[i] = false;
+			} else
+				storedValue[i][j] = false;
+
+		// free old slots and inuse memory, malloc new slots and inuse with newSize
+		free(table->innerTable[j]->slots);
+		table->innerTable[j]->slots = malloc((sizeof *table->innerTable[j]->slots) * newSize);
+		assert(table->innerTable[j]->slots);
+		free(table->innerTable[j]->inuse);
+		table->innerTable[j]->inuse = malloc((sizeof *table->innerTable[j]->inuse) * newSize);
+		assert(table->innerTable[j]->inuse);
 	}
+
+  // reinsert inserted keys (rehash)
+	for(j=0; j<INNER_TABLE_SIZE; j++)
+		for(i=0; i<size; i++) {
+			if (storedValue[i][j])
+				cuckoo_hash_table_insert(table, values[i][j]);
+		}
 }
 
 
@@ -134,7 +160,6 @@ bool cuckoo_hash_table_insert(CuckooHashTable *table, int64 key) {
 
 	// if load of hash table exceeds MAX_LOAD, double size the hash table
 	if ((int)(table->size * 2 * MAX_LOAD) < table->load) {
-		printf("%d %d\n", table->size, table->load);
 		expand_cuckoo_table(table, 2*table->size);
 	}
 
@@ -145,7 +170,6 @@ bool cuckoo_hash_table_insert(CuckooHashTable *table, int64 key) {
 	if (insertResult) {
 		table->load++;
 	} else {
-		table->failedInsertKeys[table->failedSize] = key;
 		table->failedSize++;
 	}
 	return insertResult;
