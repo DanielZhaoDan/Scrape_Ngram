@@ -4,7 +4,7 @@ import re
 import os
 
 alldata = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
-         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio']]
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Is fanpage', 'Total Engagement', 'Engagement Ratio']]
 files = []
 
 
@@ -38,12 +38,12 @@ def read_count_into_dict(filename, start):
                     data.append(int(comment))
                 elif j == 13:
                     data.append(int(share))
-                elif j == 15:
+                elif j == 16:
                     total = data[11] + data[12] + data[13] + data[14]
                     data.append(total)
-                elif j == 16:
+                elif j == 17:
                     try:
-                        ratio = (data[13] + 0.0) / data[15]
+                        ratio = (data[13] + 0.0) / data[16]
                     except:
                         ratio = 0
                     data.append(ratio)
@@ -100,6 +100,4 @@ for filename in filenames:
     write_excel('result_'+filename.replace('.xlsx', '.xls'), alldata)
     del alldata
     alldata = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
-         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Total Engagement', 'Engagement Ratio']]
-
-os.system('say "your program has finished"')
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'Is fanpage', 'Total Engagement', 'Engagement Ratio']]

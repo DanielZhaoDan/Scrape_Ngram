@@ -7,7 +7,7 @@ import urllib2
 
 url_comment = [['Post url', 'Comment']]
 files = []
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWWRhxaGZRa4MIExErpXCkmUqVg.BXg4k5.ss.Fjw.0.0.BZDy0X.AWXhYQGl; presence=EDvF3EtimeF1494166823EuserFA21B06957738125A2EstateFDutF1494166823066CEchFDp_5f1B06957738125F2CC'
+cookie = 'datr=8Wr0WBPCvG1hAY_GM9Zykf_v; dats=1; sb=5SkIWRQI17-q41aRoiii9GQl; pl=n; lu=ggNbfvL0A2bcBIcVj69LEkkQ; c_user=100006957738125; xs=204%3AUDThmkC8Jv58jw%3A2%3A1494914617%3A20772; fr=0SiWnVrFqp9JSfI4Y.AWWbL_B5xhPZIOPkZHNw8kSnaik.BY4ewn.J-.FkV.0.0.BZGqor.AWUG5QVz; presence=EDvF3EtimeF1494919788EuserFA21B06957738125A2EstateFDutF1494919788712CEchFDp_5f1B06957738125F2CC; act=1494919835511%2F0'
 
 
 def walk(rootDir):
@@ -98,6 +98,6 @@ filenames = walk('data')
 for filename in filenames:
     print '======start========='+filename
     read_excel(filename, 1)
-    write_excel('result_'+filename, url_comment)
+    write_excel('result_'+filename.replace('.xlsx', '.xls'), url_comment)
     del url_comment
     url_comment = [['Post url', 'Comment']]

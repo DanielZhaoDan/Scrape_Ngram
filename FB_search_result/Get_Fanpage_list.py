@@ -1,58 +1,80 @@
+import xlrd
+import xlwt
+import urllib
 import re
+import os
 import urllib2
 
-cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; _ga=GA1.2.905364245.1476499425; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=gg-TFkXk6ygDB3WFT8S3NQgw; c_user=100006957738125; xs=196%3AZqliNb7ajY5nOw%3A2%3A1477666718%3A20772; fr=1pJP65hZ44wMFk9by.AWW44F9g-ph48sUmf7MsykLo628.BXg4k5.ss.FgT.0.0.BYNC-4.AWX3s7bH; csm=2; s=Aa5x7GMcTBJohGaj.BYE2ef; p=-2; presence=EDvF3EtimeF1479815214EuserFA21B06957738125A2EstateFDt2F_5b_5dElm2FnullEuct2F147981449B0EtrFnullEtwF1591607096EatF1479815201758G479815214722CEchFDp_5f1B06957738125F5CC'
+cookie = 'datr=JvOuVyItp7-wt5YrOGKr9V7P; dats=1; sb=PPOuV7-Wg9ncLv3N5qnvF8Iq; pl=n; lu=ggn3eV7wCUY_nKwLaHHKOZuw; c_user=100006957738125; xs=152%3AHbkgPULgfH87Rw%3A2%3A1494575387%3A20772; fr=03NniPbnhahIjspAF.AWUPvHMe0b0jKeIed90jb8A9QLw.BXorjj.xL.FkV.0.0.BZGlqU.AWWBDng2; act=1494900032112%2F2; presence=EDvF3EtimeF1494900206EuserFA21B06957738125A2EstateFDutF1494900206772CEchFDp_5f1B06957738125F7CC'
+alldata = []
+url_fan_dict = {}
 
-def get_fan_param(ori):
-    ori = unicode(ori, 'unicode-escape').replace("\\","").replace("&quot;","").replace("&#039;","'")
-    reg = '"_2kcr _42ef".*?onmouseover="LinkshimAsyncLink.swap\(this, (.*?)\)'
-    if '"_2kcr _42ef"' in ori:
-        res = re.compile(reg).findall(ori)
-        if(len(res)>0):
-            return str(res[0])
-    return "N/A"
 
-def request_html(url):
-    req = urllib2.Request(url)
-    req.add_header("Cookie",cookie)
-    req.add_header("user-agent","Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
-    req.add_header("accept", "*/*")
+def is_fanpage(url):
+    html = get_request(url)
+    if 'data-referrer="timeline_light_nav_top" id="u_0_n"' in html:
+        return 'N'
+    return 'Y'
+
+
+def get_request(get_url):
+    req = urllib2.Request(get_url)
+    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
     req.add_header("connection", "Keep-Alive")
-    res_data = urllib2.urlopen(req)
+    req.add_header("Referer", get_url)
+    req.add_header("Cookie", cookie)
+    res_data = urllib2.urlopen(req, timeout=10)
     res = res_data.read()
+    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return res
 
-def read_from_file(filename):
-    file = open(filename)
-    data = []
 
-    i=0
+def read_excel(filename, start):
+    global alldata
+    data = xlrd.open_workbook(filename)
+    table = data.sheets()[0]
+    for i in range(start, table.nrows):
+        if i % 100 == 0:
+            print filename + '---' +str(i)
+        try:
+            url = table.row(i)[4].value.strip().split('?')[0]
+            if table.row(i)[3].value.strip() != '':
+                url_fan_dict[url] = table.row(i)[3].value
+                continue
+            if not url_fan_dict.get(url):
+                is_fan = is_fanpage(url)
+                url_fan_dict[url] = is_fan
+            else:
+                is_fan = url_fan_dict.get(url)
+            print table.row(i)[2].value, is_fan, url
+            alldata.append([url, is_fan])
+        except:
+            print 'ERROR--' + str(i)
+            continue
 
-    while 1:
-        line = file.readline()
-        if not line:
-            break
-        params = line.split(" ")
-        is_fan_param = "N/A"
-        if "Y" in params[1]:
-            try:
-                is_fan_param = get_fan_param(request_html(params[0]))
-            except:
-                is_fan_param = 'N/A'
-        one_row = is_fan_param+'\r'
-        print(one_row)
-        data.append(one_row)
-        i+=1
-        if i%1000==0:
-            write_list_to_file(data, 'out'+str(i)+'.txt')
-            data = []
-    write_list_to_file(data, 'out'+str(i)+'.txt')
 
-def write_list_to_file(data, filename):
-    f=file(filename,"w+")
-    f.writelines(data)
-    f.close();
+def write(html, filename):
+    fp = open(filename, "w")
+    fp.write(html)
+    fp.close()
+    print "write over"
 
-read_from_file('in/Singapore-Bali.txt')
+
+def write_excel(filename, data):
+    d = os.path.dirname(filename)
+    if not os.path.exists(d):
+        os.makedirs(d)
+    w = xlwt.Workbook(encoding="UTF-8")
+    ws = w.add_sheet('old', cell_overwrite_ok=True)
+    for row in range(0, len(data)):
+        one_row = data[row]
+        for col in range(0, len(one_row)):
+            ws.write(row, col, one_row[col])
+    w.save(filename)
+    print filename + "===========over============"
+
+read_excel('result_data/data.xlsx', 1)
+write_excel('result_data/fanpage.xls', alldata)
+# write(get_request('https://www.facebook.com/wilawan.keajung/'), '2.html')
 
 

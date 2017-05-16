@@ -9,12 +9,12 @@ import xlwt
 import sys
 import os
 
-data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
+data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'is_fanpaga', 'Post Link', 'Content', 'Links in Content', 'Media Type',
          'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
 cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWWRhxaGZRa4MIExErpXCkmUqVg.BXg4k5.ss.Fjw.0.0.BZDy0X.AWXhYQGl; presence=EDvF3EtimeF1494166823EuserFA21B06957738125A2EstateFDutF1494166823066CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=maxis&filters_rp_location=107674002595670&filters_rp_creation_time=%7B%22start_year%22%3A%222015%22%2C%22end_year%22%3A%222015%22%7D'
+url = 'https://www.facebook.com/search/top/?q=credit%20card&filters_rp_location=104081596294838&filters_rp_creation_time=%7B"start_year"%3A"2016"%2C"end_year"%3A"2016"%7D'
 
-file_prefix = "maxis_2015"
+file_prefix = "CreditCardPH_2016"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
@@ -69,10 +69,13 @@ def open_browser_scroll(url, filename):
     password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
     time.sleep(1)
 
+
     try:
         driver.find_element_by_id("loginbutton").click()
     except:
         driver.find_element_by_id("u_0_0").click()
+    time.sleep(2)
+    driver.get(url)
     time.sleep(1)
 
     for i in range(1, end_index):
@@ -92,26 +95,29 @@ def parse_html(html, flag):
     if html == "":
         return
     html = html.replace("&quot;", "")
-    reg = 'class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix'
+    reg = 'class="fbUserContent _5pcr"(.*?)class="_6a _5u5j _6b".*?href="(.*?)".*?>(.*?)</a.*?<a.*?class="_5pcq" href="(.*?)".*?data-utime="(.*?)"(.*?)data-hover="tooltip".*?userContent".*?>(.*?)</div>.*?class="_3x-2"(.*?)<form rel="async".*?class="_ipn.*?"(.*?)class="_3399 _a7s clearfix'
     params_list = re.compile(reg).findall(html)
     print("ALL LIST: " + str(len(params_list)))
 
     i = 1
     for params in params_list:
-        post_link = str(params[2])
+        is_fanpage = 'N'
+        if 'PageLikeButton' in params[0]:
+            is_fanpage = 'Y'
+        post_link = str(params[3])
         if 'https://www.facebook.com' not in post_link:
             post_link = 'https://www.facebook.com' + post_link
-        profile_link = str(params[0])
-        profile_name = remove_html_tag(str(params[1]))
+        profile_link = str(params[1])
+        profile_name = remove_html_tag(str(params[2]))
 
-        date = format_date(str(params[3]))
-        location = get_location(str(params[4]))
-        content = remove_html_tag(params[5]).replace('See Translation', '')
-        url_in_content = get_url_from_content(params[6])
-        media_params = get_post_media(str(params[6]))
-        likes_paramas = get_likes(str(params[7]), post_link)
+        date = format_date(str(params[4]))
+        location = get_location(str(params[5]))
+        content = remove_html_tag(params[6]).replace('See Translation', '')
+        url_in_content = get_url_from_content(params[7])
+        media_params = get_post_media(str(params[7]))
+        likes_paramas = get_likes(str(params[8]), post_link)
 
-        one_row = [date, location, profile_name, profile_link, post_link, content,
+        one_row = [date, location, profile_name, profile_link, is_fanpage, post_link, content,
                    url_in_content] + media_params + likes_paramas
         data.append(one_row)
         i += 1
@@ -296,7 +302,3 @@ write_excel('data/' + file_prefix + '.xls', data)
 if is_need_comment:
     get_comment_detail(data)
     write_excel('data/' + file_prefix + '_comments.xls', url_comment)
-
-
-os.system('say "your program has finished"')
-os.system('say "your program has finished"')
