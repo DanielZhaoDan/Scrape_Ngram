@@ -9,16 +9,16 @@ import xlwt
 import sys
 import os
 
-data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'is_fanpaga', 'Post Link', 'Content', 'Links in Content', 'Media Type',
-         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count']]
+data = [['Date', 'Location', 'Profile Name', 'Profile URL', 'Post Link', 'Content', 'Links in Content', 'Media Type',
+         'Headline', 'Body', 'Website', 'emotion count', 'Comment count', 'Share count', 'View count', 'is_fanpaga']]
 cookie = 'datr=OYmDV4pQ1woh4694JL3-5EoE; dats=1; sb=ZYmDVwozRepnSPcjn8-p-9Ul; pl=n; lu=ggZBxPOFqPmuTbAWM7eVAX6g; c_user=100006957738125; xs=61%3Ao0r_GXWgDg3hlw%3A2%3A1492219785%3A20772; fr=1pJP65hZ44wMFk9by.AWWRhxaGZRa4MIExErpXCkmUqVg.BXg4k5.ss.Fjw.0.0.BZDy0X.AWXhYQGl; presence=EDvF3EtimeF1494166823EuserFA21B06957738125A2EstateFDutF1494166823066CEchFDp_5f1B06957738125F2CC'
-url = 'https://www.facebook.com/search/top/?q=credit%20card&filters_rp_location=104081596294838&filters_rp_creation_time=%7B"start_year"%3A"2016"%2C"end_year"%3A"2016"%7D'
+url = 'https://www.facebook.com/search/posts/?q="how+to+save"&filters_rp_location=105565836144069&filters_rp_creation_time=%7B"start_year"%3A"2016"%2C"end_year"%3A"2016"%7D'
 
-file_prefix = "CreditCardPH_2016"
+file_prefix = "HowToSave_2016"
 save_img = False
 is_need_comment = False
 url_comment = [['Post url', 'Comment']]
-end_index = 801
+end_index = 1001
 model_index = 50
 
 
@@ -90,7 +90,6 @@ def open_browser_scroll(url, filename):
                 break
 
 
-
 def parse_html(html, flag):
     if html == "":
         return
@@ -117,8 +116,8 @@ def parse_html(html, flag):
         media_params = get_post_media(str(params[7]))
         likes_paramas = get_likes(str(params[8]), post_link)
 
-        one_row = [date, location, profile_name, profile_link, is_fanpage, post_link, content,
-                   url_in_content] + media_params + likes_paramas
+        one_row = [date, location, profile_name, profile_link, post_link, content,
+                   url_in_content] + media_params + likes_paramas + [is_fanpage]
         data.append(one_row)
         i += 1
 
