@@ -1,3 +1,8 @@
+'''
+@Author:
+2017-06-01 12:32:04
+'''
+
 import re
 
 a_c_reg = '(\d+),*(\d*)[ac](\d+),*(\d*)'
@@ -18,6 +23,8 @@ class DiffCommands:
         self.commands_list = []
         self.default_exception_msg = 'Cannot possibly be the commands for the diff of two files'
 
+        if filename == '':
+            return
         try:
             with open(filename) as f:
                 self.commands_list = [command.strip() for command in f.readlines()]
@@ -130,23 +137,27 @@ class OriginalNewFiles:
             raise DiffCommandsError(e)
 
     def is_a_possible_diff(self, diff_commands_obj):
+        '''
+        Firstly get the reverted file from original file and new file, then compare if this two files are exactly same
+        '''
         if not diff_commands_obj.is_valid:
-            print False
+            return False
         try:
             origin_1 = list(filter(lambda x: x != '...', self.do_unmodified_from_original(diff_commands_obj)))
             origin_2 = list(filter(lambda x: x != '...', self.do_unmodified_from_new(diff_commands_obj)))
             if len(origin_1) != len(origin_2):
-                print False
+                return False
 
             for i in range(len(origin_2)):
                 if origin_1[i] != origin_2[i]:
-                    print False
-            print True
+                    return False
+            return True
         except IndexError as e:
-            print False
-
+            return False
 
     def output_diff(self, diff_commands_obj):
+        if not self.is_a_possible_diff(diff_commands_obj):
+            raise DiffCommandsError('Not a valid diff command file')
         for line in diff_commands_obj.commands_list:
             print line
             if 'a' in line:
@@ -178,6 +189,11 @@ class OriginalNewFiles:
                     print '> ' + self.text_2[int(numbers[2])-1]
 
     def do_unmodified_from_original(self, diff_command_obj):
+        '''
+        Revert file from original file. Only need to focus on 'd' and 'c' commands and the line number in left of command 'd' or 'c'
+        :param diff_command_obj:
+        :return: reverted file
+        '''
         origin_file = []
         last_line = 0
         for line in diff_command_obj.commands_list:
@@ -212,6 +228,11 @@ class OriginalNewFiles:
         return origin_file
 
     def do_unmodified_from_new(self, diff_commands_obj):
+        '''
+        Revert file from new file. Only need to focus on 'a' and 'c' commands and the line number in right of command 'd' or 'c'
+        :param diff_command_obj:
+        :return: reverted file
+        '''
         last_line = 0
         origin_file = []
         for line in diff_commands_obj.commands_list:
@@ -243,11 +264,86 @@ class OriginalNewFiles:
         for line in origin_file:
             print line
 
+    def get_all_diff_commands(self):
+        '''
+        There is only one correct possible diff commands file yield. I have no idea how to generate other possible files because I am using LCS algorithm
+        '''
+        return [self.yield_diff()]
 
-diff_1 = DiffCommands('diff_1.txt')
-diff_2 = DiffCommands('diff_2.txt')
-diff_3 = DiffCommands('diff_3.txt')
+    def __my_LCS(self, start_1, end_1, start_2, end_2):
+        '''
+        Alogirhm to find tht Longest common subsequence(slice)
+        :return: the LCS of
+        '''
+        line_number_1, line_number_2, length = start_1, start_2, 0
+        runs = {}
+        for i in range(start_1, end_1):
+            new_runs = {}
+            for j in range(start_2, end_2):
+                if self.text_1[i] == self.text_2[j]:
+                    k = new_runs[j] = runs.get(j - 1, 0) + 1
+                    if k > length:
+                        line_number_1, line_number_2, length = i - k + 1, j - k + 1, k
+            runs = new_runs
 
-pair_of_files = OriginalNewFiles('file_2_1.txt', 'file_2_2.txt')
+        assert self.text_1[line_number_1:line_number_1 + length] == self.text_2[line_number_2:line_number_2 + length]
+        return line_number_1, line_number_2, length
 
-pair_of_files.is_a_possible_diff(diff_1)
+    def __matching_slices(self, start_1, end_1, start_2, end_2):
+        '''
+        divide-and-conquer to find all matching pairs by recursion
+        :return: finally return all matching pairs
+        '''
+        pivot_1, pivot_2, length = self.__my_LCS(start_1, end_1, start_2, end_2)
+        if length == 0:
+            return []
+        return (self.__matching_slices(start_1, pivot_1, start_2, pivot_2) +
+                [(pivot_1, pivot_2, length)] +
+                self.__matching_slices(pivot_1 + length, end_1, pivot_2 + length, end_2))
+
+    def yield_diff(self):
+        '''
+        convert all matching_slices into DiffCommands format
+        :return:
+        '''
+        diff_command_obj = DiffCommands('')
+        commands_list = []
+        last_line_1 = 0
+        last_line_2 = 0
+        slices = self.__matching_slices(0, len(self.text_1), 0, len(self.text_2))
+        slices.append((len(self.text_1), len(self.text_2), 0))
+        for line_1, line_2, line_length in slices:
+            if line_2 > last_line_2:
+                if line_2 == last_line_2+1:
+                    commands_list.append(str(last_line_1)+'a'+str(line_2))
+                else:
+                    commands_list.append(str(last_line_1)+'a'+str(last_line_2+1)+','+str(line_2))
+            if line_1 > last_line_1:
+                if line_1 == last_line_1+1:
+                    commands_list.append(str(last_line_1+1) + 'd' + str(last_line_2))
+                else:
+                    commands_list.append(str(last_line_1+1) + ',' + str(line_1) + 'd' + str(last_line_2))
+            last_line_1 = line_1 + line_length
+            last_line_2 = line_2 + line_length
+
+        # merge diff commands, forexample '4a4, 5d3' into 5c4
+        last_command = ''
+        for command in commands_list:
+            if last_command != '':
+                if 'a' in last_command and 'd' in command:
+                    last_command_numbers = re.compile(a_c_reg).findall(last_command)[0]
+                    command_numbers = re.compile(d_reg).findall(command)[0]
+                    if int(last_command_numbers[0]) < int(command_numbers[0]) and int(command_numbers[2]) < int(last_command_numbers[2]):
+                        new_command = command_numbers[0]
+                        if command_numbers[1] != '':
+                            new_command = new_command + ',' + command_numbers[1]
+                        new_command = new_command + 'c' + last_command_numbers[2]
+                        if last_command_numbers[3] != '':
+                            new_command = new_command + ',' + last_command_numbers[3]
+                        diff_command_obj.commands_list.remove(last_command)
+                        diff_command_obj.commands_list.append(new_command)
+                        last_command = command
+                        continue
+            diff_command_obj.commands_list.append(command)
+            last_command = command
+        return diff_command_obj
