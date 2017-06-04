@@ -131,8 +131,20 @@ class OriginalNewFiles:
 
     def is_a_possible_diff(self, diff_commands_obj):
         if not diff_commands_obj.is_valid:
-            return False
-        return True
+            print False
+        try:
+            origin_1 = list(filter(lambda x: x != '...', self.do_unmodified_from_original(diff_commands_obj)))
+            origin_2 = list(filter(lambda x: x != '...', self.do_unmodified_from_new(diff_commands_obj)))
+            if len(origin_1) != len(origin_2):
+                print False
+
+            for i in range(len(origin_2)):
+                if origin_1[i] != origin_2[i]:
+                    print False
+            print True
+        except IndexError as e:
+            print False
+
 
     def output_diff(self, diff_commands_obj):
         for line in diff_commands_obj.commands_list:
@@ -165,18 +177,19 @@ class OriginalNewFiles:
                 else:
                     print '> ' + self.text_2[int(numbers[2])-1]
 
-    def output_unmodified_from_original(self, diff_command_obj):
+    def do_unmodified_from_original(self, diff_command_obj):
+        origin_file = []
         last_line = 0
         for line in diff_command_obj.commands_list:
             if 'd' in line:
                 numbers = re.compile(d_reg).findall(line)[0]
                 if last_line != 0:
                     for i in range(last_line, int(numbers[0])-1):
-                        print self.text_1[i]
+                        origin_file.append(self.text_1[i])
                 else:
                     for i in range(0, int(numbers[0])-1):
-                        print self.text_1[i]
-                print '...'
+                        origin_file.append(self.text_1[i])
+                origin_file.append('...')
                 if numbers[1] != '':
                     last_line = int(numbers[1])
                 else:
@@ -185,43 +198,56 @@ class OriginalNewFiles:
                 numbers = re.compile(a_c_reg).findall(line)[0]
                 if last_line != 0:
                     for i in range(last_line, int(numbers[0])-1):
-                        print self.text_1[i]
+                        origin_file.append(self.text_1[i])
                 else:
                     for i in range(0, int(numbers[0])-1):
-                        print self.text_1[i]
-                print '...'
+                        origin_file.append(self.text_1[i])
+                origin_file.append('...')
                 if numbers[1] != '':
                     last_line = int(numbers[1])
                 else:
                     last_line = int(numbers[0])
         for i in range(last_line, len(self.text_1)):
-            print self.text_1[i]
+            origin_file.append(self.text_1[i])
+        return origin_file
 
-    def output_unmodified_from_new(self, diff_commands_obj):
+    def do_unmodified_from_new(self, diff_commands_obj):
         last_line = 0
+        origin_file = []
         for line in diff_commands_obj.commands_list:
             if 'a' in line or 'c' in line:
                 numbers = re.compile(a_c_reg).findall(line)[0]
                 if last_line != -1:
                     for i in range(last_line, int(numbers[2])-1):
-                        print self.text_2[i]
+                        origin_file.append(self.text_2[i])
                 else:
                     for i in range(0, int(numbers[2])-1):
-                        print self.text_2[i]
+                        origin_file.append(self.text_2[i])
 
-                print '...'
+                origin_file.append('...')
                 if numbers[3] != '':
                     last_line = int(numbers[3])
                 else:
                     last_line = int(numbers[2])
         for i in range(last_line, len(self.text_2)):
-            print self.text_2[i]
+            origin_file.append(self.text_2[i])
+        return origin_file
+
+    def output_unmodified_from_original(self, diff_command_obj):
+        origin_file = self.do_unmodified_from_original(diff_command_obj)
+        for line in origin_file:
+            print line
+
+    def output_unmodified_from_new(self, diff_command_obj):
+        origin_file = self.do_unmodified_from_new(diff_command_obj)
+        for line in origin_file:
+            print line
 
 
 diff_1 = DiffCommands('diff_1.txt')
 diff_2 = DiffCommands('diff_2.txt')
 diff_3 = DiffCommands('diff_3.txt')
 
-pair_of_files = OriginalNewFiles('file_3_1.txt', 'file_3_2.txt')
+pair_of_files = OriginalNewFiles('file_2_1.txt', 'file_2_2.txt')
 
-pair_of_files.output_unmodified_from_new(diff_3)
+pair_of_files.is_a_possible_diff(diff_1)
