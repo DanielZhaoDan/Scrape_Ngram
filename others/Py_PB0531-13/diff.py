@@ -1,5 +1,9 @@
 import re
 
+a_c_reg = '(\d+),*(\d*)[ac](\d+),*(\d*)'
+d_reg = '(\d+),*(\d*)[d](\d+)$'
+
+
 class DiffCommands:
     '''
     DiffCommand class builds a DiffCommands object to store diff commands from a text file
@@ -16,15 +20,17 @@ class DiffCommands:
 
         try:
             with open(filename) as f:
-                self.commands_list = f.readlines()
+                self.commands_list = [command.strip() for command in f.readlines()]
         except IOError as e:
             raise DiffCommandsError(e)
-        if not self.__is_valid_diff_file():
+
+        self.is_valid = self.__is_valid_diff_file()
+        if not self.is_valid:
             raise DiffCommandsError(self.default_exception_msg)
 
     def __str__(self):
         if self.__is_valid_diff_file():
-            print '\n'.join(self.commands_list)
+            return '\n'.join(self.commands_list)
         else:
             raise DiffCommandsError(self.default_exception_msg)
 
@@ -42,8 +48,6 @@ class DiffCommands:
            that is why wrong_6 is invalid
         :return: True if commands can be the diff else False
         '''
-        a_c_reg = '(\d+),*(\d*)[ac](\d+),*(\d*)'
-        d_reg = '(\d+),*(\d*)[d](\d+)$'
         last_left_file_line = -1
         last_right_file_line = -1
         last_command_is_d = False
@@ -106,5 +110,118 @@ class DiffCommands:
 class DiffCommandsError(Exception):
     pass
 
+
 class OriginalNewFiles:
-    pass
+    '''
+    OriginalNewFiles class provides a user interface with 4 methods:
+    is_a_possible_diff()
+    output_diff()
+    output_unmodified_from_original()
+    output_unmodified_from_new()
+    get_all_diff_commands()
+    '''
+    def __init__(self, filename1, filename2):
+        try:
+            with open(filename1) as f1:
+                self.text_1 = [command.strip() for command in f1.readlines()]
+            with open(filename2) as f2:
+                self.text_2 = [command.strip() for command in f2.readlines()]
+        except IOError as e:
+            raise DiffCommandsError(e)
+
+    def is_a_possible_diff(self, diff_commands_obj):
+        if not diff_commands_obj.is_valid:
+            return False
+        return True
+
+    def output_diff(self, diff_commands_obj):
+        for line in diff_commands_obj.commands_list:
+            print line
+            if 'a' in line:
+                numbers = re.compile(a_c_reg).findall(line)[0]
+                if numbers[3] != '':
+                    for i in range(int(numbers[2])-1, int(numbers[3])):
+                        print '> ' + self.text_2[i]
+                else:
+                    print '> ' + self.text_2[int(numbers[2])-1]
+            elif 'd' in line:
+                numbers = re.compile(d_reg).findall(line)[0]
+                if numbers[1] != '':
+                    for i in range(int(numbers[0])-1, int(numbers[1])):
+                        print '< ' + self.text_1[i]
+                else:
+                    print '< ' + self.text_1[int(numbers[0])-1]
+            else:
+                numbers = re.compile(a_c_reg).findall(line)[0]
+                if numbers[1] != '':
+                    for i in range(int(numbers[0])-1, int(numbers[1])):
+                        print '< ' + self.text_1[i]
+                else:
+                    print '< ' + self.text_1[int(numbers[0])-1]
+                print '---'
+                if numbers[3] != '':
+                    for i in range(int(numbers[2])-1, int(numbers[3])):
+                        print '> ' + self.text_2[i]
+                else:
+                    print '> ' + self.text_2[int(numbers[2])-1]
+
+    def output_unmodified_from_original(self, diff_command_obj):
+        last_line = 0
+        for line in diff_command_obj.commands_list:
+            if 'd' in line:
+                numbers = re.compile(d_reg).findall(line)[0]
+                if last_line != 0:
+                    for i in range(last_line, int(numbers[0])-1):
+                        print self.text_1[i]
+                else:
+                    for i in range(0, int(numbers[0])-1):
+                        print self.text_1[i]
+                print '...'
+                if numbers[1] != '':
+                    last_line = int(numbers[1])
+                else:
+                    last_line = int(numbers[0])
+            elif 'c' in line:
+                numbers = re.compile(a_c_reg).findall(line)[0]
+                if last_line != 0:
+                    for i in range(last_line, int(numbers[0])-1):
+                        print self.text_1[i]
+                else:
+                    for i in range(0, int(numbers[0])-1):
+                        print self.text_1[i]
+                print '...'
+                if numbers[1] != '':
+                    last_line = int(numbers[1])
+                else:
+                    last_line = int(numbers[0])
+        for i in range(last_line, len(self.text_1)):
+            print self.text_1[i]
+
+    def output_unmodified_from_new(self, diff_commands_obj):
+        last_line = 0
+        for line in diff_commands_obj.commands_list:
+            if 'a' in line or 'c' in line:
+                numbers = re.compile(a_c_reg).findall(line)[0]
+                if last_line != -1:
+                    for i in range(last_line, int(numbers[2])-1):
+                        print self.text_2[i]
+                else:
+                    for i in range(0, int(numbers[2])-1):
+                        print self.text_2[i]
+
+                print '...'
+                if numbers[3] != '':
+                    last_line = int(numbers[3])
+                else:
+                    last_line = int(numbers[2])
+        for i in range(last_line, len(self.text_2)):
+            print self.text_2[i]
+
+
+diff_1 = DiffCommands('diff_1.txt')
+diff_2 = DiffCommands('diff_2.txt')
+diff_3 = DiffCommands('diff_3.txt')
+
+pair_of_files = OriginalNewFiles('file_3_1.txt', 'file_3_2.txt')
+
+pair_of_files.output_unmodified_from_new(diff_3)
