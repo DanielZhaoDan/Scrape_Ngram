@@ -1,5 +1,5 @@
 import xlrd
-import xlwt
+import xlsxwriter
 import os
 import time
 from selenium import webdriver
@@ -41,9 +41,11 @@ def get_cleaned_html(url):
         print [url, html]
         return False
     resp_obj = html.json()
-    title = resp_obj.get('objects', [{}])[0].get('title')
-    text = resp_obj.get('objects', [{}])[0].get('text')
-    alldata.append([url, title, text[:32766] if text else ''])
+    title = resp_obj.get('objects', [{}])[0].get('title', '')
+    text = resp_obj.get('objects', [{}])[0].get('text', '')
+    one_row = [url, title, text if text else '']
+    print [url, title]
+    alldata.append(one_row)
     return True
 
 
@@ -52,7 +54,7 @@ def read_excel(filename, start):
     data = xlrd.open_workbook(filename)
     table = data.sheets()[0]
     for i in range(start, table.nrows):
-        if i not in [134, 208, 324, 360, 372, 410, 434, 464, 471, 562]:
+        if i not in [5, 61, 90]:
             continue
         try:
             url = table.row(i)[4].value.strip()
@@ -62,7 +64,6 @@ def read_excel(filename, start):
             else:
                 time.sleep(3)
         except:
-            raise
             print 'ERROR--' + str(i)
             time.sleep(10)
             continue
@@ -79,16 +80,16 @@ def write_excel(filename, data):
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
-    w = xlwt.Workbook(encoding="UTF-8")
-    ws = w.add_sheet('old', cell_overwrite_ok=True)
+    workbook = xlsxwriter.Workbook(filename)
+    ws = workbook.add_worksheet()
     for row in range(0, len(data)):
         one_row = data[row]
         for col in range(0, len(one_row)):
             ws.write(row, col, one_row[col])
-    w.save(filename)
+    workbook.close()
     print filename + "===========over============"
 
-read_excel('data/data.xls', 1)
+read_excel('data/sheet1.xls', 1)
 write_excel('data/html.xls', alldata)
 
 

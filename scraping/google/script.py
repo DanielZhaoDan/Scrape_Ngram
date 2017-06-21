@@ -13,11 +13,11 @@ import random
 sheet1_data = [['Keywords', 'Country', 'No of Articles', 'Page No.', 'News Url', 'Date', 'Name of Publisher', 'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com.sg/search?q="{key_word}"+location:{location}&newwindow=1&safe=strict&hl=en&tbm=nws&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr:1,cd_min:1/1/2017,cd_max:5/30/2017dpr=1&start='
+url_bases = 'https://www.google.com.sg/search?q="{key_word}"+location:{location}&newwindow=1&safe=strict&hl=en&tbm=nws&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F14%2F2017&start='
 
-key_words = ['how to save']
+key_words = ['jj lin']
 
-locations = ['Singapore']
+locations = ['Singapore', 'malaysia']
 
 cookie = [
     'OGPC=230377472-30:; SID=twQ33SNTOsmjYAu2iIvfrlQ_srIl_SEG3q_YtxMvMpKMvv3vmjJnrslLENcwLQu7RxKq7g.; HSID=AUZDODrHWYoDnMCPF; SSID=A194xqAa-VcD2Y8uD; APISID=9qk2md2vzrw7a2bc/AN_jRZIIGA3GAH1LR; SAPISID=dAWmxXTCYpny2M6d/A8eI4DqSwYb4KP0F9; NID=104=lGgfZ_yN7HjYbtYKZOAa4pj_3TjD0fqWahOKuAPezritULb4CKabz7Hui--BcCxEBwZ_M5_hof2h7KpKjSx-ONntpZudFnHMrULW3wKvcBP3pWK0R_oQUZAXJVAOKgZ78pczPzj5_4pPTUF162MUNUFjU6ltwHy_0tSGWueLnpuIHsg7LxeMKHBxnsR_RFM0E1L00U9tTIcTdxv_VOPcHbKyQdQmUC9DkJf6ZH6CHGbuqkqgieQMSEd65dmL7NwQKhFmmJntH2DcUM8ICg; DV=471lmmdi7j5CMIY2UoZ-rYfYU_mKxRXL3GDguBC-BwEAABC2tvH6YUH2vgAAANRe293xctMTRQAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTQ5NjEzNjYwNDQ5ODAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTI5OTc2NDcgbG9uZ2l0dWRlX2U3OjEwMzc4ODEwOTR9IHJhZGl1czoxOTIyMA==',

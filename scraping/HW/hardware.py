@@ -178,11 +178,15 @@ def request_sheet3(name, url):
 
 def get_sheet3_body(name, html):
     global sheet3_data
-    reg = '<a name="post\d*?">.*?</a>(.*?)<.*?id="post_message_.*?>(.*?)</div'
+    reg = '<a name="post\d*?">.*?</a>(.*?)<.*?id="post_message_.*?>(.*?)<div class="vbseo_buttons"'
     text_list = re.compile(reg).findall(html)
     for text in text_list:
         date = get_date(text[0])
-        text = remove_html_tag(text[1])
+        if 'class="quote"' in text[1]:
+            reg_quote = 'class="quote".*?</div>(.*?)<'
+            text = remove_html_tag(re.compile(reg_quote).findall(text[1])[0])
+        else:
+            text = remove_html_tag(text[1]).split('<')[0]
         one_row = [remove_html_tag(name), date, text.replace('=', '')]
         sheet3_data.append(one_row)
 
@@ -219,18 +223,21 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-i = 0
-for i in range(len(keywords)):
-    site = 'site%3Aforums.hardwarezone.com.sg%2F%20' + keywords[i].replace(' ', '%20')
-    url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=20&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=#start#&cx=011134908705750190689:daz50x-t54k&q=#site#&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'.replace('#site#', site)
-    request_sheet1(keywords[i], url)
-    write_excel(keywords[i].replace(' ', '_')+'_1.xls', sheet1_data)
-    write_excel(keywords[i].replace(' ', '_')+'_2.xls', sheet2_data)
-    write_excel(keywords[i].replace(' ', '_')+'_3.xls', sheet3_data)
-    del sheet1_data
-    sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-forum link', 'Text']]
-    del sheet2_data
-    sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
-    del sheet3_data
-    sheet3_data = [['Thread title', 'Date', 'Comment text']]
-    gc.collect()
+# i = 0
+# for i in range(len(keywords)):
+#     site = 'site%3Aforums.hardwarezone.com.sg%2F%20' + keywords[i].replace(' ', '%20')
+#     url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=20&hl=en&prettyPrint=false&source=gcsc&gss=.sg&sig=0c3990ce7a056ed50667fe0c3873c9b6&start=#start#&cx=011134908705750190689:daz50x-t54k&q=#site#&googlehost=www.google.com&callback=google.search.Search.apiary19428&nocache=1481290177512'.replace('#site#', site)
+#     request_sheet1(keywords[i], url)
+#     write_excel(keywords[i].replace(' ', '_')+'_1.xls', sheet1_data)
+#     write_excel(keywords[i].replace(' ', '_')+'_2.xls', sheet2_data)
+#     write_excel(keywords[i].replace(' ', '_')+'_3.xls', sheet3_data)
+#     del sheet1_data
+#     sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-forum link', 'Text']]
+#     del sheet2_data
+#     sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
+#     del sheet3_data
+#     sheet3_data = [['Thread title', 'Date', 'Comment text']]
+#     gc.collect()
+request_sheet3('WaterBill', 'http://forums.hardwarezone.com.sg/eat-drink-man-woman-16/guess-residents-monthly-water-bill-just-s%243-5582763.html')
+
+write_excel('WaterBill.xls', sheet3_data)

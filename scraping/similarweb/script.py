@@ -92,6 +92,7 @@ def read_excel(filename, start=1):
             print(i)
 
 
-filename = 'data/sheet1.xls'
-read_excel(filename, 1)
-write_excel('data/sheet2.xls', sheet2_data)
+# filename = 'data/sheet1.xls'
+# read_excel(filename, 1)
+# write_excel('data/sheet2.xls', sheet2_data)
+request_sheet2('http://news.seehua.com')
