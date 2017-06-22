@@ -34,7 +34,7 @@ def open_browser_scroll(url):
 def get_cleaned_html(url):
     global alldata
     req_url_base = 'https://api.diffbot.com/v3/analyze?token={token}&url={url}'
-    req_url = req_url_base.format(url=url, token='cd2ffcc415304d9c16ad9fb707de7395')
+    req_url = req_url_base.format(url=url, token='e6262f9b27b567c512be3857d8b79add')
 
     html = get_request(req_url)
     if 'Rate limit exceeded' in html:
@@ -54,9 +54,9 @@ def read_excel(filename, start):
     data = xlrd.open_workbook(filename)
     table = data.sheets()[0]
     for i in range(start, table.nrows):
-        if i not in [5, 61, 90]:
-            continue
         try:
+            if i not in [27, 31, 72, 90, 105, 114, 118, 129, 135, 188, 191, 220, 222, 223, 225, 228, 229, 236, 237, 252, 253, 260, 273, 274, 285, 293, 302, 304, 310, 351, 368, 372, 382, 398, 401, 407, 431, 440, ]:
+                continue
             url = table.row(i)[4].value.strip()
             flag = get_cleaned_html(url)
             if not flag:

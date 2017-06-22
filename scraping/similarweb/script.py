@@ -37,7 +37,7 @@ def open_browser_scroll(url):
     global html_name
     driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
-    time.sleep(5)
+    time.sleep(20)
     html_source = driver.page_source
     data = html_source.encode('utf-8').replace('\t', '').replace('\r', '').replace('\n', '')
     driver.close()
@@ -70,6 +70,68 @@ def request_sheet2(base_url):
     return ret
 
 
+def redo_scrape():
+    filename = 'data/sheet2.xls'
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
+    table = data.sheets()[0]
+    for i in range(1, table.nrows):
+        row = table.row(i)
+        try:
+            main_url = row[1].value
+            publisher = row[0].value
+            article_url = row[2].value
+            country = ''
+            if row[4].value == '0' or row[4].value == 0:
+                details = request_sheet2(main_url)
+                if not details:
+                    continue
+                one_row = [publisher, main_url, article_url, country] + details
+                print i, one_row
+                sheet2_data.append(one_row)
+            else:
+                one_row = [row[i].value for i in range(18)]
+                sheet2_data.append(one_row)
+        except:
+            print(i)
+    write_excel('data/sheet3.xls', sheet2_data)
+
+
+def mapping_local_file():
+    filename = 'data/sheet2.xls'
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
+    table = data.sheets()[0]
+    url_details = {}
+    for i in range(1, table.nrows):
+        row = table.row(i)
+        try:
+            main_url = row[1].value
+            if row[4].value != '0' and row[4].value != 0:
+                if not url_details.get(main_url):
+                    url_details[main_url] = [row[i].value for i in range(4, 18)]
+        except:
+            print(i)
+    for i in range(1, table.nrows-1):
+        row = table.row(i)
+        try:
+            main_url = row[1].value
+            publisher = row[0].value
+            article_url = row[2].value
+            country = ''
+            if row[4].value == '0' or row[4].value == 0:
+                details = url_details.get(main_url)
+                if not details:
+                    continue
+                one_row = [publisher, main_url, article_url, country] + details
+                print i, one_row
+                sheet2_data.append(one_row)
+            else:
+                one_row = [row[i].value for i in range(18)]
+                sheet2_data.append(one_row)
+        except:
+            print(i)
+    write_excel('data/sheet3.xls', sheet2_data)
+
+
 def read_excel(filename, start=1):
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
@@ -91,8 +153,9 @@ def read_excel(filename, start=1):
         except:
             print(i)
 
+redo_scrape()
+# mapping_local_file()
 
 # filename = 'data/sheet1.xls'
 # read_excel(filename, 1)
 # write_excel('data/sheet2.xls', sheet2_data)
-request_sheet2('http://news.seehua.com')
