@@ -10,6 +10,7 @@ import os
 
 sheet2_data = [['Name of Publisher', 'Main url', 'Url of article', 'Country', 'Clobal Rank', 'Country Rank', 'Category Rank', 'Engagement', 'Top Country 1', 'Traffic 1', 'Top Country 2', 'Traffic 2', 'Top Country 3', 'Traffic 3', 'Top Country 4', 'Traffic 4', 'Top Country 5', 'Traffic 5']]
 sheet_dict = {}
+sleep_time = 3
 
 
 def write(html, filename):
@@ -37,7 +38,7 @@ def open_browser_scroll(url):
     global html_name
     driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
-    time.sleep(20)
+    time.sleep(sleep_time)
     html_source = driver.page_source
     data = html_source.encode('utf-8').replace('\t', '').replace('\r', '').replace('\n', '')
     driver.close()
@@ -45,9 +46,9 @@ def open_browser_scroll(url):
 
 
 def request_sheet2(base_url):
-    global sheet_dict
+    global sheet_dict, sleep_time
     if sheet_dict.get(base_url):
-        return sheet_dict[base_url]
+        return None
 
     rank_reg = 'rankingItem--global.*?rankingItem-value.*?>(.*?)<.*?rankingItem--country.*?rankingItem-value.*?>(.*?)<.*?rankingItem--category.*?rankingItem-value.*?>(.*?)<.*?Total Visits.*?countValue">(.*?)<'
     country_tag = 'accordion-toggle.*?countValue">(.*?)<.*?country-name.*?>(.*?)<'
@@ -56,8 +57,10 @@ def request_sheet2(base_url):
     html = open_browser_scroll(url)
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
+        sleep_time = 3
         ret = [global_ranks[0][0].replace('[#,]', ''), global_ranks[0][1].replace('[#,]', ''), global_ranks[0][2].replace('[#,]', ''), global_ranks[0][3]]
     else:
+        sleep_time = 20
         ret = [0, 0, 0, 0]
 
     country_ranks = re.compile(country_tag).findall(html)
@@ -145,10 +148,9 @@ def read_excel(filename, start=1):
             country = row[1].value
             details = request_sheet2(main_url)
             if not details:
-                i -= 1
                 continue
             one_row = [publisher, main_url, article_url, country] + details
-            print one_row
+            print i, one_row
             sheet2_data.append(one_row)
         except:
             print(i)
@@ -157,5 +159,5 @@ redo_scrape()
 # mapping_local_file()
 
 # filename = 'data/sheet1.xls'
-# read_excel(filename, 1)
+# read_excel(filename, start=1,)
 # write_excel('data/sheet2.xls', sheet2_data)

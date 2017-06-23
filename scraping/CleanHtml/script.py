@@ -55,8 +55,8 @@ def read_excel(filename, start):
     table = data.sheets()[0]
     for i in range(start, table.nrows):
         try:
-            if i not in [27, 31, 72, 90, 105, 114, 118, 129, 135, 188, 191, 220, 222, 223, 225, 228, 229, 236, 237, 252, 253, 260, 273, 274, 285, 293, 302, 304, 310, 351, 368, 372, 382, 398, 401, 407, 431, 440, ]:
-                continue
+            # if i not in []:
+            #     continue
             url = table.row(i)[4].value.strip()
             flag = get_cleaned_html(url)
             if not flag:
