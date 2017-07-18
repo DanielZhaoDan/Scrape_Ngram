@@ -15,7 +15,7 @@ sheet_dict = {}
 
 url_base = 'http://news.baidu.com/ns?word={key_word}&pn={page_index}&ct=1&tn=news&rn=20&ie=utf-8&bt=0&et=0'
 
-key_words = [u'维生素', u'益生菌', u'维生素和矿物质', u'维生素D', u'补充剂', u'有机食品']
+key_words = [u'维生素软糖']
 
 cookie = [
     'BIDUPSID=BFBD3CF9CBE26E37027528AF0EEF846C; PSTM=1470187991; __cfduid=debd361fc5ff9b250676babc59c94a3611476931139; BAIDUID=BFBD3CF9CBE26E37027528AF0EEF846C:FG=1; MCITY=-340%3A; BDUSS=doRmxUd2RTUGhmTlNaWkhpRjNtS29-TWd5WTRzZ3VvQ3dBVzFQWVQ5RGV0VWRZSVFBQUFBJCQAAAAAAAAAAAEAAADgZqAp1dS1pDI1MjcyOQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4oIFjeKCBYZk; BDRCVFR[feWj1Vr5u3D]=I67x6TjHwwYf0; BDORZ=B490B5EBF6F3CD402E515D22BCDA1598; BDRCVFR[C0p6oIjvx-c]=mbxnW11j9Dfmh7GuZR8mvqV; BD_CK_SAM=1; PSINO=2; BDSVRTM=184; H_PS_PSSID=',
@@ -66,7 +66,7 @@ def request_sheet1(key_word):
     while True:
         url = url_base.format(key_word=key_word, page_index=(page_no-1)*20)
         print url
-        if page_no > 10:
+        if page_no > 15:
             break
         html = get_request(url)
         if total_count == 0:
@@ -89,7 +89,7 @@ def request_sheet1(key_word):
                 continue
 
             rank = str(page_no) + '.' + ('0' if i < 10 else '') + str(i)
-            one_row = [key_word, total_count, page_no, url, date, publisher, main_url, headline, rank]
+            one_row = [key_word, '', total_count, page_no, url, date, publisher, main_url, headline, '', rank]
             sheet1_data.append(one_row)
             i += 1
         page_no += 1

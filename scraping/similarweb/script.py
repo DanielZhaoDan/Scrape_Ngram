@@ -142,10 +142,10 @@ def read_excel(filename, start=1):
     for i in range(start, table.nrows-1):
         row = table.row(i)
         try:
-            main_url = row[7].value
-            publisher = row[6].value
-            article_url = row[4].value
-            country = row[1].value
+            main_url = row[8].value
+            publisher = row[7].value
+            article_url = row[5].value
+            country = row[2].value
             details = request_sheet2(main_url)
             if not details:
                 continue
@@ -155,9 +155,9 @@ def read_excel(filename, start=1):
         except:
             print(i)
 
-redo_scrape()
+# redo_scrape()
 # mapping_local_file()
 
-# filename = 'data/sheet1.xls'
-# read_excel(filename, start=1,)
-# write_excel('data/sheet2.xls', sheet2_data)
+filename = 'data/sheet1.xls'
+read_excel(filename, start=1,)
+write_excel('data/sheet2.xls', sheet2_data)
