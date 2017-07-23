@@ -10,19 +10,49 @@ from urlparse import urlparse
 import time
 import random
 
-
 sheet1_data = [
     ['Keywords String', 'Bucket', 'Country', 'No of Articles', 'Page No.', 'News Url', 'Date', 'Name of Publisher',
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com.sg/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A6%2F30%2F2016%2Ccd_max%3A6%2F30%2F2017&start='
+url_bases = 'https://www.google.com.sg/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2016&start='
 
 key_words = [
-    {'keyword': 'emergency intext:medical intext:travel location:Malaysia -intext:trump', 'bucket': 'Travel',
-     'country': 'Malaysia'},
-    {'keyword': 'scam intext:travel location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
-    {'keyword': 'travel intext:safety intext:tips location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
+    # {'keyword': 'travel intext:card intext:safety location:singapore -intext:work -intext:ban', 'bucket': 'Travel',
+    #  'country': 'Singapore'},
+    # {'keyword': 'NFC intext:payment intext:safety location:Singapore', 'bucket': 'Contactless', 'country': 'Singapore'},
+    # {'keyword': 'wallet intext:safe intext:"credit card" location:singapore', 'bucket': 'Mobile',
+    #  'country': 'Singapore'},
+    # {'keyword': 'intext:"credit card" intext:fraud location:singapore', 'bucket': 'Credit Card',
+    #  'country': 'Singapore'},
+    # {'keyword': 'intext:online intext:fraud location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
+    # {'keyword': 'intext:password intext:protect location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
+    # {'keyword': 'Phishing intext:data intext:personal location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
+    # {'keyword': 'Scam intext:online location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
+    # {'keyword': 'phone intext:data intext:protect location:singapore', 'bucket': 'Mobile', 'country': 'Singapore'},
+    # {'keyword': 'bank intext:"credit card" intext:fraud location:singapore', 'bucket': 'Credit Card',
+    #  'country': 'Singapore'},
+    # {'keyword': 'emergency intext:medical intext:travel location:Singapore -intext:trump', 'bucket': 'Travel',
+    #  'country': 'Singapore'},
+    # {'keyword': 'scam intext:travel location:Singapore', 'bucket': 'Travel', 'country': 'Singapore'},
+    # {'keyword': 'travel intext:safety intext:tips location:singapore', 'bucket': 'Travel', 'country': 'Singapore'},
+    # {'keyword': 'intext:payment intext:future location:singapore', 'bucket': 'Payment Future', 'country': 'Singapore'},
+    # {'keyword': 'travel intext:card intext:safety location:Malaysia -intext:work -intext:ban', 'bucket': 'Travel',
+    #  'country': 'Malaysia'},
+    # {'keyword': 'NFC intext:payment intext:safety location:Malaysia', 'bucket': 'Contactless', 'country': 'Malaysia'},
+    # {'keyword': 'wallet intext:safe intext:"credit card" location:Malaysia', 'bucket': 'Mobile', 'country': 'Malaysia'},
+    # {'keyword': 'intext:"credit card" intext:fraud location:Malaysia', 'bucket': 'Credit Card', 'country': 'Malaysia'},
+    # {'keyword': 'intext:online intext:fraud location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
+    # {'keyword': 'intext:password intext:protect location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
+    # {'keyword': 'Phishing intext:data intext:personal location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
+    # {'keyword': 'Scam intext:online location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
+    # {'keyword': 'phone intext:data intext:protect location:Malaysia', 'bucket': 'Mobile', 'country': 'Malaysia'},
+    # {'keyword': 'bank intext:"credit card" intext:fraud location:Malaysia', 'bucket': 'Credit Card',
+    #  'country': 'Malaysia'},
+    # {'keyword': 'emergency intext:medical intext:travel location:Malaysia -intext:trump', 'bucket': 'Travel',
+    #  'country': 'Malaysia'},
+    # {'keyword': 'scam intext:travel location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
+    # {'keyword': 'travel intext:safety intext:tips location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
     {'keyword': 'intext:payment intext:future location:Malaysia', 'bucket': 'Payment Future', 'country': 'Malaysia'},
 ]
 
@@ -31,7 +61,7 @@ http_proxies = [
 ]
 
 cookie = [
-    'OGPC=5062177-26:5062195-14:5062216-26:695701504-19:699960320-23:448059392-20:527891456-85:1037221888-4:82459648-15:; SID=6AQ-ugwLosQc-sSIhAVvMCxOpPtv3CF1vSHMQ3wxdT5rDXAI4NwvyczDMxKt_WbikHkrWw.; HSID=ApqibyrW6Ak9avKKB; SSID=AUHVI6lNHEvUFaun0; APISID=U__O9PR0Yokrye2a/Ax720X0nUWVXmdrEE; SAPISID=VoVf8vzQN5Mb5qkQ/ADG62ctX8x8Z-y7VP; NID=108=pktGAguLsF_LNKhLj-czlpnYEggVfIbUTBrffLrdpd4bZ0TEZNWE-3VUeVOWrdLvAzv35PUr72ECwdHELwAWZPBANIlvNgHIbcXn96hPsEOU2_5pnn5Y7o9-tpAGwjH67IoHX3CAIbmh4zrKCEtr4lenGt9IwsA4K50bPHo4ezuOOy9Rp9rFd44BD0L7wTvXvmq4BPkSR2gSh6ZpHMwkUIgQAipTmIWhUQp9NSs48Juif5nA_CtDblxJtnjJL-1Pxdm2U-6UvzjsjKRR-opNUs_wbHu3WPRmLfj8fXHKqtsNIvJhNApP0WEi_G6D1CE2snPdYyStk53yZPBYI7k1cu5_MlMA; GOOGLE_ABUSE_EXEMPTION=ID=ddf1312d1db70f87:TM=1500346882:C=r:IP=101.127.248.164-:S=APGng0vsZpuNAZJ7a8AB78wc_rugIj8Ndw; DV=E6kuk-h3zUdIkGQmxMk75uUSoE061dUlKzKDklXCJgEAAOCo_an4pjcHxQAAAES6EB6YQujYRAAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMDM0Njk2MjkyNjAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTI5OTc3NjIgbG9uZ2l0dWRlX2U3OjEwMzc4ODEwNDd9IHJhZGl1czoxNjc0MA==',
+    'OGPC=5062177-26:5062195-14:5062216-26:695701504-19:699960320-23:448059392-20:527891456-85:1037221888-4:82459648-15:; SID=6AQ-ugwLosQc-sSIhAVvMCxOpPtv3CF1vSHMQ3wxdT5rDXAI4NwvyczDMxKt_WbikHkrWw.; HSID=ApqibyrW6Ak9avKKB; SSID=AUHVI6lNHEvUFaun0; APISID=U__O9PR0Yokrye2a/Ax720X0nUWVXmdrEE; SAPISID=VoVf8vzQN5Mb5qkQ/ADG62ctX8x8Z-y7VP; NID=108=JdOUeauzJoci7P_e9ROtz9jAlIIcJ_5E7q-GrumJ1iR78k8oEf0gFBFgfe44YstZILqUiHJlp-BYe791R1Dw8SKQCfmcCnXp3FXpws5SsMlbSMiC5PLJ4mJhoLK3w98j9dyAS5q-P8ZSLZxSQbgi9QNLb-SKNVUTjcsc_OhrMa4gfS8bg8hpZeZEEo2u5deJbfllI7rnwG7TuNViBkm3dWrfcbQilgFHNYaohOEBwIel26zj51Km-Mq6RSqAOCPI9fqW4wXBJpWVdGWRJLdYi0YlwIUs9X7XeAWKOpY_gYHLolzwWXfQ9x-fQ5Udc5t1lIy8FU_kixdABDO-MI1HShCR6qfg; GOOGLE_ABUSE_EXEMPTION=ID=d73d32a05aa0ebd4:TM=1500803976:C=r:IP=119.74.13.134-:S=APGng0uBHDinz40QgMXSROXOx2FFgEThVg; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMDgwNDA5Mzc1MTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM1ODk5MTkgbG9uZ2l0dWRlX2U3OjEwMzg0MzY3MDZ9IHJhZGl1czoyNDE4MA==; DV=E6kuk-h3zUdI4Kj9qfimNwf1PkXu1lWSmRAn75iXSwIAAHDJisygZJWw2QAAAES6EB6YQujYSAAAAA',
 ]
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
@@ -103,7 +133,8 @@ def request_sheet1(key_word, url_base):
             # content = get_raw_content(url)
             content = ''
             rank = str(page_no) + '.' + ('0' if i < 10 else '') + str(i)
-            one_row = [key_word['keyword'], key_word['bucket'], key_word['country'], total_count, page_no, url, date, publisher, main_url, headline, content,
+            one_row = [key_word['keyword'], key_word['bucket'], key_word['country'], total_count, page_no, url, date,
+                       publisher, main_url, headline, content,
                        rank]
             sheet1_data.append(one_row)
             i += 1
@@ -208,7 +239,7 @@ def get_request(get_url):
         'connection': 'Keep-Alive',
         'Referer': get_url,
         'Cookie': random.choice(cookie),
-        'x-client-data': 'CJG2yQEIprbJAQjBtskBCPKZygEI+5zKAQipncoB',
+        'x-client-data': 'CJG2yQEIprbJAQjBtskBCPKZygEI+5zKAQipncoBCJuiygE=',
     }
     proxy = {
         'http': random.choice(http_proxies),
@@ -225,15 +256,10 @@ sys.setdefaultencoding('utf-8')
 # scrape google search result
 urls = []
 for key_word in key_words:
-        urls.append([key_word, url_bases.format(key_word=key_word['keyword'].replace(' ', '+'))])
+    urls.append([key_word, url_bases.format(key_word=key_word['keyword'].replace(' ', '+'))])
 print len(urls)
 for url in urls:
     stop = request_sheet1(url[0], url[1])
     if stop:
         break
 write_excel('data/sheet1.xls', sheet1_data)
-
-# scrape rank data
-# filename = 'data/sheet1.xls'
-# read_excel(filename, 1)
-# write_excel('data/sheet2.xls', sheet2_data)

@@ -140,6 +140,8 @@ def read_excel(filename, start=1):
     table = data.sheets()[0]
 
     for i in range(start, table.nrows-1):
+        if i != 476:
+            continue
         row = table.row(i)
         try:
             main_url = row[8].value
