@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-
+import xlsxwriter
 import re
 import urllib2
 import xlwt
@@ -9,14 +9,16 @@ import HTMLParser
 import os
 import xlrd
 import gc
+import sets
 
 sheet1_data = [['Keyword', 'Forum topic', 'Forum link', 'Sub-forum topic', 'Sub-forum link', 'Text']]
-sheet2_data = [['Thread in forum', 'Thread', 'Url of Thread', 'Replies', 'Views']]
-sheet3_data = [['Thread title', 'Date', 'Comment text']]
+sheet2_data = [['ID', 'Google Headline', 'Forum Thread URL', 'Sub-Forum Thread', 'Sub-Forum URL', 'Replies', 'Views']]
+sheet3_data = [['ID', 'Google Headline', 'Forum Thread', 'Comment text', 'Date']]
 
 keywords = ['Singtel', 'PC show']
+scraped = set()
 
-cookie = '__cfduid=d52b7a6f2feca97b1c48998c888c517981481214002; cX_S=iwgkprrgasx9gzq5; __utma=98462808.202309017.1481214242.1481214242.1481214242.1; __utmc=98462808; __utmz=98462808.1481214242.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); PHPSESSID=e9117d08d75f0612d6cbb11d4fa33866; bb_sessionhash=94fff2833ba8117bbe4571fe83b92a90; bb_lastvisit=1481214098; bb_lastactivity=0; bb_forum_view=57972b5cfc0102c7b6e58e0703c3868c1a61fd3ca-1-%7Bi-473_i-1481285483_%7D; _gat=1; _ga=GA1.2.202309017.1481214242; __asc=266b94af158e3777ff53912ac42; __auc=3d194a02158df3fab81ed66b668; cX_P=iwgkprrlcweqjrg7; __atuvc=69%7C49; __atuvs=584a9d91986fd2e6003'
+cookie = '__qca=P0-982849710-1481340442304; __qca=P0-1694046292-1481340463367; bbvbsessionhash=cfaae69fcb9401422608134678dd2cbd; bbvbthread_lastview=96ba3d0002c1d60c689240492816c86986db7a42a-12-%7Bi-5627992_i-1496244450_i-5538296_i-1483437174_i-5575396_i-1488265200_i-5575360_i-1488262429_i-5624354_i-1495771260_i-5650762_i-1499326771_i-5119483_i-1490343436_i-5519417_i-1495178966_i-5640802_i-1497900350_i-3251747_i-1500511528_i-5329393_i-1488414916_i-5517298_i-1482593166_%7D; bbvblastvisit=1481340439; bbvblastactivity=0; NSC_JO3kmqhuelqozbsbirjghwbnv43b3cq=ffffffff09a3640b45525d5f4f58455e445a4a423660; _ga=GA1.3.1033476444.1481340442; _gid=GA1.3.1741745025.1500741768; hwzbt_7b450bc2082de9d1650c211e1641a19e=e5a0b504df9481281b3533e2d1f36079; _gat=1; _gali=thread_title_5657474'
 
 
 def write(html, filename):
@@ -26,19 +28,20 @@ def write(html, filename):
     print "write over"
 
 
-def write_excel(filename, alldata, flag=None):
-    if flag:
-        filename = filename.replace('.xls', '_'+str(flag)+'.xls')
-    w = xlwt.Workbook(encoding='utf-8')
-    ws = w.add_sheet('old', cell_overwrite_ok=True)
+def write_excel(filename, alldata):
+    d = os.path.dirname(filename)
+    if not os.path.exists(d):
+        os.makedirs(d)
+    w = xlsxwriter.Workbook(filename)
+    ws = w.add_worksheet()
     for row in range(0, len(alldata)):
         one_row = alldata[row]
         for col in range(0, len(one_row)):
             try:
-                ws.write(row, col, one_row[col][:32766])
+                ws.write_string(row, col, (one_row[col]))
             except:
-                print(one_row[col])
-    w.save(filename)
+                ws.write(row, col, (one_row[col]))
+    w.close()
     print filename+"===========over============"
 
 
@@ -117,77 +120,93 @@ def get_total_page(html):
     return page_number
 
 
-def request_sheet2(name, url):
+def request_sheet2(url, payload):
     m = re.search(r'index\d{1,2}\.html$', url)
     if m:
         url = url[:m.start()]+'.html'
     try:
         html = get_request(url)
-    except:
+    except Exception as e:
         print 'ERROR---sheet2--'+url
+        print e
         return
+    print payload.get('id', ''), 'sheet2--' + url
     page_number = get_total_page(html)
-    get_sheet2_body(name, html)
+    if page_number > 100:
+        page_number = 100
+    get_sheet2_body(payload, html)
     for i in range(2, page_number+1):
-        next_url = url+'index'+str(i)+'.html'
+        next_url = url+'/index'+str(i)+'.html'
         try:
             html = get_request(next_url)
-            get_sheet2_body(name, html)
-        except:
+            get_sheet2_body(payload, html)
+        except Exception as e:
+            print e
             print 'ERROR--sheet2---'+next_url
 
 
-def get_sheet2_body(name, html):
+def get_sheet2_body(payload, html):
     global sheet2_data
-    reg = 'id="td_threadtitle_.*?href="(.*?)".*?>(.*?)<.*?Replies: (.*?), Views: (.*?)"'
+    reg = 'id="td_threadtitle_.*?href="(.*?)".*?id="thread_title_.*?>(.*?)</a.*?Replies: (.*?), Views: (.*?)"'
     thread_list = re.compile(reg).findall(html)
     for thread in thread_list:
-        link = thread[0]
-        if 'http://forums.hardwarezone.com.sg' not in link:
-            link = 'http://forums.hardwarezone.com.sg' + link
+        id = payload.get('id', '')
+        google_headline = payload.get('google_headline', '')
+        forum_url = payload.get('thread_url', '')
+        sub_link = thread[0]
+        if 'http://forums.hardwarezone.com.sg' not in sub_link:
+            sub_link = 'http://forums.hardwarezone.com.sg' + sub_link
         t_name = remove_html_tag(thread[1].replace('**', ''))
+        forum_thread = remove_html_tag(t_name)
         reply = thread[2].replace(',', '')
         view = thread[3].replace(',', '')
-        one_row = [remove_html_tag(name), remove_html_tag(t_name), link, reply, view]
+        one_row = [id, google_headline, forum_url, forum_thread, sub_link, reply, view]
+
         sheet2_data.append(one_row)
-        request_sheet3(t_name, link)
+        payload['sub_thread'] = forum_thread
+        request_sheet3(payload, sub_link)
 
 
-def request_sheet3(name, url):
+def request_sheet3(payload, url):
     if 'record-breaking' in url:
         return
     m = re.search(r'-\d{1,2}\.html$', url)
     if m:
         url = url[:m.start()]+'.html'
-    print 'sheet3--' + url
+    print payload.get('id', ''), 'sheet3--' + url
     try:
         html = get_request(url)
-    except:
+    except Exception as e:
         print 'ERROR---sheet3--'+url
+        print e
         return
-    get_sheet3_body(name, html)
+    get_sheet3_body(payload, html)
     page_number = get_total_page(html)
     for i in range(2, page_number+1):
         next_url = url.replace('.html', '-'+str(i)+'.html')
         try:
             html = get_request(next_url)
-            get_sheet3_body(name, html)
-        except:
+            get_sheet3_body(payload, html)
+        except Exception as e:
             print 'ERROR--sheet3---'+next_url
+            print e
 
 
-def get_sheet3_body(name, html):
+def get_sheet3_body(payload, html):
     global sheet3_data
     reg = '<a name="post\d*?">.*?</a>(.*?)<.*?id="post_message_.*?>(.*?)<div class="vbseo_buttons"'
     text_list = re.compile(reg).findall(html)
     for text in text_list:
+        id = payload.get('id', '')
+        google_headline = payload.get('google_headline', '')
+        sub_thread = payload.get('sub_thread', '')
         date = get_date(text[0])
         if 'class="quote"' in text[1]:
             reg_quote = 'class="quote".*?</div>(.*?)<'
             text = remove_html_tag(re.compile(reg_quote).findall(text[1])[0])
         else:
             text = remove_html_tag(text[1]).split('<')[0]
-        one_row = [remove_html_tag(name), date, text.replace('=', '')]
+        one_row = [id, google_headline, sub_thread, text.replace('=', ''), date]
         sheet3_data.append(one_row)
 
 
@@ -220,6 +239,35 @@ def get_request(get_url):
     return res
 
 
+def read_excel(filename, start):
+    global alldata, sheet2_data, sheet3_data
+    data = xlrd.open_workbook(filename)
+    table = data.sheets()[0]
+    for i in range(start, table.nrows):
+        if i < 44:
+            continue
+        try:
+            google_headline = table.row(i)[0].value.strip()
+            google_url = table.row(i)[1].value.strip()
+            url_list = google_url.split('/')
+            if len(url_list) == 5:
+                topic_url = '/'.join(url_list[:-1])
+                if topic_url in scraped:
+                    continue
+                scraped.add(topic_url)
+                request_sheet2(topic_url, payload={'google_headline': google_headline, 'id': i+1, 'thread_url': topic_url})
+                write_excel('data/sheet_%d_2.xls' % i, sheet2_data)
+                write_excel('data/sheet_%d_3.xls' % i, sheet3_data)
+                del sheet2_data
+                del sheet3_data
+                sheet2_data = [['ID', 'Google Headline', 'Forum Thread URL', 'Sub-Forum Thread', 'Sub-Forum URL', 'Replies', 'Views']]
+                sheet3_data = [['ID', 'Google Headline', 'Forum Thread', 'Comment text', 'Date']]
+        except Exception as e:
+            print 'ERROR--' + str(i)
+            print(e)
+            continue
+
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -238,6 +286,4 @@ sys.setdefaultencoding('utf-8')
 #     del sheet3_data
 #     sheet3_data = [['Thread title', 'Date', 'Comment text']]
 #     gc.collect()
-request_sheet3('WaterBill', 'http://forums.hardwarezone.com.sg/eat-drink-man-woman-16/guess-residents-monthly-water-bill-just-s%243-5582763.html')
-
-write_excel('WaterBill.xls', sheet3_data)
+read_excel('data/input.xlsx', 0)
