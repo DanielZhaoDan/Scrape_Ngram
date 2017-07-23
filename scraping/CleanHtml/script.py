@@ -44,17 +44,16 @@ def read_excel(filename, start):
     table = data.sheets()[0]
     for i in range(start, table.nrows):
         try:
-            if i not in [66, 98, 149, 152, 153, 163, 439, 578, 582, 598]:
+            if i not in [49, 543, 548, 550 ]:
                 continue
             url = table.row(i)[5].value.strip()
             flag = get_cleaned_html(url)
             if not flag:
                 break
-            else:
-                time.sleep(3)
+            time.sleep(0.5)
         except:
             print 'ERROR--' + str(i)
-            time.sleep(10)
+            time.sleep(1)
             continue
 
 
