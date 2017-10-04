@@ -19,7 +19,7 @@ def walk(rootDir):
 
 def read_excel(filename, start):
     print('process -> '+filename)
-    data = xlrd.open_workbook(filename, encoding_override="cp1252")
+    data = xlrd.open_workbook(filename, encoding_override='utf-16-be')
     table = data.sheets()[0]
 
     for i in range(start, table.nrows):
@@ -48,5 +48,6 @@ def write_excel(filename):
 
 files = walk('data')
 for i in range(len(files)):
-    read_excel(files[i], 0 if i == 0 else 1)
-write_excel('result2'+'.xls')
+    if '_3' in files[i]:
+        read_excel(files[i], 0 if i == 0 else 1)
+write_excel('3'+'.xlsx')

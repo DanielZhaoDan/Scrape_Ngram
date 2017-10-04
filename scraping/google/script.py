@@ -15,53 +15,19 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com.sg/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2016&start='
+url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2017&start='
 
 key_words = [
-    # {'keyword': 'travel intext:card intext:safety location:singapore -intext:work -intext:ban', 'bucket': 'Travel',
-    #  'country': 'Singapore'},
-    # {'keyword': 'NFC intext:payment intext:safety location:Singapore', 'bucket': 'Contactless', 'country': 'Singapore'},
-    # {'keyword': 'wallet intext:safe intext:"credit card" location:singapore', 'bucket': 'Mobile',
-    #  'country': 'Singapore'},
-    # {'keyword': 'intext:"credit card" intext:fraud location:singapore', 'bucket': 'Credit Card',
-    #  'country': 'Singapore'},
-    # {'keyword': 'intext:online intext:fraud location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
-    # {'keyword': 'intext:password intext:protect location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
-    # {'keyword': 'Phishing intext:data intext:personal location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
-    # {'keyword': 'Scam intext:online location:singapore', 'bucket': 'Online', 'country': 'Singapore'},
-    # {'keyword': 'phone intext:data intext:protect location:singapore', 'bucket': 'Mobile', 'country': 'Singapore'},
-    # {'keyword': 'bank intext:"credit card" intext:fraud location:singapore', 'bucket': 'Credit Card',
-    #  'country': 'Singapore'},
-    # {'keyword': 'emergency intext:medical intext:travel location:Singapore -intext:trump', 'bucket': 'Travel',
-    #  'country': 'Singapore'},
-    # {'keyword': 'scam intext:travel location:Singapore', 'bucket': 'Travel', 'country': 'Singapore'},
-    # {'keyword': 'travel intext:safety intext:tips location:singapore', 'bucket': 'Travel', 'country': 'Singapore'},
-    # {'keyword': 'intext:payment intext:future location:singapore', 'bucket': 'Payment Future', 'country': 'Singapore'},
-    # {'keyword': 'travel intext:card intext:safety location:Malaysia -intext:work -intext:ban', 'bucket': 'Travel',
-    #  'country': 'Malaysia'},
-    # {'keyword': 'NFC intext:payment intext:safety location:Malaysia', 'bucket': 'Contactless', 'country': 'Malaysia'},
-    # {'keyword': 'wallet intext:safe intext:"credit card" location:Malaysia', 'bucket': 'Mobile', 'country': 'Malaysia'},
-    # {'keyword': 'intext:"credit card" intext:fraud location:Malaysia', 'bucket': 'Credit Card', 'country': 'Malaysia'},
-    # {'keyword': 'intext:online intext:fraud location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
-    # {'keyword': 'intext:password intext:protect location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
-    # {'keyword': 'Phishing intext:data intext:personal location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
-    # {'keyword': 'Scam intext:online location:Malaysia', 'bucket': 'Online', 'country': 'Malaysia'},
-    # {'keyword': 'phone intext:data intext:protect location:Malaysia', 'bucket': 'Mobile', 'country': 'Malaysia'},
-    # {'keyword': 'bank intext:"credit card" intext:fraud location:Malaysia', 'bucket': 'Credit Card',
-    #  'country': 'Malaysia'},
-    # {'keyword': 'emergency intext:medical intext:travel location:Malaysia -intext:trump', 'bucket': 'Travel',
-    #  'country': 'Malaysia'},
-    # {'keyword': 'scam intext:travel location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
-    # {'keyword': 'travel intext:safety intext:tips location:Malaysia', 'bucket': 'Travel', 'country': 'Malaysia'},
-    {'keyword': 'intext:payment intext:future location:Malaysia', 'bucket': 'Payment Future', 'country': 'Malaysia'},
+    {'keyword': 'intext:"Tuv Sud" location:India', 'bucket': '',
+     'country': 'India'},
 ]
 
 http_proxies = [
     'http://183.88.29.181:8080',
 ]
-
+x_client_data = 'CJG2yQEIprbJAQjBtskBCIuYygEI+5zKAQipncoBCNueygEIm6LKAQ=='
 cookie = [
-    'OGPC=5062177-26:5062195-14:5062216-26:695701504-19:699960320-23:448059392-20:527891456-85:1037221888-4:82459648-15:; SID=6AQ-ugwLosQc-sSIhAVvMCxOpPtv3CF1vSHMQ3wxdT5rDXAI4NwvyczDMxKt_WbikHkrWw.; HSID=ApqibyrW6Ak9avKKB; SSID=AUHVI6lNHEvUFaun0; APISID=U__O9PR0Yokrye2a/Ax720X0nUWVXmdrEE; SAPISID=VoVf8vzQN5Mb5qkQ/ADG62ctX8x8Z-y7VP; NID=108=JdOUeauzJoci7P_e9ROtz9jAlIIcJ_5E7q-GrumJ1iR78k8oEf0gFBFgfe44YstZILqUiHJlp-BYe791R1Dw8SKQCfmcCnXp3FXpws5SsMlbSMiC5PLJ4mJhoLK3w98j9dyAS5q-P8ZSLZxSQbgi9QNLb-SKNVUTjcsc_OhrMa4gfS8bg8hpZeZEEo2u5deJbfllI7rnwG7TuNViBkm3dWrfcbQilgFHNYaohOEBwIel26zj51Km-Mq6RSqAOCPI9fqW4wXBJpWVdGWRJLdYi0YlwIUs9X7XeAWKOpY_gYHLolzwWXfQ9x-fQ5Udc5t1lIy8FU_kixdABDO-MI1HShCR6qfg; GOOGLE_ABUSE_EXEMPTION=ID=d73d32a05aa0ebd4:TM=1500803976:C=r:IP=119.74.13.134-:S=APGng0uBHDinz40QgMXSROXOx2FFgEThVg; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMDgwNDA5Mzc1MTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM1ODk5MTkgbG9uZ2l0dWRlX2U3OjEwMzg0MzY3MDZ9IHJhZGl1czoyNDE4MA==; DV=E6kuk-h3zUdI4Kj9qfimNwf1PkXu1lWSmRAn75iXSwIAAHDJisygZJWw2QAAAES6EB6YQujYSAAAAA',
+    'OGPC=5062177-26:5062195-14:5062216-26:695701504-19:699960320-23:448059392-20:527891456-85:1037221888-4:82459648-15:; SID=BQU-urbKaWxaXHdUyq1JbHwxf6Qh7RMvhl8eXzY4SzatwOtXP9VgA8EyqHmZ_lBc76_ZJw.; HSID=A0vHFW-kcGbN-9ZsO; SSID=ALHaEc4_SF7OlG4N_; APISID=NHoiM3Tf7Yd7WrLq/A-5JKqAA0v4dWf27R; SAPISID=7Mc-L-LYuYOlJSef/AZj0yF5YDiI1Gbnp1; NID=110=db9EZIIWHJ1SxLbNnzCImaaG3g0-tvYB0OBQV8jLPS9LZTPQHLXfMdT0pf5h1p0KY__nlrm2Eqma8BmJH7gOz9Zx4EKyM62tZaGzCGCP1DN_HqHeuAjLqLMdhcuCD91B-pHhKZ2XbU8dr8_KwdqzTLxI8qCE8EFpHs9G1b9AMWINWytjaZ6uMVvsLomzzdtdN9CuXVgTKMzIwZFQQJmmTj26djJBcrVekmBAh0jh9MLM_-BQOzIV5YilPX4_qLGS_OyVWFzK-2MoI90; GOOGLE_ABUSE_EXEMPTION=ID=8094698a2bc76e28:TM=1502786443:C=r:IP=101.127.248.164-:S=APGng0uDpEDSJ9ImHNP9WYSXOtNdr4_PtQ; DV=E6kuk-h3zUdIUHttd8fLTU9UQdhQ3hXL3GDguBC-hwMAADCGNlKGfq2HOAEAAIStbbx-WJC9TwAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMjc4NjY0MzYyNTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTI5OTU3NjkgbG9uZ2l0dWRlX2U3OjEwMzc4ODA1MjB9IHJhZGl1czoyNDgwMA==',
 ]
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
@@ -226,8 +192,9 @@ def remove_html_tag(ori):
 
 
 def get_date(ori):
+    ori = ori.replace('Mei', 'May')
     try:
-        date = datetime.strptime(ori, '%d %b %Y')
+        date = datetime.strptime(ori, '%b %d, %Y')
         return date.strftime('%d/%m/%Y')
     except:
         return ori
@@ -239,7 +206,7 @@ def get_request(get_url):
         'connection': 'Keep-Alive',
         'Referer': get_url,
         'Cookie': random.choice(cookie),
-        'x-client-data': 'CJG2yQEIprbJAQjBtskBCPKZygEI+5zKAQipncoBCJuiygE=',
+        'x-client-data': x_client_data,
     }
     proxy = {
         'http': random.choice(http_proxies),

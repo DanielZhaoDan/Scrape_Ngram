@@ -16,7 +16,7 @@ sheet1_data = [
 sheet2_data = [['ID', 'Comments Text']]
 url_bases = 'https://forum.lowyat.net/CreditCardsDebitCardsandLoyaltyCards/+%d'
 
-cookie = 'lyn_mobile=0; __qca=P0-1345311929-1500711678191; lyn_modtids=%2C; lyn_forum_read=a%3A1%3A%7Bi%3A235%3Bi%3A1500718106%3B%7D; _ga=GA1.2.1862363292.1500711678; _gid=GA1.2.1717308491.1500711678; _gat=1; __asc=7f59fe9715d6962ee771362d915; __auc=7f59fe9715d6962ee771362d915'
+cookie = 'lyn_mobile=0; __qca=P0-1345311929-1500711678191; lyn_modtids=%2C; _gat=1; lyn_forum_read=a%3A1%3A%7Bi%3A235%3Bi%3A1500947066%3B%7D; _ga=GA1.2.1862363292.1500711678; _gid=GA1.2.1299710544.1500947127; __asc=491f27b715d776b9b7bb0a13a0e; __auc=7f59fe9715d6962ee771362d915'
 
 
 def write(html, filename):
@@ -121,9 +121,9 @@ def remove_html_tag(ori):
 
 def get_last_date(ori):
     if 'Today' in ori:
-        return '22/07/2017'
+        return '25/07/2017'
     elif 'Yesterday' in ori:
-        ori = '21/07/2017'
+        ori = '24/07/2017'
     try:
         date = datetime.strptime(ori.split('-')[0].replace('th ', ' ').replace('rd ', ' ').replace('st ', ' ').replace('nd ', ' '), '%d %B %Y ')
         return date.strftime('%d/%m/%Y')
@@ -154,13 +154,51 @@ def get_request(get_url):
     return res
 
 
+def write_old_excel(filename, alldata):
+    d = os.path.dirname(filename)
+    if not os.path.exists(d):
+        os.makedirs(d)
+    w = xlwt.Workbook(encoding='utf-8')
+    ws = w.add_sheet('old', cell_overwrite_ok=True)
+    i = 0
+    while len(alldata) > 65500:
+        for row in range(0, 65500):
+            one_row = alldata[row]
+            for col in range(0, len(one_row)):
+                try:
+                    ws.write(row, col, one_row[col][:32766])
+                except:
+                    try:
+                        ws.write(row, col, one_row[col])
+                    except:
+                        print '===Write excel ERROR==='+str(one_row[col])
+        alldata = alldata[65500:]
+        print len(alldata)
+        new_filename = filename.replace('.xls', '_%d.xls'%i)
+        w.save(new_filename)
+        print new_filename + "===========over============"
+        i += 1
+    for row in range(0, len(alldata)):
+        one_row = alldata[row]
+        for col in range(0, len(one_row)):
+            try:
+                ws.write(row, col, one_row[col][:32766])
+            except:
+                try:
+                    ws.write(row, col, one_row[col])
+                except:
+                    print '===Write excel ERROR==='+str(one_row[col])
+    w.save(filename)
+    print filename+"===========over============"
+
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-for i in range(7, 8):
+for i in range(0, 1):
     url = url_bases % (30 * i)
     request_sheet1(url, starter=0)
 
-write_excel('data/sheet1.xlsx', sheet1_data)
-write_excel('data/sheet2.xlsx', sheet2_data)
+write_old_excel('data/sheet1.xlsx', sheet1_data)
+write_old_excel('data/sheet2.xlsx', sheet2_data)
 

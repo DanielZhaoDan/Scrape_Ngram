@@ -36,7 +36,7 @@ def write_excel(filename, data):
 
 def open_browser_scroll(url):
     global html_name
-    driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
+    driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
     time.sleep(sleep_time)
     html_source = driver.page_source
@@ -74,7 +74,7 @@ def request_sheet2(base_url):
 
 
 def redo_scrape():
-    filename = 'data/sheet2.xls'
+    filename = 'data/sheet.xls'
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
     for i in range(1, table.nrows):
@@ -96,7 +96,7 @@ def redo_scrape():
                 sheet2_data.append(one_row)
         except:
             print(i)
-    write_excel('data/sheet3.xls', sheet2_data)
+    write_excel('data/sheet2.xls', sheet2_data)
 
 
 def mapping_local_file():
@@ -140,14 +140,16 @@ def read_excel(filename, start=1):
     table = data.sheets()[0]
 
     for i in range(start, table.nrows-1):
-        if i != 476:
-            continue
         row = table.row(i)
+        # if i <= 260:
+        #     main_url = row[8].value
+        #     sheet_dict[main_url] = 1
+        #     continue
         try:
             main_url = row[8].value
             publisher = row[7].value
             article_url = row[5].value
-            country = row[2].value
+            country = row[2].valuesheet1.xls
             details = request_sheet2(main_url)
             if not details:
                 continue
