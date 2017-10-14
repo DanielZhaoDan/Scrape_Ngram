@@ -89,7 +89,7 @@ def request_sheet1(c_id, url_base, total_post):
     global sheet1_data
     reg = 'icon topic_read.*?href="(.*?)".*?>(.*?)<.*?class="posts">(.*?)<.*?class="views">(.*?)<.*?View the latest post<.*?<br />(.*?)<'
     start = 0
-    while start <= total_post - 100:
+    while start <= total_post:
         url = url_base % start
         print 'SHEET_1 ' + url
         try:
@@ -111,26 +111,39 @@ def request_sheet1(c_id, url_base, total_post):
 
 
 def request_sheet2(c_id, t_id, url):
+    print 'SHEET_2 ' + url
     global sheet2_data, T_ID
-    reg = 'avatar-container.*?href="(.*?)".*?username.*?>(.*?)<.*?class="profile-rank">(.*?)<.*?href.*?>(.*?)<.*?Joined.*?>(.*?)<.*?class="content">(.*?)<'
+    reg = 'avatar-container(.*?)class="content">(.*?)<'
+    avatar_reg = 'href="(.*?)".*?username.*?>(.*?)<.*?class="profile-rank">(.*?)<.*?href.*?>(.*?)<.*?Joined.*?>(.*?)<'
     html = get_request(url)
     replies = re.compile(reg).findall(html)
     for row in replies:
-        profile_url = 'https://www.doctorslounge.com/forums' + row[0][1:]
-        profile_name = row[1]
-        profession = row[2]
-        posts = int(row[3].strip())
-        join_date = get_date(row[4].strip())
-        content = remove_html_tag(row[5])
+        if 'profile-rank' in row[0]:
+            avatar_details = re.compile(avatar_reg).findall(row[0])[0]
+            profile_url = 'https://www.doctorslounge.com/forums' + avatar_details[0][1:]
+            profile_name = avatar_details[1]
+            profession = avatar_details[2]
+            posts = int(avatar_details[3].strip())
+            join_date = get_date(avatar_details[4].strip())
+        else:
+            reg = 'username.*?>(.*?)<'
+            avatar_details = re.compile(reg).findall(row[0])[0]
+            profile_name = avatar_details
+            profile_url = ''
+            profession = ''
+            posts = ''
+            join_date = ''
+        content = remove_html_tag(row[1])
         one_row = [c_id, t_id, content, profile_name, profile_url, profession, posts, join_date]
 
-        if profile_name not in scraped_profile_name:
+        if profile_name not in scraped_profile_name and profile_name != '':
             request_sheet3(profile_url, profile_name)
         sheet2_data.append(one_row)
 
 
 def request_sheet3(url, profile_name):
-    global sheet3_data
+    global sheet3_data, scraped_profile_name
+    scraped_profile_name.add(profile_name)
     sheet3_data.append([url, profile_name])
     # reg = 'discussion clear i.*? xg_lightborder.*?timestamp">(.*?) at.*?xg_user_generated">(.*?)</div'
     # for page in range(1, page_number + 1):
@@ -143,30 +156,6 @@ def request_sheet3(url, profile_name):
     #         comment = remove_html_tag(category[1])
     #         one_row = [T_ID, comment, date]
     #         sheet3_data.append(one_row)
-
-
-def get_latest_date(ori_time):
-    if 'Friday' in ori_time:
-        ori_time = 'Sep 29, 2017'
-    elif 'Thursday' in ori_time:
-        ori_time = 'Sep 28, 2017'
-    elif 'Wednesday' in ori_time:
-        ori_time = 'Sep 27, 2017'
-    elif 'Tuesday' in ori_time:
-        ori_time = 'Sep 26, 2017'
-    elif 'Monday' in ori_time:
-        ori_time = 'Sep 25, 2017'
-    elif 'Saturday' in ori_time:
-        ori_time = 'Sep 30, 2017'
-    elif 'Sunday' in ori_time:
-        ori_time = 'Oct 1, 2017'
-    if ',' not in ori_time:
-        ori_time += ', 2017'
-    try:
-        ret = datetime.strptime(ori_time, "%b %d, %Y").strftime('%d/%m/%Y')
-        return ret
-    except Exception as e:
-        return ori_time
 
 
 def get_date(ori_time):
@@ -225,7 +214,7 @@ def read_excel(filename, start=1):
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-request_sheet2(1,1,'https://www.doctorslounge.com/forums/viewtopic.php?f=84&t=12046&sid=0a42950f6bd084bc6b1393d0c0074bda')
+# request_sheet2(1,1,'https://www.doctorslounge.com/forums/viewtopic.php?f=52&t=181&sid=a7962bd733d116386ef9f5d7e3d0174d')
 read_excel('data/sheet0.xls')
 write_excel('data/sheet1.xls', sheet1_data)
 write_excel('data/sheet2.xls', sheet2_data)
