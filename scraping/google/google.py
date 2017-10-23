@@ -15,13 +15,22 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2017&start='
+url_bases = 'https://www.google.com.sg/search?q={key_word}&newwindow=1&safe=strict&tbs=cdr:1,cd_min:1/1/2016,cd_max:6/30/2017&ei=fwqLWeO_PMXmvgTO977gCw&sa=N&biw=1220&bih=703&start='
 
 key_words = [
-    {'keyword': 'emergency intext:medical intext:travel location:Indonesia -intext:trump', 'bucket': 'darurat intext:kesehatan intext:travel location:Indonesia -intext:trump', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'scam intext:travel location:Indonesia', 'bucket': 'penipuan intext:travel location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:safety intext:tips location:Indonesia', 'bucket': 'travel intext:keamanan intext:tips location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:kartu intext:keamanan location:Indonesia -intext:kerja -intext:larangan', 'bucket': 'Travel', 'country': 'Singapore'},
+    # {'keyword': 'kaligtasan sa credit credit card inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
+    # {'keyword': 'panloloko sa credit credit card inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
+    # {'keyword': 'panloloko sa internet inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
+    {'keyword': 'proteksyon sa password inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
+    # {'keyword': 'phishing sa pilipinas inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
+    # {'keyword': 'scam online sa pinas inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
+    # {'keyword': 'credit card sa internet inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
+    # {'keyword': 'panloloko sa bangko online inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
+    # {'keyword': 'ligtas na paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
+    # {'keyword': 'raket sa paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
+    # {'keyword': 'tips sa paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
+    # {'keyword': 'kabayaran sa kinabukasan online inurl:ph', 'bucket': 'Future payment/online',
+    #  'country': 'Philippines'},
 ]
 
 http_proxies = [
@@ -29,7 +38,7 @@ http_proxies = [
 ]
 
 cookie = [
-    'SID=xQQ33Svb38r7qmapGxt4UVPyp9NavhVmfx1EBDGUtDzBdkC3FoPleuGWRx54BqpzkAkGhQ.; HSID=AGgN9PoxY4HMEora-; SSID=AOCdMdp_6XHnEd9qp; APISID=LfvnGfiTI2WZUQC-/AQrf72uCq7KTRkhoH; SAPISID=_6td03PWM2tP_0ej/ALEul5vhqbyIa_axX; NID=109=kLMViip9aAB21MWYUoYFMEG_nhg767p_dGsUPaLQmoofFYIRw2S4xoy39V0sg3xZa4SYI9sowO_Q0zeRLfVi8AbxH_IoEUD8ErTdv_mLCDqZZE3XK21Ht2GxMEm1CJpgbqPlYHzlA8-TB9tqiQ_UAEq9BJ6Po7ZhdNtZYxc7pZYxdLwiIk0BGc8t1JizMKyOqxTQhRPQUCkHWMny-a6b_UcBPM6l_EA9OZg4O2SZ2yHsFrOUpCnpYLr8aefyUSUR4Z2570an52LIyFptOFoq5X9wPYQ43zqE0D9lH-QRtVP16m4NIJuFLw; GOOGLE_ABUSE_EXEMPTION=ID=0f78f46edfa5ab8c:TM=1502279167:C=r:IP=119.74.13.134-:S=APGng0vhVtKvdXH3irpqtLeO1fstLstj5A; DV=471lmmdi7j5CELa28fphQfbuXRBt3FXttd0dLzc9UQEAADCGNlKGfq2HaAAAALDMDQaOC-F7PAAAAA; SIDCC=AA248bfLFZ8cGBDjClZ5ELWs4whIhJnixWdTfMJF6duHJvCwFx-d7J6HR3uQb-_qrqWpnqccbXRoHUkVR0idKA',
+    'OGPC=845686784-30:5062177-3:5062227-6:; SID=xQQ33Svb38r7qmapGxt4UVPyp9NavhVmfx1EBDGUtDzBdkC3FoPleuGWRx54BqpzkAkGhQ.; HSID=Azl-v0_BCpCYNZwMX; SSID=AUWY-HQGFpGmFQi2o; APISID=LfvnGfiTI2WZUQC-/AQrf72uCq7KTRkhoH; SAPISID=_6td03PWM2tP_0ej/ALEul5vhqbyIa_axX; GOOGLE_ABUSE_EXEMPTION=ID=abcc502aa7cea33a:TM=1502287996:C=r:IP=119.74.13.134-:S=APGng0u-Zbqu0qGFQZF1euPKm_dG-0amWw; NID=109=uQ57QFa8ZDLUWWFTOhWB6DGhYl0REVk-ml-wLSMsz1PrJJgROQqhp2HnVrfoDFDvpA6zTxgwxT2_oE8UR3yB1fXJP8MthNfqSjqz7EOqj2w5yFfUg7MKREAwYoz0LL8IeiaeUm1t6r_U7OgZ7OtnKGOtYZI4bUzLa0nxAj3-WlBJ-WafjNEYiryBL6H91h2UU0xbySIsZtbTEbvHX1BqL_u7hbKCQ_EZ2JNtFTP3wQ0vp4cCCOgx9wRJkHcZDLd9NFPBr0g--dXsVlHyxKDxfwRq12Po7iV6MuKp7GwNFPbeDAVKODhj57Bm7sW36LLRaDMqfYr9_F7PSDeSXk3CWV_bFmr9dKs; DV=471lmmdi7j5CMIY2UoZ-rYeIYX113FXttd0dLzc90QEAAMAyNxg4LoTvEQEAAIStbbx-WJC9WwAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMjI4ODAxMzM5MDAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM1ODk2NzYgbG9uZ2l0dWRlX2U3OjEwMzg0MzY3NTF9IHJhZGl1czoyNDgwMA==',
 ]
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
@@ -79,14 +88,15 @@ def request_sheet1(key_word, url_base):
     while True:
         url = url_base + str(page_no - 1) + '0'
         print url
-        if page_no > 5:
+        if page_no > 4:
             break
         html = get_request(url)
-        if 'Our systems have detected unusual traffic from your computer network' in html:
+        if 'Our systems have detected unusual traffic' in html or '我们的系统检测到您的计算机网络' in html:
             return True
         if total_count == 0:
             total_count = get_total_count(html)
-        topic_detail_reg = '<h3 .*?href="(.*?)".*?>(.*?)</a>.*?span.*?>(.*?)<.*?f nsa _.*?">(.*?)<'
+
+        topic_detail_reg = '<h3 .*?href="(.*?)".*?>(.*?)</a>.*?span class="f">(.*?)<.*?>(.*?)</span'
         topic_detail = re.compile(topic_detail_reg).findall(html)
         if not topic_detail:
             break
@@ -96,15 +106,15 @@ def request_sheet1(key_word, url_base):
             o = urlparse(url)
             main_url = o.scheme + '://' + o.netloc
             headline = remove_html_tag(detail[1])
-            publisher = detail[2]
-            date = get_date(detail[3])
-            # content = get_raw_content(url)
-            content = ''
+            publisher = o.netloc
+            date = get_date(detail[2].split(' - ')[0])
+            content = remove_html_tag(detail[3])
             rank = str(page_no) + '.' + ('0' if i < 10 else '') + str(i)
             one_row = [key_word['keyword'], key_word['bucket'], key_word['country'], total_count, page_no, url, date,
                        publisher, main_url, headline, content,
                        rank]
             sheet1_data.append(one_row)
+            print(one_row)
             i += 1
         page_no += 1
         time.sleep(3)
@@ -195,7 +205,7 @@ def remove_html_tag(ori):
 
 def get_date(ori):
     try:
-        date = datetime.strptime(ori, '%d %b %Y')
+        date = datetime.strptime(ori, '%b %d, %Y')
         return date.strftime('%d/%m/%Y')
     except:
         return ori
@@ -230,4 +240,4 @@ for url in urls:
     stop = request_sheet1(url[0], url[1])
     if stop:
         break
-write_excel('data/sheet1.xls', sheet1_data)
+write_excel('data/sheet2.xls', sheet1_data)
