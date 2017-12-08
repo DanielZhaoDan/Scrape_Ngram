@@ -12,7 +12,6 @@ sheet2_data = [['Name of Publisher', 'Main url', 'Url of article', 'Country', 'C
 sheet_dict = {}
 sleep_time = 3
 
-
 def write(html, filename):
     fp = open(filename, "w")
     fp.write(html)
@@ -36,7 +35,7 @@ def write_excel(filename, data):
 
 def open_browser_scroll(url):
     global html_name
-    driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
+    driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
     driver.get(url)
     time.sleep(sleep_time)
     html_source = driver.page_source
@@ -50,7 +49,7 @@ def request_sheet2(base_url):
     if sheet_dict.get(base_url):
         return None
 
-    rank_reg = 'rankingItem--global.*?rankingItem-value.*?>(.*?)<.*?rankingItem--country.*?rankingItem-value.*?>(.*?)<.*?rankingItem--category.*?rankingItem-value.*?>(.*?)<.*?Total Visits.*?countValue">(.*?)<'
+    rank_reg = 'rankingItem--global.*?rankingItem-value.*?>(.*?)<.*?rankingItem--country.*?rankingItem-value.*?>(.*?)<.*?rankingItem--category.*?rankingItem-value.*?>(.*?)<.*?Total Visits(.*?)Traffic Source'
     country_tag = 'accordion-toggle.*?countValue">(.*?)<.*?country-name.*?>(.*?)<'
 
     url = 'https://www.similarweb.com/website/' + base_url.replace('http://', '').replace('https://', '').split('www.')[-1]
@@ -58,7 +57,13 @@ def request_sheet2(base_url):
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
         sleep_time = 3
-        ret = [global_ranks[0][0].replace('[#,]', ''), global_ranks[0][1].replace('[#,]', ''), global_ranks[0][2].replace('[#,]', ''), global_ranks[0][3]]
+        ret = [global_ranks[0][0].replace('[#,]', ''), global_ranks[0][1].replace('[#,]', ''), global_ranks[0][2].replace('[#,]', '')]
+        if 'countValue">' in global_ranks[0][3]:
+            count_value_reg = 'countValue">(.*?)<'
+            count_value = re.compile(count_value_reg).findall(global_ranks[0][3])[0]
+            ret.append(count_value)
+        else:
+            ret.append(0)
     else:
         sleep_time = 20
         ret = [0, 0, 0, 0]
@@ -96,7 +101,7 @@ def redo_scrape():
                 sheet2_data.append(one_row)
         except:
             print(i)
-    write_excel('data/sheet3.xls', sheet2_data)
+    write_excel('data/sheet2_2.xls', sheet2_data)
 
 
 def mapping_local_file():
@@ -140,8 +145,6 @@ def read_excel(filename, start=1):
     table = data.sheets()[0]
 
     for i in range(start, table.nrows-1):
-        if i < 121:
-            continue
         row = table.row(i)
         try:
             main_url = row[8].value
@@ -154,12 +157,14 @@ def read_excel(filename, start=1):
             one_row = [publisher, main_url, article_url, country] + details
             print i, one_row
             sheet2_data.append(one_row)
-        except:
-            print(i)
+        except Exception as e:
+            print(i, e)
 
-# redo_scrape()
-# mapping_local_file()st
+redo_scrape()
+mapping_local_file()
 
-filename = 'data/PH_Google.xlsx'
-read_excel(filename, start=1,)
-write_excel('data/sheet2.xls', sheet2_data)
+
+filename = 'data/sheet1.xls'
+# read_excel(filename, start=1,)
+# write_excel('data/sheet2.xls', sheet2_data)
+
