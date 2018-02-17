@@ -135,11 +135,11 @@ def read_excel_get_data(filename, filename_prefix, start=1, length=150):
             print i, e
 
 
-filename_prefix = 'GM_EN_sheet2'
-# filename = 'data/GM_sheet1.xls'
+filename_prefix = 'sheet2'
+# filename = 'data/sheet1.xls'
 # read_excel_filter_duplicated(filename, start=1)
-# write_excel('data/GM_sheet2.xls', sheet2_data)
-read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=500)
+# write_excel('data/sheet2.xls', sheet2_data)
+read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=150)
 write_excel('data/%s_end.xls' % filename_prefix, sheet2_data)
 
 

@@ -15,13 +15,10 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2017&start='
+url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A2%2F7%2F2017%2Ccd_max%3A2%2F7%2F2018&start='
 
 key_words = [
-    {'keyword': 'emergency intext:medical intext:travel location:Indonesia -intext:trump', 'bucket': 'darurat intext:kesehatan intext:travel location:Indonesia -intext:trump', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'scam intext:travel location:Indonesia', 'bucket': 'penipuan intext:travel location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:safety intext:tips location:Indonesia', 'bucket': 'travel intext:keamanan intext:tips location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:kartu intext:keamanan location:Indonesia -intext:kerja -intext:larangan', 'bucket': 'Travel', 'country': 'Singapore'},
+    {'keyword': 'yoodo location:malaysia',  'bucket': 'yoodo', 'country': 'malaysia'},
 ]
 
 http_proxies = [
@@ -79,7 +76,7 @@ def request_sheet1(key_word, url_base):
     while True:
         url = url_base + str(page_no - 1) + '0'
         print url
-        if page_no > 5:
+        if page_no > 10:
             break
         html = get_request(url)
         if 'Our systems have detected unusual traffic from your computer network' in html:
@@ -107,7 +104,7 @@ def request_sheet1(key_word, url_base):
             sheet1_data.append(one_row)
             i += 1
         page_no += 1
-        time.sleep(3)
+        time.sleep(1)
     return False
 
 

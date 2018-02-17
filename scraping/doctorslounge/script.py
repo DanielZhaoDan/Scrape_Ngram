@@ -214,8 +214,8 @@ def read_excel(filename, start=1):
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-# request_sheet2(1,1,'https://www.doctorslounge.com/forums/viewtopic.php?f=52&t=181&sid=a7962bd733d116386ef9f5d7e3d0174d')
-read_excel('data/sheet0.xls')
-write_excel('data/sheet1.xls', sheet1_data)
-write_excel('data/sheet2.xls', sheet2_data)
-write_excel('data/sheet3.xls', sheet3_data)
+request_sheet2(1,1,'https://www.doctorslounge.com/forums/viewtopic.php?f=52&t=181&sid=a7962bd733d116386ef9f5d7e3d0174d')
+# read_excel('data/sheet0.xls')
+# write_excel('data/sheet1.xls', sheet1_data)
+# write_excel('data/sheet2.xls', sheet2_data)
+# write_excel('data/sheet3.xls', sheet3_data)

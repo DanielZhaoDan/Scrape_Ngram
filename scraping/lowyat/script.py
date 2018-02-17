@@ -12,9 +12,9 @@ import random
 import xlsxwriter
 
 sheet1_data = [
-    ['ID', 'Headline', 'URL', 'Replies', 'Views', 'Last Update Date', 'Post Date']]
+    ['ID', 'Headline', 'URL', 'Replies', 'Views', 'Topic Starter', 'Last Update Date', 'Post Date']]
 sheet2_data = [['ID', 'Comments Text']]
-url_bases = 'https://forum.lowyat.net/CreditCardsDebitCardsandLoyaltyCards/+%d'
+url_bases = 'https://forum.lowyat.net/TelcoTalk/+%d'
 
 cookie = 'lyn_mobile=0; __qca=P0-1345311929-1500711678191; lyn_modtids=%2C; _gat=1; lyn_forum_read=a%3A1%3A%7Bi%3A235%3Bi%3A1500947066%3B%7D; _ga=GA1.2.1862363292.1500711678; _gid=GA1.2.1299710544.1500947127; __asc=491f27b715d776b9b7bb0a13a0e; __auc=7f59fe9715d6962ee771362d915'
 
@@ -48,7 +48,7 @@ def request_sheet1(url, starter=0):
 
     print url
     html = get_request(url)
-    topic_detail_reg = 'Begin Topic Entry (\d*).*?This topic was started: (.*?)">(.*?)<.*?<td.*?href.*?>(.*?)<.*?<td.*?<td.*?= "(.*?)".*?class="lastaction">(.*?)<'
+    topic_detail_reg = 'Begin Topic Entry (\d*).*?This topic was started: (.*?)">(.*?)<.*?<td.*?href.*?>(.*?)<.*?class="desc".*?>(.*?)<.*?<td.*?<td.*?= "(.*?)".*?class="lastaction">(.*?)<'
     topic_detail = re.compile(topic_detail_reg).findall(html)
 
     i = 0
@@ -61,21 +61,21 @@ def request_sheet1(url, starter=0):
             id = int(detail[0])
             topic_url = 'https://forum.lowyat.net/topic/%d/' % id
             start_date = get_date(detail[1].split(',')[0])
-            headline = detail[2]
-            replies = detail[3]
+            headline = detail[2] + ' ' + detail[3]
+            replies = detail[4]
             if '--' in replies:
                 replies = 0
             else:
                 replies = int(replies.replace(',', ''))
-            views = detail[4]
+            views = detail[5]
             if '--' in views:
                 views = 0
             else:
                 views = int(views.replace(',', ''))
-            end_date = get_last_date(detail[5])
+            end_date = get_last_date(detail[6])
             one_row = [id, headline, topic_url, replies, views, end_date, start_date]
             sheet1_data.append(one_row)
-            request_sheet2(id, topic_url+'+%d')
+            # request_sheet2(id, topic_url+'+%d')
         except Exception as e:
             print 'ERROR-- ' + url
             print e
