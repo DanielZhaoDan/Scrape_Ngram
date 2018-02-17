@@ -7,10 +7,14 @@ import urllib2, urllib
 import xlwt, xlrd
 import sys
 import os
+import random
 
 sheet2_data = [['Name of Publisher', 'Main url', 'Url of article', 'Country', 'Clobal Rank', 'Country Rank', 'Category Rank', 'Engagement', 'Top Country 1', 'Traffic 1', 'Top Country 2', 'Traffic 2', 'Top Country 3', 'Traffic 3', 'Top Country 4', 'Traffic 4', 'Top Country 5', 'Traffic 5']]
 sheet_dict = {}
 sleep_time = 3
+proxy = [
+    '223.243.176.211:38132'
+]
 
 def write(html, filename):
     fp = open(filename, "w")
@@ -36,6 +40,8 @@ def write_excel(filename, data):
 def open_browser_scroll(url):
     global html_name
     try:
+        # options = Options()
+        # options.add_argument('--proxy-server=%s', random.choice(proxy))
         driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
         driver.get(url)
         time.sleep(sleep_time)
@@ -59,7 +65,6 @@ def request_sheet2(base_url):
     html = open_browser_scroll(url)
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
-        sleep_time = 1
         ret = [remove_html_tag(global_ranks[0][0]), remove_html_tag(global_ranks[0][1]), remove_html_tag(global_ranks[0][2])]
         if 'engagementInfo-valueNumber js-countValue' in global_ranks[0][3]:
             count_value_reg = 'engagementInfo-valueNumber js-countValue">(.*?)<'
@@ -67,9 +72,10 @@ def request_sheet2(base_url):
             ret.append(count_value)
         else:
             ret.append(0)
+        sleep_time = 1
 
     else:
-        sleep_time = 30
+        sleep_time = 25
         ret = [0, 0, 0, 0]
 
     country_ranks = re.compile(country_tag).findall(html)
@@ -135,11 +141,11 @@ def read_excel_get_data(filename, filename_prefix, start=1, length=150):
             print i, e
 
 
-filename_prefix = 'sheet2'
-# filename = 'data/sheet1.xls'
+filename_prefix = 'US_sheet2'
+# filename = 'data/GM_sheet1.xls'
 # read_excel_filter_duplicated(filename, start=1)
-# write_excel('data/sheet2.xls', sheet2_data)
-read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=150)
+# write_excel('data/GM_sheet2.xls', sheet2_data)
+read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=2000)
 write_excel('data/%s_end.xls' % filename_prefix, sheet2_data)
 
 

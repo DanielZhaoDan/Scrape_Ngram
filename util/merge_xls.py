@@ -48,6 +48,6 @@ def write_excel(filename):
 
 files = walk('data')
 for i in range(len(files)):
-    if 'sheet2_' in files[i]:
+    if '' in files[i]:
         read_excel(files[i], 0 if i == 0 else 1)
-write_excel('3'+'.xlsx')
+write_excel('Employed'+'.xlsx')

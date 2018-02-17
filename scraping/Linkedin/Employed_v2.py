@@ -13,18 +13,17 @@ import time
 import ssl
 
 P_ID = 1
-sheet1_data = [['Keyword+Name', 'Key', 'keyword', 'name', 'skill', 'endorsed', 'URL', 'Title', 'Company', 'Company URL', 'Followers', 'Start', 'End', 'Current Title', 'Current Job Desp.', 'Company-Size', 'Industry']]
+sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
+sheet1_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Personal Location', 'Followers', 'Self Desp.', 'Start', 'End', 'duration', 'Company URL', 'Company Name', 'Company Location', 'Current Title', 'Current Job Desp.']]
+sheet2_data = [['Profile ID', 'Skill Name', 'Endorsements']]
 pwd = 'babushona13'
-cookie = 'bcookie="v=2&a2c264bf-22f6-4e04-8e45-ea33a1a215c3"; bscookie="v=1&201801170600573d40b408-6b30-455f-872a-d3dfab037411AQEeUoBXCefKKDrESZX4DdNmjYJciPRv"; _ga=GA1.2.1722318312.1516173771; visit="v=1&M"; lang="v=2&lang=en-us"; sdsc=22%3A1%2C1518836114040%7ECONN%2C0Cu%2BJACrk78B3WoQ%2BWzgyhvq3g7k%3D; JSESSIONID="ajax:1666134097818962763"; join_wall=v=3&AQFZwa7E8U7ZsAAAAWGiA4NtzsuUCEn_rbkXPvaSP-5Od1uD78moVQD9NXQNjQLYQzkpKnCfduQRqbh-XKUn4ZzHK7jSzGsGR061HZjUmDEBgzY9Up5r2YAkKKfNoQ-_KAmzaC5ydRM9dLlOGuv_Xe-Dr9CzfRkemuAE1o1ZQL5yro_NqtwPUAxTvWNw6DnZnD-AbLAiX1LYk41-Vyo; _gat=1; leo_auth_token="GST:9NtV1IVXj3VhO-xnFBpi5cD5A0wuSY2h5xHrUp-X7ZGp9yNhkdgxFX:1518844903:e395a9ace150a975367c363898564859a3123f90"; sl="v=1&KDRH8"; li_at=AQEDARo-DEsE5BvdAAABYaI2AQAAAAFhxkKFAFEAbbPO41Tyc4j3gnbOOU0kPeWznNzaSme0Z65a_Tnsa01MWU4nDQsP8ssZjf8uFTtRLDQrV5TE0jBanK-RDnSPOs-XGiaiuL_qSDsolYVt1zyqk3lM; liap=true; RT=s=1518845017730&r=https%3A%2F%2Fwww.linkedin.com%2F; _lipt=CwEAAAFhojaBuqwnE1HKAGEiXjfM96e9m5fBgMVSJVDCQHFh_LanAYXJe3xFkVn2GbBkIMvRAbQsV0ELvcDoJdwX5w8Wp8lzH0y_NW8L6qx88ucwdKKGRRpRxxkTDQVFmKggt_d_KpE7OJ1ODOgJgPlYjqoBwSM6kBOGjq0NAgVqWevSyZFJ7RWH03gSBz8cPIZoYdy0s3XLcvrwBdwNsJaMezctI3C6okngqd7MCLKPPlmX3x4UZNuu2E6OqnbJ8dMzuKWst0K2_OKdpJ-5LQWWG9UU26XuIXHfVK8nsrOPTW_SaxGuWW1cp28eSzR56fsGjHS591Bri0Xd_PXSkOAakMnU2ho9CjcPqXSBZGsM; lidc="b=SB95:g=44:u=75:i=1518844959:t=1518922482:s=AQE4Noczc5HiH0TSYIMGcHiaXTg6qRs1"'
+cookie = 'JSESSIONID=ajax:8568514931401773276; bcookie="v=2&5e642870-bae7-4d7d-86f2-a88f4250c1c4"; bscookie="v=1&20180217075906d4de8175-476a-43d3-8a59-addca01437f2AQGQfAavP6iKl8lQZv-IXl-DC48s83M8"; _ga=GA1.2.282991545.1518854461; _gat=1; liap=true; sl=v=1&rjBnu; li_at=AQEDASYTMb4CJh5fAAABYaLGmvAAAAFhxtMe8FEABxu2YSdDYNem9Kzqsno0INDJvKpIATkdK6jFVCaCll6pb3-AUfVKCU-4xihWCpO7qR0Itk144Zq95gsCoad_R1OY4U576LRQfdl4h9-kB9gUitqy; RT=s=1518854493911&r=https%3A%2F%2Fwww.linkedin.com%2F; visit="v=1&M"; lang="v=2&lang=en-us"; _lipt=CwEAAAFhosfvERUXFq-oVDIW0-y6Vn6SbAFbSwzadan08wcYFjqvhpp42snOqhqkpzIzpsC6tKbB7NC7JpRjl1khbwzOYI5th30JIiXKy_qZ3_J2F0bhnrNF9dA; lidc="b=SGST01:g=3:u=1:i=1518854467:t=1518940780:s=AQF07H7sYt4pyYmC1skt6-G_7qN4aZXL"'
 
-urls = [
-    # 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22my%3A0%22%5D&keywords=adax&page=',
-    'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"my%3A0"%5D&keywords=Telecommunications&page=',
-    # 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B%22sg%3A0%22%5D&keywords=Digitalization&page=',
+manual_data = [
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"my%3A0"%5D&keywords=Telecommunications&page=', 'keyword': 'Telecommunications', 'total_result': 61774, 'pid_prefix': 'TC_%d', 'location': 'MY'},
+    {'url': 'https://www.linkedin.com/search/results/people/?keywords=Axiata%20Digital&page=', 'keyword': 'Axiata Digital', 'total_result': 445, 'pid_prefix': 'AD_%d', 'location': 'Global'},
 ]
-key_words = [
-    'khazanah nasional',
-]
+
 
 unique_set = set()
 company_data = {}
@@ -72,9 +71,11 @@ def write_excel(filename, alldata, flag=None):
     print filename+"===========over============"
 
 
-def request_sheet1(url, key_word):
-    print url
-    global sheet1_data, P_ID, unique_set
+def get_profile_list(item, index):
+    global P_ID, sheet0_data, unique_set
+    url = item['url'] + str(index)
+    print(url)
+
     raw_reg = '"firstName":"(.*?)","lastName":"(.*?)".*?"occupation":"(.*?)".*?"objectUrn":"(.*?)".*?"publicIdentifier":"(.*?)"'
     html = get_request(url)
     profiles = re.compile(raw_reg).findall(html)
@@ -96,42 +97,28 @@ def request_sheet1(url, key_word):
             if personal_url in unique_set:
                 continue
             unique_set.add(personal_url)
-            personal_html = get_request(personal_url)
-            profile_details, company_url = request_profile_detail(personal_url, personal_html)
-
-            skill_list = get_endorse_details(personal_url, personal_html)
-
-            if company_url == 'N/A':
-                staff_count, industries = 0, []
-            else:
-                if company_data.get(company_url):
-                    staff_count, industries = company_data.get(company_url)
-                else:
-                    staff_count, industries = request_company(company_url)
-                    company_data[company_url] = [staff_count, industries]
-
-            if not industries:
-                industries = ['N/A']
-
-            if not skill_list:
-                skill_list = [['N/A', 0]]
-
-            for industry in industries:
-               for item in skill_list:
-                    skill = item[0]
-                    one_row = ['%s_%s' % (key_word, name), '%s_%s' % (name, skill), key_word, name, skill, item[1], personal_url, occupation, company, company_url] + profile_details + [staff_count, industry]
-                    sheet1_data.append(one_row)
+            profile_id = item['pid_prefix'] % P_ID
+            one_row = [item['keyword'], item['location'], item['total_result'], profile_id, name, personal_url, occupation, company]
+            sheet0_data.append(one_row)
+            P_ID += 1
         except urllib2.HTTPError as e:
             if e.code == 302:
                 return 0
         except Exception as e:
             print str(e)
             print 'ERR---level 1---' + url
-        time.sleep(5)
     return len(profiles)
 
 
-def request_profile_detail(url, html):
+def request_profile(profile_id, personal_url):
+    personal_html = get_request(personal_url)
+    profile_details = request_profile_detail(personal_html)
+
+    # get_endorse_details(profile_id, personal_url)
+    return profile_details
+
+
+def request_profile_detail(html):
     start_date = [1970, 1]
     current_job = ['N/A', 'N/A']
     company_url = 'N/A'
@@ -141,6 +128,14 @@ def request_profile_detail(url, html):
     follower_data = re.compile(follower_reg).findall(html)
     if follower_data:
         follower_count = int(follower_data[0])
+    summary_reg = '"summary":"(.*?)".*?"locationName":"(.*?)"'
+    summary_data = re.compile(summary_reg).findall(html)
+    if summary_data:
+        location = summary_data[0][1]
+        summary_data = summary_data[0][0]
+    else:
+        summary_data = ''
+        location = ''
     data_reg = '\{"data":\{"patentView"(.*?)\}\]\}'
     data_str = re.compile(data_reg).findall(html)
     if data_str:
@@ -171,24 +166,27 @@ def request_profile_detail(url, html):
         entry_id = lastest_start_date.split(',timePeriod')[0]
         for job in jobs_list:
             if entry_id == job.get('entityUrn'):
-                current_job = [job.get('title', ''), job.get('description', '')]
+                current_job = [job.get('companyName', ''), job.get('locationName', ''), job.get('title', ''), job.get('description', '')]
                 company_id = job.get('companyUrn', '').split(':')[-1]
                 company_url = 'https://www.linkedin.com/company/%s/' % company_id
                 break
+        if start_date[0] == 1970:
+            duration = 0
+        else:
+            duration = (2018 - start_date[0] - 1) * 12 + (12 - start_date[1]) + 2
 
-    return [follower_count, '%d/%d' % (start_date[1], start_date[0]), 'Present'] + current_job, company_url
+    return [location, follower_count, summary_data, '%d/%d' % (start_date[1], start_date[0]), 'Present', duration, company_url] + current_job
 
 
-def get_endorse_details(url, html):
+def get_endorse_details(profile_id, url):
+    global sheet2_data
     endorse_url = 'https://www.linkedin.com/voyager/api/identity/profiles/%s/featuredSkills?includeHiddenEndorsers=true&count=50' % url.split('/')[-1]
     html = get_request(endorse_url)
     data_obj = json.loads(html)
-    ret = []
 
     for item in data_obj.get('elements', []):
-        one_row = [item['skill']['name'], item['endorsementCount']]
-        ret.append(one_row)
-    return ret
+        one_row = [profile_id, item['skill']['name'], item['endorsementCount']]
+        sheet2_data.append(one_row)
 
 
 def get_date(timestamp):
@@ -205,16 +203,28 @@ def remove_html_tag(ori):
     return str(HTMLParser.HTMLParser().unescape(dd))
 
 
-def get_request(get_url):
+def urllib_request(get_url):
     ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     req = urllib2.Request(get_url)
     req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
-    req.add_header("connection", "Keep-Alive")
+    # req.add_header("connection", "Keep-Alive")
     req.add_header("Referer", 'https://www.linkedin.com/')
     req.add_header("Cookie", cookie)
-    # req.add_header('csrf-token', 'ajax:1666134097818962763')
-    res_data = urllib2.urlopen(req, timeout=10, context=ctx)
+    # req.add_header('csrf-token', 'ajax:8568514931401773276')
+    req.add_header('upgrade-insecure-requests', '1')
+    res_data = urllib2.urlopen(req, timeout=10)
     res = res_data.read()
+    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
+    return HTMLParser.HTMLParser().unescape(res)
+
+
+def get_request(url):
+    header = {
+        'cookie': cookie,
+        'csrf-token': 'ajax:8568514931401773276',
+    }
+    res_data = requests.get(url, headers=header)
+    res = res_data.content
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return HTMLParser.HTMLParser().unescape(res)
 
@@ -237,19 +247,17 @@ def read_excel(filename, start=1):
     data = xlrd.open_workbook(filename, encoding_override="cp1252")
     table = data.sheets()[0]
 
-    for i in range(start, table.nrows-1):
+    for i in range(start, table.nrows):
         row = table.row(i)
         try:
-            profile_url = row[3].value
-            id = row[0].value
-            # request_sheet2(profile_url+'/recent-activity/', id)
-            # request_sheet2(profile_url+'/recent-activity/shares/', id)
-            companys = request_company(profile_url)
-            one_row = [row[0].value, row[1].value, row[2].value, row[3].value, row[4].value, row[5].value, row[6].value] + companys
-            company_data.append(one_row)
-            if i % 400 == 0:
-                write_excel('data/res'+str(i)+'.xls', company_data)
-        except:
+            stored_data = [row[j].value for j in range(6)]
+            profile_url = stored_data[5]
+            details = request_profile(stored_data[3], profile_url)
+            one_row = stored_data + details
+            print(one_row)
+            sheet1_data.append(one_row)
+        except Exception as e:
+            print(str(e))
             print(i)
 
 
@@ -257,22 +265,6 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 # scrape profile data
-stop = False
-for i in range(len(key_words)):
-    key_word = key_words[i]
-    if stop:
-        break
-    for j in range(1, 30):
-        try:
-            url = urls[i] + str(j)
-            count = request_sheet1(url, key_word)
-            if count == 0:
-                break
-        except urllib2.HTTPError as e:
-            if e.code == 302:
-                stop = True
-    write_excel('data/Employed_%s.xls' % key_word, sheet1_data)
-    del sheet1_data
-    sheet1_data = [
-        ['Keyword+Name', 'Key', 'keyword', 'name', 'skill', 'endorsed', 'URL', 'Title', 'Company', 'Company URL',
-         'Followers', 'Start', 'End', 'Current Title', 'Current Job Desp.', 'Company-Size', 'Industry']]
+read_excel('data/Employed_0_Axiata Digital.xls', start=293)
+write_excel('data/res1.xls', sheet1_data)
+write_excel('data/res2.xls', sheet2_data)
