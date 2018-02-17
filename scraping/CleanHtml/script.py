@@ -15,7 +15,7 @@ def get_request(get_url):
         'Referer': get_url,
         'Cookie': cookie,
     }
-    res_data = requests.get(get_url, headers=headers, timeout=5)
+    res_data = requests.get(get_url, headers=headers, timeout=10)
     return res_data
 
 
@@ -48,8 +48,8 @@ def read_excel(filename, start):
     table = data.sheets()[0]
     for i in range(start, table.nrows):
         try:
-            # if i not in [1, 93, 107, 145, 161, 195, 372, 376, 501, 527, 593, 623, 641, 711, 1127, 1141, 1189, 1203, 1247, 1306, 1402, 1404, 1531, 1743, 1894, 2542, 2571, 2612, 2615, 2658, 2870, 2912, 3294, 3300, 4055, ]:
-            #     continue
+            if i not in [1, 3, 4, 10, 11, 12, 13, 15, 19, 20, 21, 22, 24, 26, 27, 28, 33, 34, 35, 36, 37, 39, 43, 44, 45]:
+                continue
             url = table.row(i)[5].value.strip()
             flag = get_cleaned_html(url)
             if not flag:
@@ -83,5 +83,5 @@ def write_excel(filename, data):
     workbook.close()
     print filename + "===========over============"
 
-read_excel('data/SG_sheet1.xls', 1)
-write_excel('data/SG_sheet3.xls', alldata)
+read_excel('data/sheet1.xls', 1)
+write_excel('data/sheet3.xls', alldata)

@@ -15,22 +15,22 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&ei=iLEdWZebA8GKvQTWspmABA&sa=N&biw=1777&bih=404&&tbs=cdr%3A1%2Ccd_min%3A1%2F1%2F2016%2Ccd_max%3A6%2F30%2F2017&start='
+url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&sa=N&biw=1777&bih=404&tbs=qdr:w&start='
+
+FIRST_START = 1
+cookie = [
+    'SID=oAU-uimd1Lw5AgqYpJ4tnCzD6ovHrnng-KBR0KRWQ52bTceYzWaCneV3qoOgYRJUgYTWdg.; HSID=AvHgBToXJpR_R4Hei; SSID=AE60l5oZ33I6CTqW_; APISID=8oyn0SMNBTzk7F6y/A_G6aWcP_3ns9Oek4; SAPISID=lRCCG26422F1KX14/ADmz5zBt5NhTuLoqA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUxNTgyOTIyMjk5NTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTI5OTc3NTUgbG9uZ2l0dWRlX2U3OjEwMzc4ODA4Nzd9IHJhZGl1czozNDEwMA==; GOOGLE_ABUSE_EXEMPTION=ID=b59abef64adfdcbc:TM=1515829423:C=r:IP=101.127.248.164-:S=APGng0uB6nhTzYzEG1zxxCETuimpO9EIPg; NID=121=oXmJRMXUYqFhk5TEvfVrkIGlQqiRKk0W-Vg49REN-xbO0YWo-cJdzfAN705o2Siu3b4ln311r8kAk08zakjKFT8mm9FKdKq51C8qmjplPWYgGRHVydvC_YqyLBCR-_EUvz0fVO7WXYsW9Im9ct3i-U671dmBmo8aTLfqgOCMRMMBaToyy7yxJ-3IMiRiboxEMJPTrf_k-xCUAYYWLYx7Ig; 1P_JAR=2018-1-13-7; DV=E6kuk-h3zUdIwDI3GDguhO9RB5jnDlbttd0dLzc9EQUAADCGNlKGfq2HWAEAAIStbbx-WJC9WwAAAA'
+]
 
 key_words = [
-    {'keyword': 'emergency intext:medical intext:travel location:Indonesia -intext:trump', 'bucket': 'darurat intext:kesehatan intext:travel location:Indonesia -intext:trump', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'scam intext:travel location:Indonesia', 'bucket': 'penipuan intext:travel location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:safety intext:tips location:Indonesia', 'bucket': 'travel intext:keamanan intext:tips location:Indonesia', 'bucket': 'Travel', 'country': 'Singapore'},
-    {'keyword': 'travel intext:kartu intext:keamanan location:Indonesia -intext:kerja -intext:larangan', 'bucket': 'Travel', 'country': 'Singapore'},
+    {'keyword': '"home loan" location:india', 'bucket': '', 'country': 'SG'},
+    {'keyword': 'होम लोन location:india', 'bucket': '', 'country': 'IN'},
 ]
 
 http_proxies = [
     'http://183.88.29.181:8080',
 ]
-
-cookie = [
-    'SID=xQQ33Svb38r7qmapGxt4UVPyp9NavhVmfx1EBDGUtDzBdkC3FoPleuGWRx54BqpzkAkGhQ.; HSID=AGgN9PoxY4HMEora-; SSID=AOCdMdp_6XHnEd9qp; APISID=LfvnGfiTI2WZUQC-/AQrf72uCq7KTRkhoH; SAPISID=_6td03PWM2tP_0ej/ALEul5vhqbyIa_axX; NID=109=kLMViip9aAB21MWYUoYFMEG_nhg767p_dGsUPaLQmoofFYIRw2S4xoy39V0sg3xZa4SYI9sowO_Q0zeRLfVi8AbxH_IoEUD8ErTdv_mLCDqZZE3XK21Ht2GxMEm1CJpgbqPlYHzlA8-TB9tqiQ_UAEq9BJ6Po7ZhdNtZYxc7pZYxdLwiIk0BGc8t1JizMKyOqxTQhRPQUCkHWMny-a6b_UcBPM6l_EA9OZg4O2SZ2yHsFrOUpCnpYLr8aefyUSUR4Z2570an52LIyFptOFoq5X9wPYQ43zqE0D9lH-QRtVP16m4NIJuFLw; GOOGLE_ABUSE_EXEMPTION=ID=0f78f46edfa5ab8c:TM=1502279167:C=r:IP=119.74.13.134-:S=APGng0vhVtKvdXH3irpqtLeO1fstLstj5A; DV=471lmmdi7j5CELa28fphQfbuXRBt3FXttd0dLzc9UQEAADCGNlKGfq2HaAAAALDMDQaOC-F7PAAAAA; SIDCC=AA248bfLFZ8cGBDjClZ5ELWs4whIhJnixWdTfMJF6duHJvCwFx-d7J6HR3uQb-_qrqWpnqccbXRoHUkVR0idKA',
-]
+x_client_data = 'CJG2yQEIprbJAQjBtskBCIuYygEI+5zKAQipncoBCNueygEIm6LKAQ=='
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
 
@@ -72,14 +72,13 @@ def get_total_count(html):
     return 10
 
 
-def request_sheet1(key_word, url_base):
+def request_sheet1(key_word, url_base, page_no=1):
     global sheet1_data
     total_count = 0
-    page_no = 1
     while True:
         url = url_base + str(page_no - 1) + '0'
         print url
-        if page_no > 5:
+        if page_no > 10:
             break
         html = get_request(url)
         if 'Our systems have detected unusual traffic from your computer network' in html:
@@ -98,16 +97,16 @@ def request_sheet1(key_word, url_base):
             headline = remove_html_tag(detail[1])
             publisher = detail[2]
             date = get_date(detail[3])
+            bucket = key_word['keyword'].split(' intext:')[0]
             # content = get_raw_content(url)
             content = ''
             rank = str(page_no) + '.' + ('0' if i < 10 else '') + str(i)
-            one_row = [key_word['keyword'], key_word['bucket'], key_word['country'], total_count, page_no, url, date,
+            one_row = [key_word['keyword'], bucket, key_word['country'], total_count, page_no, url, date,
                        publisher, main_url, headline, content,
                        rank]
             sheet1_data.append(one_row)
             i += 1
         page_no += 1
-        time.sleep(3)
     return False
 
 
@@ -131,12 +130,6 @@ def request_sheet2(base_url):
     if sheet_dict.get(base_url):
         return sheet_dict[base_url]
 
-    if len(sheet_dict) and len(sheet_dict) % 5 == 0:
-        print 'Sleeping 300 seconds'
-        time.sleep(60)
-    else:
-        print 'Sleeping 10 seconds'
-        time.sleep(10)
     rank_reg = 'rankingItem--global.*?rankingItem-value.*?>(.*?)<.*?rankingItem--country.*?rankingItem-value.*?>(.*?)<.*?rankingItem--category.*?rankingItem-value.*?>(.*?)<.*?Total Visits.*?countValue">(.*?)<'
     country_tag = 'accordion-toggle.*?countValue">(.*?)<.*?country-name.*?>(.*?)<'
 
@@ -146,7 +139,6 @@ def request_sheet2(base_url):
     html = get_request(url)
     if 'NAME="ROBOTS"' in html:
         print 'ROBOT DETECTED!, sleeping 600 seconds'
-        time.sleep(600)
         return None
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
@@ -194,6 +186,9 @@ def remove_html_tag(ori):
 
 
 def get_date(ori):
+    ori = ori.replace('Mei', 'May')
+    if 'hour' in ori:
+        return datetime.now().strftime('%d/%m/%Y')
     try:
         date = datetime.strptime(ori, '%d %b %Y')
         return date.strftime('%d/%m/%Y')
@@ -207,7 +202,7 @@ def get_request(get_url):
         'connection': 'Keep-Alive',
         'Referer': get_url,
         'Cookie': random.choice(cookie),
-        'x-client-data': 'CJS2yQEIpbbJAQjBtskBCPqcygEIqZ3KAQ==',
+        'x-client-data': x_client_data,
     }
     proxy = {
         'http': random.choice(http_proxies),
@@ -226,8 +221,15 @@ urls = []
 for key_word in key_words:
     urls.append([key_word, url_bases.format(key_word=key_word['keyword'].replace(' ', '+'))])
 print len(urls)
-for url in urls:
-    stop = request_sheet1(url[0], url[1])
+
+ts = int(time.time())
+for i in range(len(urls)):
+    url = urls[i]
+    page_no = 1 if i > 0 else FIRST_START
+    stop = request_sheet1(url[0], url[1], page_no=page_no)
     if stop:
         break
-write_excel('data/sheet1.xls', sheet1_data)
+te = int(time.time())
+print 'time: ', te - ts
+write_excel('data/GM_sheet1_1.xls', sheet1_data)
+

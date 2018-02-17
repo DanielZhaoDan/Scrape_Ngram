@@ -17,9 +17,9 @@ T_ID = 1
 sheet0_data = [['Category ID', 'Category', 'Category URL', 'No. Topics', 'No. Posts']]
 sheet1_data = [['Category ID', 'Topic ID', 'Topic Name', 'Topic URL', 'No. Replies', 'No. Views', 'Latest Date']]
 sheet2_data = [['Category ID', 'Topic ID', 'Reply Content', 'Responder Name', 'Responder URL', 'Responder Profession', 'Responder Posts', 'Responder Join Date']]
-sheet3_data = [['Responder Name', 'Group', 'Profession', 'URL', 'No. Posts', 'Most active Forum', 'Post By Most Active Forum', 'Current Topic', 'Current Topic Posts']]
+sheet3_data = [['Responder Name', 'Group', 'URL', 'No. Posts', 'Most active Forum', 'Post By Most Active Forum', 'Current Topic', 'Current Topic Posts']]
 
-scraped_profile_name = set()
+scraped_profile_url = set()
 
 cookie = 'bcookie="v=2&2f6c9444-0b2f-466a-8183-ef73e05efa35"; bscookie="v=1&2017041006541990b97a3b-1e52-4da3-8e47-33e0e8e1e3aeAQGgvnt_FYPCpH58BfQhdPydnY6jBTcZ"; visit="v=1&M"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; join_wall=v=2&AQFhNUYNvP5n8AAAAVvSGU2GWS-2YElFKFQfNLC9Lu27yuc26LdeUp9IUsKvRn7BvDIJPGj6Zt09FXQUVCLbJE5T4W0KMdm9iux6K5mfVuB5Al9lYuJTWUBl0xM5cg4AMo4OmPiAUgPTTiMJIvsvxX3_7b8rimV18UwuwyE_ICE9FB5ZyYrBVwHPGg; _gid=GA1.2.990777859.1493878542; sl="v=1&sHIVY"; lang="v=2&lang=en-us"; li_at=AQEDARo-DEsAlf1eAAABW9IZzwoAAAFb09FDClYAzTg2ibTPV-O_Dqr3MSP-yhBB8KrNn4Sa9FY7OP-sBHXfvSDGKlzMJUbF12JOgmIxNmG6sXSF3r4_PKBUvZu-f2F3gCEr560b6Dh1BVf4llZka-Qo; JSESSIONID="ajax:1423185689819717669"; liap=true; lidc="b=TB95:g=558:u=43:i=1493878607:t=1493887866:s=AQFM0gn66ojmBqIFbNtwViz-OMqniwCu"; _ga=GA1.2.610623672.1491807398; _gat=1; _lipt=CwEAAAFb0mlL-HRaJDSReqC3hAtYV6Gup6SrDmh9grOcTvZEwbVaZrD-Js3CtvzL2XQ5DsbJ1aTSgvt48xo9T6UM8oP5utFRJ53syRDWfYqRUCQnjHn-AFyM7d-TySMlw7lVj3eigG4NQFSEpO1mmy1XA5S9_r2Ie4UjKVH90oKCl1PPzy_xQKRFP3ijNfrmn7dHnVfyWApPdWiWijUTNjra8ApDgf7DIiFGK7mZGx5CJ_aYGnD1XC8N-UWnv5LcTCzos3rB3VxRHzjjioox1ZtLKrVdKo_M55QfM85UL6RcwUbbGx0iPa_T_fRshq1RrwkgZKtPAnOlGeOoGnYQdv6p4D7mCgKUbdFYDiZrViiYjqzFAw'
 
@@ -62,8 +62,9 @@ def write_excel(filename, alldata, flag=None):
             except:
                 try:
                     ws.write(row, col, one_row[col])
-                except:
+                except Exception as e:
                     print '===Write excel ERROR==='+str(one_row[col])
+                    print e
     w.save(filename)
     print filename+"===========over============"
 
@@ -111,9 +112,8 @@ def request_sheet1(c_id, url_base, total_post):
 
 
 def request_sheet2(c_id, t_id, url):
-    print 'SHEET_2 ' + url
     global sheet2_data, T_ID
-    reg = 'avatar-container(.*?)class="content">(.*?)<'
+    reg = 'avatar-container(.*?)class="content">(.*?)</div'
     avatar_reg = 'href="(.*?)".*?username.*?>(.*?)<.*?class="profile-rank">(.*?)<.*?href.*?>(.*?)<.*?Joined.*?>(.*?)<'
     html = get_request(url)
     replies = re.compile(reg).findall(html)
@@ -141,21 +141,25 @@ def request_sheet2(c_id, t_id, url):
         sheet2_data.append(one_row)
 
 
-def request_sheet3(url, profile_name):
-    global sheet3_data, scraped_profile_name
-    scraped_profile_name.add(profile_name)
-    sheet3_data.append([url, profile_name])
-    # reg = 'discussion clear i.*? xg_lightborder.*?timestamp">(.*?) at.*?xg_user_generated">(.*?)</div'
-    # for page in range(1, page_number + 1):
-    #     url = base_url % page
-    #     html = get_request(url)
-    #     comments = re.compile(reg).findall(html)
-    #
-    #     for category in comments:
-    #         date = get_date(category[0])
-    #         comment = remove_html_tag(category[1])
-    #         one_row = [T_ID, comment, date]
-    #         sheet3_data.append(one_row)
+def request_sheet3(url, name):
+    global sheet3_data, scraped_profile_url
+    if url in scraped_profile_url:
+        return
+    scraped_profile_url.add(url)
+    html = get_request(url)
+    reg = '<option.*?selected="selected">(.*?)<.*?Total posts.*?<dd>(\d+).*?Most active forum.*?href.*?>(.*?)<.*?\((\d+).*?Most active topic.*?href.*?>(.*?)<.*?\((\d+)'
+    details = re.compile(reg).findall(html)
+    if details:
+        details = details[0]
+        group = details[0]
+        total_post = int(details[1])
+        most_active_forum = details[2]
+        most_active_post = int(details[3])
+        most_active_topic = details[4]
+        current_topic_post = int(details[5])
+        one_row = [name, url, group, total_post, most_active_forum, most_active_post, most_active_topic, current_topic_post]
+        sheet3_data.append(one_row)
+        print one_row
 
 
 def get_date(ori_time):
@@ -203,10 +207,10 @@ def read_excel(filename, start=1):
     for i in range(start, table.nrows-1):
         row = table.row(i)
         try:
-            c_id = int(row[0].value)
-            url = row[2].value + '&start=%d'
-            total_post = int(row[3].value)
-            request_sheet1(c_id, url, total_post)
+            url = row[0].value
+            name = row[1].value
+            if url != '' and name != '':
+                request_sheet3(url, name)
         except Exception as e:
             print(i)
             print e
@@ -215,7 +219,5 @@ def read_excel(filename, start=1):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 # request_sheet2(1,1,'https://www.doctorslounge.com/forums/viewtopic.php?f=52&t=181&sid=a7962bd733d116386ef9f5d7e3d0174d')
-read_excel('data/sheet0.xls')
-write_excel('data/sheet1.xls', sheet1_data)
-write_excel('data/sheet2.xls', sheet2_data)
-write_excel('data/sheet3.xls', sheet3_data)
+read_excel('data/sheet3.xls')
+write_excel('data/sheet4.xls', sheet3_data)

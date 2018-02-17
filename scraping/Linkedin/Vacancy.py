@@ -11,58 +11,21 @@ import requests
 import json
 import sets
 import time
+import ssl
 
 P_ID = 1
-email = 'aavi.rawson@oou.us'
+email = 'jaysie.dreyah@oou.us'
 company_employee = {}
 company_data = {}
 
 keyword_urls = [
-    # ['CFO', 'https://www.linkedin.com/jobs/search/?keywords=cfo&location=Singapore&locationId=sg&start='],
-    # ['Treasury', 'https://www.linkedin.com/jobs/search/?keywords=Treasury&location=Singapore&locationId=sg&start='],
-    # ['Risk Management',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Risk%20Management&location=Singapore&locationId=sg&start='],
-    # ['Finance Manager',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Finance%20Manager&location=Singapore&locationId=sg&start='],
-    # ['Forward', 'https://www.linkedin.com/jobs/search/?keywords=Forwards&location=Singapore&locationId=sg&start='],
-    # ['Exchange Rate',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Exchange%20Rate&location=Singapore&locationId=sg&start='],
-    # ['Forward Contract',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Forward%20Contract&location=Singapore&locationId=sg&start='],
-    # ['Invoice', 'https://www.linkedin.com/jobs/search/?keywords=Invoice&location=Singapore&locationId=sg&start='],
-    # ['Accounts Payable',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Accounts%20Payable&location=Singapore&locationId=sg&start='],
-    # ['Accounts Payable Specialist',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Accounts%20Payable%20Specialist&location=Singapore&locationId=sg&start='],
-    # ['Currency Transactions',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Currency%20Transactions&location=Singapore&locationId=sg&start='],
-    # ['Remittance',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Remittances&location=Singapore&locationId=sg&start='],
-    # ['Transaction Processing',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Transaction%20Processing&location=Singapore&locationId=sg&start='],
-    # ['Cash flow management',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Cash%20Flow%20Management&location=Singapore&locationId=sg&start='],
-    # ['Online Payments Solutions',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Online%20Payments%20Solutions&location=Singapore&locationId=sg&start='],
-    # ['Payments Solutions',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Payments%20Solutions&location=Singapore&locationId=sg&start='],
-    # ['International Payments',
-    #  'https://www.linkedin.com/jobs/search/?keywords=International%20Payments&location=Singapore&locationId=sg&start='],
-    # ['Foreign Exchange',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Foreign%20Exchange&location=Singapore&locationId=sg&start='],
-    # ['FX', 'https://www.linkedin.com/jobs/search/?keywords=FX&location=Singapore&locationId=sg&start='],
-    # ['B2B Payments',
-    #  'https://www.linkedin.com/jobs/search/?keywords=B2B%20payments&location=Singapore&locationId=sg&start='],
-    # ['Corporate Payments',
-    #  'https://www.linkedin.com/jobs/search/?keywords=Corporate%20Payments&location=Singapore&locationId=sg&start='],
-    ['Corporate Payment',
-     'https://www.linkedin.com/jobs/search/?keywords=Corporate%20Payment&location=Singapore&locationId=sg&start='],
+    ['Certification SG', 'https://www.linkedin.com/jobs/search/?keywords=Certification&location=Singapore&locationId=sg%3A0&start='],
 ]
 
 sheet_data = [['Keywords&Index', 'Keyword', 'Index', 'Top Skills', 'URL', 'Title', 'Company', 'Company URL', 'No. of Employee', 'Date', 'Views', 'Job Desp', 'Requirements', 'Level', 'Industry', 'Employment Type', 'Job Functions', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Master', 'Bachelor', 'MBA', 'Other Education', 'Total Applicants']]
 
-cookie = 'bcookie="v=2&94ede669-f96d-4d7f-88df-20bb8b9ed56c"; bscookie="v=1&201608050319286fb0d9d7-11eb-4c4f-853f-2819c04ac829AQHDI3jFjJtWbtizwwj8_RtdcWBWfmiO"; visit="v=1&M"; _chartbeat2=Va5crvXhgBBqAl5L.1476436594042.1476440427196.1; __utma=226841088.1514381064.1470817606.1483846988.1487305243.2; PLAY_SESSION=0c0be92d0a9ebfd3caf822b8c03613c50ca5ba90-chsInfo=cb56f3a9-8428-4069-a922-46e9f79bd7ad+premium_job_details_upsell_applicant_insights; __ssid=7bc82af0-6ae7-48cb-b62c-add9420e840b; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; _lipt=CwEAAAFf7KU03rf4gkRjKi2JomCuEuiQRgQbPIO4cIWQi8Ctal5CsG2o2KmQD9tIp1CgLvGT8xxeYdxT8TWbT4L6PkQdtOFZilcKg9rdg6EoIII0-YzE5H1O29M_uwfpU9YJX9uqq6adGzwgTB3BySHgE2OCzRrh5JX6VTEBjaTHzLjgLIJehN2429AUawP3Gnb7kXO55V71zFzIAayJRvMssWIfklOSsPIMF_G6YeqoPSq74-ndcUb8yGspz-LHfjS6b6H4wTqroDdvl8iZdVmBVs0t_rb7cuuoR7AvTbgtlkuHZf7vsftQr3aE9Q; _ga=GA1.2.1514381064.1470817606; _gat=1; sl="v=1&LmctT"; lang="v=2&lang=en-us"; liap=true; li_at=AQEDASUWWJkE2_4NAAABX-0NDfkAAAFgERmR-VEAiuwqHwE081qjnT2or5Or83ZZudJ7mL41IQADbMke1roekvZZZpCX9HxeZ17w_VP73o-jpymyu_b4IWKD-4wR1fzRynVJ939vgLTz0EL267ltQavg; JSESSIONID="ajax:2282448947320097342"; lidc="b=SB65:g=48:u=2:i=1511510576:t=1511596976:s=AQFK9FVUs7fNCUQgO6T6vtUG3rGvTHsh"; RT=s=1511510731451&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Fconsumer-captcha-v2%3FchallengeId%3DAQGZrUTsGCMBZgAAAV_tDOyqigR7t5Mr5hFoZMHPos8wpKejwDVQEDQAmK70LvbZEWzO0jDZS-SUkCHTz5Q-xlPLxC0cjFZt2Q'
-csrf = 'ajax:2282448947320097342'
+cookie = 'JSESSIONID=ajax:8568514931401773276; bcookie="v=2&5e642870-bae7-4d7d-86f2-a88f4250c1c4"; bscookie="v=1&20180217075906d4de8175-476a-43d3-8a59-addca01437f2AQGQfAavP6iKl8lQZv-IXl-DC48s83M8"; _ga=GA1.2.282991545.1518854461; _gat=1; liap=true; sl=v=1&rjBnu; li_at=AQEDASYTMb4CJh5fAAABYaLGmvAAAAFhxtMe8FEABxu2YSdDYNem9Kzqsno0INDJvKpIATkdK6jFVCaCll6pb3-AUfVKCU-4xihWCpO7qR0Itk144Zq95gsCoad_R1OY4U576LRQfdl4h9-kB9gUitqy; RT=s=1518854493911&r=https%3A%2F%2Fwww.linkedin.com%2F; visit="v=1&M"; lang="v=2&lang=en-us"; _lipt=CwEAAAFhosfvERUXFq-oVDIW0-y6Vn6SbAFbSwzadan08wcYFjqvhpp42snOqhqkpzIzpsC6tKbB7NC7JpRjl1khbwzOYI5th30JIiXKy_qZ3_J2F0bhnrNF9dA; lidc="b=SGST01:g=3:u=1:i=1518854467:t=1518940780:s=AQF07H7sYt4pyYmC1skt6-G_7qN4aZXL"'
+csrf = 'ajax:8568514931401773276'
 
 unique_set = set()
 
@@ -118,6 +81,7 @@ def request_sheet1(url, key, keyword):
         index = str(key) + '.' + str(i + 1)
         request_job_details(index, job_ids[i], keyword)
         time.sleep(1)
+
 
 
 def request_company(url):
@@ -257,14 +221,14 @@ def get_json_resp(url):
 
 
 def get_request(get_url):
+    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
     req = urllib2.Request(get_url)
-    req.add_header("user-agent",
-                   "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
+    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
     req.add_header("connection", "Keep-Alive")
     req.add_header("Referer", 'https://www.linkedin.com/')
     req.add_header("Cookie", cookie)
-    req.add_header('csrf-token', csrf)
-    res_data = urllib2.urlopen(req, timeout=10)
+    req.add_header('csrf-token', 'ajax:1666134097818962763')
+    res_data = urllib2.urlopen(req, timeout=10, context=ctx)
     res = res_data.read()
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return HTMLParser.HTMLParser().unescape(res)
@@ -295,13 +259,22 @@ def read_excel(filename, start=1):
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
+stop = False
 
 for keyword_url in keyword_urls:
+    if stop:
+        break
     keyword = keyword_url[0]
     url_prefix = keyword_url[1]
     for i in range(10):
-        url = url_prefix + str(25 * i)
-        request_sheet1(url, i + 1, keyword)
+        if stop:
+            break
+        try:
+            url = url_prefix + str(25 * i)
+            request_sheet1(url, i + 1, keyword)
+        except urllib2.HTTPError as e:
+            if e.code == 302:
+                stop = True
 
     write_excel('data/Vacancy_%s.xls' % keyword, sheet_data)
     del sheet_data
