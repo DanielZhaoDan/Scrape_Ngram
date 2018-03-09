@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 import re
-import urllib2
 import xlwt
 import sys
 from datetime import datetime
-import HTMLParser
+from html.parser import HTMLParser
+import html
 import os
 import xlrd
 import requests
@@ -12,21 +12,25 @@ import json
 import time
 import ssl
 
-P_ID = 1
+P_ID = 378
 sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
-sheet1_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Personal Location', 'Followers', 'Self Desp.', 'Start', 'End', 'duration', 'Company URL', 'Company Name', 'Company Location', 'Current Title', 'Current Job Desp.']]
+sheet1_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Personal Location', 'Followers', 'Self Desp.', 'Start', 'End', 'duration', 'Company URL', 'Company Size', 'Company Name', 'Company Location', 'Current Title', 'Current Job Desp.']]
 sheet2_data = [['Profile ID', 'Skill Name', 'Endorsements']]
+company_data = []
 pwd = 'babushona13'
-cookie = 'JSESSIONID=ajax:8568514931401773276; bcookie="v=2&5e642870-bae7-4d7d-86f2-a88f4250c1c4"; bscookie="v=1&20180217075906d4de8175-476a-43d3-8a59-addca01437f2AQGQfAavP6iKl8lQZv-IXl-DC48s83M8"; _ga=GA1.2.282991545.1518854461; _gat=1; liap=true; sl=v=1&rjBnu; li_at=AQEDASYTMb4CJh5fAAABYaLGmvAAAAFhxtMe8FEABxu2YSdDYNem9Kzqsno0INDJvKpIATkdK6jFVCaCll6pb3-AUfVKCU-4xihWCpO7qR0Itk144Zq95gsCoad_R1OY4U576LRQfdl4h9-kB9gUitqy; RT=s=1518854493911&r=https%3A%2F%2Fwww.linkedin.com%2F; visit="v=1&M"; lang="v=2&lang=en-us"; _lipt=CwEAAAFhosfvERUXFq-oVDIW0-y6Vn6SbAFbSwzadan08wcYFjqvhpp42snOqhqkpzIzpsC6tKbB7NC7JpRjl1khbwzOYI5th30JIiXKy_qZ3_J2F0bhnrNF9dA; lidc="b=SGST01:g=3:u=1:i=1518854467:t=1518940780:s=AQF07H7sYt4pyYmC1skt6-G_7qN4aZXL"'
+cookie = 'bcookie="v=2&a2c264bf-22f6-4e04-8e45-ea33a1a215c3"; bscookie="v=1&201801170600573d40b408-6b30-455f-872a-d3dfab037411AQEeUoBXCefKKDrESZX4DdNmjYJciPRv"; _ga=GA1.2.1722318312.1516173771; visit="v=1&M"; lang="v=2&lang=en-us"; mobilesplash=1519783881259; JSESSIONID="ajax:2154262542411227916"; chp_token=AQFI7SwqHyvvcAAAAWHaOepgMSPBtrBWhyftJijhm1DTwVkjVmZWYfZR-FkLoooixmRgLAXWU0F1ZxTjfutZOVUFZA; liap=true; li_at=AQEDARo-DEsBU6Z9AAABYeDD0W0AAAFiLYJ86lEAEdPhQDwtOA-of5jo0VnZ4cSZcpp6lsFVzBrWhRCtOacI5DbuTJvnmYnNlXmH321u7K46v04R8T51BtIk72UwZ4VcdqC9e7xwtnVCdjch0Q8ahKj6; sl="v=1&BxB09"; _gat=1; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; _lipt=CwEAAAFiCXYFW-YG12u9bYl8DvntUl3K0-lqxhbhJFk1qiJIIXXCh2hO1ujVuNiLZkPNBwNftRab4-GGjtnNCEQ0nCK7tOHTP_YwivEue4eBvC2tSjN2me7oWBPcdK0wDW2wOk-WuwgRY1r6km92-LFmasH6QmlN3_y6mPW7s2VoS_3jHYpBoP5M4x520Jl9XH9egrop--2fuN4k2_tbUkqZGARrmhFXqU6x-DFcpGxfrSlqgqiLdRlhVm_akAXXUYfSCEff3nYhnXIlS20M8Viu5BCU7NGWcfZ_PjHjS52KNNi5BI-fDixXA5KAwxlB_62fLsHw_meRugDZDbq-qV8EPB7khp5yqP1SyaJhygxkEYrHpQj0KZWv; lidc="b=VGST01:g=737:u=1:i=1520577152:t=1520663552:s=AQGgmg-qRjCCZekEdu1xgFFyVIjDSpdy"'
+csrf = 'ajax:2154262542411227916'
 
 manual_data = [
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"my%3A0"%5D&keywords=Telecommunications&page=', 'keyword': 'Telecommunications', 'total_result': 61774, 'pid_prefix': 'TC_%d', 'location': 'MY'},
-    {'url': 'https://www.linkedin.com/search/results/people/?keywords=Axiata%20Digital&page=', 'keyword': 'Axiata Digital', 'total_result': 445, 'pid_prefix': 'AD_%d', 'location': 'Global'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Digital%20Financial%20Services&page=', 'keyword': 'Digital Financial services', 'total_result': 6971, 'pid_prefix': 'DFS_%d', 'location': 'ID'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Digital%20advertising&page=', 'keyword': 'Digital advertising', 'total_result': 32248, 'pid_prefix': 'DA_%d', 'location': 'ID'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Telecommunications&page=', 'keyword': 'Telecommunications', 'total_result': 98765, 'pid_prefix': 'TC_%d', 'location': 'ID'},
 ]
+
+company_size = {}
 
 
 unique_set = set()
-company_data = {}
 
 files = []
 
@@ -46,7 +50,7 @@ def write(html, filename):
     fp = open(filename, "w")
     fp.write(html)
     fp.close()
-    print "write over"
+    print("write over")
 
 
 def write_excel(filename, alldata, flag=None):
@@ -66,9 +70,9 @@ def write_excel(filename, alldata, flag=None):
                 try:
                     ws.write(row, col, one_row[col])
                 except:
-                    print '===Write excel ERROR==='+str(one_row[col])
+                    print('===Write excel ERROR==='+str(one_row[col]))
     w.save(filename)
-    print filename+"===========over============"
+    print(filename+"===========over============")
 
 
 def get_profile_list(item, index):
@@ -101,12 +105,9 @@ def get_profile_list(item, index):
             one_row = [item['keyword'], item['location'], item['total_result'], profile_id, name, personal_url, occupation, company]
             sheet0_data.append(one_row)
             P_ID += 1
-        except urllib2.HTTPError as e:
-            if e.code == 302:
-                return 0
         except Exception as e:
-            print str(e)
-            print 'ERR---level 1---' + url
+            print(str(e))
+            print('ERR---level 1---' + url)
     return len(profiles)
 
 
@@ -114,7 +115,7 @@ def request_profile(profile_id, personal_url):
     personal_html = get_request(personal_url)
     profile_details = request_profile_detail(personal_html)
 
-    # get_endorse_details(profile_id, personal_url)
+    get_endorse_details(profile_id, personal_url)
     return profile_details
 
 
@@ -174,8 +175,9 @@ def request_profile_detail(html):
             duration = 0
         else:
             duration = (2018 - start_date[0] - 1) * 12 + (12 - start_date[1]) + 2
+    employee_count = 0
 
-    return [location, follower_count, summary_data, '%d/%d' % (start_date[1], start_date[0]), 'Present', duration, company_url] + current_job
+    return [location, follower_count, summary_data, '%d/%d' % (start_date[1], start_date[0]), 'Present', duration, company_url, employee_count] + current_job
 
 
 def get_endorse_details(profile_id, url):
@@ -203,42 +205,26 @@ def remove_html_tag(ori):
     return str(HTMLParser.HTMLParser().unescape(dd))
 
 
-def urllib_request(get_url):
-    ctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
-    req = urllib2.Request(get_url)
-    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
-    # req.add_header("connection", "Keep-Alive")
-    req.add_header("Referer", 'https://www.linkedin.com/')
-    req.add_header("Cookie", cookie)
-    # req.add_header('csrf-token', 'ajax:8568514931401773276')
-    req.add_header('upgrade-insecure-requests', '1')
-    res_data = urllib2.urlopen(req, timeout=10)
-    res = res_data.read()
-    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
-    return HTMLParser.HTMLParser().unescape(res)
-
-
 def get_request(url):
     header = {
         'cookie': cookie,
-        'csrf-token': 'ajax:8568514931401773276',
+        'csrf-token': csrf,
     }
     res_data = requests.get(url, headers=header)
-    res = res_data.content
+    res = res_data.content.decode("utf-8")
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
-    return HTMLParser.HTMLParser().unescape(res)
+    return html.unescape(res)
 
 
 def request_company(url):
-    company_reg = '"staffCount":(.*?),.*?"industries":(.*?),'
+    company_reg = '"staffCount":(.*?),'
     html = get_request(url)
     staff_ind_list = re.compile(company_reg).findall(html)
-    staff_count, industy = 0, []
+    staff_count = 0
 
     if staff_ind_list:
-        staff_count = staff_ind_list[0][0]
-        industy = json.loads(staff_ind_list[0][1])
-    return staff_count, industy
+        staff_count = staff_ind_list[0]
+    return staff_count
 
 
 def read_excel(filename, start=1):
@@ -261,10 +247,60 @@ def read_excel(filename, start=1):
             print(i)
 
 
-reload(sys)
-sys.setdefaultencoding('utf-8')
+def read_company_url(filename, start=1):
+    global company_size, company_data
+    print('process -> ' + filename)
+    data = xlrd.open_workbook(filename, encoding_override="cp1252")
+    table = data.sheets()[0]
+
+    for i in range(start, table.nrows):
+        row = table.row(i)
+        try:
+            company_url = row[12].value
+            staff_count = int(row[13].value)
+            if company_url == 'N/A' or company_url == 'https://www.linkedin.com/company//':
+                staff_count = 0
+            elif staff_count <= 0:
+                staff_count = company_size.get(company_url, -1)
+                if staff_count == -1:
+                    staff_count = request_company(company_url)
+                    company_size[company_url] = staff_count
+            print([company_url, staff_count])
+            company_data.append([company_url, staff_count])
+        except Exception as e:
+            print(str(e))
+            print(i)
+
+
+def request_sheet0():
+    global sheet0_data, P_ID
+    for item in manual_data:
+        for i in range(1, 50):
+            get_profile_list(item, i)
+        write_excel('data/sheet0_%s.xls' % item['keyword'], sheet0_data)
+        del sheet0_data
+        sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
+        P_ID = 1
+
+
+def request_company_size():
+    global company_data
+    files = walk('data/Employed')
+    for filename in files:
+        read_company_url(filename)
+        write_excel(filename.replace('.xls', '_com.xls'), company_data)
+        del company_data
+        company_data = []
+
 
 # scrape profile data
-read_excel('data/Employed_0_Axiata Digital.xls', start=293)
+# step 1: profile data
+# request_sheet0()
+# step 2: profile details
+read_excel('data/sheet0_Digital Financial services.xls', start=P_ID)
 write_excel('data/res1.xls', sheet1_data)
 write_excel('data/res2.xls', sheet2_data)
+
+# step 3: company size
+# request_company_size()
+

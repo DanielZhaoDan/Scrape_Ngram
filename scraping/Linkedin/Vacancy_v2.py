@@ -13,20 +13,22 @@ import ssl
 import json
 stop = False
 
-P_ID = 276
+P_ID = 1
 email = 'jaysie.dreyah@oou.us'
 company_employee = {}
 company_data = {}
 
 keyword_urls = [
-    ['Telecommunication', 'https://www.linkedin.com/jobs/search/?keywords=Telecommunication&location=Malaysia&locationId=my%3A0&start=', 386, 'MY'],
+    # ['Digital financial services', 'https://www.linkedin.com/jobs/search/?keywords=Digital%20financial%20services&location=Indonesia&locationId=id%3A0&start=', 56, 'ID'],
+    ['Digital advertising', 'https://www.linkedin.com/jobs/search/?keywords=Digital%20advertising&location=Indonesia&locationId=id%3A0&start=', 176, 'ID'],
+    # ['Telecommunication', 'https://www.linkedin.com/jobs/search/?keywords=Telecommunication&location=Indonesia&locationId=id%3A0&start=', 325, 'ID'],
 ]
 
-sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
+sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size', 'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
 sheet2_data = [['Vacancy  ID', 'Top Skill']]
 
-cookie = 'bcookie="v=2&74219b48-1ccd-4aeb-8466-f59864535f9c"; bscookie="v=1&201608091552185c8d9623-6d9e-4a35-8691-d110a1d88056AQGZm-7AEvD7o3e2bz1bNcK_8yK41Y9o"; visit="v=1&M"; _chartbeat2=BJt6ifO0CcmBe3LOe.1500744286051.1500744286064.1; _lipt=CwEAAAFhpG3jUAKzayEjc2vd3-EboVz_5K6Gc-vv_DP7bs8h2aqkbTNUoHodNnUc-ePPOpbGpujjzlQSs5JPMALSLeXKE4pN6k9hUwsB4JS0B7EYTMONLnkSUQogJpZV0EqaV8feJUEQxfqZzziB-4kySOZAz-SPKqxp_Tf-NMKvxo25VjxA-KQDMnZgePOHU2R_yQembhvPISZC0XCKgLfL-N-1UhQyfOqs5Rgxs1KGOaBSQnBT5Tc3WWSiWk9dZG3ojbAncDVFWDolj9IeYq07fa6gShk61eJoKqWZNaGIlzuEPL93yFtvuJncPSYVUXod9buxxQ6KZ9AWkVwwhWXaZ-rB2X6yoEBpdR9heGNoWAtaLqPlsRKzx_4jvuagkUBy0-nANAVAwNdCyPpDpuqxeSY8zypLXqCAiszte6mTPzyHe9oynrCm5DEhXdwMez4; sl="v=1&9bgWy"; liap=true; JSESSIONID="ajax:0527940450066958550"; li_at=AQEDAQFnLMYCUFQJAAABYaSvGeMAAAFhyLud41EAQJ1flnsyH4r5cSTJDZizt-60zZN2udcZwkX9Av99ECaSpY_cHUZXEzGQoF00rV_ewPfE4vHZPZxPt7GQ6irMDHP3l_xCflVsHVBfiiik1bN1zPGB; _gat=1; lang="v=2&lang=en-us"; _ga=GA1.2.1479882839.1470758235; lidc="b=SB86:g=31:u=70:i=1518912529:t=1518922393:s=AQFheT7XO0WkLnSgV_6HKx8lCT2ECaR8"'
-csrf = 'ajax:0527940450066958550'
+cookie = 'bcookie="v=2&2f6c9444-0b2f-466a-8183-ef73e05efa35"; bscookie="v=1&2017041006541990b97a3b-1e52-4da3-8e47-33e0e8e1e3aeAQGgvnt_FYPCpH58BfQhdPydnY6jBTcZ"; visit="v=1&M"; _chartbeat2=DCi2d9ksmx1CfcAv5.1493951580217.1493951580225.1; __utma=226841088.610623672.1491807398.1497595445.1497595445.1; __ssid=ade20105-3abb-46d5-9567-d3cd78c040fd; _ga=GA1.2.610623672.1491807398; lang="v=2&lang=en-us"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; JSESSIONID="ajax:4465760738799533355"; liap=true; li_at=AQEDAQFnLMYCqIk1AAABYdrQDJ0AAAFiLOd5KFEAfS7NEwZnoDM9rFatTujJVoo53WgYLXJUnzycWryy3DwBg35OLgGUWGpvqu6Pi5rq9PCiIcqUtDBRmcX5mybnn4LjzJQA6wE4KSbhQFf-HDcZN-QP; sl="v=1&hVob5"; _gat=1; _lipt=CwEAAAFiCNzAnE4mwVT63r2DPX92nso4KPPCb3Scvqum_YScipgOtLAbWwxg809CgdzlcdZLEygh7RzPY0O-p9eM5uAHV1jNGU7j_8QB0AjDbhTx52ewkA3CnO2pbTNLWwOkQyB33qa-cKiHLe4clmqiDUPnlCKEUSnA4tfepUuCTiLWA7VjguGL-hyZNS15QH9quzVTZnQC0zObzTfO19MkKzo7eBkjt4tEuOTYq3DgI3viCMyNtAdC-QjCrB7VbCRC0uVQU5QDICiV5DWl0UJ_1u5po6pe-uCDtuh0Rtxk6wRNBpH4_xQZoRzk9UNQtI-ePjFZDPZl6k0eylbpr-Wt34rOKLYE6JMCC6xByrsoJHOrI0uFAY_sgp0Qw3ocGDMO60nJUHQZuw7yFUHlwM5PbFW4uUUy-7lpTkaJ9mqGOpRLhmy8nLW9JIOuCzE; lidc="b=TB86:g=1023:u=81:i=1520567108:t=1520652733:s=AQE5U9itfsTH8LNYLGgxp0IbGEtsQdXx"'
+csrf = 'ajax:4465760738799533355'
 
 unique_set = set()
 
@@ -190,12 +192,12 @@ def request_job_details(job_id, keyword, vac_id):
     if not top_skills:
         top_skills = ['N/A']
 
-    one_row = [keyword[0], keyword[3], keyword[2], vac_id, job_url, company_name, company_page_url, title, level, industry, job_functions, desp, requirements, manager, senior, director, entry, total_app]
+    one_row = [keyword[0], keyword[3], keyword[2], vac_id, job_url, company_name, staff_count, company_page_url, title, level, industry, job_functions, desp, requirements, manager, senior, director, entry, total_app]
     sheet_data.append(one_row)
     for skill in top_skills:
         sheet2_data.append([vac_id, skill])
-    print(one_row)
-
+    print(keyword, one_row[3], one_row[4])
+    # print(one_row)
 
 def get_date(timestamp):
     try:
@@ -255,7 +257,7 @@ def read_excel(filename, start=1):
             company_data.append(['na', '0'])
     write_excel('data/res.xls', company_data)
 
-
+print('=====Need VIP!!=====')
 for keyword_url in keyword_urls:
     if stop:
         break
@@ -263,7 +265,7 @@ for keyword_url in keyword_urls:
         break
     keyword = keyword_url[0]
     url_prefix = keyword_url[1]
-    for i in range(6, 50):
+    for i in range(1, 50):
         if stop:
             break
         try:
@@ -273,10 +275,12 @@ for keyword_url in keyword_urls:
             print(str(e))
             stop = True
 
-    write_excel('data/sheet11_%s.xls' % keyword, sheet_data)
-    write_excel('data/sheet22_%s.xls' % keyword, sheet2_data)
+    write_excel('data/sheet1_%s.xls' % keyword, sheet_data)
+    write_excel('data/sheet2_%s.xls' % keyword, sheet2_data)
     del sheet_data
     del sheet2_data
-    sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants count']]
+    sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size',
+                   'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements',
+                   'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
     sheet2_data = [['Vacancy  ID', 'Top Skill']]
     P_ID = 0
