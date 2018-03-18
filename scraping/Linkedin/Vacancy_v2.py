@@ -19,16 +19,16 @@ company_employee = {}
 company_data = {}
 
 keyword_urls = [
-    # ['Digital financial services', 'https://www.linkedin.com/jobs/search/?keywords=Digital%20financial%20services&location=Indonesia&locationId=id%3A0&start=', 56, 'ID'],
-    ['Digital advertising', 'https://www.linkedin.com/jobs/search/?keywords=Digital%20advertising&location=Indonesia&locationId=id%3A0&start=', 176, 'ID'],
-    # ['Telecommunication', 'https://www.linkedin.com/jobs/search/?keywords=Telecommunication&location=Indonesia&locationId=id%3A0&start=', 325, 'ID'],
+    # ['Fintech SG', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Singapore&locationId=sg%3A0&start=', 217, 'SG'],
+    ['Fintech ID', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Indonesia&locationId=id%3A0&start=', 105, 'ID'],
+    # ['Fintech MY', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Malaysia&locationId=my%3A0&start=', 30, 'MY'],
 ]
 
 sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size', 'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
 sheet2_data = [['Vacancy  ID', 'Top Skill']]
 
-cookie = 'bcookie="v=2&2f6c9444-0b2f-466a-8183-ef73e05efa35"; bscookie="v=1&2017041006541990b97a3b-1e52-4da3-8e47-33e0e8e1e3aeAQGgvnt_FYPCpH58BfQhdPydnY6jBTcZ"; visit="v=1&M"; _chartbeat2=DCi2d9ksmx1CfcAv5.1493951580217.1493951580225.1; __utma=226841088.610623672.1491807398.1497595445.1497595445.1; __ssid=ade20105-3abb-46d5-9567-d3cd78c040fd; _ga=GA1.2.610623672.1491807398; lang="v=2&lang=en-us"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; JSESSIONID="ajax:4465760738799533355"; liap=true; li_at=AQEDAQFnLMYCqIk1AAABYdrQDJ0AAAFiLOd5KFEAfS7NEwZnoDM9rFatTujJVoo53WgYLXJUnzycWryy3DwBg35OLgGUWGpvqu6Pi5rq9PCiIcqUtDBRmcX5mybnn4LjzJQA6wE4KSbhQFf-HDcZN-QP; sl="v=1&hVob5"; _gat=1; _lipt=CwEAAAFiCNzAnE4mwVT63r2DPX92nso4KPPCb3Scvqum_YScipgOtLAbWwxg809CgdzlcdZLEygh7RzPY0O-p9eM5uAHV1jNGU7j_8QB0AjDbhTx52ewkA3CnO2pbTNLWwOkQyB33qa-cKiHLe4clmqiDUPnlCKEUSnA4tfepUuCTiLWA7VjguGL-hyZNS15QH9quzVTZnQC0zObzTfO19MkKzo7eBkjt4tEuOTYq3DgI3viCMyNtAdC-QjCrB7VbCRC0uVQU5QDICiV5DWl0UJ_1u5po6pe-uCDtuh0Rtxk6wRNBpH4_xQZoRzk9UNQtI-ePjFZDPZl6k0eylbpr-Wt34rOKLYE6JMCC6xByrsoJHOrI0uFAY_sgp0Qw3ocGDMO60nJUHQZuw7yFUHlwM5PbFW4uUUy-7lpTkaJ9mqGOpRLhmy8nLW9JIOuCzE; lidc="b=TB86:g=1023:u=81:i=1520567108:t=1520652733:s=AQE5U9itfsTH8LNYLGgxp0IbGEtsQdXx"'
-csrf = 'ajax:4465760738799533355'
+cookie = 'bcookie="v=2&8fe980b5-6a66-4b41-8fe9-2b2744b1327f"; bscookie="v=1&20170904015135fdf36738-1b7c-4a03-889e-b7d2cb9d9123AQESyjKSMNzcbEat_PuftnvvTDn-uvy6"; _ga=GA1.2.2126243229.1504489884; visit="v=1&M"; JSESSIONID="ajax:1331253741779030334"; lang="v=2&lang=en-us"; sl="v=1&d8ogF"; li_at=AQEDAQFnLMYEpzeJAAABYgmANUcAAAFiLYy5R00AzXyJdG36Wfbh4_ZkxNpXpWJOrMDL-Vz5wHmEskKuLxeTiIZnltlwEdepN1Y9MQq5WNPMx_dTJcmscURs9DSXzNFUyM4uoxl37MLueub5XT4mTSCX; liap=true; _gat=1; _lipt=CwEAAAFiI39YHIQ94qXK6zFSKGt_j64K3Ny7ff1bgYzMPvCj_fhQFvMKCrL8FEtdGuCdh5EgK5jk5GC55b51UIqQBrtuM34v9aHBjt5y7KzvJY8hO1zb2ETXuBRLytQqYXsnjb0D1nhkSP_z9XbAxnX1ys0qRh5dCuWxcrrkJUE5D7kac1wkh091-n1XRiqoVwQtHHaVmpJ7-VjwnkDIhg7FjhXaRbYD632CqafgTqgojutN3iDc4Fo_DZFwU1GjNgZFe5_q9DM4mlNhzYrXRa4wWMIn1j3JmqD5xKLTpG3SgaBPvdHpCCyP8L9o5dqoBhdR7W4h7G9G-Oh43k6kY0Zc6uzUtYaUt5kcvhetA7nko0iZUkMfdm9vJ8VzHSnfln4_aUe0vQhY5Eoqy-coebLUrCryXVAKsT5oCgtRKNzYPwJsnnhORMLgPEwjHv4; lidc="b=SB86:g=32:u=88:i=1521013971:t=1521094767:s=AQH-JzbzAm4SiKdpzS7Bay516CxouJ5i"'
+csrf = 'ajax:1331253741779030334'
 
 unique_set = set()
 
@@ -257,6 +257,7 @@ def read_excel(filename, start=1):
             company_data.append(['na', '0'])
     write_excel('data/res.xls', company_data)
 
+
 print('=====Need VIP!!=====')
 for keyword_url in keyword_urls:
     if stop:
@@ -265,11 +266,12 @@ for keyword_url in keyword_urls:
         break
     keyword = keyword_url[0]
     url_prefix = keyword_url[1]
-    for i in range(1, 50):
+    for i in range(0, 50):
         if stop:
             break
         try:
             url = url_prefix + str(25 * i)
+            print(url)
             request_sheet1(url, keyword_url)
         except Exception as e:
             print(str(e))

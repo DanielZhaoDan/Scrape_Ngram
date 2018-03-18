@@ -12,19 +12,19 @@ import json
 import time
 import ssl
 
-P_ID = 378
+P_ID = 1
 sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
 sheet1_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Personal Location', 'Followers', 'Self Desp.', 'Start', 'End', 'duration', 'Company URL', 'Company Size', 'Company Name', 'Company Location', 'Current Title', 'Current Job Desp.']]
 sheet2_data = [['Profile ID', 'Skill Name', 'Endorsements']]
 company_data = []
 pwd = 'babushona13'
-cookie = 'bcookie="v=2&a2c264bf-22f6-4e04-8e45-ea33a1a215c3"; bscookie="v=1&201801170600573d40b408-6b30-455f-872a-d3dfab037411AQEeUoBXCefKKDrESZX4DdNmjYJciPRv"; _ga=GA1.2.1722318312.1516173771; visit="v=1&M"; lang="v=2&lang=en-us"; mobilesplash=1519783881259; JSESSIONID="ajax:2154262542411227916"; chp_token=AQFI7SwqHyvvcAAAAWHaOepgMSPBtrBWhyftJijhm1DTwVkjVmZWYfZR-FkLoooixmRgLAXWU0F1ZxTjfutZOVUFZA; liap=true; li_at=AQEDARo-DEsBU6Z9AAABYeDD0W0AAAFiLYJ86lEAEdPhQDwtOA-of5jo0VnZ4cSZcpp6lsFVzBrWhRCtOacI5DbuTJvnmYnNlXmH321u7K46v04R8T51BtIk72UwZ4VcdqC9e7xwtnVCdjch0Q8ahKj6; sl="v=1&BxB09"; _gat=1; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; _lipt=CwEAAAFiCXYFW-YG12u9bYl8DvntUl3K0-lqxhbhJFk1qiJIIXXCh2hO1ujVuNiLZkPNBwNftRab4-GGjtnNCEQ0nCK7tOHTP_YwivEue4eBvC2tSjN2me7oWBPcdK0wDW2wOk-WuwgRY1r6km92-LFmasH6QmlN3_y6mPW7s2VoS_3jHYpBoP5M4x520Jl9XH9egrop--2fuN4k2_tbUkqZGARrmhFXqU6x-DFcpGxfrSlqgqiLdRlhVm_akAXXUYfSCEff3nYhnXIlS20M8Viu5BCU7NGWcfZ_PjHjS52KNNi5BI-fDixXA5KAwxlB_62fLsHw_meRugDZDbq-qV8EPB7khp5yqP1SyaJhygxkEYrHpQj0KZWv; lidc="b=VGST01:g=737:u=1:i=1520577152:t=1520663552:s=AQGgmg-qRjCCZekEdu1xgFFyVIjDSpdy"'
+cookie = 'bcookie="v=2&a2c264bf-22f6-4e04-8e45-ea33a1a215c3"; bscookie="v=1&201801170600573d40b408-6b30-455f-872a-d3dfab037411AQEeUoBXCefKKDrESZX4DdNmjYJciPRv"; _ga=GA1.2.1722318312.1516173771; visit="v=1&M"; lang="v=2&lang=en-us"; JSESSIONID="ajax:2154262542411227916"; chp_token=AQFI7SwqHyvvcAAAAWHaOepgMSPBtrBWhyftJijhm1DTwVkjVmZWYfZR-FkLoooixmRgLAXWU0F1ZxTjfutZOVUFZA; liap=true; li_at=AQEDARo-DEsBU6Z9AAABYeDD0W0AAAFiLYJ86lEAEdPhQDwtOA-of5jo0VnZ4cSZcpp6lsFVzBrWhRCtOacI5DbuTJvnmYnNlXmH321u7K46v04R8T51BtIk72UwZ4VcdqC9e7xwtnVCdjch0Q8ahKj6; sl="v=1&BxB09"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; _gat=1; lidc="b=SB95:g=45:u=79:i=1521016275:t=1521094864:s=AQGaJc16skuuEXEr1CaQ3m_97KgUAQQm"; _lipt=CwEAAAFiI6KDCSM_zlWq82k7vUYnXPmBBP1Yt-RCtiA2oEz7kEM-PrPijaDL5ecTDo-0dFwKFMPcf8NZ1zUCOEwoVn3ARmCTSy1Mx9M49cgsdrnJRNcP5QMjZJc1TlF5Whw91QtW7RTTM9FOCoN5rE8n_8_rjg3ZolinfvuacmYn9E959LKAhhr0qpZ99NMr9rXZBB-f5tGTIymDYAhqC30uRz-B6ObIGbkLvYmxDq2KuTIEpL5gdIGjC4FtS_SpeGccatE2Jv61YNg64o4g30yp3BBdUe8f5mIPmPu8Eif9c3ajVriE8P7jEte9e13yJQZAbr03L9RHvAucWuM294XZ4vSXLTO_MGfFRYrx-FeYWNdEGA7y'
 csrf = 'ajax:2154262542411227916'
 
 manual_data = [
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Digital%20Financial%20Services&page=', 'keyword': 'Digital Financial services', 'total_result': 6971, 'pid_prefix': 'DFS_%d', 'location': 'ID'},
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Digital%20advertising&page=', 'keyword': 'Digital advertising', 'total_result': 32248, 'pid_prefix': 'DA_%d', 'location': 'ID'},
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Telecommunications&page=', 'keyword': 'Telecommunications', 'total_result': 98765, 'pid_prefix': 'TC_%d', 'location': 'ID'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"sg%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech SG', 'total_result': 262, 'pid_prefix': 'DFS_%d', 'location': 'SG'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech ID', 'total_result': 92, 'pid_prefix': 'DA_%d', 'location': 'ID'},
+    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"my%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech MY', 'total_result': 84, 'pid_prefix': 'TC_%d', 'location': 'MY'},
 ]
 
 company_size = {}
@@ -297,10 +297,10 @@ def request_company_size():
 # step 1: profile data
 # request_sheet0()
 # step 2: profile details
-read_excel('data/sheet0_Digital Financial services.xls', start=P_ID)
-write_excel('data/res1.xls', sheet1_data)
-write_excel('data/res2.xls', sheet2_data)
+# read_excel('data/sheet0_Fintech SG.xls', start=P_ID)
+# write_excel('data/res1.xls', sheet1_data)
+# write_excel('data/res2.xls', sheet2_data)
 
 # step 3: company size
-# request_company_size()
+request_company_size()
 
