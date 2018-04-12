@@ -18,24 +18,23 @@ sheet1_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Pr
 sheet2_data = [['Profile ID', 'Skill Name', 'Endorsements']]
 company_data = []
 pwd = 'babushona13'
-cookie = 'bcookie="v=2&a2c264bf-22f6-4e04-8e45-ea33a1a215c3"; bscookie="v=1&201801170600573d40b408-6b30-455f-872a-d3dfab037411AQEeUoBXCefKKDrESZX4DdNmjYJciPRv"; _ga=GA1.2.1722318312.1516173771; visit="v=1&M"; lang="v=2&lang=en-us"; JSESSIONID="ajax:2154262542411227916"; chp_token=AQFI7SwqHyvvcAAAAWHaOepgMSPBtrBWhyftJijhm1DTwVkjVmZWYfZR-FkLoooixmRgLAXWU0F1ZxTjfutZOVUFZA; liap=true; li_at=AQEDARo-DEsBU6Z9AAABYeDD0W0AAAFiLYJ86lEAEdPhQDwtOA-of5jo0VnZ4cSZcpp6lsFVzBrWhRCtOacI5DbuTJvnmYnNlXmH321u7K46v04R8T51BtIk72UwZ4VcdqC9e7xwtnVCdjch0Q8ahKj6; sl="v=1&BxB09"; sdsc=1%3A1SZM1shxDNbLt36wZwCgPgvN58iw%3D; _gat=1; lidc="b=SB95:g=45:u=79:i=1521016275:t=1521094864:s=AQGaJc16skuuEXEr1CaQ3m_97KgUAQQm"; _lipt=CwEAAAFiI6KDCSM_zlWq82k7vUYnXPmBBP1Yt-RCtiA2oEz7kEM-PrPijaDL5ecTDo-0dFwKFMPcf8NZ1zUCOEwoVn3ARmCTSy1Mx9M49cgsdrnJRNcP5QMjZJc1TlF5Whw91QtW7RTTM9FOCoN5rE8n_8_rjg3ZolinfvuacmYn9E959LKAhhr0qpZ99NMr9rXZBB-f5tGTIymDYAhqC30uRz-B6ObIGbkLvYmxDq2KuTIEpL5gdIGjC4FtS_SpeGccatE2Jv61YNg64o4g30yp3BBdUe8f5mIPmPu8Eif9c3ajVriE8P7jEte9e13yJQZAbr03L9RHvAucWuM294XZ4vSXLTO_MGfFRYrx-FeYWNdEGA7y'
-csrf = 'ajax:2154262542411227916'
+email = 'tegan.jarin@0hboy.com'
+# cookie = 'bcookie="v=2&3e470d6e-fee8-426c-8726-d79eef672dc9"; bscookie="v=1&201701021358090f97fb6d-775b-4655-801b-d9eba782defdAQE25DicscU3FoKVlh4xa_LoXsyFYCNS"; JSESSIONID="ajax:6858942346055442004"; lang="v=2&lang=en-us"; leo_auth_token="GST:ZTjiPE0iIFyoArInCFIb2EA-5rPoRO6pQ9IV7G0rta-lFJs51AyKz0:1523289977:0d498476057ca91d6a34d79d51b0630a1fab085d"; sl="v=1&shQfZ"; liap=true; li_at=AQEDARzXAV8CZ6JJAAABYqsodUsAAAFizzT5S1EAG_srlFPhpaBAS-nJQJ-7o6iu06KarobUduLd8cl9VnEhhVYZN1Q3P8GDiSfvqJYnoURPSu7s3stJc1PZNcPUnmJJuDzdO_xa5iML93pStzfvbf3B; RT=s=1523289978560&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Flogin; _guid=739ca3da-4b66-4cda-8799-805ebac3b3b0; _ga=GA1.2.428934987.1523289981; _gat=1; visit="v=1&M"; _lipt=CwEAAAFiqyojDHIdjeKy3crFpztvoTSKrtRJcymIujN_l7memSDT0uh0Yc8sdx2r-7tEP2gi9hY9B1ZdUqARLUEbuTGm932ekbQaYP2Vbq-tYz-jBur1AbiDzDQv-E--at_kZLd30mE-kgrsst5CCtxmnk9-xaEh56ed5S1CUzYAWu_OeTwWjbt3-LIpObK7GEAs3zC7U3GBbaiG4tTkxaJ95tb_gao0MAzMrYKe2lkcmOkH3YMreXnYprRL94npEJUz8aBFIvB7F39EjLIAj-PhTtkO9Ey_Onhumi63I8t1w7Kdqzodir2kP9LMRYRE30tdGHrzq7N9OIjJEsT7Y4332rsbAwpoSfwiVi9zY0OgHjW5i8thDaT8olo; lidc="b=SB39:g=48:u=56:i=1523290340:t=1523335206:s=AQGKuX_g5h5KXALwUCYhkMCsLjTahj4m"'
+# csrf = 'ajax:6858942346055442004'
+cookie = 'bcookie="v=2&74219b48-1ccd-4aeb-8466-f59864535f9c"; bscookie="v=1&201608091552185c8d9623-6d9e-4a35-8691-d110a1d88056AQGZm-7AEvD7o3e2bz1bNcK_8yK41Y9o"; visit="v=1&M"; _chartbeat2=BJt6ifO0CcmBe3LOe.1500744286051.1500744286064.1; __ssid=33c01209-3fc9-4b43-8b5f-46a7229d7a41; _lipt=CwEAAAFiqGlLFm4uXKMO45-wun8YIHnQzuKik-ykpoN9VoS4BoH53n9QfaeBWZLZx_38T1V4fiQq6NBgh722ZbOFQl4Ed0kGek06SqtVzikJUXzPNGKoTJZH23c; PLAY_SESSION=0d6aaf00389ac14afec669ee410ea4f3789c7fe7-chsInfo=fe832c30-003f-4c21-953e-83f3bc513985+premium_nav_upsell_text; li_at=AQEDASbBeMkFTk3rAAABYqrJXBwAAAFiztXgHFEAxzb_kbtPoO4fO_zW72uLXLLH0gJTkASLoqzV4XDyg9Wp87g6Koj_YuZ5sjX6Drh94_tPQbvwlniAYknFUGWgDOj4JgeqX_xYo5jPFjnBc3TsM7L4; JSESSIONID="ajax:0527940450066958550"; liap=true; _gat=1; lidc="b=SB77:g=48:u=2:i=1523283846:t=1523369541:s=AQGYSooA62ELWoz84g-NVR0pr5uwLXWm"; lang="v=2&lang=en-us"; RT=s=1523283849548&r=https%3A%2F%2Fwww.linkedin.com%2Fpremium%2Fcancel%2Fcomplete; _ga=GA1.2.1479882839.1470758235'
+csrf = 'ajax:0527940450066958550'
 
 manual_data = [
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"sg%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech SG', 'total_result': 262, 'pid_prefix': 'DFS_%d', 'location': 'SG'},
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"id%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech ID', 'total_result': 92, 'pid_prefix': 'DA_%d', 'location': 'ID'},
-    {'url': 'https://www.linkedin.com/search/results/people/?facetGeoRegion=%5B"my%3A0"%5D&keywords=Fintech&page=', 'keyword': 'Fintech MY', 'total_result': 84, 'pid_prefix': 'TC_%d', 'location': 'MY'},
+    {'url': 'https://www.linkedin.com/search/results/people/?company=&facetGeoRegion=%5B%22id%3A0%22%5D&facetIndustry=%5B%228%22%5D&keywords=digital&page=', 'keyword': 'digital ID', 'total_result': 3896, 'pid_prefix': 'DI_ID_%d', 'location': 'ID'},
 ]
 
 company_size = {}
-
-
 unique_set = set()
-
 files = []
 
 
 def walk(rootDir):
+    files = []
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
         if '.xls' in path or 'txt' in path:
@@ -72,7 +71,7 @@ def write_excel(filename, alldata, flag=None):
                 except:
                     print('===Write excel ERROR==='+str(one_row[col]))
     w.save(filename)
-    print(filename+"===========over============")
+    print(filename+"===========over============"+str(len(alldata)))
 
 
 def get_profile_list(item, index):
@@ -139,6 +138,7 @@ def request_profile_detail(html):
         location = ''
     data_reg = '\{"data":\{"patentView"(.*?)\}\]\}'
     data_str = re.compile(data_reg).findall(html)
+    duration = 0
     if data_str:
         data_str = '{"data":{"patentView"' + data_str[0] + '}]}'
         data_obj = json.loads(data_str)
@@ -210,7 +210,7 @@ def get_request(url):
         'cookie': cookie,
         'csrf-token': csrf,
     }
-    res_data = requests.get(url, headers=header)
+    res_data = requests.get(url, headers=header, timeout=8)
     res = res_data.content.decode("utf-8")
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return html.unescape(res)
@@ -219,19 +219,24 @@ def get_request(url):
 def request_company(url):
     company_reg = '"staffCount":(.*?),'
     html = get_request(url)
+    if len(html) < 1500:
+        return -1
     staff_ind_list = re.compile(company_reg).findall(html)
     staff_count = 0
 
     if staff_ind_list:
         staff_count = staff_ind_list[0]
-    return staff_count
+    try:
+        return int(staff_count)
+    except:
+        return 0
 
 
 def read_excel(filename, start=1):
     global company_data
-    print('process -> '+filename)
     data = xlrd.open_workbook(filename, encoding_override="cp1252")
     table = data.sheets()[0]
+    print('process -> '+filename+str(table.nrows))
 
     for i in range(start, table.nrows):
         row = table.row(i)
@@ -245,6 +250,8 @@ def read_excel(filename, start=1):
         except Exception as e:
             print(str(e))
             print(i)
+            if 'Expecting value' in str(e):
+                break
 
 
 def read_company_url(filename, start=1):
@@ -255,52 +262,85 @@ def read_company_url(filename, start=1):
 
     for i in range(start, table.nrows):
         row = table.row(i)
+        company_url = row[12].value
         try:
-            company_url = row[12].value
             staff_count = int(row[13].value)
             if company_url == 'N/A' or company_url == 'https://www.linkedin.com/company//':
                 staff_count = 0
             elif staff_count <= 0:
                 staff_count = company_size.get(company_url, -1)
-                if staff_count == -1:
+                if staff_count <= 0:
                     staff_count = request_company(company_url)
+                    time.sleep(2)
+                    if staff_count == -1:
+                        return -1
                     company_size[company_url] = staff_count
             print([company_url, staff_count])
             company_data.append([company_url, staff_count])
         except Exception as e:
+            company_data.append([company_url, 0])
             print(str(e))
             print(i)
+    return 1
 
 
 def request_sheet0():
     global sheet0_data, P_ID
     for item in manual_data:
-        for i in range(1, 50):
-            get_profile_list(item, i)
-        write_excel('data/sheet0_%s.xls' % item['keyword'], sheet0_data)
+        for i in range(1, 40):
+            try:
+                get_profile_list(item, i)
+            except Exception as e:
+                print(e)
+        write_excel('predata/sheet0_%s.xls' % item['keyword'], sheet0_data)
         del sheet0_data
         sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
         P_ID = 1
 
 
+def load_pre_company_data(filename):
+    global company_size
+    print('process -> ' + filename)
+    data = xlrd.open_workbook(filename, encoding_override="cp1252")
+    table = data.sheets()[0]
+
+    for i in range(1, table.nrows):
+        row = table.row(i)
+        company_url = row[12].value
+        size = int(row[13].value)
+        if size > 0:
+            company_size[company_url] = size
+
+
 def request_company_size():
     global company_data
-    files = walk('data/Employed')
+    files = walk('data/')
     for filename in files:
-        read_company_url(filename)
+        status = read_company_url(filename)
         write_excel(filename.replace('.xls', '_com.xls'), company_data)
         del company_data
         company_data = []
+        if status == -1:
+            print('=====COOKIE ERROR=====')
+            break
+
+
+def preload_company_size():
+    files = walk('finished/')
+    for filename in files:
+        load_pre_company_data(filename)
+    print('preload size: ', len(company_size))
+
 
 
 # scrape profile data
 # step 1: profile data
 # request_sheet0()
 # step 2: profile details
-# read_excel('data/sheet0_Fintech SG.xls', start=P_ID)
+# read_excel('predata/sheet0_digital ID.xls', start=P_ID)
 # write_excel('data/res1.xls', sheet1_data)
 # write_excel('data/res2.xls', sheet2_data)
-
 # step 3: company size
+preload_company_size()
 request_company_size()
 

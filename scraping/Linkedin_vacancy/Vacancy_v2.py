@@ -14,21 +14,22 @@ import json
 stop = False
 
 P_ID = 1
-email = 'jaysie.dreyah@oou.us'
+TOTAL_REQUEST_COUNT = 0
+email = 'luke.dagoberto@0hboy.com spenser.mekael@0hboy.com'
 company_employee = {}
 company_data = {}
 
 keyword_urls = [
-    # ['Fintech SG', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Singapore&locationId=sg%3A0&start=', 217, 'SG'],
-    ['Fintech ID', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Indonesia&locationId=id%3A0&start=', 105, 'ID'],
-    # ['Fintech MY', 'https://www.linkedin.com/jobs/search/?keywords=Fintech&location=Malaysia&locationId=my%3A0&start=', 30, 'MY'],
+    ['digital technology MY', 'https://www.linkedin.com/jobs/search/?keywords=digital%20technology&location=Malaysia&locationId=my%3A0&start=', 830, 'MY'],
 ]
 
+sheet0_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL']]
 sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size', 'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements', 'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
 sheet2_data = [['Vacancy  ID', 'Top Skill']]
 
-cookie = 'bcookie="v=2&8fe980b5-6a66-4b41-8fe9-2b2744b1327f"; bscookie="v=1&20170904015135fdf36738-1b7c-4a03-889e-b7d2cb9d9123AQESyjKSMNzcbEat_PuftnvvTDn-uvy6"; _ga=GA1.2.2126243229.1504489884; visit="v=1&M"; JSESSIONID="ajax:1331253741779030334"; lang="v=2&lang=en-us"; sl="v=1&d8ogF"; li_at=AQEDAQFnLMYEpzeJAAABYgmANUcAAAFiLYy5R00AzXyJdG36Wfbh4_ZkxNpXpWJOrMDL-Vz5wHmEskKuLxeTiIZnltlwEdepN1Y9MQq5WNPMx_dTJcmscURs9DSXzNFUyM4uoxl37MLueub5XT4mTSCX; liap=true; _gat=1; _lipt=CwEAAAFiI39YHIQ94qXK6zFSKGt_j64K3Ny7ff1bgYzMPvCj_fhQFvMKCrL8FEtdGuCdh5EgK5jk5GC55b51UIqQBrtuM34v9aHBjt5y7KzvJY8hO1zb2ETXuBRLytQqYXsnjb0D1nhkSP_z9XbAxnX1ys0qRh5dCuWxcrrkJUE5D7kac1wkh091-n1XRiqoVwQtHHaVmpJ7-VjwnkDIhg7FjhXaRbYD632CqafgTqgojutN3iDc4Fo_DZFwU1GjNgZFe5_q9DM4mlNhzYrXRa4wWMIn1j3JmqD5xKLTpG3SgaBPvdHpCCyP8L9o5dqoBhdR7W4h7G9G-Oh43k6kY0Zc6uzUtYaUt5kcvhetA7nko0iZUkMfdm9vJ8VzHSnfln4_aUe0vQhY5Eoqy-coebLUrCryXVAKsT5oCgtRKNzYPwJsnnhORMLgPEwjHv4; lidc="b=SB86:g=32:u=88:i=1521013971:t=1521094767:s=AQH-JzbzAm4SiKdpzS7Bay516CxouJ5i"'
-csrf = 'ajax:1331253741779030334'
+cookie = 'bcookie="v=2&75157af0-547f-4e4e-8069-c5d3f29ce794"; bscookie="v=1&20180411111250fdd22d95-0efe-4a39-8af0-25e197014689AQFjc0Ca6O4v8TdGFiICs-qFuNepNKSi"; _guid=5802464e-188c-40a2-b7bd-46ce89cee494; visit="v=1&M"; PLAY_SESSION=1123899b115259b12c159179928f9c44afcf8c32-chsInfo=5babdc86-00b0-45d4-8168-ca1d0e1e6f89+premium_nav_upsell_text; __ssid=49a5c84d-4f71-41c1-8c48-6350f7078723; _ga=GA1.2.537612569.1523455485; _lipt=CwEAAAFiuLEDC1PIC2IBp5N1VjUI5HOu3zb5P1bDN1CYd4SfSzrvN-NTA_nPuWNTwCqPzQPghu4xrcwxBUxD3H3r_UsiHI5gBHrLLVRF21Bk74ZdVwxBnOMHgBY; rtc=AQE3HsAoSicJFwAAAWK4_JIYAygABGHY3pd5tKh7S-PS0o6sWgRK_rSojDRSZiB6n0-TFA4KpQs8BlnyT9801QJ8XQZ7m-8YWfsmUDgAcBf9D5CVOSsD3igx4EPlKqLzQ_LN6JpDazcCq-g-rFtTK_KbwCoiJHCvo_jw10V4wd1lRKFhnQlUkPx7MTAGXeJyTiCuOBlwtda76LwNpA7zX8jEwXNA-zwYL9JgZ3IGCrn_QTfLBj7Myiq119jKZVI6JuqjmwSWJXakjKUNqZf3qUVTn4q6dmJRvB5hIRZexLy-DA==; leo_auth_token="GST:ZCvyPeLXzXVEW2gPrAYrpokPDFyKPqEh4nYVsuROXn-lPxdhpda_yf:1523522011:22593049d0dd0403b390c3844bf039668fa35d04"; sl="v=1&-ICKc"; lang="v=2&lang=en-us"; li_at=AQEDASbKqgEBhB2tAAABYrj9AIUAAAFi3QmEhVEAQ4RHCHbPwkg-xSga3gAygE-LiqrOL63oPuPj68r0AEFC2QEB8rd-rlcjf9ke8Zs7k1Ge-yw49xpBWj2sMzc5I-B9bUWq2Ztnx4U3fkfjJvtfKNXs; liap=true; JSESSIONID="ajax:3675240927329675624"; RT=s=1523522012000&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Fconsumer-captcha-v2%3FchallengeId%3DAQEaaaBAEzgxSAAAAWK4_NwRkTGnfvBRlvO_jtGiifYsLpJywL85HOS2P_bMve5ZwGlSl3ZmNN-kj5k-ESgIFGPVjW5Wlp5rQQ; lidc="b=SB01:g=67:u=2:i=1523522045:t=1523603622:s=AQESzEf062daInobKRFJCo0PQOxVxRI1"'
+csrf = 'ajax:3675240927329675624'
+
 
 unique_set = set()
 
@@ -75,20 +76,48 @@ def write_excel(filename, alldata, flag=None):
     print(filename + "===========over============")
 
 
-def request_sheet1(url, keyword):
-    global P_ID, stop
+def save_job_ids(url, keyword):
+    global P_ID, stop, sheet0_data
     raw_reg = 'fs_jobSavingInfo:(.*?)"'
     html = get_request(url)
     job_ids = re.compile(raw_reg).findall(html)
 
+    if len(job_ids) < 1:
+        return -1
     for i in range(len(job_ids)):
-        request_job_details(job_ids[i], keyword, 'VAC_%d' % P_ID)
+        job_id = job_ids[i]
+        job_url = 'https://www.linkedin.com/jobs/view/%s/' % job_id
+        one_row = [keyword[0], keyword[3], keyword[2], 'VAC_%d' % P_ID, job_url]
+        sheet0_data.append(one_row)
         P_ID += 1
-        if P_ID > keyword[2]:
-            stop = True
-        if stop:
-            break
-        time.sleep(1)
+    return len(job_ids)
+
+
+def request_sheet1(filename, start=1):
+    data = xlrd.open_workbook(filename, encoding_override="cp1252")
+    table = data.sheets()[0]
+    print('process -> %s: %d' % (filename, table.nrows))
+
+    for i in range(start, table.nrows):
+        row = table.row(i)
+        job_id = row[3].value
+        try:
+            job_url = row[4].value
+            if i <= 34:
+                continue
+            # if job_id not in ['VAC_80', 'VAC_148', 'VAC_192', 'VAC_194', 'VAC_202', 'VAC_214', 'VAC_220', 'VAC_244 VAC_248', 'VAC_272', 'VAC_288', 'VAC_307', 'VAC_316', 'VAC_322', 'VAC_323', 'VAC_341', 'VAC_343', 'VAC_346', 'VAC_347', 'VAC_350', 'VAC_352', 'VAC_358', 'VAC_359', 'VAC_361', 'VAC_362', 'VAC_363', 'VAC_368', 'VAC_369', 'VAC_375', 'VAC_382', 'VAC_386', 'VAC_395', 'VAC_396', 'VAC_402', 'VAC_403', 'VAC_416', 'VAC_418', 'VAC_422', 'VAC_424', 'VAC_426', 'VAC_433', 'VAC_437', 'VAC_447', 'VAC_448', 'VAC_459', 'VAC_462', 'VAC_469', 'VAC_470', 'VAC_475', 'VAC_478', 'VAC_479', 'VAC_481', 'VAC_483', 'VAC_484', 'VAC_487', 'VAC_489', 'VAC_493', 'VAC_497', 'VAC_499', 'VAC_503', 'VAC_509', 'VAC_511', 'VAC_512', 'VAC_514', 'VAC_515', 'VAC_529', 'VAC_534', 'VAC_540', 'VAC_544', 'VAC_546', 'VAC_549', 'VAC_550', 'VAC_562', 'VAC_568', 'VAC_569', 'VAC_574', 'VAC_579', 'VAC_580', 'VAC_582', 'VAC_587', 'VAC_589', 'VAC_596', 'VAC_601', 'VAC_602', 'VAC_604', 'VAC_608', 'VAC_613', 'VAC_619', 'VAC_624', 'VAC_627', 'VAC_628', ]:
+            #     continue
+            name = row[0].value
+            total_result = int(row[2].value)
+            location = row[1].value
+            status = request_job_details(job_id, location, total_result, name, job_url)
+            if not status:
+                return status
+        except Exception as e:
+            print('ERROR===%s' % job_id, e)
+            continue
+        time.sleep(2)
+    return True
 
 
 def request_company(url):
@@ -102,14 +131,16 @@ def request_company(url):
     return staff_count, industy
 
 
-def request_job_details(job_id, keyword, vac_id):
+def request_job_details(vac_id, location, total_result, keyword, job_url):
     global sheet_data
-    job_url = 'https://www.linkedin.com/jobs/view/%s/' % job_id
+    job_id = job_url.split('/')[-2]
     applicant_url = 'https://www.linkedin.com/voyager/api/jobs/applicantInsights/%s' % job_id
     company_url = 'https://www.linkedin.com/voyager/api/jobs/jobPostings/%s' % job_id
     job_html = get_request(job_url)
     applicant_html = get_json_resp(applicant_url)
     company_html = get_json_resp(company_url)
+    if not applicant_html and not company_html:
+        return False
     company_reg = '"companyName":"(.*?)"'
     company_id_reg = '"company":"(.*?)"'
 
@@ -192,12 +223,13 @@ def request_job_details(job_id, keyword, vac_id):
     if not top_skills:
         top_skills = ['N/A']
 
-    one_row = [keyword[0], keyword[3], keyword[2], vac_id, job_url, company_name, staff_count, company_page_url, title, level, industry, job_functions, desp, requirements, manager, senior, director, entry, total_app]
+    one_row = [keyword, location, total_result, vac_id, job_url, company_name, staff_count, company_page_url, title, level, industry, job_functions, desp, requirements, manager, senior, director, entry, total_app]
     sheet_data.append(one_row)
     for skill in top_skills:
         sheet2_data.append([vac_id, skill])
-    print(keyword, one_row[3], one_row[4])
-    # print(one_row)
+    print(vac_id, job_url, company_name, staff_count, title, manager, total_app, desp)
+    return True
+
 
 def get_date(timestamp):
     try:
@@ -214,22 +246,26 @@ def remove_html_tag(ori):
 
 
 def get_json_resp(url):
+    global TOTAL_REQUEST_COUNT
+    TOTAL_REQUEST_COUNT += 1
     resp = requests.get(url, headers={
         'Cookie': cookie,
         'csrf-token': csrf,
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36'
-    })
+    }, timeout=10)
     if resp.status_code == 200:
         return resp.json()
     return {}
 
 
 def get_request(url):
+    global TOTAL_REQUEST_COUNT
+    TOTAL_REQUEST_COUNT += 1
     header = {
         'cookie': cookie,
         'csrf-token': csrf,
     }
-    res_data = requests.get(url, headers=header)
+    res_data = requests.get(url, headers=header, timeout=10)
     res = res_data.content.decode("utf-8")
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return html.unescape(res)
@@ -258,31 +294,56 @@ def read_excel(filename, start=1):
     write_excel('data/res.xls', company_data)
 
 
-print('=====Need VIP!!=====')
-for keyword_url in keyword_urls:
-    if stop:
-        break
-    if P_ID > keyword_url[2]:
-        break
-    keyword = keyword_url[0]
-    url_prefix = keyword_url[1]
-    for i in range(0, 50):
+def get__job_ids():
+    global stop, P_ID, sheet2_data, sheet_data, sheet0_data
+    for keyword_url in keyword_urls:
         if stop:
             break
-        try:
-            url = url_prefix + str(25 * i)
-            print(url)
-            request_sheet1(url, keyword_url)
-        except Exception as e:
-            print(str(e))
-            stop = True
+        if P_ID > keyword_url[2]:
+            break
+        keyword = keyword_url[0]
+        url_prefix = keyword_url[1]
+        for i in range(0, 50):
+            if stop:
+                break
+            try:
+                url = url_prefix + str(25 * i)
+                print(url)
+                status = save_job_ids(url, keyword_url)
+                if status == -1:
+                    break
+            except Exception as e:
+                print(str(e))
+                if 'Read timed out' not in str(e) and ' Max retries exceeded' not in str(e):
+                    stop = True
+        write_excel('predata/sheet0_%s.xls' % keyword, sheet0_data)
+        print('====%s done=== %d' % (keyword, len(sheet0_data)))
+        del sheet0_data
+        sheet0_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL']]
+        P_ID = 1
 
-    write_excel('data/sheet1_%s.xls' % keyword, sheet_data)
-    write_excel('data/sheet2_%s.xls' % keyword, sheet2_data)
-    del sheet_data
-    del sheet2_data
-    sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size',
-                   'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements',
-                   'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
-    sheet2_data = [['Vacancy  ID', 'Top Skill']]
-    P_ID = 0
+
+def request_details_data():
+    global sheet0_data, sheet2_data, sheet_data
+    files = walk('predata/')
+    for filename in files:
+        status = request_sheet1(filename)
+        keyword = filename.split('_')[1].split('.')[0]
+        write_excel('data/sheet1_%s.xls' % keyword, sheet_data)
+        write_excel('data/sheet2_%s.xls' % keyword, sheet2_data)
+        if not status:
+            print('=====COOKIE ERROR=====')
+            break
+        del sheet_data
+        del sheet2_data
+        sheet_data = [['Keyword', 'Location', 'Total Result', 'Vacancy ID', 'Vacancy URL', 'Company Name', 'Company Size',
+                       'Company URL', 'Position', 'Level', 'Industry', 'Job Functions', 'Job Desp', 'Requirements',
+                       'Manager Level', 'Senior Level', 'Director Level', 'Entry Level', 'Total Applicants Count']]
+        sheet2_data = [['Vacancy  ID', 'Top Skill']]
+
+
+# step1: scraping job ids
+# get__job_ids()
+# step2: scraping job details according to job ids
+request_details_data()
+print('=====TOTAL_REQUEST_COUNT: %d=====' % TOTAL_REQUEST_COUNT)
