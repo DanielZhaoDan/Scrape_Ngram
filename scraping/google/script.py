@@ -15,16 +15,28 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&sa=N&biw=1777&bih=404&tbs=qdr:w&start='
+url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
 FIRST_START = 1
 cookie = [
-    'SID=oAU-uimd1Lw5AgqYpJ4tnCzD6ovHrnng-KBR0KRWQ52bTceYzWaCneV3qoOgYRJUgYTWdg.; HSID=AvHgBToXJpR_R4Hei; SSID=AE60l5oZ33I6CTqW_; APISID=8oyn0SMNBTzk7F6y/A_G6aWcP_3ns9Oek4; SAPISID=lRCCG26422F1KX14/ADmz5zBt5NhTuLoqA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUxNTgyOTIyMjk5NTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTI5OTc3NTUgbG9uZ2l0dWRlX2U3OjEwMzc4ODA4Nzd9IHJhZGl1czozNDEwMA==; GOOGLE_ABUSE_EXEMPTION=ID=b59abef64adfdcbc:TM=1515829423:C=r:IP=101.127.248.164-:S=APGng0uB6nhTzYzEG1zxxCETuimpO9EIPg; NID=121=oXmJRMXUYqFhk5TEvfVrkIGlQqiRKk0W-Vg49REN-xbO0YWo-cJdzfAN705o2Siu3b4ln311r8kAk08zakjKFT8mm9FKdKq51C8qmjplPWYgGRHVydvC_YqyLBCR-_EUvz0fVO7WXYsW9Im9ct3i-U671dmBmo8aTLfqgOCMRMMBaToyy7yxJ-3IMiRiboxEMJPTrf_k-xCUAYYWLYx7Ig; 1P_JAR=2018-1-13-7; DV=E6kuk-h3zUdIwDI3GDguhO9RB5jnDlbttd0dLzc9EQUAADCGNlKGfq2HWAEAAIStbbx-WJC9WwAAAA'
+    'SID=_QU33ZhP_4a-eUj06OJ46y5SAGYvEN8NGYbuVJLF5FX-2yksOdAc4MfwPlGGpR151pmV7w.; HSID=A0BNmX6hmSs9W-21t; SSID=AfTSefOme21T1NXa0; APISID=l6BSdBOijP_771WD/A4uLzZOvZFNiGc73k; SAPISID=7AeZBPjKNXdt77_8/AidnVJoV5nI_L63mY; OGPC=845686784-16:; NID=129=T_GfSickEtGAjnR67WZEjbf3rBz0EVOaWSfRQe1FAOQkwNpLVu8oVu71kkv2gOa-l3fIPI54uw5L8EqxELJqTxRrrQBFCILA1HxNsmt4YTm-2ytWpy7f3cgeD9UvVq3uy3o8aMSop3luh7rKGtkt69vOPDN8qWa3McEfYrZrRycCsz5CUNzd3TUidbQwuYygtkJQAGdGjj1ahZ7yb_5yz7bgrKhv4HoFucWoCNzeBR-sCQf0bQXeVw; DV=471lmmdi7j5CwEtSPKiaEkq6Hf5pMla83CLq2DZsyQIAAMAyNxg4LoTv4QAAANAoYELOfyZNPAAAAA; GOOGLE_ABUSE_EXEMPTION=ID=3ddc660fb7359747:TM=1525361504:C=r:IP=121.7.108.6-:S=APGng0vSEaJxtONenPrAPuldyyJgvjP4yw; 1P_JAR=2018-5-3-15; SIDCC=AEfoLebmoLvgT88J4psY9_DieQVIeNIvt18SqaJfwVSK9LcrCwq3BaOjDtfole8xlTcdNgbRYQ'
 ]
 
 key_words = [
-    {'keyword': '"home loan" location:india', 'bucket': '', 'country': 'SG'},
-    {'keyword': 'होम लोन location:india', 'bucket': '', 'country': 'IN'},
+    {'keyword': 'digital financial service intext:IoT location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:programmatic location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:media planning location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:analytics location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:e-commerce location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"marketing communication" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"online advertising" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"integrated marketing" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"mobile advertising" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"online marketing" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"design thinking" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"user experience" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:"artificial intelligence" location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': 'digital advertising intext:IoT location:Indonesia', 'bucket': '', 'country': 'ID'},
 ]
 
 http_proxies = [
@@ -85,7 +97,7 @@ def request_sheet1(key_word, url_base, page_no=1):
             return True
         if total_count == 0:
             total_count = get_total_count(html)
-        topic_detail_reg = '<h3 .*?href="(.*?)".*?>(.*?)</a>.*?span.*?>(.*?)<.*?f nsa _.*?">(.*?)<'
+        topic_detail_reg = '<h3 .*?href="(.*?)".*?>(.*?)</a>.*?span.*?>(.*?)<.*?f nsa .*?">(.*?)<'
         topic_detail = re.compile(topic_detail_reg).findall(html)
         if not topic_detail:
             break
