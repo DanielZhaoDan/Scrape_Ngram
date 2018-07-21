@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="UPD: similarweb">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/chromedriver" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/Posts.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/also_like.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/get_also_like_urls.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/get_likes_followers.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/etoro/script.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/kaskus/script.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/kaskus/script2.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scraping/FB/FB_BabasAndU.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/similarweb/chromedriver" afterPath="$PROJECT_DIR$/scraping/similarweb/chromedriver" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" afterPath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/CleanHtml/script.py" afterPath="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/google/script.py" afterPath="$PROJECT_DIR$/scraping/google/script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/similarweb/script.py" afterPath="$PROJECT_DIR$/scraping/similarweb/script.py" />
+    <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/ascii.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/Linkedin_employed/company.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/FB_search_result/out.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/FB/out.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/doctorshangout/remove_less_30.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scraping/geoexpat/script.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/FB/Posts.py" afterPath="$PROJECT_DIR$/scraping/FB/Posts.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scraping/FB/likes_profile.py" afterPath="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
@@ -31,8 +24,8 @@
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1512009282061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1526521003102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1526099393965" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1532049598094" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1532020835268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1518854804927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1516351261575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1518238631713" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/lowyat" />
@@ -50,7 +43,7 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$timeout.coverage" NAME="timeout Coverage Results" MODIFIED="1488521912644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518878233822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$test.coverage" NAME="test Coverage Results" MODIFIED="1517280694527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/go" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1525457080263" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/CleanHtml" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1532019776340" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/geoexpat" />
     <SUITE FILE_PATH="coverage/scrape_ngram$also_like.coverage" NAME="also_like Coverage Results" MODIFIED="1526686562157" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$VR_zone.coverage" NAME="VR_zone Coverage Results" MODIFIED="1488362779531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1516100713102" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
@@ -92,7 +85,21 @@
     <favorites_list name="Scrape_Ngram" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="get_likes_followers.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.71823204">
+              <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+              <folding>
+                <element signature="e#734#816#0" expanded="false" />
+                <element signature="e#964#1083#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -147,8 +154,8 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
-        <option value="DanielZhaoChina &lt;danielzhaochina@gmail.com&gt;" />
         <option value="danielzhaochina@gmail.com" />
+        <option value="DanielZhaoChina &lt;danielzhaochina@gmail.com&gt;" />
         <option value="ZHAO DAN &lt;danielzhaochina@gmail.com&gt;" />
         <option value="Zhao Dan &lt;danielzhaochina@gmail.com&gt;" />
       </list>
@@ -158,8 +165,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scraping/HW/hardware.py" />
-        <option value="$PROJECT_DIR$/scraping/glassdoor/script.py" />
         <option value="$PROJECT_DIR$/scraping/glassdoor/1.html" />
         <option value="$PROJECT_DIR$/scraping/glassdoor/2.html" />
         <option value="$PROJECT_DIR$/scraping/glassdoor/company.py" />
@@ -201,14 +206,16 @@
         <option value="$PROJECT_DIR$/scraping/kaskus/script2.py" />
         <option value="$PROJECT_DIR$/scraping/FB/FB_BabasAndU.py" />
         <option value="$PROJECT_DIR$/scraping/FB/2.html" />
-        <option value="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
-        <option value="$PROJECT_DIR$/scraping/FB/Posts.py" />
         <option value="$PROJECT_DIR$/scraping/FB/1.html" />
         <option value="$PROJECT_DIR$/scraping/FB/also_like.py" />
         <option value="$PROJECT_DIR$/scraping/FB/get_cookie.py" />
         <option value="$PROJECT_DIR$/scraping/FB/get_likes_followers.py" />
         <option value="$PROJECT_DIR$/scraping/FB/get_also_like_urls.py" />
         <option value="$PROJECT_DIR$/scraping/FB/out.txt" />
+        <option value="$PROJECT_DIR$/scraping/geoexpat/1.html" />
+        <option value="$PROJECT_DIR$/scraping/geoexpat/script.py" />
+        <option value="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
+        <option value="$PROJECT_DIR$/scraping/FB/Posts.py" />
       </list>
     </option>
   </component>
@@ -249,6 +256,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -295,7 +304,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="similarweb" />
+              <option name="myItemId" value="geoexpat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,8 +350,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -361,11 +368,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping" />
+      <recent name="$PROJECT_DIR$/scraping/singaporemotherhood" />
       <recent name="$PROJECT_DIR$/scraping/FB" />
       <recent name="$PROJECT_DIR$/scraping/FB/data" />
       <recent name="$PROJECT_DIR$/scraping/kaskus" />
-      <recent name="$PROJECT_DIR$/scraping/similarweb/data" />
-      <recent name="$PROJECT_DIR$/scraping/CleanHtml/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scraping/kaskus" />
@@ -387,7 +394,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.get_cookie">
+  <component name="RunManager" selected="Python.FB_BabasAndU">
     <configuration default="false" name="FB_BabasAndU" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -402,42 +409,6 @@
       <module name="Scrape_Ngram" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB/Posts.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="likes_profile" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Scrape_Ngram" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="also_like" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Scrape_Ngram" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB/also_like.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -474,6 +445,42 @@
       <module name="Scrape_Ngram" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB/get_also_like_urls.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="script (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/geoexpat" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Scrape_Ngram" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/geoexpat/script.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="likes_profile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Scrape_Ngram" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB/likes_profile.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -783,18 +790,18 @@
       <item index="3" class="java.lang.String" itemvalue="Python.Employed_v2" />
       <item index="4" class="java.lang.String" itemvalue="Python.Vacancy_v2 (1)" />
       <item index="5" class="java.lang.String" itemvalue="Python.FB_BabasAndU" />
-      <item index="6" class="java.lang.String" itemvalue="Python.likes_profile" />
-      <item index="7" class="java.lang.String" itemvalue="Python.also_like" />
-      <item index="8" class="java.lang.String" itemvalue="Python.get_likes_followers" />
-      <item index="9" class="java.lang.String" itemvalue="Python.get_cookie" />
+      <item index="6" class="java.lang.String" itemvalue="Python.get_likes_followers" />
+      <item index="7" class="java.lang.String" itemvalue="Python.get_cookie" />
+      <item index="8" class="java.lang.String" itemvalue="Python.script (2)" />
+      <item index="9" class="java.lang.String" itemvalue="Python.likes_profile" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.get_cookie" />
-        <item index="1" class="java.lang.String" itemvalue="Python.get_likes_followers" />
-        <item index="2" class="java.lang.String" itemvalue="Python.also_like" />
-        <item index="3" class="java.lang.String" itemvalue="Python.FB_BabasAndU" />
-        <item index="4" class="java.lang.String" itemvalue="Python.likes_profile" />
+        <item index="0" class="java.lang.String" itemvalue="Python.FB_BabasAndU" />
+        <item index="1" class="java.lang.String" itemvalue="Python.likes_profile" />
+        <item index="2" class="java.lang.String" itemvalue="Python.script (2)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.get_cookie" />
+        <item index="4" class="java.lang.String" itemvalue="Python.get_likes_followers" />
       </list>
     </recent_temporary>
   </component>
@@ -929,7 +936,13 @@
       <option name="project" value="LOCAL" />
       <updated>1523529168029</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="UPD: similarweb">
+      <created>1530427787684</created>
+      <option name="number" value="00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1530427787684</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView">
@@ -945,29 +958,29 @@
     <frame x="46" y="23" width="1234" height="777" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30956376" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32466444" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32896653" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.14864865" sideWeight="0.5023337" order="11" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298351" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5620438" sideWeight="0.49591598" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3930131" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5618632" sideWeight="0.49591598" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4323144" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.41193596" sideWeight="0.49713877" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24852653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4366812" sideWeight="0.49766627" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31441048" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33478895" sideWeight="0.49713877" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32881" sideWeight="0.49649122" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="LuaJ" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3287483" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297362" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5647744" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -997,9 +1010,9 @@
     <MESSAGE value="UPD: add doctor scrape data" />
     <MESSAGE value="UPD: Linkedin scripts" />
     <MESSAGE value="UPD: similarweb and cleaned html" />
-    <MESSAGE value="UPD: similarweb" />
     <MESSAGE value="UPD: linkedin" />
-    <option name="LAST_COMMIT_MESSAGE" value="UPD: linkedin" />
+    <MESSAGE value="UPD: similarweb" />
+    <option name="LAST_COMMIT_MESSAGE" value="UPD: similarweb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1075,19 +1088,9 @@
           <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB/likes_profile.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="239" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/FB_search_result/run.py</url>
           <line>1</line>
           <option name="timeStamp" value="240" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB/Posts.py</url>
-          <line>198</line>
-          <option name="timeStamp" value="246" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py</url>
@@ -1096,13 +1099,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py</url>
-          <line>193</line>
-          <option name="timeStamp" value="249" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py</url>
           <line>56</line>
           <option name="timeStamp" value="251" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/geoexpat/script.py</url>
+          <line>57</line>
+          <option name="timeStamp" value="260" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/FB/likes_profile.py</url>
+          <line>94</line>
+          <option name="timeStamp" value="261" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -1115,41 +1123,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="252" />
+      <option name="time" value="263" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scraping/etoro/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#2200#44559#0" expanded="false" />
-            <element signature="e#44888#44970#0" expanded="false" />
-            <element signature="e#46645#48050#0" expanded="false" />
-            <element signature="e#49472#49691#0" expanded="false" />
-            <element signature="e#49724#49816#0" expanded="false" />
-            <element signature="e#49847#50199#0" expanded="false" />
-            <element signature="e#50228#50472#0" expanded="false" />
-            <element signature="e#50518#51004#0" expanded="false" />
-            <element signature="e#51055#52673#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_vacancy/Vacancy_v2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#10657#10787#0" expanded="false" />
-            <element signature="e#10820#10912#0" expanded="false" />
-            <element signature="e#11357#11689#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/Linkedin_vacancy/Vacancy_v2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1494,43 +1472,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/Posts.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.146789">
-          <caret line="208" column="14" selection-start-line="208" selection-start-column="14" selection-end-line="208" selection-end-column="14" />
-          <folding>
-            <element signature="e#138#1443#1" expanded="false" />
-            <element signature="e#2698#2780#0" expanded="false" />
-            <element signature="e#5551#5686#0" expanded="false" />
-            <element signature="e#5808#6093#0" expanded="false" />
-            <element signature="e#6152#6869#0" expanded="false" />
-            <element signature="e#6905#7324#0" expanded="false" />
-            <element signature="e#7353#7667#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/likes_profile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3853211">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding>
-            <element signature="e#16#34#0" expanded="false" />
-            <element signature="e#1096#1178#0" expanded="false" />
-            <element signature="e#1326#1445#0" expanded="false" />
-            <element signature="e#1504#2221#0" expanded="false" />
-            <element signature="e#7189#7310#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/also_like.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.362069">
-          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB/ascii.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7867299">
@@ -1538,31 +1479,89 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2237762">
-          <caret line="42" column="28" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-          <folding>
-            <element signature="e#16#34#0" expanded="false" />
-            <element signature="e#734#816#0" expanded="false" />
-            <element signature="e#964#1083#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB/out.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3171472">
           <caret line="8397" column="13" selection-start-line="8397" selection-start-column="13" selection-end-line="8397" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/also_like.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.038265307">
+          <caret line="75" column="4" selection-start-line="75" selection-start-column="4" selection-end-line="75" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/geoexpat/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="0" column="29980" selection-start-line="0" selection-start-column="29980" selection-end-line="0" selection-end-column="29980" />
+          <folding>
+            <marker date="1532019664000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1532019664000" expanded="true" signature="-1:-1" placeholder="/*...*/" />
+            <marker date="1532019664000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1532019664000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1532019664000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/geoexpat/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.311245">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+            <element signature="e#2711#4637#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/likes_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49452955">
+          <caret line="95" column="10" selection-start-line="95" selection-start-column="10" selection-end-line="95" selection-end-column="10" />
+          <folding>
+            <element signature="e#1159#1241#0" expanded="false" />
+            <element signature="e#1389#1508#0" expanded="false" />
+            <element signature="e#1567#2284#0" expanded="false" />
+            <element signature="e#7230#7351#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB/get_also_like_urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68133533">
-          <caret line="92" column="36" selection-start-line="92" selection-start-column="26" selection-end-line="92" selection-end-column="36" />
+        <state vertical-scroll-proportion="-2.031915">
+          <caret line="30" column="4" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/Posts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding>
+            <element signature="e#138#1443#1" expanded="false" />
+            <element signature="e#2971#3053#0" expanded="false" />
+            <element signature="e#6085#6370#0" expanded="false" />
+            <element signature="e#7187#7606#0" expanded="false" />
+            <element signature="e#7635#7949#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/get_likes_followers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71823204">
+          <caret line="167" column="29" selection-start-line="167" selection-start-column="29" selection-end-line="167" selection-end-column="29" />
+          <folding>
+            <element signature="e#734#816#0" expanded="false" />
+            <element signature="e#964#1083#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -31,16 +31,16 @@ https://www.facebook.com/pages_reaction_units/more/
 
 stop = False
 urls = [
-    ['https://www.facebook.com/SehatAQUA/', 'Sehat AQUA', '2,377,325', '2,360,870'],
-    ['https://www.facebook.com/minumvit/', 'Minum VIT', '232,714', '232,596'],
-    ['https://www.facebook.com/LeMinerale', 'Le Minerale', '394,864', '394,879'],
-    ['https://www.facebook.com/AdesIndonesia', 'Ades Indonesia', '147,516', '147,145'],
+    ['https://www.facebook.com/AIAHongKong/', 'AIA Hong Kong', '258,782', '252,818'],
+    # ['https://www.facebook.com/AXAHongKong/', 'AXAHong Kong', '18,271', '18,610'],
+    # ['https://www.facebook.com/BupaHongKong/', 'Bupa Hong Kong 保柏', '67,675', '65,603'],
+    # ['https://www.facebook.com/CignaHK/', 'Cigna Hong Kong 信諾環球保險', '34,264', '34,679'],
 ]
 
 alldata = [['Page Url', 'Page Name', 'No. likes', 'No. follows', 'Post Url', 'Date', 'Main Text', 'No. reactions', 'No. Comment', 'No. Shares', 'No. Views']]
 
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; dpr=2; c_user=100006957738125; xs=243%3AC-TV1OHPqIWwWA%3A2%3A1525609449%3A20772%3A8703; pl=n; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; fr=0NT9QsWhwBGUSDrtW.AWWHlqXnck2-1LOo2c_8ngXjPRc.BazwYT.Bv.Fru.0.0.Ba7vPt.AWWBu1mc; act=1525609467323%2F2; presence=EDvF3EtimeF1525609595EuserFA21B06957738125A2EstateFDutF1525609595652CEchFDp_5f1B06957738125F2CC; wd=1234x419'
-tail = '&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175'
+cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; dpr=2; c_user=100006957738125; xs=90%3A6hEzya-A7h34oA%3A2%3A1532013169%3A20772%3A8703; fr=0NT9QsWhwBGUSDrtW.AWXSW2eZfHL6Hx6-ohqA60peDM0.BazwYT.Bv.AAA.0.0.BbUKpx.AWX5mqSL; pl=n; spin=r.4119144_b.trunk_t.1532013170_s.1_v.2_; act=1532013241147%2F0; presence=EDvF3EtimeF1532013300EuserFA21B06957738125A2EstateFDutF1532013300454Et3F_5b_5dElm3FnullEutc3F0CEchFDp_5f1B06957738125F2CC; wd=1123x310'
+tail = '&surface=www_pages_home&unit_count=8&dpr=2&__user=100006957738125&__a=1&__dyn=5V4cjLx2ByK5A9UkKHqAyqomzFEbEyGgS8UR94WqK6EvxGdwIhEnUG8zFGUpxSaxu3uexebnyogyEnGi4FpeuUuKcUeWDg9oggHzobp94rzLwAgmVV8Gicx2q5od8tyECVoyaxG4oO3-5k2eq499oeGzVFAeCUkUCawRCzFVkdxCi78SaCzUfHGVUhxyh16fmFomhC8xm252odoKUKfy45EGdUcUpx3yUymf-Key8eohx2cUW8x3AUGvwyQF8my9u4S9xCmiaz9oCmUhDzA4Kq7o76FUO7EpgKibKezHAyEsyUaoWEKUS&__req=1d&__be=1&__pc=PHASED:DEFAULT&__rev=4119144&__spin_r=4119144&__spin_b=trunk&__spin_t=1532013170'
 
 
 def get_ori_html(url):
@@ -63,7 +63,7 @@ def remove_html_tag(ori):
     return str(HTMLParser.HTMLParser().unescape(dd)).strip()
 
 
-def get_first_four_column(html):
+def get_first_four_column(html, url):
     ''' analysis response to get value of first four columns in excel'''
 
     global first_four_col, stop
@@ -83,7 +83,7 @@ def get_first_four_column(html):
             date = i[1].split(' ')[0]
             message_url = "https://www.facebook.com/" + i[0]
             res_photos.append([message_url, date, message])
-        else :
+        else:
             reg = 'href="/(.*?)".*?abbr title="(.*?)".*?userContent.*?>(.*?)</div>'
             post_detail = re.compile(reg).findall(post)
             '''i[0] message url; i[1] raw date; i[2] raw message'''
@@ -140,7 +140,7 @@ def get_video_view_count(html):
 
 def get_req(page_id, time_line, minus8, timestamp):
     '''send response to facebook server to get the return value (6 posts in one time)'''
-    '''00000000001446908402:04611686018427387904:09223372036854775800:04611686018427387904'''
+    '''00000000001531476001:04611686018427387904:09223372036854775803:04611686018427387904'''
     url = "https://www.facebook.com/pages_reaction_units/more/?page_id="
 
     url += page_id
@@ -153,7 +153,7 @@ def get_req(page_id, time_line, minus8, timestamp):
     data += tail
     url += data
 
-    return get_request_of_url(url)
+    return get_request_of_url(url), url
 
 
 def get_request_of_url(url):
@@ -188,17 +188,17 @@ def save_value(params):
     timestamp = 1447171200
     '''
     time_line = '04611686018427387904'
-    minus8 = 9223372036854775800
-    timestamp = str(int(time.time()))
+    minus8 = 9223372036854775739
+    timestamp = str('1526466769')
     count = 0
 
-    while count <= 200 and not stop:
+    while count <= 168 and not stop:
         try:
-            response = get_req(page_id, time_line, minus8, timestamp)
-            # response = get_request_of_url('https://www.facebook.com/pages_reaction_units/more/?page_id=123614990983436&cursor={"timeline_cursor":"timeline_unit:1:00000000001455025200:04611686018427387904:09223372036854775584:04611686018427387904","timeline_section_cursor":{},"has_next_page":true}&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175')
+            response, url = get_req(page_id, time_line, minus8, timestamp)
             response = response.replace("\n", "").replace("\r", "")
-            # write(response, '1.html')
-            photo_list, video_list, timestamp = get_first_four_column(response)
+            if url == 'https://www.facebook.com/pages_reaction_units/more/?page_id=233237970068198&cursor={"timeline_cursor":"timeline_unit:1:00000000001527742800:04611686018427387904:09223372036854775747:04611686018427387904","timeline_section_cursor":{},"has_next_page":true}&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175':
+                break
+            photo_list, video_list, timestamp = get_first_four_column(response, url)
             second_four_dict = get_second_four_without_video(response)
 
             if video_list:

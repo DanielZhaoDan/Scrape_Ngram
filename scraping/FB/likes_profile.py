@@ -10,17 +10,17 @@ import httplib
 
 stop = False
 urls = [
-    # ['https://www.facebook.com/SehatAQUA/', 'Sehat AQUA', '2,377,325', '2,360,870', 'SeA_%d'],
-    # ['https://www.facebook.com/minumvit/', 'Minum VIT', '232,714', '232,596', 'VIT_%d'],
-    ['https://www.facebook.com/LeMinerale', 'Le Minerale', '394,864', '394,879', 'LeM_%d'],
-    # ['https://www.facebook.com/AdesIndonesia', 'Ades Indonesia', '147,516', '147,145', 'Ades_%d'],
+    ['https://www.facebook.com/AIAHongKong/', 'AIA Hong Kong', '258,782', '252,818', 'AIA_%d'],
+    # ['https://www.facebook.com/AXAHongKong/', 'AXA Hong Kong', '18,271', '18,610', 'AXA_%d'],
+    ['https://www.facebook.com/BupaHongKong/', 'Bupa Hong Kong 保柏', '67,675', '65,603', 'BUP_%d'],
+    ['https://www.facebook.com/CignaHK/', 'Cigna Hong Kong 信諾環球保險', '34,264', '34,679', 'CIG_%d'],
 ]
 
 page_id = ''
 
 alldata = [['Profile ID', 'Name', 'Profile URL', 'Lives in', 'Likes Main Page', 'Profile like Url']]
 
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; dpr=2; c_user=100006957738125; xs=243%3AC-TV1OHPqIWwWA%3A2%3A1525609449%3A20772%3A8703; pl=n; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; m_pixel_ratio=2; fr=0NT9QsWhwBGUSDrtW.AWVVGANXMz_dXQ75j0YFxTUNh18.BazwYT.Bv.Fru.0.0.Ba9a1I.AWX-gqu8; act=1526050332371%2F1; wd=1234x150; presence=EDvF3EtimeF1526050681EuserFA21B06957738125A2EstateFDutF1526050681724CEchFDp_5f1B06957738125F1CC'
+cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; dpr=2; c_user=100006957738125; xs=90%3A6hEzya-A7h34oA%3A2%3A1532013169%3A20772%3A8703; fr=0NT9QsWhwBGUSDrtW.AWXSW2eZfHL6Hx6-ohqA60peDM0.BazwYT.Bv.AAA.0.0.BbUKpx.AWX5mqSL; pl=n; spin=r.4119144_b.trunk_t.1532013170_s.1_v.2_; act=1532013241147%2F0; presence=EDvF3EtimeF1532013300EuserFA21B06957738125A2EstateFDutF1532013300454Et3F_5b_5dElm3FnullEutc3F0CEchFDp_5f1B06957738125F2CC; wd=1123x310'
 
 
 def get_ori_html(url):
@@ -91,10 +91,10 @@ def save_value(params):
                 profile_name = remove_html_tag(profile[1])
                 profile_like_url = 'https://www.facebook.com/search' + profile[2]
                 content = remove_html_tag(profile[3])
-                live_reg = 'Lives in(.*?), Indonesia'
+                live_reg = 'Lives in Hong Kong'
                 location = re.compile(live_reg).findall(content)
                 if location:
-                    one_row = [params[4] % count, profile_name, profile_url, location[0] + ', Indonesia', params[1], profile_like_url]
+                    one_row = [params[4] % count, profile_name, profile_url, 'Hong Kong', params[1], profile_like_url]
                     print(one_row)
                     alldata.append(one_row)
                     count += 1
