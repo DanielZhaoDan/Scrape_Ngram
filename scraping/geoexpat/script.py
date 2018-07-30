@@ -51,21 +51,27 @@ def write_excel(filename, alldata, flag=None):
 def request_sheet0():
     global Topic_ID
     for i in range(0, 10):
-        url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=4aa0772189af4c17ea7ec181af2bca15&start=' + str(i*10) + '&cx=013423769980278394801:e8p-__zgdwq&q=insurance%20more%3Aforums&cse_tok=AF14hliVjvwt80lbQ2hJdxDbsA8Uq4LFFw:1532014283782&sort=&googlehost=www.google.com&callback=google.search.Search.apiary4517'
+        url = 'https://www.googleapis.com/customsearch/v1element?key=AIzaSyCVAXiUzRYsML1Pv6RwSG1gunmMikTzQqY&rsz=filtered_cse&num=10&hl=en&prettyPrint=false&source=gcsc&gss=.com&sig=4aa0772189af4c17ea7ec181af2bca15&start=' + str(i*10) + '&cx=013423769980278394801:e8p-__zgdwq&q=insurance&cse_tok=AF14hliLiMOV86__BgjdOrqFCoUk-iT84Q:1532777357936&sort=&googlehost=www.google.com&callback=google.search.Search.apiary2382&nocache=1532777359013'
         html = get_request(url)
         reg = '"formattedUrl":"(.*?)"'
         lists = re.compile(reg).findall(html)
         for list in lists:
             if 'http' not in list:
                 list = 'https://' + list
+            if 'thread' not in list:
+                continue
             if 'geoexpat' in list:
                 scrape_gexexpat(list)
             elif 'geobaby' in list:
                 scrape_gexbaby(list)
             Topic_ID += 1
 
+    write_excel('data/data.xls', sheet0_data)
+
 
 def scrape_gexexpat(main_url):
+    data_of_url = []
+    no_replies = 0
     html = get_request(main_url)
     page_no_reg = 'popupctrl">Page.*?of (.*?)<.*?vbseo-likes-count.*?/>(.*?)<.*?threadtitle">(.*?)<'
     main_data = re.compile(page_no_reg).findall(html)
@@ -97,7 +103,7 @@ def scrape_gexexpat(main_url):
     for i in range(1, page_no + 1):
         url = main_url.split('-')[0]
         if 'html' not in url:
-            url = url + str(i) + '.html'
+            url = url + '-' + str(i) + '.html'
         else:
             url = url.replace('.html', '-' + str(i) + '.html')
         html = get_request(url)
@@ -105,14 +111,62 @@ def scrape_gexexpat(main_url):
 
         post_list = re.compile(reg).findall(html)
         for post in post_list:
+            no_replies = post[1]
             one_row = ['GE_%d' % Topic_ID, title, main_url, remove_html_tag(post[2]), post[3].split(' ')[-1],
                        post[0].replace('-', '/'), like_no, post[1], post[4], get_pure_text(post[5])]
             print(one_row)
-            sheet0_data.append(one_row)
+            data_of_url.append(one_row)
+    for data in data_of_url:
+        data[-3] = no_replies
+        sheet0_data.append(data)
 
 
-def scrape_gexbaby(url):
-    pass
+def scrape_gexbaby(main_url):
+    posts_no = 0
+    data_of_url = []
+    reg = 'class="above_postlist"(.*?)class="pagetitle"(.*?)id="thread_controls"'
+    html = get_request(main_url)
+    reg_list = re.compile(reg).findall(html)[0]
+    page_list = reg_list[0]
+    title_list = reg_list[1]
+    page_no = 1
+    no_likes = 0
+
+    if 'pagination_top hidden' not in page_list:
+        page_no_reg = '"popupctrl">.*?of (.*?)<'
+        page_posts_no = re.compile(page_no_reg).findall(page_list)[0]
+        page_no = page_posts_no[0]
+
+    if 'vbseo-likes' in title_list:
+        title_reg = '"Like Tree".*?>(.*?)<em.*?<h1>(.*?)<'
+        like_title = re.compile(title_reg).findall(title_list)[0]
+        no_likes = like_title[0]
+        title = like_title[1]
+    else:
+        title = re.compile('<h1>(.*?)<').findall(title_list)[0]
+
+    for i in range(1, int(page_no) + 1):
+        url = main_url.split('-')[0]
+        if 'html' not in url:
+            url = url + '-' + str(i) + '.html'
+        else:
+            url = url.replace('.html', '-' + str(i) + '.html')
+
+        html = get_request(url)
+        data_reg = 'class="postdate old".*?.*?date">(.*?),.*?class="username_container.*?href.*?>(.*?)<.*?class="userstats".*?<dd>(.*?)</.*?Posts.*?<dd>(.*?)<.*?<p>(.*?)</p'
+
+        data_list = re.compile(data_reg).findall(html)
+
+        for data in data_list:
+            one_row = ['GE_%d' % Topic_ID, title, main_url, remove_html_tag(data[1]), data[2].split(' ')[-1],
+                       data[0].replace('-', '/'), no_likes, posts_no, data[3], get_pure_text(data[4])]
+            posts_no += 1
+            print(one_row)
+            data_of_url.append(one_row)
+
+    for row in data_of_url:
+        row[-3] = posts_no
+        sheet0_data.append(row)
 
 
 def get_pure_text(ori):

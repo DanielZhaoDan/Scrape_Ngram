@@ -16,7 +16,7 @@ alldata = [['Profile ID', 'Name', 'Also Likes', 'Category', 'URL of also Likes']
 cookie = 'sb=6ST_WtOPfg79wHi2665Bsh6V; datr=6ST_WoDL7rHIezUJzF7ngsbe; dpr=2; locale=en_GB; lh=en_GB; c_user=100026249853067; xs=35%3AhiHc9vr9W2M9-g%3A2%3A1526678445%3A-1%3A-1; pl=n; fr=0UaA3QtnOrdwqneVH.AWUd_UJEGCCN2n9_YaE8jAy3gu8.Ba_yTp.BE.AAA.0.0.Ba_1Hi.AWXb7VeP; presence=EDvF3EtimeF1526684266EuserFA21B26249853067A2EstateFDutF1526684266116CEchFDp_5f1B26249853067F15CC; act=1526684286374%2F7; wd=1234x427'
 
 page_id_data = {}
-FB_ACCOUNT = ['texinug@2odem.com'][0]
+FB_ACCOUNT = ['vigucocow@travala10.com'][0]
 
 
 def get_ori_html(url):

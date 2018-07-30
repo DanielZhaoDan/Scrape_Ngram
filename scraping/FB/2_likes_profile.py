@@ -11,7 +11,7 @@ import httplib
 stop = False
 urls = [
     ['https://www.facebook.com/AIAHongKong/', 'AIA Hong Kong', '258,782', '252,818', 'AIA_%d'],
-    # ['https://www.facebook.com/AXAHongKong/', 'AXA Hong Kong', '18,271', '18,610', 'AXA_%d'],
+    ['https://www.facebook.com/AXAHongKong/', 'AXA Hong Kong', '18,271', '18,610', 'AXA_%d'],
     ['https://www.facebook.com/BupaHongKong/', 'Bupa Hong Kong 保柏', '67,675', '65,603', 'BUP_%d'],
     ['https://www.facebook.com/CignaHK/', 'Cigna Hong Kong 信諾環球保險', '34,264', '34,679', 'CIG_%d'],
 ]

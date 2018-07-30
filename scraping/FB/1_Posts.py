@@ -39,7 +39,7 @@ urls = [
 
 alldata = [['Page Url', 'Page Name', 'No. likes', 'No. follows', 'Post Url', 'Date', 'Main Text', 'No. reactions', 'No. Comment', 'No. Shares', 'No. Views']]
 
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; dpr=2; c_user=100006957738125; xs=90%3A6hEzya-A7h34oA%3A2%3A1532013169%3A20772%3A8703; fr=0NT9QsWhwBGUSDrtW.AWXSW2eZfHL6Hx6-ohqA60peDM0.BazwYT.Bv.AAA.0.0.BbUKpx.AWX5mqSL; pl=n; spin=r.4119144_b.trunk_t.1532013170_s.1_v.2_; act=1532013241147%2F0; presence=EDvF3EtimeF1532013300EuserFA21B06957738125A2EstateFDutF1532013300454Et3F_5b_5dElm3FnullEutc3F0CEchFDp_5f1B06957738125F2CC; wd=1123x310'
+cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=90%3A6hEzya-A7h34oA%3A2%3A1532013169%3A20772%3A8703; pl=n; fr=0NT9QsWhwBGUSDrtW.AWVFZJPs3MxC3YQm_sg2j_Jk3Q4.BazwYT.Bv.AAA.0.0.BbXD_U.AWUAKyDC; js_ver=3130; spin=r.4152664_b.trunk_t.1532773335_s.1_v.2_; dpr=2; wd=1233x297; act=1532773411549%2F0; presence=EDvF3EtimeF1532773429EuserFA21B06957738125A2EstateFDutF1532773429161CEchFDp_5f1B06957738125F2CC'
 tail = '&surface=www_pages_home&unit_count=8&dpr=2&__user=100006957738125&__a=1&__dyn=5V4cjLx2ByK5A9UkKHqAyqomzFEbEyGgS8UR94WqK6EvxGdwIhEnUG8zFGUpxSaxu3uexebnyogyEnGi4FpeuUuKcUeWDg9oggHzobp94rzLwAgmVV8Gicx2q5od8tyECVoyaxG4oO3-5k2eq499oeGzVFAeCUkUCawRCzFVkdxCi78SaCzUfHGVUhxyh16fmFomhC8xm252odoKUKfy45EGdUcUpx3yUymf-Key8eohx2cUW8x3AUGvwyQF8my9u4S9xCmiaz9oCmUhDzA4Kq7o76FUO7EpgKibKezHAyEsyUaoWEKUS&__req=1d&__be=1&__pc=PHASED:DEFAULT&__rev=4119144&__spin_r=4119144&__spin_b=trunk&__spin_t=1532013170'
 
 
@@ -189,15 +189,13 @@ def save_value(params):
     '''
     time_line = '04611686018427387904'
     minus8 = 9223372036854775739
-    timestamp = str('1526466769')
+    timestamp = int(time.time())
     count = 0
 
-    while count <= 168 and not stop:
+    while count <= 200 and not stop:
         try:
             response, url = get_req(page_id, time_line, minus8, timestamp)
             response = response.replace("\n", "").replace("\r", "")
-            if url == 'https://www.facebook.com/pages_reaction_units/more/?page_id=233237970068198&cursor={"timeline_cursor":"timeline_unit:1:00000000001527742800:04611686018427387904:09223372036854775747:04611686018427387904","timeline_section_cursor":{},"has_next_page":true}&surface=www_pages_home&unit_count=8&dpr=1&__user=100006957738125&__a=1&__dyn=5V5yAW8-aFoFxp2u6aOGeFxqeCwKAKGgS8zCC-C26m6oKewWhEnz8nwgUaqwHx24UJi28rxuF8WUOuVWxeUW6UO4GDgdUHDBxe6rCxaLGqu58nVV8-cx2jxm3i2y9ADBy8K48hxGbwYDx2r_xLgkBx-26KiaggzE-49pp8CcVUO&__af=m&__req=m&__be=-1&__pc=PHASED:DEFAULT&__rev=2706175':
-                break
             photo_list, video_list, timestamp = get_first_four_column(response, url)
             second_four_dict = get_second_four_without_video(response)
 
