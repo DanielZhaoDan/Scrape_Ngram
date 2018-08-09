@@ -14,7 +14,7 @@ stop = False
 FB_ACCOUNT = ['mymicro@live.com'][0]
 all_data = [['Also Like Url', 'No. likes', 'No. followers']]
 driver = None
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; dpr=2; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=8%3AkXEk6w-iwYpmSA%3A2%3A1526665602%3A20772%3A8703; pl=n; act=1527468588754%2F0; wd=1200x190; fr=0NT9QsWhwBGUSDrtW.AWXxkgoaqx2XFxPHEGx09pfRu-Q.BazwYT.Bv.AAA.0.0.BbDCU8.AWVPqant; presence=EDvF3EtimeF1527522875EuserFA21B06957738125A2EstateFDutF1527522875357CEchFDp_5f1B06957738125F121CC'
+cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; js_ver=3130; dpr=2; locale=en_GB; ; c_user=100006957738125; xs=15%3AV4OG6OHVXc5A5Q%3A2%3A1533303142%3A20772%3A8703; fr=0NT9QsWhwBGUSDrtW.AWXZU8hiJ11Cq2_lr3GgWjlc5PM.BazwYT.Bv.AAA.0.0.BbZFlm.AWXK_LSG; pl=n; spin=r.4172604_b.trunk_t.1533303143_s.1_v.2_; wd=1233x386; act=1533303332078%2F0; presence=EDvF3EtimeF1533305363EuserFA21B06957738125A2EstateFDutF1533305363147CC'
 
 url_data_dict = set()
 ERROR_COUNT = 0
@@ -50,33 +50,6 @@ def get_request_of_url(url):
     res = res_data.read()
     res = HTMLParser.HTMLParser().unescape(res).decode('unicode-escape').replace('\\', '')
     return res
-
-
-# def get_request_of_url(url):
-#     global driver
-#     driver.get(url)
-#     time.sleep(1)
-#     html_source = driver.page_source
-#     data = html_source.encode('utf-8')
-#     return data
-
-
-def init_browser():
-    global driver
-    driver = webdriver.Chrome('./chromedriver')  # Optional argument, if not specified will search path.
-    driver.get('https://www.facebook.com/TheRatsOnline/')
-    time.sleep(2)
-
-    username = driver.find_element_by_name("email")
-    password = driver.find_element_by_name("pass")
-    username.send_keys(FB_ACCOUNT)  ##your username, need to be replaced
-    password.send_keys("54zcy54ZCY252729")  ##your password, need to be replaced
-    time.sleep(1)
-
-    try:
-        driver.find_element_by_id("loginbutton").click()
-    except:
-        driver.find_element_by_id("u_0_0").click()
 
 
 def get_request(url):
@@ -162,10 +135,10 @@ def read_excel(filename, start=1):
         try:
             profile_url = row[0].value
             scrape_like_follow_of_url(i, profile_url)
-            if i % 5000 == 0:
-                write_excel('like_follower_%d.xls' % i, all_data)
-                del all_data
-                all_data = []
+            # if (i+1) % 5000 == 0:
+            #     write_excel('like_follower_%d.xls' % i, all_data)
+            #     del all_data
+            #     all_data = []
             ERROR_COUNT = 0
         except Exception as e:
             print(i, e[:20])
@@ -193,11 +166,11 @@ def pre_load(filename):
 
     print 'pre load size: ', len(url_data_dict)
 
-
+#
 if __name__ == '__main__':
     reload(sys)
+    sys.setdefaultencoding('utf8')
     pre_load('data/like_follower_pre.xlsx')
     # init_browser()
-    sys.setdefaultencoding('utf8')
     read_excel('data/also_likes.xlsx', start=0)
     write_excel('like_follower.xls', all_data)

@@ -89,7 +89,6 @@ def write_excel(filename, alldata, flag=None):
     print("%s===========over============%d" % (filename, len(alldata)))
 
 
-read_stored_url('data/like_follower_pre.xlsx')
 filter_unstored_url('data/also_likes.xlsx')
 print 'remaining: ', len(remaining_urls)
 out_f = open("out.txt", 'w+')
