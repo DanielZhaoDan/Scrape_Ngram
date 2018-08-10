@@ -194,7 +194,7 @@ def request_sheet2(hotel_id, number, hotel_url):
     if number % 5 != 0:
         page_no += 1
     for i in range(0, page_no):
-        if i >=40 :
+        if i >= 40 :
             break
         try:
             url = hotel_url.replace('-Reviews-', '-Reviews-or%s-' % str(i*10))
