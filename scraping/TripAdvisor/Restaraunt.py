@@ -388,12 +388,6 @@ def get_location(ori):
     return 'N/A'
 
 
-def remove_html_tag(ori):
-    dr = re.compile(r'<[^>]+>', re.S)
-    dd = dr.sub('', ori)
-    return str(HTMLParser.HTMLParser().unescape(dd))
-
-
 def get_date(ori):
     d = datetime.strptime(ori, '%a %b %d, %Y %I:%M %p')
     date = d.strftime('%d/%m/%Y')
@@ -430,26 +424,6 @@ def request_1_2():
         del sheet1_data
         sheet1_data = [['ID', 'Name', 'Location', 'Overall rating', 'Rank all Bali', 'Number of reviews', 'Cuisine', 'Reserve Online', 'Excellent', 'Very good', 'Average', 'Poor', 'Terrible', 'Families', 'Couples', 'Solo', 'Business', 'Friends', 'Mar-May', 'Jun-Aug', 'Sep-Nov', 'Dec-Feb']]
         sheet2_data = [['ID', 'Contributor Name', 'Contributor Location', 'Contributor country', 'Contributor level', 'Review headline', 'rating', 'Review date', 'Review text', 'Reviewer Value', 'Reviewer Service', 'Reviewer Food']]
-
-
-def read_excel(filename, start=1):
-    data = xlrd.open_workbook(filename, encoding_override="utf-8")
-    table = data.sheets()[0]
-
-    for i in range(start, table.nrows-1):
-        row = table.row(i)
-        try:
-            profile_id = row[0].value
-            profile_url = row[1].value
-            request_sheet3(profile_id, profile_url)
-        except Exception as e:
-            print(i, e)
-
-
-def request_sheet3(uid, user_url):
-    global sheet3_data
-    html = get_request(user_url)
-    reg = 'sprite-feedRestaurant">.*?href="(.*?)">(.*?)<.*? bubble_(.*?)"'
 
 
 reload(sys)
