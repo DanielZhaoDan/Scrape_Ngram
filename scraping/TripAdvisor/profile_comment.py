@@ -4,15 +4,14 @@ import re
 import urllib2
 import xlwt
 import sys
-from datetime import datetime
 import HTMLParser
 import os
 import xlrd
 import requests
-from hyper.contrib import HTTP20Adapter
+
 
 base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
-cookie = 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; TALanguage=en; BEPIN=%1%16509e329d6%3Bbak210b.b.tripadvisor.com%3A10023%3B; PMC=V2*MS.33*MD.20180805*LD.20180809; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*DSM.1533830036720*AZ.1*RS.1; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C4%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C8%2C-1%7CPremiumSURPers%2C%2C-1%7Ctvsess%2C-1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C10%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCpmPopunder_1%2C1%2C1533918288%7CCCSess%2C1%2C-1%7CCpmPopunder_2%2C5%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2CSGD%2C0%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1534074184%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C137-1859-null%2C-1%7Csh%2C%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Ctvpers%2C1%2C1534185195%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; ServerPool=C; TAReturnTo=%1%%2FRestaurant_Review%3Fg%3D294264%26reqNum%3D1%26puid%3DW2x2uwoQLGYAAcK6cB4AAAA4%26isLastPoll%3Dfalse%26d%3D3354291%26paramSeqId%3D0%26changeSet%3DREVIEW_LIST; PAC=AHJ4YoFxP25C31Msz0b0Nm7Elxlm7sv1bxTSa-H0LzmztbIf0Yx-ZJuVMIRwuHRAGUd0-4eQJkwUiEdje0iCodRa3aknwyuIMShnEWYYsmZ9oHeIzUIR4xqQcnJe0kMZ3EgUuyIU0fEKU0xwwIeFBjXGn7l8gDiw7PibjS8XbYIc; roybatty=TNI1625!APRrLT2EW%2B1h2KHDYG2jn49oUkVUtlwkGAfLJqOdrpX5CZrelshwTI2RYyOw68wBjJx9st9NOc6ZwuHSykc2eiAcWlmqzyD47TU0P13LjVsM5iKZWH4K10WdB0uhXsXkegThjGPHXSf1aamoHgOlVnZdzTcVtD0in6Ft6QF%2BX1gY%2C1; TASession=V2ID.A359B1B1C5A00212527116FD7F719C32*SQ.490*LS.ModuleAjax*GR.93*TCPAR.65*TBR.23*EXEX.64*ABTR.77*PHTB.90*FS.64*CPU.20*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*LF.en*FA.1*DF.0*MS.-1*RMS.-1*FLO.304305*TRA.false*LD.3354291; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*G-3265525-2.1.14209292.*HC-135546666*HDD-360835634-2018_08_19.2018_08_20*LG-368240319-2.1.T.*LD-368240320-.....'
+cookie = 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TALanguage=en; BEPIN=%1%16509e329d6%3Bbak210b.b.tripadvisor.com%3A10023%3B; ServerPool=C; PMC=V2*MS.33*MD.20180805*LD.20180811; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*DSM.1534000341177*AZ.1*RS.1; TAAuth3=3%3A2f4b9230b134f2d72024aa335b17df41%3AAM9KtPHqQfBxeJPltFVdfW5M9QCnXVT7cG99lPDaMPw7mVqdmNkWb103ZGJFTl2Bt4D8BEiNyCBzh00PAVwQ6UDs26Q4gzyHd35zfrM1nHItKxRk5VgvHsZwTB5NIeBpjLEmC21e8AUCQIuiCemFYuD5JgG9VwFicM17JOMgIut%2F43nQmpyd9P5I08FEyfkBzxoikzo9EOQ%2FOS2JZ5%2FoH2U%3D; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C4%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C12%2C-1%7CPremiumSURPers%2C%2C-1%7Ctvsess%2C-1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C10%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCCSess%2C1%2C-1%7CCpmPopunder_2%2C5%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2CSGD%2C0%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1534074184%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C137-1859-null%2C-1%7Csh%2C%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Ctvpers%2C1%2C1534185195%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TAReturnTo=%1%%2FRestaurant_Review-g294264-d8683709-Reviews-Streats_Hong_Kong_Cafe-Sentosa_Island.html; PAC=APclKLeBcdkwOaX4p7e33bu4UlBhWtDMzFfu0pG8YIzqZQM4FJcbuA2qSo0zrtYdyr_Kh8IycHcTdatJABLbF98MGls5dxuuIhCKt77Nw7hyaMSrJNzudiUNFRk_S0l9lQ%3D%3D; roybatty=TNI1625!AHkDWYcQy%2F8EuIbuoStzhD%2Fw6LNhVnfvzCS%2FN%2FqjWMuZrvHEdwIlo000t3nVk7JLewOVwU%2FDj3GFK%2BLD6jN8gy4UcyRL1OPkGWQiZMK67WsdIyx9IXjjCua3ekMpzbWNHKiah%2ByMSd%2Fgz7jQ72C7%2BsMH2anastHHxN2RoWR%2FqahK%2C1; TASession=V2ID.A359B1B1C5A00212527116FD7F719C32*SQ.617*LS.DemandLoadAjax*GR.93*TCPAR.65*TBR.23*EXEX.64*ABTR.77*PHTB.90*FS.64*CPU.20*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.C046DDFA89F7DF42D3E2657A089B8B5A*LF.en*FA.1*DF.0*MS.-1*RMS.-1*FLO.304305*TRA.false*LD.8683709; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*G-3265525-2.1.14209292.*HDD-531151254-2018_08_19.2018_08_20*HC-531161959*LG-567600859-2.1.T.*LD-567600860-.....'
 
 uid_set = set()
 
@@ -83,22 +82,24 @@ def get_request(get_url):
     res = HTMLParser.HTMLParser().unescape(res).decode('unicode-escape').replace('\\', '')
     return res.replace('\n', '').replace('\r', '')
 
-def post_request_2(url, data):
+
+def post_request(url, data):
     headers = {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36',
-        'connection': 'Keep-Alive',
-        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
         'accept': 'text/javascript, text/html, application/xml, text/xml, */*',
-        'Referer': base_url,
-        'Cookie': cookie,
-        ':authority': 'www.tripadvisor.com.sg',
-        ':method': 'POST',
-        ':path': '/ModuleAjax?',
-        ':scheme': 'https',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7,zh-TW;q=0.6',
+        'cache-control': 'no-cache',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'cookie': cookie,
+        'origin': 'https://www.tripadvisor.com.sg',
+        'pragma': 'no-cache',
+        'referer': 'https://www.tripadvisor.com.sg/members/JoyceGKK',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
+        'x-puid': 'W28eFQoQL4cAAi1njkcAAADA',
+        'x-requested-with': 'XMLHttpRequest',
     }
-    s = requests.Session()
-    s.mount("https://www.tripadvisor.com.sg", HTTP20Adapter())
-    resp = s.post(url, data=data, headers=headers)
+
+    resp = requests.post(url, data=data, headers=headers)
     return resp.content.replace('\n', '').replace('\r', '')
 
 
@@ -125,24 +126,34 @@ def read_excel(filename, start=1):
 
 def request_sheet3(uid, user_url):
     global sheet3_data
+    print user_url,
     html = get_request(user_url)
-    reg = 'data-filter="REVIEWS_RESTAURANTS".*?\((.*?)\).*?member_id":"(.*?)"'
+    reg = 'JS_SECURITY_TOKEN = "(.*?)".*?data-filter="REVIEWS_RESTAURANTS".*?\((.*?)\).*?member_id":"(.*?)"'
     data = re.compile(reg).findall(html)
-    member_id = data[0][1]
-    no_review = int(data[0][0])
+    member_id = data[0][2]
+    no_review = int(data[0][1])
+    token = data[0][0]
 
     page_no = no_review / 50
-    if no_review % 50 !=0 :
+    if no_review % 50 != 0:
         page_no += 1
+        try:
+            request_one(member_id, page_no, uid, token)
+        except:
+            print('EXCEPTION--', uid, member_id)
 
+
+def request_one(member_id, page_no, uid, token):
     for i in range(page_no):
         offset = str(i*50)
+        context ='{"modules.achievements.model.Level":[{"memberId":"' + member_id + '"}],"modules.common.model.LoggedInMember":[{}],"modules.membercenter.collection.MemberTags":[{"memberId":"' + member_id + '"}],"modules.common.model.Config":[{}],"modules.achievements.model.Badges":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContentStreamComposite":[{"offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '"}],"modules.achievements.model.BadgeFlyoutView":[{}],"modules.membercenter.model.ProfileData":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionChecks":[{"memberId":"' + member_id + '"}],"modules.travelmap.model.TravelMapModel":[{"memberId":"' + member_id + '"}],"modules.achievements.model.Counts":[{"memberId":"' + member_id + '"}],"modules.achievements.model.EarnPointsCTA":[{}],"modules.social.model.SocialUser":[{}],"modules.achievements.model.LevelProgress":[{"memberId":"' + member_id + '"}],"modules.common.collection.PageLinks":[{}],"modules.common.model.Member":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.AboutMeView":[{}],"modules.membercenter.model.ContributionView":[{"memberId":"' + member_id + '"}],"modules.social.model.CompositeMember":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.MemberTagsView":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionCounts":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.DestinationExpert":[{"memberId":"' + member_id + '"}],"modules.common.model.Errors":[{}],"modules.achievements.model.NextAchievement":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.MemberInteractionInfo":[{"memberId":"' + member_id + '"}]}'
+        actions = '[{"name":"FETCH","resource":"modules.membercenter.model.ContentStreamComposite","params":{"offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '","filter":"REVIEWS_RESTAURANTS"},"id":"clientaction741"}]'
         data = {
-            'token': 'TNI1625!ALLlbuwEjo0KgvUIpccYwBF/5Oc5Tdbaa8Wm2mIqXVTIiVvGz00u1N27aAa452BEajxlq5DCeFLebEYwf5jyEM6N4oUl6wbIxJY4Xq9g1rApsRfaHgxkiS3Nk/kYr32ySKTdzbhRDkjL82rW6QlJQIXhKLSWJ6TA7XHU5K7vcIuB',
+            'token': token,
             'version': '5',
             'authenticator': 'DEFAULT',
-            'context': '{"modules.achievements.model.Level":[{"memberId":"' + member_id + '"}],"modules.common.model.LoggedInMember":[{}],"modules.membercenter.collection.MemberTags":[{"memberId":"' + member_id + '"}],"modules.common.model.Config":[{}],"modules.achievements.model.Badges":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContentStreamComposite":[{"offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '"}],"modules.achievements.model.BadgeFlyoutView":[{}],"modules.membercenter.model.ProfileData":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionChecks":[{"memberId":"' + member_id + '"}],"modules.travelmap.model.TravelMapModel":[{"memberId":"' + member_id + '"}],"modules.achievements.model.Counts":[{"memberId":"' + member_id + '"}],"modules.achievements.model.EarnPointsCTA":[{}],"modules.social.model.SocialUser":[{}],"modules.achievements.model.LevelProgress":[{"memberId":"' + member_id + '"}],"modules.common.collection.PageLinks":[{}],"modules.common.model.Member":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.AboutMeView":[{}],"modules.membercenter.model.ContributionView":[{"memberId":"' + member_id + '"}],"modules.social.model.CompositeMember":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.MemberTagsView":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionCounts":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.DestinationExpert":[{"memberId":"' + member_id + '"}],"modules.common.model.Errors":[{}],"modules.achievements.model.NextAchievement":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.MemberInteractionInfo":[{"memberId":"' + member_id + '"}]}',
-            'actions': '[{"name":"FETCH","resource":"modules.membercenter.model.ContentStreamComposite","params":{"offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '","filter":"REVIEWS_RESTAURANTS"},"id":"clientaction664"}]',
+            'context': context,
+            'actions': actions,
         }
         resp = post_request('https://www.tripadvisor.com.sg/ModuleAjax?', data)
         get_comment_details(uid, resp)
@@ -151,37 +162,26 @@ def request_sheet3(uid, user_url):
 
 def get_comment_details(uid, html):
     global sheet3_data
-    write(html, '2.html')
-    detail_reg = '"cuisine":.*?"url":"(.*?)","parent_string":"(.*?)".*?"name":"(.*?)"'
-    rating_reg = '"url":(.*?)".*?"rating":(.*?),'
+    detail_reg = '"cuisine":.*?"url":"(.*?)","parent_string":"(.*?)".*?parent_id":(.*?),.*?"name":"(.*?)"'
+    rating_reg = '"locationId":(.*?),.*?"rating":(.*?),'
     url_rating_dict = {}
     rating_list = re.compile(rating_reg).findall(html)
     for rating in rating_list:
         url = rating[0]
         rating = rating[1]
         url_rating_dict[url] = rating
-    detail_list = re.compile(detail_list).findall(html)
+    detail_list = re.compile(detail_reg).findall(html)
+    print len(detail_list)
     for detail in detail_list:
         url = detail[1]
-        rating = url_rating_dict.get(url, 0)
+        rating = url_rating_dict.get(detail[2], 0)
         address = remove_html_tag(detail[1])
         country = address.split(',')[-1]
-        one_row = [uid, url, detail[2], rating, address, country]
-        print(one_row)
+        one_row = [uid, url, detail[3], rating, address, country]
         sheet3_data.append(one_row)
 
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-# read_excel('/Users/zhaodan/Documents/personal/code/Scrape_Ngram/scraping/TripAdvisor/data/sheet3.xls')
-# write_excel('data/sheet3.xls', sheet3_data)
-member_id = 'S8+9ikaA6fBOaS6cfwcYOg=='
-data = {
-    'token': 'TNI1625!ALLlbuwEjo0KgvUIpccYwBF/5Oc5Tdbaa8Wm2mIqXVTIiVvGz00u1N27aAa452BEajxlq5DCeFLebEYwf5jyEM6N4oUl6wbIxJY4Xq9g1rApsRfaHgxkiS3Nk/kYr32ySKTdzbhRDkjL82rW6QlJQIXhKLSWJ6TA7XHU5K7vcIuB',
-    'version': '5',
-    'authenticator': 'DEFAULT',
-    'context': '{"modules.achievements.model.Level":[{"memberId":"' + member_id + '"}],"modules.common.model.LoggedInMember":[{}],"modules.membercenter.collection.MemberTags":[{"memberId":"' + member_id + '"}],"modules.common.model.Config":[{}],"modules.achievements.model.Badges":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContentStreamComposite":[{"offset":' + '0' + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '"}],"modules.achievements.model.BadgeFlyoutView":[{}],"modules.membercenter.model.ProfileData":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionChecks":[{"memberId":"' + member_id + '"}],"modules.travelmap.model.TravelMapModel":[{"memberId":"' + member_id + '"}],"modules.achievements.model.Counts":[{"memberId":"' + member_id + '"}],"modules.achievements.model.EarnPointsCTA":[{}],"modules.social.model.SocialUser":[{}],"modules.achievements.model.LevelProgress":[{"memberId":"' + member_id + '"}],"modules.common.collection.PageLinks":[{}],"modules.common.model.Member":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.AboutMeView":[{}],"modules.membercenter.model.ContributionView":[{"memberId":"' + member_id + '"}],"modules.social.model.CompositeMember":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.MemberTagsView":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionCounts":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.DestinationExpert":[{"memberId":"' + member_id + '"}],"modules.common.model.Errors":[{}],"modules.achievements.model.NextAchievement":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.MemberInteractionInfo":[{"memberId":"' + member_id + '"}]}',
-    'actions': '[{"name":"FETCH","resource":"modules.membercenter.model.ContentStreamComposite","params":{"offset":' + '0' + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '","filter":"REVIEWS_RESTAURANTS"},"id":"clientaction664"}]',
-}
-resp = post_request_2('https://www.tripadvisor.com.sg/ModuleAjax?', data)
-print resp
+read_excel('data/sheet3.xls')
+write_excel('data/sheet3_.xls', sheet3_data)
