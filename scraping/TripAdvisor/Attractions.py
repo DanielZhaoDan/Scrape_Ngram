@@ -14,10 +14,15 @@ R_ID = 1
 sheet1_data = [['ID', 'Category Name', 'Sub-category Name', 'link', 'Name', 'Overall rating', 'Number of reviews', 'Reserve Online', 'Excellent', 'Very good', 'Average', 'Poor', 'Terrible', 'Families', 'Couples', 'Solo', 'Business', 'Friends', 'Mar-May', 'Jun-Aug', 'Sep-Nov', 'Dec-Feb']]
 sheet2_data = [['ID', 'Contributor Name', 'Contributor Location', 'Contributor country', 'Contributor level', 'Review headline', 'rating', 'Review date', 'Review text']]
 
-cookie = 'TAUnique=%1%enc%3At96UkzAMTdkW6lFiox1vtOF0G7JUC0o%2B8PrsszjkOhv6gCLwstQoGQ%3D%3D; TALanguage=ALL; __gads=ID=5ef55ea1605b7b15:T=1486869665:S=ALNI_Mbbc923rnxCTOoA0IgyOXeoJpNFnw; BEPIN=%1%15b09c0cf96%3Bbak92a.a.tripadvisor.com%3A10023%3B; ServerPool=A; TASSK=enc%3AAKox3FSR%2BNtLTvMA%2BD%2BvYBM5wgOGF8fpCmRVbisB4dHK4zgX3kcgEaYINdiesPjjvp2WL3Z%2B4UK2B5d9fts6rlzS0%2B44b0OscCB1ntuQbrdtmEbM8GUE5Tg6uB0xKvVVvA%3D%3D; PMC=V2*MS.74*MD.20170305*LD.20170326; PAC=AENveR8DQ2uYTl_wjOzxJKOPSXkRL6HY-zt5EEOdDEWdznjcMN9aVBZJw9FZUyIkRtXSbHplHJ5NYIsqH6NidVDqZU9Q11HXzj6R3nd1YyTziNywN5NAoA8DDawA37dsC5cNABlZHgGQdyRDvXJa1zXFTh95cqHUWYXDvmvWovtd-I_FbfcZxZatp4-oPF6CHwcUrhEkiToPQE0gB1BZgPpwCf5XY4eM96OBpStPQBbORNTk3GK7mE9XcM5p-b_86dSGDxEgm3Qz7KNEAFaMgti8w829FbRf-h8_h25IXlcDK8Vq5y7FAD8frTsr1IYiqqmigIWQ-OTtsejz8RSYTlJVqaqwOz61ZQ-NPY5Ce0M1DOuyELuXVbQQf2ASprTN2Cq-V1c4b-bG3YmPaX9JMwdrXgS2jOzyW9lVQBhcwEa46Lk_xjARYXcYnN72vAFR6FKJYOTHe5f4GWUxamryc1BMAeTO3CMIh58I0kAYAOIuJTx3ZIk1AhpTLC0a9MiSSvCYwwPolWf4qz3n9bdbv0g%3D; VRMCID=%1%V1*id.13873*llp.%2FUpdateSessionDatesAjax%3Fsupli%3D%26gclid%3DCj0KEQjwzd3GBRDks7SYuNHi3JEBEiQAIm6EIwAUWUpCGI_s3ESLk4nsl3fhEXHa4r5gdkvhNIcjLj0aAgC48P8HAQ%26supsc%3Ds%26supap%3D1t1%26supti%3Dkwd-119671122%26suplp%3D9062542%26supdv%3Dc%26supbk%3D1%26m%3D13873%26supai%3D38980285917%26supnt%3Dg%26supci%3D695518186-a_supli%5C.-a_supti%5C.kwd__2D__119671122-a_supdv%5C.c-m13873-a_gclid%5C.Cj0KEQjwzd3GBRDks7SYuNHi3JEBEiQAIm6EIwAUWUpCGI__5F__s3ESLk4nsl3fhEXHa4r5gdkvhNIcjLj0aAgC48P8HAQ-a_supsc%5C.s-a_supap%5C.1t1-a_suplp%5C.9062542-a_supbk%5C.1-a_supai%5C.38980285917-a_supci%5C.695518186-a_supnt%5C.g*e.1491122084813; TART=%1%enc%3AFupRYqMdb7TxNDCw1wDMXxO02jVEYcSKyjLoawJdTC%2FVpFvWgpRrGMsPF7rdWymNg1ukKbolbFs%3D; CommercePopunder=SuppressAll*1490517439791; TATravelInfo=V2*AC.SIN*A.2*MG.-1*HP.2*FL.3*RVL.294226_85l2137226_85l814892_85l3220900_85l293961_85*RS.1; TAReturnTo=%1%%2FAttractions-g293961-Activities-Sri_Lanka.html; TASession=%1%V2ID.70060A328778B4F03545A960A5B0CC68*SQ.59*PR.39415%7C*LS.AttractionProductDetail*GR.92*TCPAR.21*TBR.25*EXEX.33*ABTR.67*PHTB.77*FS.53*CPU.86*HS.popularity*ES.relevance*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*LF.en*FA.1*DF.0*FBH.2*MS.-1*RMS.-1*FLO.293961*TRA.true*LD.293962; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CHanaSession%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C8%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C2%2C-1%7CPremiumSURPers%2C%2C-1%7CPCBSess%2C-1%2C-1%7Ctvsess%2C2%2C-1%7CPremiumMCSess%2C%2C-1%7Ccatchsess%2C5%2C-1%7Cbrandsess%2C%2C-1%7Csesscoestorem%2C%2C-1%7CCpmPopunder_1%2C%2C-1%7CCCSess%2C%2C-1%7CCpmPopunder_2%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2C%2C-1%7CPremiumORSess%2C%2C-1%7Ct4b-sc%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7Cperscoestorem%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1491122090%7CPCBPers%2C1%2C1493109411%7CLaFourchette+MC+Banners%2C%2C-1%7Cbookstickcook%2C%2C-1%7Cvr_npu2%2C%2C-1%7Csh%2CRuleBasedPopup%2C1490603811%7CLastPopunderId%2C104-771-null%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7C2016sticksess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Ctvpers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7C2016stickpers%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTakeOver%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CPremiumORPers%2C%2C-1%7CRBASess%2C%2C-1%7Cbookstickpers%2C%2C-1%7Cperssticker%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TAUD=LA-1490517283415-1*LG-3889947-2.1.F.*LD-3889948-.....; roybatty=TNI1625!AJiYxe2oLqHutcStpPZFJOO%2BrnaGuQuYGFq5b84s7g%2BLHG3h8trI5ZZJItxwNPHYfVwapjOa79DDuJ3lal9gRTKnUoh7TN9NkiX5x0q45a8SJfw46IdanmzHeZzWBI5JTk2vVMjg%2BXp8PW8Jb1%2F6HXzdu30W2gUwPr6bHR0Mg%2BNX%2C1'
+cookie = 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TALanguage=en; BEPIN=%1%16509e329d6%3Bbak210b.b.tripadvisor.com%3A10023%3B; ServerPool=C; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*DSM.1534000341177*AZ.1*RS.1; TAAuth3=3%3A2f4b9230b134f2d72024aa335b17df41%3AAM9KtPHqQfBxeJPltFVdfW5M9QCnXVT7cG99lPDaMPw7mVqdmNkWb103ZGJFTl2Bt4D8BEiNyCBzh00PAVwQ6UDs26Q4gzyHd35zfrM1nHItKxRk5VgvHsZwTB5NIeBpjLEmC21e8AUCQIuiCemFYuD5JgG9VwFicM17JOMgIut%2F43nQmpyd9P5I08FEyfkBzxoikzo9EOQ%2FOS2JZ5%2FoH2U%3D; PAC=ANddNc8MCm3FI8WNZAAewXAxbduMM7QCMWba1yQuWy0ypCmcwXOiQ9TD_L8R_FIVKLs4hEAvoo9pm-JTz7j6f9sYrn-umn1ssvl2MA8w_Xqj1rpA2Xanb9IxDfjaQKNkdg%3D%3D; PMC=V2*MS.33*MD.20180805*LD.20180814; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C4%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C12%2C-1%7CPremiumSURPers%2C%2C-1%7Ctvsess%2C-1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C19%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCpmPopunder_1%2C3%2C1534349408%7CCCSess%2C2%2C-1%7CCpmPopunder_2%2C9%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2CSGD%2C0%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CAdsRetPers%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1534866426%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C137-1859-null%2C-1%7Csh%2C%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CAdsRetSess%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CSCA%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TASession=V2ID.A359B1B1C5A00212527116FD7F719C32*SQ.798*LS.Attractions*GR.93*TCPAR.65*TBR.23*EXEX.64*ABTR.77*PHTB.90*FS.64*CPU.20*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.C046DDFA89F7DF42D3E2657A089B8B5A*LF.en*FA.1*DF.0*MS.-1*RMS.-1*RT.0*FLO.298184*TRA.false*LD.298184; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*G-3265525-2.1.14209292.*HDD-531151254-2018_08_19.2018_08_20*HC-531161959*LG-793925537-2.1.T.*LD-793925538-.....; TAReturnTo=%1%%2FAttractions-g298184-Activities-c47-t7-Tokyo_Tokyo_Prefecture_Kanto.html; roybatty=TNI1625!APkZz9uRIDi7JvjraigSzMKGTvpDUo9lM2s4CGmjnRDuEUEU9AUNqaVkO3ReMCCSDwNJQoy3FXimHbvWkYOTBCtFm1phipykbZvyKl034C9ncbDIZXB4ORC%2BAEQPqnY87If33cJe6FMwMEqTN2MuF2ncHdHl5QDtlf1cryjPi1PK%2C1'
 
-base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
-parsed_url = [base_url]
+base_url_list = [
+    'https://www.tripadvisor.com.sg/Attractions-g298184-Activities-Tokyo_Tokyo_Prefecture_Kanto.html',
+    'https://www.tripadvisor.com.sg/Attractions-g298566-Activities-Osaka_Osaka_Prefecture_Kinki.html',
+    'https://www.tripadvisor.com.sg/Attractions-g298564-Activities-Kyoto_Kyoto_Prefecture_Kinki.html',
+    'https://www.tripadvisor.com.sg/Attractions-g298112-Activities-Gifu_Gifu_Prefecture_Tokai_Chubu.html',
+    'https://www.tripadvisor.com.sg/Attractions-g298106-Activities-Nagoya_Aichi_Prefecture_Tokai_Chubu.html',
+]
 
 
 def write(html, filename):
@@ -67,6 +72,7 @@ def get_category_urls(url, is_second_level=False):
 
 def request_sheet1(category, url, sub_category):
     print category, url, sub_category
+    return
     global sheet1_data, R_ID
     raw_reg = 'class="listing_title".*?href="(.*?)".*?>(.*?)</div.*?class="listing_rating"(.*?)class="tag_line".*?listing_commerce.*?</div(.*?)</div'
     html = get_request(url)
@@ -272,23 +278,24 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-first_levels = get_category_urls(base_url)
-for first_level in first_levels:
-    print first_level.get('url', '')
-    second_levels = get_category_urls(first_level.get('url', ''), is_second_level=True)
-    for second_level in second_levels:
-        if second_level.get('count', 0) >= 10:
-            request_sheet1(first_level['name'], second_level['url'], second_level['name'])
-    write_excel('data/sheet1.xls'.replace('sheet', first_level['name']), sheet1_data)
-    write_excel('data/sheet2.xls'.replace('sheet', first_level['name']), sheet2_data)
-    del sheet1_data
-    del sheet2_data
-    R_ID = 1
-    sheet1_data = [['ID', 'Category Name', 'Sub-category Name', 'link', 'Name', 'Overall rating', 'Number of reviews',
-                    'Reserve Online', 'Excellent', 'Very good', 'Average', 'Poor', 'Terrible', 'Families', 'Couples',
-                    'Solo', 'Business', 'Friends', 'Mar-May', 'Jun-Aug', 'Sep-Nov', 'Dec-Feb']]
-    sheet2_data = [['ID', 'Contributor Name', 'Contributor Location', 'Contributor country', 'Contributor level',
-                    'Review headline', 'rating', 'Review date', 'Review text']]
+for base_url in base_url_list:
+    first_levels = get_category_urls(base_url)
+    for first_level in first_levels:
+        print first_level.get('url', '')
+        second_levels = get_category_urls(first_level.get('url', ''), is_second_level=True)
+        for second_level in second_levels:
+            if second_level.get('count', 0) >= 10:
+                request_sheet1(first_level['name'], second_level['url'], second_level['name'])
+        # write_excel('data/sheet1.xls'.replace('sheet', first_level['name']), sheet1_data)
+        # write_excel('data/sheet2.xls'.replace('sheet', first_level['name']), sheet2_data)
+        # del sheet1_data
+        # del sheet2_data
+        # R_ID = 1
+        # sheet1_data = [['ID', 'Category Name', 'Sub-category Name', 'link', 'Name', 'Overall rating', 'Number of reviews',
+        #                 'Reserve Online', 'Excellent', 'Very good', 'Average', 'Poor', 'Terrible', 'Families', 'Couples',
+        #                 'Solo', 'Business', 'Friends', 'Mar-May', 'Jun-Aug', 'Sep-Nov', 'Dec-Feb']]
+        # sheet2_data = [['ID', 'Contributor Name', 'Contributor Location', 'Contributor country', 'Contributor level',
+        #                 'Review headline', 'rating', 'Review date', 'Review text']]
 
 
 
