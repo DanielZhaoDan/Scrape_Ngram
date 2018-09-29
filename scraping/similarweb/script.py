@@ -9,16 +9,18 @@ import sys
 import os
 import random
 import requests
+from datetime import datetime
 
 sheet2_data = [['Name of Publisher', 'Main url', 'Url of article', 'Country', 'Global Rank', 'Country Rank', 'Category Rank', 'Engagement', 'Top Country 1', 'Traffic 1', 'Top Country 2', 'Traffic 2', 'Top Country 3', 'Traffic 3', 'Top Country 4', 'Traffic 4', 'Top Country 5', 'Traffic 5']]
 sheet_dict = {}
 sleep_time = 3
+failed_count = 0
 stop = False
 proxy = [
     '223.243.176.211:38132'
 ]
 
-cookie = '_ga=GA1.2.444179720.1525487464; _gid=GA1.2.1525450094.1525487464; D_SID=121.7.108.6:P42PjWyIy3SxhSDU2eGb3EHxFkKmrzsTy9noOMcWycc; sgID=7ddad102-9ee6-4746-bf99-252f69a565d9; __RequestVerificationToken=wg-JpZGHeTpqJ5Z5Okdvmjnv06NFF6UtF-hd2j_HdDP9bs_3tw_8wEKgjzyyuPE8QlgiuzVlMVYFT6Ahglj2XfCOLk0r4mjnIE9kpXtvBvQ1; user_num=nowset; _vwo_uuid_v2=DCD22940F987909340CE970423DC808EE|389d706875fcb49d85866e2f34333d04; D_IID=A28664D6-FA00-3DCA-ABF0-7AD515A55D90; D_UID=7669E727-9381-3CE3-ABAB-E092B4F805FC; D_ZID=5FA79EBF-C004-3315-BAF2-F33B4D10D9C5; D_ZUID=D927FDA6-DC13-31C9-BE89-F09EF4699855; D_HID=91132E34-90B9-34E6-AB1A-391716BB2A99; sgID=ca850aff-8a2f-5294-a996-14e248556aa2; __utmc=107333120; _mkto_trk=id:891-VEY-973&token:_mch-similarweb.com-1525487573979-16916; intercom-id-e74067abd037cecbecb0662854f02aee12139f95=2710c585-6583-4c6d-bbf9-0a6dea2769b0; .SGTOKEN.SIMILARWEB.COM=u7oVmwV1BULizH5ifI1f6ayuSgFgJUj8JN7cXm8ZFJgAlJUNcxH9cJpW0OyKWOmdAzztjOUwjHSwyPDAeIThfcH77dU1qpGm7iyOiiBd4bNn9AZpVeFxOvp9GlIandjumvhxOprIpRPD-Y83PUqV8Zza0XGfTdwsBVKZnDD8oHOymxzgG3DejIVraMWkVh3Q_hsu7UbymxmSZgYi99ZodmlD66W2bjFgyxcZeSzQQ5szdgw8CvjqxoqQA9L6agG_N_K2ghUUw2FLCcAazxKA6jXl6pODJy8zq7y9L1khfDYSMHzjkZQAJF7W3YDv0w2fc65378rKD9Wpgq2KGzIgyI68-8gBSvhX9MbjI1zs1tM; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; jaco_uid=5a3d3d41-2127-47ca-83b0-af82eb9e34c1; jaco_provided_id_4316adc2-eb98-4130-828f-0352f2dac395=danielzhaochina%40gmail.com; _vwo_uuid=D9DD13D2ADE32B01CB07B47552B83AF21; _vis_opt_exp_260_combi=2; intercom-lou-e74067abd037cecbecb0662854f02aee12139f95=1; PHPSESSID=04c9es4qspfggv6q444gchoqg2; _vis_opt_exp_255_combi=2; _vis_opt_exp_255_goal_4=1; _vis_opt_exp_255_goal_2=1; locale=zh-cn; _omappvp=1G9i9Do83q43sTran3awdhtcmPZp67mr9zN3tnxdYvHKGtnGgVwDLA63A75ZWfYSIIJAtVk316fTNDaW5G2ZdAxSSQxXzm3S; _omappvs=true; loyal-user=%7B%22date%22%3A%222018-05-05T02%3A32%3A26.802Z%22%2C%22isLoyal%22%3Atrue%7D; __utma=107333120.444179720.1525487464.1525531906.1525535984.4; __utmz=107333120.1525535984.4.4.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided); __utmb=107333120.2.10.1525535984; _pk_ses.1.fd33=*; intercom-session-e74067abd037cecbecb0662854f02aee12139f95=MGVTZ3ZMVk5HTnk3bmwxS2lyVHVoUkUrYWwxaHpMWGxsREtJVmtiM3Y3ZTNWYTRqWlV5RDMxTmpSYk9qZ3dJZy0tdTJZVDBMK3pUMkRnR2d3T2tGa1B3Zz09--c13e9224f669e588bb0d06a1cf92093891a2e384; _gat=1; _uetsid=_ueta4abfeb7; _pk_id.1.fd33=4a1ceb3e328cae31.1525487548.3.1525536954.1525534253.; _gat_UA-42469261-1=1; sc_is_visitor_unique=rx8617147.1525536954.E9AD1064AF654F74A6B8FD70E8B91469.4.3.3.3.3.3.2.2.2'
+cookie = 'sgID=e453ee44-a01a-4631-a91c-e7817ea66399; __RequestVerificationToken=FxIVqTliSrNiTjBK9hVuHA1yOG21RynBf-NHn4awqIhdIHM0N3mAhz_BQF-VievyjxDr4U6WSyylmC0qQ5QQeY0uOCtNJ2gzFbCbNGBbLhw1; _ga=GA1.2.290070144.1535452671; _vwo_uuid_v2=DA740CE19A9A4ADB3E2F4F69EF8A7A753|5f6c070d96007040dd3d8d1f50b726b8; D_IID=5123994B-BDD6-372B-BE74-3FC15B476AF6; D_UID=791D6C54-80C8-3575-9B8B-15B9348AABED; D_SID=140.205.147.44:2Cd46dEVoY5gM1R3TR44jo7zyuo1HGwe/REpOw3biFs; loyal-user=%7B%22date%22%3A%222018-08-28T10%3A37%3A51.668Z%22%2C%22isLoyal%22%3Atrue%7D; user_num=nowset; _mkto_trk=id:891-VEY-973&token:_mch-similarweb.com-1535472703150-77360; intercom-id-e74067abd037cecbecb0662854f02aee12139f95=ba8ba923-48bc-4ee1-9ffd-34ccf19d097e; _gid=GA1.2.1665423203.1536379870; D_ZID=8E9F23C0-B4D8-3D9B-9A9D-EBEC06FA4E4D; D_ZUID=7FB6661D-1FAA-3E73-8EB1-5E72119D5D98; D_HID=E12585B9-8D29-366C-91D0-3BC1A17EA576; _pk_ses.1.fd33=*; .SGTOKEN.SIMILARWEB.COM=u7oVmwV1BULizH5ifI1f6ayuSgFgJUj8JN7cXm8ZFJgAlJUNcxH9cJpW0OyKWOmdAzztjOUwjHSwyPDAeIThfUykvZpF_qwqi22B2AC2F_JC6Y9R2sSluXo4E2yF4LeLVg2cZZDCJdMiYEKQ4H1qlY-DnTTajJIlXytGHux9C5gjau9RL4MO8RR2czf_qhMmXbGomx01Q7Y6RPprbmKFd5SnSyhV7PZCkkxIby-A2CDnM0583mYgG4dgTB3x_bEDIu8z5TC9zZDa8p8_g0IDfK2GajRhSLaqU7VLdwn42FiNB0WqDA7p5Z82LaAo1MmhSnPaPly1ZJ68Seg5QD_nmwqifIg-6mW2SDxkekWWYvc; locale=zh-cn; sgID=78b44adf-2a9a-4586-8184-b29b8b82c14e; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; jaco_uid=edabef00-5a4c-4501-8678-54aadf100912; jaco_provided_id_4316adc2-eb98-4130-828f-0352f2dac395=danielzhaochina%40gmail.com; _vwo_uuid=D0F5AD64E46A4CBB4F040975B1A399CB6; _vis_opt_exp_260_combi=2; intercom-session-e74067abd037cecbecb0662854f02aee12139f95=d2FJMTg3NWxtVW04eXdmMndJTkxRQUFVN0ErWmVzMnlVRUptcDIrRmhtc0pwWVVIWTFoYm1qTGl2U3RzZUFDVi0tQURsVm5UZmVPckJXalJvOW9JWVliZz09--03773056d529d2efcc24891cb14b36c5cdd4b1a0; intercom-lou-e74067abd037cecbecb0662854f02aee12139f95=1; _gat=1; sc_is_visitor_unique=rx8617147.1536425491.EFC14FD416734FF62B4A91344EF87B9A.6.5.5.5.4.3.3.2.2; _pk_id.1.fd33=4a1ceb3e328cae31.1535452673.6.1536425492.1536424139.'
 
 
 def write(html, filename):
@@ -67,11 +69,11 @@ def request_sheet2(base_url):
     country_tag = 'accordion-toggle.*?countValue">(.*?)<.*?country-name.*?>(.*?)<'
 
     url = 'https://www.similarweb.com/website/' + base_url.replace('http://', '').replace('https://', '').split('www.')[-1]
-    # html = open_browser_scroll(url)
-    html = get_request(url)
-    if 'Unable To Identify Your Browser' in html or 'Pardon Our Interruption' in html:
-        stop = True
-        return [0, 0, 0, 0]
+    html = open_browser_scroll(url)
+    # html = get_request(url)
+    # if 'Unable To Identify Your Browser' in html or 'Pardon Our Interruption' in html:
+    #     stop = True
+    #     return [0, 0, 0, 0]
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
         ret = [remove_html_tag(global_ranks[0][0]), remove_html_tag(global_ranks[0][1]), remove_html_tag(global_ranks[0][2])]
@@ -82,7 +84,6 @@ def request_sheet2(base_url):
         else:
             ret.append(0)
         sleep_time = 5
-
     else:
         sleep_time = 25
         ret = [0, 0, 0, 0]
@@ -100,7 +101,7 @@ def read_excel_filter_duplicated(filename, start=1):
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
 
-    for i in range(start, table.nrows-1):
+    for i in range(start, table.nrows):
         row = table.row(i)
         try:
             main_url = row[8].value
@@ -134,8 +135,8 @@ def read_excel_get_data(filename, filename_prefix, start=1, length=150):
             if global_rank == '' or global_rank == 0:
                 main_url = row[1].value
                 details = request_sheet2(main_url)
-                if stop:
-                    break
+                # if stop:
+                #     break
                 one_row = [row[0].value, row[1].value, row[2].value, row[3].value] + details
                 print i, one_row
                 sheet2_data.append(one_row)
@@ -164,13 +165,21 @@ def get_request(get_url):
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return res
 
+def get_date(ori):
+    ori = ori.replace('Mei', 'May')
+    if 'hour' in ori:
+        return datetime.now().strftime('%d/%m/%Y')
+    try:
+        date = datetime.strptime(ori, '%b %d, %Y')
+        return date.strftime('%d/%m/%Y')
+    except:
+        raise
+        return ori
+
 
 filename_prefix = 'sheet2'
-# filename = 'data/sheet1.xls'
+filename = 'data/sheet1.xls'
 # read_excel_filter_duplicated(filename, start=1)
 # write_excel('data/sheet2.xls', sheet2_data)
-read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=2000)
+read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=50)
 write_excel('data/%s_end.xls' % filename_prefix, sheet2_data)
-
-
-

@@ -15,34 +15,22 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
+url_bases = 'https://www.google.com/search?q={key_word}&tbs=cdr%3A1%2Ccd_min%3A7%2F1%2F2015%2Ccd_max%3A9%2F1%2F2018&tbm=nws&start='
+# url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
-FIRST_START = 1
+FIRST_START = 6
 cookie = [
-    'SID=_QU33ZhP_4a-eUj06OJ46y5SAGYvEN8NGYbuVJLF5FX-2yksOdAc4MfwPlGGpR151pmV7w.; HSID=A0BNmX6hmSs9W-21t; SSID=AfTSefOme21T1NXa0; APISID=l6BSdBOijP_771WD/A4uLzZOvZFNiGc73k; SAPISID=7AeZBPjKNXdt77_8/AidnVJoV5nI_L63mY; OGPC=845686784-16:; NID=129=T_GfSickEtGAjnR67WZEjbf3rBz0EVOaWSfRQe1FAOQkwNpLVu8oVu71kkv2gOa-l3fIPI54uw5L8EqxELJqTxRrrQBFCILA1HxNsmt4YTm-2ytWpy7f3cgeD9UvVq3uy3o8aMSop3luh7rKGtkt69vOPDN8qWa3McEfYrZrRycCsz5CUNzd3TUidbQwuYygtkJQAGdGjj1ahZ7yb_5yz7bgrKhv4HoFucWoCNzeBR-sCQf0bQXeVw; DV=471lmmdi7j5CwEtSPKiaEkq6Hf5pMla83CLq2DZsyQIAAMAyNxg4LoTv4QAAANAoYELOfyZNPAAAAA; GOOGLE_ABUSE_EXEMPTION=ID=3ddc660fb7359747:TM=1525361504:C=r:IP=121.7.108.6-:S=APGng0vSEaJxtONenPrAPuldyyJgvjP4yw; 1P_JAR=2018-5-3-15; SIDCC=AEfoLebmoLvgT88J4psY9_DieQVIeNIvt18SqaJfwVSK9LcrCwq3BaOjDtfole8xlTcdNgbRYQ'
+    'CGIC=IlV0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44; SID=cgZjk_kik6FHilRWlx6HfSr6tV-staFyhkhQhecQz-6CpSkhvOE1qznxbtsv6UrRhUd67w.; HSID=AMSuYi2cXgY_dUfoG; SSID=AxW2jgISg6QVbmNRX; APISID=W51HZZX-hAIppZNv/AOVruf572l3l3gUZI; SAPISID=mtSrEEnkV4zhxjb1/A6YeOZi_2HyfCHbBf; CONSENT=YES+SG.en+20180429-14-0; OGPC=230377472-1:; NID=138=IuzKK82Vcyt-KpetntAtPB1Vue0j21LpmHwvsO1L5O_P3XT46mrhv-fgWYs26joF5kNBu813rX0Gqe2C8TN9ZjeGK9TLHuvmN7pTQ9yB-LyKvSluuFVV11V7cuvRBHakDWh8X-ii6GTKqcKGnSLwFs7uKjt5b1RrXve-pZw6QZtqdhE_AeHKa2cei3Jw_v-MfbhjYmENlLcoy44RzA; GOOGLE_ABUSE_EXEMPTION=ID=aa943f3f8ef3845e:TM=1536378624:C=r:IP=205.204.117.25-:S=APGng0u4R1BX7Bmhus30vW1XGEww35wCgg; DV=w9OA4JY8WNxnQOFxVvCXSctCldp0W9ZjR6BRUOEUJA0AAADRB9mqW1MGYQMAAFihEEtryfc25wAAAIHf2gX9pij9QAAAADtlF9navNM_84EAAA; 1P_JAR=2018-9-8-3; SIDCC=AGIhQKTrK3hNOoL8KXrTTR2O0F308F6MZYjvDj2Yfw_jF_i7yQFsie8QlJ1lExrZPvgaxK3A0w'
 ]
 
 key_words = [
-    {'keyword': 'digital financial service intext:IoT location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:programmatic location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:media planning location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:analytics location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:e-commerce location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"marketing communication" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"online advertising" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"integrated marketing" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"mobile advertising" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"online marketing" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"design thinking" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"user experience" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:"artificial intelligence" location:Indonesia', 'bucket': '', 'country': 'ID'},
-    {'keyword': 'digital advertising intext:IoT location:Indonesia', 'bucket': '', 'country': 'ID'},
+    {'keyword': '"meatless monday" intext:dairy', 'bucket': 'protein', 'country': ''},
+    {'keyword': '"plant protein" intext:happy', 'bucket': 'protein', 'country': ''},
+    {'keyword': '"clean protein" intext:happy', 'bucket': 'protein', 'country': ''},
+    {'keyword': '"meatless monday" intext:happy', 'bucket': 'protein', 'country': ''},
 ]
 
-http_proxies = [
-    'http://183.88.29.181:8080',
-]
-x_client_data = 'CJG2yQEIprbJAQjBtskBCIuYygEI+5zKAQipncoBCNueygEIm6LKAQ=='
+x_client_data = 'CIi2yQEIo7bJAQjBtskBCKmdygEI153KAQjZncoBCKijygE='
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
 
@@ -51,7 +39,7 @@ def write(html, filename):
     fp = open(filename, "w")
     fp.write(html)
     fp.close()
-    print "write over"
+    print("write over")
 
 
 def write_excel(filename, alldata, flag=None):
@@ -71,9 +59,9 @@ def write_excel(filename, alldata, flag=None):
                 try:
                     ws.write(row, col, one_row[col])
                 except:
-                    print '===Write excel ERROR===' + str(one_row[col])
+                    print('===Write excel ERROR===' + str(one_row[col]))
     w.save(filename)
-    print filename + "===========over============"
+    print(filename + "===========over============")
 
 
 def get_total_count(html):
@@ -89,7 +77,7 @@ def request_sheet1(key_word, url_base, page_no=1):
     total_count = 0
     while True:
         url = url_base + str(page_no - 1) + '0'
-        print url
+        print(url)
         if page_no > 10:
             break
         html = get_request(url)
@@ -147,10 +135,10 @@ def request_sheet2(base_url):
 
     url = 'https://www.similarweb.com/website/' + base_url.replace('http://', '').replace('https://', '').split('www.')[
         -1]
-    print url + ' ' + str(len(sheet_dict))
+    print(url + ' ' + str(len(sheet_dict)))
     html = get_request(url)
     if 'NAME="ROBOTS"' in html:
-        print 'ROBOT DETECTED!, sleeping 600 seconds'
+        print('ROBOT DETECTED!, sleeping 600 seconds')
         return None
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
@@ -185,7 +173,7 @@ def read_excel(filename, start=1):
                 i -= 1
                 continue
             one_row = [publisher, main_url, article_url, country] + details
-            print one_row
+            print(one_row)
             sheet2_data.append(one_row)
         except:
             print(i)
@@ -202,7 +190,7 @@ def get_date(ori):
     if 'hour' in ori:
         return datetime.now().strftime('%d/%m/%Y')
     try:
-        date = datetime.strptime(ori, '%d %b %Y')
+        date = datetime.strptime(ori, '%b %d, %Y')
         return date.strftime('%d/%m/%Y')
     except:
         return ori
@@ -216,10 +204,6 @@ def get_request(get_url):
         'Cookie': random.choice(cookie),
         'x-client-data': x_client_data,
     }
-    proxy = {
-        'http': random.choice(http_proxies),
-        'https': random.choice(http_proxies),
-    }
     res_data = requests.get(get_url, headers=headers, timeout=10)
     res = res_data.content
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
@@ -232,7 +216,7 @@ sys.setdefaultencoding('utf-8')
 urls = []
 for key_word in key_words:
     urls.append([key_word, url_bases.format(key_word=key_word['keyword'].replace(' ', '+'))])
-print len(urls)
+print(len(urls))
 
 ts = int(time.time())
 for i in range(len(urls)):
@@ -242,6 +226,5 @@ for i in range(len(urls)):
     if stop:
         break
 te = int(time.time())
-print 'time: ', te - ts
-write_excel('data/GM_sheet1_1.xls', sheet1_data)
-
+print('time: ', te - ts)
+write_excel('data/sheet1_1.xls', sheet1_data)
