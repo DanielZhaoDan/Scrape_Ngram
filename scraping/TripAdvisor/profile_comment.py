@@ -186,7 +186,6 @@ def request_one(member_id, page_no, uid, token):
         else:
             print length,
             i += 1
-
     if length > 0:
         uid_set.add(uid)
     print length
