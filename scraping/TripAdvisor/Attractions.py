@@ -12,17 +12,17 @@ import requests
 
 R_ID = 1
 sheet1_data = [['ID', 'Attraction URL', 'Attraction Name', 'Address', 'Rating', 'Number of reviews', 'Booking online', 'Description']]
-sheet2_data = [['ID', 'Hotel URL', 'Reviewer Name', 'Rating', 'Text Review', 'Reviewer Location', 'Contributor Level', 'Travel Style']]
+sheet2_data = [['ID', 'Hotel URL', 'Reviewer Name', 'Rating', 'review date' 'Text Review', 'Reviewer Location', 'Contributor Level', 'Travel Style']]
 sheet3_data = [['Reviewer Name', 'Reviewer url', 'Category', 'Name', 'Rating', 'Text']]
 
 base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
-cookie = 'TASSK=enc%3AAEWqEz6PSzC%2B0mEdDhD8TYdzehbp3E5yYPS6IU82xNhZCWs42WFVupCN6TIq%2BDwmTQFLrFrGKXbjWkFV%2BOeOlqTuYZrVuC5PIwN05CmlOlt9VSjr08IEjSvs%2BcHUn1J3RA%3D%3D; ServerPool=B; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*RS.1; TAUnique=%1%enc%3AdFWRrhvqgMB4WP%2FjIpESou4ikPqkoGPefimZEtCaTt9KQSq%2B20wPGQ%3D%3D; QSI_HistorySession=https%3A%2F%2Fwww.tripadvisor.com.sg%2FRestaurants~1533811522547; TAAuth3=3%3Aa1e20af987caf9b7f2e3d715d71cd8d4%3AABwR3pxNIStPrcA7Zi46RsfsujSNA3I7GJk169ieF9cfJlnAOA2sHRrbJzS0dcMxegnf%2FN%2F2U2NKFU4EB3yJpMbpPOZb0eIN1NJg17NlouXzWMFkTL9V4SbxrAuOo%2F9HH%2F9S6LS3VHPRXTVy1M7a7xFBn%2FenvwiN7zMUXibBkVTMgw533gBhKsJWI1hd1n61oumSV45qrk%2F5%2F6KYUFET4Jg%3D; PAC=AKlo368cQeby8aGk0VnZljir1BEGGqmVA3Iymn-e1QuFW7y7r8oArkHc2xiu8i9fNW-jeR4euvlJLrGHLDwmVxMmC7R4_R8p__XSvvg04kGJlUVAAvVt06GefL92kttoLw%3D%3D; PMC=V2*MS.96*MD.20180809*LD.20180819; TAReturnTo=%1%%2FAttractions-g298184-Activities-Tokyo_Tokyo_Prefecture_Kanto.html; TART=%1%enc%3Aw6QMi5j164r1aaWxJY9JxnCElH0GEYgfNKuWfmwSDQ5I%2FNSbY1dvaDmjnRZPfKWWF4MXNLqS0zE%3D; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7Cpv%2C2%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7Ctvsess%2C-1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2C%2C-1%7Ct4b-sc%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7CTARSWBPers%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CLaFourchette+MC+Banners%2C%2C-1%7CRestPartPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C104-771-null%2C-1%7Csh%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7Cr_ta_2%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CWShadeSeen%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C4%2C-1%7CPremiumSURPers%2C%2C-1%7Ccatchsess%2C9%2C-1%7CCpmPopunder_1%2C%2C-1%7CCCSess%2C%2C-1%7CCpmPopunder_2%2C4%2C-1%7CRestAdsPers%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CAdsRetPers%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1535292739%7CRestAdsCCSess%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cpssamex%2C%2C-1%7Cbrandpers%2C%2C-1%7CAdsRetSess%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CSCA%2C%2C-1%7CTheForkORPers%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CTARSWBSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; roybatty=TNI1625!AFqR7ATFCf5BGUAXxbLKloOxq3ijkVYf0DRPU3MnogjptORJ20l7mvo9cz4qHCK1FtCZQYJpUlyB7gQAfYB%2B4UHck4ZZUD4ltlidfRM0Bir%2FYKDREbwphF7TnkEwk7vQj9vPd%2Fz%2BLDUMz5wEc8q%2BIycZYpJz3eceMRx60q3RfuiU%2C1; TASession=V2ID.075847DC4F66A5B0EA7DFFC570929807*SQ.185*LS.PageMoniker*GR.68*TCPAR.37*TBR.35*EXEX.55*ABTR.57*PHTB.99*FS.91*CPU.31*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.C046DDFA89F7DF42D3E2657A089B8B5A*LF.en*FA.1*DF.0*MS.-1*RMS.-1*FLO.298184*TRA.true*LD.298184; TAUD=LA-1533811506689-1*RDD-1-2018_08_09*LG-876436396-2.1.F.*LD-876436397-.....'
+cookie = 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TALanguage=en; TAAuth3=3%3A2f4b9230b134f2d72024aa335b17df41%3AAM9KtPHqQfBxeJPltFVdfW5M9QCnXVT7cG99lPDaMPw7mVqdmNkWb103ZGJFTl2Bt4D8BEiNyCBzh00PAVwQ6UDs26Q4gzyHd35zfrM1nHItKxRk5VgvHsZwTB5NIeBpjLEmC21e8AUCQIuiCemFYuD5JgG9VwFicM17JOMgIut%2F43nQmpyd9P5I08FEyfkBzxoikzo9EOQ%2FOS2JZ5%2FoH2U%3D; ServerPool=C; TATravelInfo=V2*AY.2019*AM.2*AD.21*DY.2019*DM.2*DD.24*A.2*MG.-1*HP.2*FL.3*DSM.1535551954933*AZ.1*RS.1; BEPIN=%1%165aa473061%3Bbak210b.b.tripadvisor.com%3A10023%3B; PAC=AGGlzr7Y8yQDbfSfdTO45ArdKNGYS6uwhffQ-ysnEqRTw7CcUXG106MvTXftFLDZzWq9vjnrsQd4j5-xrH3leoSFooAGMxavLT_mjj-RO6h2l95-3k3HHsXJNHHXqOOlug%3D%3D; PMC=V2*MS.33*MD.20180805*LD.20180905; roybatty=TNI1625!AGwcyChDYlxGQgb3IqkCfXEh04QOkE37FZXnh3XVqcDTJ5R1xryTwTF%2BDc6wZ1TLTCNq2ZtY9QJjbgvNpWOXOGi09D1g%2FFLCIkodBKj%2BQ%2FJfBZ1G6SPshjJghYusBxsU4Zn7fhd44%2BWOljO0nnIQshvQLRp7DRf4MPWkHZBBIAIE%2C1; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; TAReturnTo=%1%%2FHotel_Review%3Fg%3D1066457%26reqNum%3D2%26puid%3DW4-xdAoQK3gAAICO7uMAAAA%40%26isLastPoll%3Dfalse%26d%3D6987624%26paramSeqId%3D0%26changeSet%3D; TASession=V2ID.BE2CC03D155E1ECA19579FFEADFC2E94*SQ.7*LS.PageMoniker*GR.99*TCPAR.70*TBR.68*EXEX.26*ABTR.37*PHTB.27*FS.30*CPU.4*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.C046DDFA89F7DF42D3E2657A089B8B5A*LF.en*FA.1*DF.0*TRA.false*LD.6987624; CM=%1%pu_vr2%2C%2C-1%7CHanaPersist%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C%2C-1%7CPremiumSURPers%2C%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C5%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCCSess%2C%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7C%24%2CSGD%2C0%7Csesssticker%2C%2C-1%7CPremiumORSess%2C%2C-1%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CTADORSess%2C%2C-1%7CAdsRetPers%2C%2C-1%7CTARSWBPers%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C1%2C1536764921%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C104-771-null%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Cbrandpers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CAdsRetSess%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTADORPers%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CTARSWBSess%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CPremiumORPers%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*G-3265525-2.1.14209292.*HC-531161959*ADD-2082767823-2019_02_21*HDD-2690930762-2018_09_16.2018_09_17*LG-2690931324-2.1.T.*LD-2690931325-.....'
 uid_level_dict = {}
 base_url_list = [
     # ('https://www.tripadvisor.com.sg/Attractions-g298112-Activities-oa%s-Gifu_Gifu_Prefecture_Tokai_Chubu.html', 5, 'Gifu'),
     # ('https://www.tripadvisor.com.sg/Attractions-g298106-Activities-oa%s-Nagoya_Aichi_Prefecture_Tokai_Chubu.html', 16, 'Nagoya'),
     # ('https://www.tripadvisor.com.sg/Attractions-g298566-Activities-oa%s-Osaka_Osaka_Prefecture_Kinki.html', 44, 'Osaka'),
-    ('https://www.tripadvisor.com.sg/Attractions-g298564-Activities-oa%s-Kyoto_Kyoto_Prefecture_Kinki.html', 47, 'Kyoto'),    
+    # ('https://www.tripadvisor.com.sg/Attractions-g298564-Activities-oa%s-Kyoto_Kyoto_Prefecture_Kinki.html', 47, 'Kyoto'),
     ('https://www.tripadvisor.com.sg/Attractions-g298184-Activities-oa%s-Tokyo_Tokyo_Prefecture_Kanto.html', 159, 'Tokyo'), 
 ]
 
@@ -121,7 +121,6 @@ def request_sheet1(category, url):
                 request_sheet2(hotel_id, review_number, link, R_ID)
             R_ID += 1
         except:
-            raise
             print('ERR---level 1---' + url)
 
 
@@ -207,10 +206,11 @@ def request_sheet2(hotel_id, number, hotel_url, R_ID):
         except Exception as e:
             print('ERROR-sheet2-', hotel_id, i, e)
 
+
 def request_one_sheet2(hotel_id, hotel_url, url):
     global sheet2_data,  sheet3_data
     html = get_request(url)
-    reg = 'avatar profile_(.*?)".*?onclick=.*?">(.*?)</div(.*?)ui_bubble_rating bubble_(.*?)".*?class="entry">(.*?)</div'
+    reg = 'avatar profile_(.*?)".*?onclick=.*?">(.*?)</div(.*?)ui_bubble_rating bubble_(.*?)".*?title=\'(.*?)\'.*?class="entry">(.*?)</div'
 
     comment_list = re.findall(reg, html)
     for comment in comment_list:
@@ -218,11 +218,21 @@ def request_one_sheet2(hotel_id, hotel_url, url):
         location = get_user_location(comment[2])
         uid = comment[0]
         rating = comment[3]
-        text = remove_html_tag(comment[4]).replace('.More', '')
+        date = get_comment_date(comment[4])
+        text = remove_html_tag(comment[5]).replace('.More', '')
         level, travel_style, user_url = get_level_of_uid(uid)
-        one_row = [hotel_id, hotel_url, username, rating[0], text, location, level, travel_style]
+        one_row = [hotel_id, hotel_url, username, rating[0], date, text, location, level, travel_style]
         sheet2_data.append(one_row)
         sheet3_data.append([uid, user_url])    
+
+
+def get_comment_date(ori):
+    try:
+        date = datetime.strptime(ori, '%d %B %Y')
+        return date.strftime('%d/%m/%Y')
+    except:
+        return ori
+
 
 def get_level_of_uid(uid):
     if uid_level_dict.get(uid):
@@ -267,6 +277,7 @@ def get_request(get_url):
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return res
 
+
 def get_all():
     global sheet1_data, sheet2_data, sheet3_data
     for entry in base_url_list:
@@ -284,9 +295,33 @@ def get_all():
         R_ID = 1
 
 
+def read_excel(filename, start=1):
+    global R_ID, sheet2_data, sheet3_data
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
+    table = data.sheets()[0]
+
+    for i in range(start, table.nrows - 1):
+        row = table.row(i)
+        try:
+            main_url = row[1].value
+            id = row[0].value
+            review_no = int(row[5].value)
+            if review_no > 0:
+                request_sheet2(id, int(review_no), main_url, R_ID)
+            R_ID += 1
+            if R_ID % 2000 == 0:
+                write_excel('sheet2_with_date_attractions_%d.xls' % R_ID, sheet2_data)
+                write_excel('sheet3_with_date_attractions_%d.xls' % R_ID, sheet3_data)
+                del sheet2_data
+                del sheet3_data
+                sheet2_data = []
+                sheet3_data = []
+        except:
+            print(i)
+
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-
-get_all()
-# request_one_sheet2('1', '2', 'https://www.tripadvisor.com.sg/Attraction_Review-g298566-d1425051-Reviews-or40-Kids_Plaza_Osaka-Osaka_Osaka_Prefecture_Kinki.html')
+read_excel('data/data/Attractions.xlsx', start=3508)
+write_excel('sheet2_with_date_attractions.xls', sheet2_data)
+write_excel('sheet3_with_date_attractions.xls', sheet3_data)

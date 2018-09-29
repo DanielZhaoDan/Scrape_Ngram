@@ -3,6 +3,7 @@
 import re
 import urllib2
 import xlwt
+import xlrd
 import sys
 from datetime import datetime
 import HTMLParser
@@ -12,21 +13,21 @@ import requests
 base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
 
 sheet1_data = [['ID', 'url', 'Name', 'Location', 'avg rating', 'Number of reviews', 'pricing', 'Reserve Online', 'cuisine', 'feature', 'good_for']]
-sheet2_data = [['UID', 'url', 'Name', 'review Name', 'review Location', 'rating', 'travel style', 'Review text',  'Contributor level', 'Review No.', 'Helpful vote No.']]
+sheet2_data = [['UID', 'url', 'Name', 'review Name', 'review Location', 'rating', 'comment date' 'travel style', 'Review text',  'Contributor level', 'Review No.', 'Helpful vote No.']]
 sheet3_data = [['UID', 'restaurant url', 'restaurant name', 'rating', 'restaurant address', 'restaurant country']]
 R_ID = 1
 
 url_bases = [
     # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298184&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298566&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298564&ajax=1&itags=10591&pid=14&sortOrder=relevance&availSearchEnabled=false'
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298112&ajax=1&itags=10591&pid=14&sortOrder=relevance&availSearchEnabled=false'
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298106&ajax=1&itags=10591&pid=14&sortOrder=relevance&availSearchEnabled=false'
+    # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298566&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
+    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298564&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
+    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298112&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
+    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298106&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
 ]
 
 key_prefixs = [
     # 'Tokyo_',
-    'Osaka_',
+    # 'Osaka_',
     'Kyoto_',
     'Gifu_',
     'Nagoya_',
@@ -96,7 +97,11 @@ def request_sheet1(url, key_prefix):
     global sheet1_data, R_ID
     # link, name, replies, views
     raw_reg = 'class="title">.*?href="(.*?)".*?>(.*?)<.*?class="rating(.*?)popIndexBlock.*?class="cuisines">(.*?)</div.*?booking">(.*?)</div'
-    html = get_request(url)
+    try:
+        html = get_request(url)
+    except:
+        print 'ERR---level 1---' + url
+        return
     topic_body = re.compile(raw_reg).findall(html)
     if not topic_body:
         return
@@ -120,6 +125,14 @@ def request_sheet1(url, key_prefix):
             print 'ERR---level 1---' + url
 
 
+def get_comment_date(ori):
+    try:
+        date = datetime.strptime(ori, '%d %B %Y')
+        return date.strftime('%d/%m/%Y')
+    except:
+        return ori
+
+
 def request_sheet2(hotel_id, number, hotel_url, hotel_name):
     global sheet2_data, sheet3_data
     for i in range(0, number):
@@ -129,22 +142,23 @@ def request_sheet2(hotel_id, number, hotel_url, hotel_name):
             url = hotel_url.replace('-Reviews-', '-Reviews-or%s-' % str(i*10))
             html = get_request(url)
             print('sheet2', number, i)
-            reg = '"review_(.*?)".*?avatar profile_(.*?)".*?user_name_name_click.*?>(.*?)<.*?ui_bubble_rating bubble_(.*?)"'
+            reg = '"review_(.*?)".*?avatar profile_(.*?)".*?user_name_name_click.*?>(.*?)<.*?ui_bubble_rating bubble_(.*?)".*?title=\'(.*?)\''
 
             comment_list = re.compile(reg).findall(html)
             comment_ids = []
             comment_id_data = {}
             for comment in comment_list:
                 comment_ids.append(comment[0])
-                comment_id_data[comment[0]] = [comment[0], comment[1], comment[2], comment[3]]
+                comment_id_data[comment[0]] = [comment[0], comment[1], comment[2], comment[3], comment[4]]
             comment_details = get_comment_detail(comment_ids)
             for k, v in comment_id_data.items():
                 uid = v[1]
                 name = v[2]
                 rating = v[3][0]
+                comment_date = v[4]
                 comment_detail = comment_details.get(k)
                 level, user_url, location, no_review, no_helpful, travel_style = get_level_of_uid(uid)
-                one_row = [uid, hotel_url, hotel_name, name, location, rating, travel_style, comment_detail, level, no_review, no_helpful]
+                one_row = [uid, hotel_url, hotel_name, name, location, rating, get_comment_date(comment_date), travel_style, comment_detail, level, no_review, no_helpful]
                 sheet2_data.append(one_row)
                 if user_url not in user_url_set:
                     sheet3_data.append([uid, user_url])
@@ -237,40 +251,6 @@ def get_travel_style(ori):
         return 'N/A'
     reg = 'class="memberTagReviewEnhancements">(.*?)<'
     return ','.join(re.compile(reg).findall(ori))
-
-
-def get_contributor_details(r_id, link, number):
-    reg = 'id="review_(.*?)".*?class="col1of2"(.*?)class="col2of2".*?class=\'noQuotes\'>(.*?)<.*?class="rate sprite-rating_s rating_s.*?alt="(.*?) of.*?class="ratingDate(.*?)<'
-    url_prefix = link.split('-Reviews-')[0].replace('Restaurant_Review', 'ExpandedUserReviews')
-    print 'level2--' + link + '   ' + str(number)
-    if number == 0:
-        number = 1
-    for i in range(int(number)):
-        contri_detail = []
-        review_ids = []
-        if '-Reviews-or' not in link:
-            url = link.replace('-Reviews-', '-Reviews-or'+str(i*10)+'-')
-        else:
-            url = link.replace('-Reviews-or', '-Reviews-or'+str(i*10)+'-')
-        try:
-            html = get_request(url)
-        except:
-            print 'EXC--'+url
-            continue
-        details = re.compile(reg).findall(html)
-        for detail in details:
-            review_id = detail[0]
-            review_ids.append(str(review_id))
-            contri_info = get_user_info(detail[1])
-            headline = remove_html_tag(detail[2])
-            individual_rating = int(detail[3])
-            date = get_review_date(detail[4])
-            contri_detail.append([r_id] + contri_info +[headline, individual_rating, date])
-        if review_ids:
-            rating_detail = get_review_detail(url_prefix, link, review_ids)
-            for i in range(len(contri_detail)):
-                one_row = contri_detail[i]+rating_detail[i]
-                sheet2_data.append(one_row)
 
 
 def get_user_info(ori):
@@ -423,7 +403,7 @@ def get_request(get_url):
 def request_1_2():
     global sheet1_data, sheet2_data, sheet3_data, R_ID
     for i in range(len(url_bases)):
-        sizes = [12, 12, 2, 12]
+        sizes = [12, 2, 12]
         size = sizes[i]
         url_base = url_bases[i]
         key_prefix = key_prefixs[i]
@@ -443,9 +423,35 @@ def request_1_2():
         R_ID = 1
 
 
+def read_excel(filename, start=1):
+    global R_ID, sheet2_data, sheet3_data
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
+    table = data.sheets()[0]
+
+    for i in range(start, table.nrows):
+        row = table.row(i)
+        try:
+            main_url = row[1].value
+            id = row[0].value
+            review_no = int(row[5].value)
+            name = row[2].value
+            if review_no > 0:
+                request_sheet2(id, int(review_no), main_url, name)
+            R_ID += 1
+            if R_ID % 4000 == 0:
+                write_excel('sheet2_with_date_rest_%d.xls' % R_ID, sheet2_data)
+                write_excel('sheet3_with_date_rest_%d.xls' % R_ID, sheet3_data)
+                del sheet2_data
+                del sheet3_data
+                sheet2_data = []
+                sheet3_data = []
+        except:
+            print(i)
+
+
 reload(sys)
 sys.setdefaultencoding('utf-8')
-#
-# read_excel('data/sheet3.xls')
-# write_excel('data/sheet3.xls', sheet3_data)
-request_1_2()
+read_excel('Restaurant.xlsx', start=1)
+write_excel('sheet2_with_date_rest_%d.xls' % R_ID, sheet2_data)
+write_excel('sheet3_with_date_rest_%d.xls' % R_ID, sheet3_data)
+

@@ -4,6 +4,8 @@ import os
 
 alldata = []
 files = []
+uid_set = set()
+duplicated_count = 0
 
 
 def walk(rootDir):
@@ -18,6 +20,7 @@ def walk(rootDir):
 
 
 def read_excel(filename, start):
+    global duplicated_count
     print('process -> '+filename)
     data = xlrd.open_workbook(filename, encoding_override='utf-16-be')
     table = data.sheets()[0]
@@ -26,9 +29,14 @@ def read_excel(filename, start):
         row = table.row(i)
         try:
             one_row = []
+            uid = row[0].value
+            if uid in uid_set:
+                duplicated_count += 1
+                continue
             for j in range(0, table.ncols):
                 one_row.append(row[j].value)
             alldata.append(one_row)
+            uid_set.add(uid)
         except:
             print(i)
 
@@ -50,4 +58,5 @@ files = walk('data')
 for i in range(len(files)):
     if '' in files[i]:
         read_excel(files[i], 0 if i == 0 else 1)
-write_excel('Employed'+'.xlsx')
+write_excel('Sheet3'+'.xlsx')
+print(duplicated_count)

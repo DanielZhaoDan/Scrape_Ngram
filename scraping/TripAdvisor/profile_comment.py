@@ -111,12 +111,17 @@ def remove_html_tag(ori):
 
 
 def read_excel(filename, start=1):
+    global sheet3_data
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
 
     for i in range(start, table.nrows-1):
         row = table.row(i)
         try:
+            if (i+1) % 4000 == 0:
+                write_excel('sheet3_%d.xls' % i, sheet3_data)
+                del sheet3_data
+                sheet3_data = []
             profile_id = row[0].value
             profile_url = row[1].value
             if profile_url == 'N/A':
@@ -151,18 +156,19 @@ def request_sheet3(uid, user_url):
     no_review = int(data[0][1].replace(',', ''))
     token = data[0][0]
 
-    page_no = no_review / 50
-    if no_review % 50 != 0:
-        page_no += 1
-        try:
-            request_one(member_id, page_no, uid, token)
-        except:
-            print('EXCEPTION--', uid, member_id)
+    # page_no = no_review / 50
+    # if no_review % 50 != 0:
+    #     page_no += 1
+    try:
+        request_one(member_id, 1, uid, token)
+    except:
+        print('EXCEPTION--', uid, member_id)
 
 
 def request_one(member_id, page_no, uid, token):
     length = 0
-    for i in range(page_no):
+    i = 0
+    while i < page_no:
         offset = str(i*50)
         context ='{"modules.achievements.model.Level":[{"memberId":"' + member_id + '"}],"modules.common.model.LoggedInMember":[{}],"modules.membercenter.collection.MemberTags":[{"memberId":"' + member_id + '"}],"modules.common.model.Config":[{}],"modules.achievements.model.Badges":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContentStreamComposite":[{"filter":"REVIEWS_ALL","offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '"}],"modules.achievements.model.BadgeFlyoutView":[{}],"modules.membercenter.model.ProfileData":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionChecks":[{"memberId":"' + member_id + '"}],"modules.travelmap.model.TravelMapModel":[{"memberId":"' + member_id + '"}],"modules.achievements.model.Counts":[{"memberId":"' + member_id + '"}],"modules.achievements.model.EarnPointsCTA":[{}],"modules.social.model.SocialUser":[{}],"modules.achievements.model.LevelProgress":[{"memberId":"' + member_id + '"}],"modules.common.collection.PageLinks":[{}],"modules.common.model.Member":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.AboutMeView":[{}],"modules.membercenter.model.ContributionView":[{"memberId":"' + member_id + '"}],"modules.social.model.CompositeMember":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.MemberTagsView":[{"memberId":"' + member_id + '"}],"modules.membercenter.model.ContributionCounts":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.DestinationExpert":[{"memberId":"' + member_id + '"}],"modules.common.model.Errors":[{}],"modules.achievements.model.NextAchievement":[{"memberId":"' + member_id + '"}],"modules.membercenter.collection.MemberInteractionInfo":[{"memberId":"' + member_id + '"}]}'
         actions = '[{"name":"FETCH","resource":"modules.membercenter.model.ContentStreamComposite","params":{"filter":"REVIEWS_ALL","offset":' + offset + ',"limit":50,"page":"PROFILE","memberId":"' + member_id + '"},"id":"clientaction1282"}]'
@@ -175,9 +181,15 @@ def request_one(member_id, page_no, uid, token):
         }
         resp = post_request('https://www.tripadvisor.com.sg/ModuleAjax?', data)
         length += get_comment_details(uid, resp)
+        if length == 0:
+            print '.',
+        else:
+            print length,
+            i += 1
+
     if length > 0:
         uid_set.add(uid)
-    print(length)
+    print length
 
 
 def get_comment_details(uid, html):
@@ -198,14 +210,13 @@ def get_comment_details(uid, html):
         address = remove_html_tag(detail[1])
         country = address.split(',')[-1]
         one_row = [uid, url, detail[3], detail[4], rating, address, country]
-        print(one_row)
         sheet3_data.append(one_row)
     return len(detail_list)
 
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-# pre_load('/Users/zhaodan/Documents/personal/code/Scrape_Ngram/scraping/TripAdvisor/data/sheet3_comment.xlsx')
-# print('preload size: ', len(uid_set))
+pre_load('data/sheet3_comment.xlsx')
+print('preload size: ', len(uid_set))
 read_excel('data/sheet3.xlsx')
-write_excel('sheet3_.xls', sheet3_data)
+write_excel('sheet3End_.xls', sheet3_data)
