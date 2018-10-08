@@ -7,6 +7,9 @@ from datetime import datetime
 import HTMLParser
 import json
 import os, sys
+from urlparse import urlparse
+import time
+import random
 
 age_list = [
     ('18', '24'),
@@ -17,9 +20,9 @@ gender_list = ['1', '2']
 interest_list = ['none', '6003423248519']
 url_list = []
 cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=15%3AV4OG6OHVXc5A5Q%3A2%3A1533303142%3A20772%3A8703; pl=n; spin=r.4367080_b.trunk_t.1538235332_s.1_v.2_; fr=0NT9QsWhwBGUSDrtW.AWV6gSGpG-Ir2WoiDbwhn7hFOSw.BazwYT.Bv.AAA.0.0.Bbr5vJ.AWUy6jFd; dpr=2; act=1538236815132%2F0; wd=1233x401; presence=EDvF3EtimeF1538236953EuserFA21B06957738125A2EstateFDutF1538236953769CEchFDp_5f1B06957738125F3CC; pnl_data2=eyJhIjoib25hZnRlcmxvYWQiLCJjIjoiWEFkc0tlcGxlckNvbnRyb2xsZXIiLCJiIjpmYWxzZSwiZCI6Ii9hZHMvYXVkaWVuY2UtaW5zaWdodHMvaW50ZXJlc3RzIiwiZSI6W119'
-base_url = 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=%s&age[1]=%s&country[0]=%s&gender=%s&metrics[0]=2&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ'
+base_url = 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=%s&age[1]=%s&country[0]=%s&gender=%s&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ'
 
-sheet1_data = [['id', 'location', 'category', 'rank', 'page name' 'url', 'followers']]
+sheet1_data = []
 
 
 def compose_urls():
@@ -103,18 +106,18 @@ def get_date(ori):
         return ori
 
 
-def parse_data(url_key):
+def parse_data(url):
     global sheet1_data
-    key, location, url = url_key
+    sheet1_data.append(['title', 'selected audience', 'compare'])
     res_json = get_request(url)
-    data_list = res_json['payload']['2']['data']
+    data_list = res_json['payload']['6']['data']
     for name, values in dict(data_list).items():
-        for value in values.get('pages'):
-            try:
-                one_row = [key, location, name, value.get('rank'), value.get('title'), value.get('url'), get_followers(value.get('url'))]
-                sheet1_data.append(one_row)
-            except:
-                print('ERR-row: ',value)
+        audience = float(values.get('audience')['ratio'])
+        benchmark = float(values.get('benchmark')['ratio'])
+        title = values.get('title')
+        minus = (audience - benchmark) / benchmark
+        one_row = [title, '%.1f' % (audience * 100) + '%', '%.1f' % (minus * 100) + '%']
+        sheet1_data.append(one_row)
 
 
 def get_followers(url):
@@ -156,11 +159,14 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf8')
 compose_urls()
-for url in url_list[-1:]:
-    print(url)
+for url in url_list[-6:]:
     try:
-        parse_data(url)
-    except:
+        filename = url[0] + '-' + url[1] + '.xls'
+        parse_data(url[2])
+        write_excel('data/%s' % filename, sheet1_data)
+        del sheet1_data
+        sheet1_data = []
+        time.sleep(1)
+    except Exception as e:
         print('ERR-parse: ', url)
-write_excel('data/sheet1.xls', sheet1_data)
 
