@@ -30,16 +30,28 @@ https://www.facebook.com/pages_reaction_units/more/
 '''
 
 stop = False
+last_time = 0
 urls = [
-    ['https://www.facebook.com/AIAHongKong/', 'AIA Hong Kong', '258,782', '252,818'],
-    # ['https://www.facebook.com/AXAHongKong/', 'AXAHong Kong', '18,271', '18,610'],
-    # ['https://www.facebook.com/BupaHongKong/', 'Bupa Hong Kong 保柏', '67,675', '65,603'],
-    # ['https://www.facebook.com/CignaHK/', 'Cigna Hong Kong 信諾環球保險', '34,264', '34,679'],
+    ['https://www.facebook.com/cakkanuragapage/', 'cakka', '',''],
+    ['https://www.facebook.com/smirnoffus/', 'Smirnoff', '',''],
+    ['https://www.facebook.com/boyapoker/', 'Boyaa Texas Poker', '',''],
+    ['https://www.facebook.com/CallofDuty/', 'Call of Duty', '',''],
+    ['https://www.facebook.com/ClashofClans/', 'Clash of Clans', '',''],
+    ['https://www.facebook.com/CocaColaUnitedStates/', 'Coca-Cola', '',''],
+    ['https://www.facebook.com/easportsfifabrasil/', 'EA Sports FIFA Brasil', '',''],
+    ['https://www.facebook.com/jackdaniels/', "Jack Daniel's Tennessee Whiskey", '',''],
+    ['https://www.facebook.com/JohnnieWalkerPhilippines/', 'Johnnie Walker', '',''],
+    ['https://www.facebook.com/Juventus/', 'Juventus', '',''],
+    ['https://www.facebook.com/LiverpoolFC/', 'Liverpool FC', '',''],
+    ['https://www.facebook.com/needforspeed/', 'Need for Speed', '',''],
+    ['https://www.facebook.com/playstation/', 'PlayStation', '',''],
+    ['https://www.facebook.com/premierleague/', 'Premier League', '',''],
+    ['https://www.facebook.com/skyyvodka.us/', 'SKYY Vodka', '',''],
 ]
 
 alldata = [['Page Url', 'Page Name', 'No. likes', 'No. follows', 'Post Url', 'Date', 'Main Text', 'No. reactions', 'No. Comment', 'No. Shares', 'No. Views']]
 
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=90%3A6hEzya-A7h34oA%3A2%3A1532013169%3A20772%3A8703; pl=n; fr=0NT9QsWhwBGUSDrtW.AWVFZJPs3MxC3YQm_sg2j_Jk3Q4.BazwYT.Bv.AAA.0.0.BbXD_U.AWUAKyDC; js_ver=3130; spin=r.4152664_b.trunk_t.1532773335_s.1_v.2_; dpr=2; wd=1233x297; act=1532773411549%2F0; presence=EDvF3EtimeF1532773429EuserFA21B06957738125A2EstateFDutF1532773429161CEchFDp_5f1B06957738125F2CC'
+cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=15%3AV4OG6OHVXc5A5Q%3A2%3A1533303142%3A20772%3A8703; pl=n; spin=r.4440639_b.trunk_t.1539964066_s.1_v.2_; dpr=2; wd=1233x357; fr=0NT9QsWhwBGUSDrtW.AWV1ezGNav5XcTki8ht-8yP_JNI.BazwYT.Bv.AAA.0.0.BbylGC.AWWcWim-; presence=EDvF3EtimeF1539986261EuserFA21B06957738125A2EstateFDutF1539986261981CEchFDp_5f1B06957738125F3CC'
 tail = '&surface=www_pages_home&unit_count=8&dpr=2&__user=100006957738125&__a=1&__dyn=5V4cjLx2ByK5A9UkKHqAyqomzFEbEyGgS8UR94WqK6EvxGdwIhEnUG8zFGUpxSaxu3uexebnyogyEnGi4FpeuUuKcUeWDg9oggHzobp94rzLwAgmVV8Gicx2q5od8tyECVoyaxG4oO3-5k2eq499oeGzVFAeCUkUCawRCzFVkdxCi78SaCzUfHGVUhxyh16fmFomhC8xm252odoKUKfy45EGdUcUpx3yUymf-Key8eohx2cUW8x3AUGvwyQF8my9u4S9xCmiaz9oCmUhDzA4Kq7o76FUO7EpgKibKezHAyEsyUaoWEKUS&__req=1d&__be=1&__pc=PHASED:DEFAULT&__rev=4119144&__spin_r=4119144&__spin_b=trunk&__spin_t=1532013170'
 
 
@@ -64,6 +76,7 @@ def remove_html_tag(ori):
 
 
 def get_first_four_column(html, url):
+    global last_time
     ''' analysis response to get value of first four columns in excel'''
 
     global first_four_col, stop
@@ -71,6 +84,7 @@ def get_first_four_column(html, url):
     post_list = re.compile(general_reg).findall(html)
     res_photos, res_videos = [], []
     date = ''
+    i = None
     for post in post_list:
         if 'photos' in post and 'videos' not in post:
             reg = 'class="_5pcq" href="/(.*?)".*?><abbr title="(.*?)".*?</abbr>.*?<div class=".*?userContent.*?>(.*?)</div>.*?href=.*?a\.(.*?)\.'
@@ -97,7 +111,11 @@ def get_first_four_column(html, url):
     if not post_list:
         stop = True
         return [], [], 0
-    last_time = int(time.mktime(datetime.datetime.strptime(i[1], "%d/%m/%Y %H:%M").timetuple()))
+
+    if i:
+        last_time = int(time.mktime(datetime.datetime.strptime(i[1], "%d/%m/%Y %H:%M").timetuple()))
+    else:
+        last_time -= 500000
     return res_photos, res_videos, last_time
 
 
@@ -115,6 +133,22 @@ def get_second_four_column(html):
                 second_four_dict[key] = [i[2], i[0], i[4]]
         second_four_dict[i[1]] = [i[2], i[0], i[4]]
     return second_four_dict
+
+
+def scrape_like_follow_of_url(url):
+    if '/pages/' in url:
+        return
+    req = urllib2.Request(url)
+    req.add_header("Cookie", cookie)
+    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36")
+    req.add_header("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
+    req.add_header("connection", "Keep-Alive")
+    res_data = urllib2.urlopen(req)
+    res = res_data.read()
+    res = HTMLParser.HTMLParser().unescape(res).decode('unicode-escape').replace('\\', '')
+    reg = 'class="_4bl9">(.*?)people like this.*?class="_4bl9".*?>(.*?)people'
+    data = re.compile(reg).findall(res)
+    return remove_html_tag(data[0][0].split('Page')[1]), remove_html_tag(data[0][1])
 
 
 def get_photo_link_of_posts(url):
@@ -160,8 +194,8 @@ def get_request_of_url(url):
     print url
     req = urllib2.Request(url)
     req.add_header("Cookie", cookie)
-    req.add_header("user-agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)")
-    req.add_header("accept", "*/*")
+    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36")
+    req.add_header("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8")
     req.add_header("connection", "Keep-Alive")
     res_data = urllib2.urlopen(req)
     res = res_data.read()
@@ -188,11 +222,15 @@ def save_value(params):
     timestamp = 1447171200
     '''
     time_line = '04611686018427387904'
-    minus8 = 9223372036854775739
+    minus8 = 9223372036854775800
     timestamp = int(time.time())
     count = 0
 
-    while count <= 200 and not stop:
+    likes, follwers = scrape_like_follow_of_url(params[0])
+    params[2] = likes
+    params[3] = follwers
+
+    while count <= 50 and not stop:
         try:
             response, url = get_req(page_id, time_line, minus8, timestamp)
             response = response.replace("\n", "").replace("\r", "")
