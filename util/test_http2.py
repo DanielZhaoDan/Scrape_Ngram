@@ -1,32 +1,78 @@
-import requests
+import xlrd
+import xlsxwriter
+import os
+import csv
 
-url = 'https://www.tripadvisor.com.sg/ModuleAjax?'
+uid_set = set()
+index_uid_dict = {}
+duplicated_count = 0
+files = []
 
-header = {
-    'accept': 'text/javascript, text/html, application/xml, text/xml, */*',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7,zh-TW;q=0.6',
-    'cache-control': 'no-cache',
-    'content-length': '3035',
-    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    'cookie': 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TALanguage=en; BEPIN=%1%16509e329d6%3Bbak210b.b.tripadvisor.com%3A10023%3B; ServerPool=C; PMC=V2*MS.33*MD.20180805*LD.20180811; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*DSM.1534000341177*AZ.1*RS.1; TAAuth3=3%3A2f4b9230b134f2d72024aa335b17df41%3AAM9KtPHqQfBxeJPltFVdfW5M9QCnXVT7cG99lPDaMPw7mVqdmNkWb103ZGJFTl2Bt4D8BEiNyCBzh00PAVwQ6UDs26Q4gzyHd35zfrM1nHItKxRk5VgvHsZwTB5NIeBpjLEmC21e8AUCQIuiCemFYuD5JgG9VwFicM17JOMgIut%2F43nQmpyd9P5I08FEyfkBzxoikzo9EOQ%2FOS2JZ5%2FoH2U%3D; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C4%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C12%2C-1%7CPremiumSURPers%2C%2C-1%7Ctvsess%2C-1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C10%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCCSess%2C1%2C-1%7CCpmPopunder_2%2C5%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2CSGD%2C0%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1534074184%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7CLastPopunderId%2C137-1859-null%2C-1%7Csh%2C%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Ctvpers%2C1%2C1534185195%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; PAC=AGWf5UvTWjXqK-yoDvNByyFRa_wYtlFrEsn7OLs5Ja90Qyc276R4vUZZS0ZwaSJNzg-gUatWseADHGcrUQSbPdRu2DUBOElDMYTbxiUyO8TB9HPjdAUjKGMCmsWIShROZg%3D%3D; TAReturnTo=%1%%2FRestaurant_Review-g294264-d8683709-Reviews-Streats_Hong_Kong_Cafe-Sentosa_Island.html; roybatty=TNI1625!ABKS%2FR5pbgrG0FwbvBRv5cvd1Wa8iPbZuNBzGL8UZpRLKd5evjx3qPB%2FM8tJV5QhB9yti5QiL648ExcTg2Zs%2BEGFSEo7LZ5oPnIM24sKPUSxthQUcA87q%2FUzdDMs0eNyZ602j3H%2FYhrhZX%2FmRhejKU2NiyzBR8o%2BdU3DXleEIQD0%2C1; TASession=V2ID.A359B1B1C5A00212527116FD7F719C32*SQ.594*LS.DemandLoadAjax*GR.93*TCPAR.65*TBR.23*EXEX.64*ABTR.77*PHTB.90*FS.64*CPU.20*HS.recommended*ES.popularity*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.C046DDFA89F7DF42D3E2657A089B8B5A*LF.en*FA.1*DF.0*MS.-1*RMS.-1*FLO.304305*TRA.false*LD.8683709; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*G-3265525-2.1.14209292.*HDD-531151254-2018_08_19.2018_08_20*HC-531161959*LG-539675023-2.1.T.*LD-539675024-.....',
-    'origin': 'https://www.tripadvisor.com.sg',
-    'pragma': 'no-cache',
-    'referer': 'https://www.tripadvisor.com.sg/members/JoyceGKK',
-    'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.139 Safari/537.36',
-    'x-puid': 'W28eFQoQL4cAAi1njkcAAADA',
-    'x-requested-with': 'XMLHttpRequest',
-}
 
-data = {
-    'token': 'TNI1625!ANgTdF3Z63OUejNQRI65JhUPVSQsyPHgQ0leUVo1RUtMSY4LNab1J2/ccXtkodK2Ir1kWNoJP11H+NkE9WYs1ssAaN2blPVfAvcs5WZnu/KiEb2YrhiPcd1UOvupmGLK+Qa0onN6m/4AEa9w5nZbpmxWozh/ffm0dJZr0eZlk5Zy',
-    'version': '5',
-    'authenticator': 'DEFAULT',
-    'context': '{"modules.achievements.model.Level":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.common.model.LoggedInMember":[{}],"modules.membercenter.collection.MemberTags":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.common.model.Config":[{}],"modules.achievements.model.Badges":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.model.ContentStreamComposite":[{"offset":0,"limit":50,"page":"PROFILE","memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.achievements.model.BadgeFlyoutView":[{}],"modules.membercenter.model.ProfileData":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.model.ContributionChecks":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.travelmap.model.TravelMapModel":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.achievements.model.Counts":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.achievements.model.EarnPointsCTA":[{}],"modules.social.model.SocialUser":[{}],"modules.achievements.model.LevelProgress":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.common.collection.PageLinks":[{}],"modules.common.model.Member":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.model.AboutMeView":[{}],"modules.membercenter.model.ContributionView":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.social.model.CompositeMember":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.model.MemberTagsView":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.model.ContributionCounts":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.collection.DestinationExpert":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.common.model.Errors":[{}],"modules.achievements.model.NextAchievement":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}],"modules.membercenter.collection.MemberInteractionInfo":[{"memberId":"51ImerSyzlqbEpeAOFO1UQ=="}]}',
-    'actions': '[{"name":"FETCH","resource":"modules.membercenter.model.ContentStreamComposite","params":{"offset":50,"limit":50,"page":"PROFILE","memberId":"51ImerSyzlqbEpeAOFO1UQ=="},"id":"clientaction741"}]',
-}
+def walk(rootDir):
+    for lists in os.listdir(rootDir):
+        path = os.path.join(rootDir, lists)
+        if '.xls' in path or 'csv' in path:
+            if 'result' not in path:
+                files.append(path)
+        if os.path.isdir(path):
+            walk(path)
+    return files
 
-print data
 
-res = requests.post(url, headers=header, data=data)
-print res.content
+def read_excel(filename, start):
+    global duplicated_count
+    print('process -> '+filename)
+    data = xlrd.open_workbook(filename, encoding_override='utf-16-be')
+    table = data.sheets()[0]
+
+    for i in range(start, table.nrows):
+        row = table.row(i)
+        try:
+            one_row = []
+            for j in range(0, table.ncols):
+                one_row.append(row[j].value)
+            alldata.append(one_row)
+        except:
+            print(i)
+
+
+def write_excel(filename):
+    w = xlsxwriter.Workbook(filename)
+    ws = w.add_worksheet()
+    for row in range(0, len(alldata)):
+        one_row = alldata[row]
+        for col in range(0, len(one_row)):
+            try:
+                ws.write_string(row, col, (one_row[col]))
+            except:
+                ws.write(row, col, (one_row[col]))
+    w.close()
+    print filename+"===========over============"
+
+def read_file():
+    array = []
+    with open("exception.txt", "r") as ins:
+        for line in ins:
+            row = index_uid_dict.get(line.strip(), ['N/A', line.strip()])
+            array.append(row)
+    return array
+
+def read_csv(filename):
+    with open(filename, 'rb') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=';')
+        for row in spamreader:
+            index = row[1]
+            index_uid_dict[index] = row
+
+def write_list(filename, my_list):
+    with open(filename, 'w') as f:
+        for item in my_list:
+            f.write("%s\n" % ';'.join(item))
+
+files = walk('data')
+for i in range(len(files)):
+    if '' in files[i]:
+        read_csv(files[i])
+res = read_file()
+write_list('ex.txt', res)

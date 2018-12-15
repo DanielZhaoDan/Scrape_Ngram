@@ -1,28 +1,22 @@
 # -*- coding: utf-8 -*-
 import re
 import xlwt
-import sys
 from datetime import datetime
-from html.parser import HTMLParser
 import html
 import os
 import xlrd
 import requests
 import time
-import ssl
-import json
 import operator
 
 P_ID = 1
-PAGE_SIZE = 1500
-# 12764-13245,13398
+PAGE_SIZE = 20
 
 sheet1_data = [['Profile ID', 'Name', 'Return', 'Risk Score', 'Copiers', 'Copiers Change', 'Weekly DD', 'Country', 'Link to profile', 'Customer ID']]
-sheet2_data = [['Profile ID', 'Name', 'Type of INV', 'Return', 'Trades per week', 'Avg holding time in Hours', 'Active since', 'Profitable Weeks']]
+sheet2_data = [['Profile ID', 'Name', 'Total trades', 'Avg profit', 'Avg loss', 'Type of INV', 'Return', 'Trades per week', 'Avg holding time in Hours', 'Active since', 'Profitable Weeks']]
 sheet3_data = [['Profile ID	Name', 'Action', 'Item', 'Open', 'Close', 'P/L']]
 
-cookie = 'visid_incap_20269=iy+fuzuMQ9izdXR9RqzNAsPp0VoAAAAAQUIPAAAAAAAzdkBSKH65RMZXTwjL/m/6; hp_preferences=%7B%22locale%22%3A%22en-us%22%7D; etoro_rmk_visit_v1=a-92; visid_incap_773285=yWlpLKeQQwa61e7X/yYunlPt0VoAAAAAQUIPAAAAAAAh1mBFR/kKlezHbmm1E01/; _ym_uid=1523707228850677886; mp_a46ed246b149568e354e40df267dcbe2_mixpanel=%7B%22distinct_id%22%3A%20%22162c407290f207-03af83abba57de-13366f50-fa000-162c4072910507%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; __atuvc=1%7C16; posts_view=a%3A1%3A%7Bi%3A0%3Bs%3A5%3A%2224944%22%3B%7D; etoro_first_page=https%3A//www.etoro.com/; TMIS2=9a74f8b353780f2fbe59d8dc1d9cd901437be0b823f8ee60d0ab36264e2503c33b5fc499a34f5268edfa31d267e3f1cd92d9687fab4eb67a4a6f6062b2b4c686b2ba5ee755fb8858d673749f5b8b84e64dd33773da105979658729f725717a775676aed7a769df8e3a45c9023880; _ga=GA1.2.96972698.1523706313; _gid=GA1.2.605887730.1523706313; mp_dbbd7bd9566da85f012f7ca5d8c6c944_mixpanel=%7B%22distinct_id%22%3A%20%22162c3f950682a4-09b4588c61d788-13366f50-fa000-162c3f950693af%22%2C%22%24initial_referrer%22%3A%20%22%24direct%22%2C%22%24initial_referring_domain%22%3A%20%22%24direct%22%7D; incap_ses_961_20269=8zxhFxp3kzt8xpoapShWDUnh01oAAAAAdq3WplaMInebndNikFUR+A==; TS01047baf=01f1b32d7e3a0075220a8bf39cdda1b07f8577a8712129208c021dd3df8230bf90ce4efb58dec81d8277c50471206bb88802566cf2'
-
+cookie = 'ASP.NET_SessionId=uwqm2ldpse3cxo1qugfhtvlk; Stickiness=D|W90nR|W90nR; visid_incap_20269=KkGGsjuCTQGotaDMCIC/nkIn3VsAAAAAQUIPAAAAAABd1KH0LPJNjhhBVGF0SVDS; nlbi_20269=rQ0SCrkEgwJoU51NW3HQvwAAAAB/SnJw6sgIwcIOM0JSJGLd; incap_ses_960_20269=jYP9eryL0A3aVWmrWZtSDUIn3VsAAAAAitvvE0/m3Y9i4L76vZZq0Q==; _ga=GA1.2.1136443902.1541220164; _gid=GA1.2.266598960.1541220164; _gac_UA-2056847-65=1.1541220164.CjwKCAjw6-_eBRBXEiwA-5zHaTn-DwHQ43iTAheV5N4olQqixzvLmnhM0JhkdZfs234ilQQbEww-MBoCbeoQAvD_BwE; _gac_UA-2056847-1=1.1541220165.CjwKCAjw6-_eBRBXEiwA-5zHaTn-DwHQ43iTAheV5N4olQqixzvLmnhM0JhkdZfs234ilQQbEww-MBoCbeoQAvD_BwE; _gcl_au=1.1.1067155163.1541220165; etoro_rmk_visit_v1=a-77; etoro_first_page=https%3A//www.etoro.com/welcome%3Fgclid%3DCjwKCAjw6-_eBRBXEiwA-5zHaTn-DwHQ43iTAheV5N4olQqixzvLmnhM0JhkdZfs234ilQQbEww-MBoCbeoQAvD_BwE%26utm_medium%3DSEM%26utm_source%3D56004%26utm_content%3D0%26utm_serial%3DCH_Brand_En_NR_56004%7CKW_Etoro_MT_e%26utm_campaign%3DCH_Brand_En_NR_56004%7CKW_Etoro_MT_e%26utm_term%3D%26gclid%3DCjwKCAjw6-_eBRBXEiwA-5zHaTn-DwHQ43iTAheV5N4olQqixzvLmnhM0JhkdZfs234ilQQbEww-MBoCbeoQAvD_BwE; _DCMN_ref.90.13db=%5B%22CH_Brand_En_NR_56004%7CKW_Etoro_MT_e%22%2C%22%22%2C1541220166%2C%22https%3A%2F%2Fwww.google.com.sg%2F%22%5D; RequestURL=URL=http://partners.etoro.com/aw.aspx?a=2&task=click&targeturl=noredirect&referrer=https://www.google.com.sg/; visid_incap_172517=I44uPnEaTKqivWhFip/Uolsn3VsAAAAAQUIPAAAAAAARqI0ND8wed9tUPRHMsWl/; incap_ses_960_172517=j+TvReXp0xISXWmrWZtSDVwn3VsAAAAA+LsJAeu2KfWxD++iv1IfJw==; AffiliateWizAffiliateID=AffiliateID=2&ClickBannerID=0&SubAffiliateID=&Custom=&ClickDateTime=11/3/2018 4:43:16 AM&UserUniqueIdentifier=1ef52853-d03f-412f-b346-3dbb45f3190b; eToroLocale=en-gb; hp_preferences=%7B%22locale%22%3A%22en-gb%22%2C%22hide_disclamer%22%3A1%7D; G_ENABLED_IDPS=google; _DCMN_id.90.13db=7021595ba71e4a87.1541220166.1.1541221197.1541220166.; posts_view=a%3A1%3A%7Bi%3A0%3Bs%3A5%3A%2225412%22%3B%7D; __atuvc=2%7C44; OrigCID=11769592; OriginalProviderID=0; GCID=10469365; etoroHPRedirect=1; intercom-session-x8o64ufr=ZDNjVDlKODd1aU95S3lUVkcxekNOc1cxQWRmUGEzK0lGeEo1dkNuWTVJZ1A0VWtFRlhndlRaSjN4S1A5WnBxTS0tSHB2YTNkSWV6elBYUktJNnhyS2lHQT09--8b5f1a95c1470c413fed0c4ee16541bf0e2961ea; incap_ses_256_20269=T8cUcBuuuA++sSwyGX+NA3483VsAAAAABfZO05UUiAAmDQDeV+rS5Q==; mp_dbbd7bd9566da85f012f7ca5d8c6c944_mixpanel=%7B%22distinct_id%22%3A%20%22166d7e1643df3-095d458419d4b-346a7809-13c680-166d7e1643e324%22%2C%22%24device_id%22%3A%20%22166d7e1643df3-095d458419d4b-346a7809-13c680-166d7e1643e324%22%2C%22%24search_engine%22%3A%20%22google%22%2C%22utm_source%22%3A%20%2256004%22%2C%22utm_medium%22%3A%20%22SEM%22%2C%22utm_campaign%22%3A%20%22CH_Brand_En_NR_56004%7CKW_Etoro_MT_e%22%2C%22utm_content%22%3A%20%220%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.google.com.sg%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.google.com.sg%22%2C%22__alias%22%3A%2010469365%2C%22%24user_id%22%3A%2010469365%7D; TS01cb89f3=01f1b32d7e639fa172f1b412235147c2c902b18abcac569dc9b1d7d3305a7597fb3c1805411de20252b951a219be4ae54e7568cee6; TMIS2=9a74e4a102375b68a852c8995fdcc45c0f2da0fb2ff2f27e87e26676563d568c2940998ff9040b6befa1699466f5b7da9ed63e2ba719ae761737743de2bd929be4b657a154b8dd059064609d598dc9e64bd02d2c8f0a4a6473c664f77c216d795671aed4a168df893943d6196b9462a3fe906c67b9ca0d860f7f39714854; _gat_UA-2056847-65=1; _gat=1'
 name_set = set()
 id_typeid = {}
 TYPEID_NAME = {1: 'Currencies', 2: 'Commodities', 4: 'Indices', 5: 'Stocks', 6: 'ETF', 10: 'Cryptocurrencies'}
@@ -1328,7 +1322,7 @@ def write_excel(filename, alldata, flag=None):
 def request_sheet1():
     global sheet1_data, P_ID
     for i in range(1, PAGE_SIZE+1):
-        url = 'https://www.etoro.com/sapi/rankings/rankings/?blocked=false&bonusonly=false&copyblock=false&istestaccount=false&optin=true&page=%d&pagesize=20&period=OneYearAgo&sort=-maxmonthlyriskscore' % i
+        url = 'https://www.etoro.com/sapi/rankings/rankings/?blocked=false&bonusonly=false&client_request_id=c474cfed-04c3-426a-b10b-5862e0cea246&copiersmin=5&copyblock=false&gainmin=10&istestaccount=false&maxmonthlyriskscoremax=10&maxmonthlyriskscoremin=0&optin=true&page=%i&pagesize=20&period=LastTwoYears&sort=-copiers&tradesmin=5' % i
         print(url)
         try:
             obj = get_json_resp(url)
@@ -1355,7 +1349,7 @@ def request_sheet1():
         except Exception as e:
             print('EXP======%s' % url)
             print(str(e))
-    write_excel('data/sheet1.xlsx', sheet1_data)
+    write_excel('data/sheet1.xls', sheet1_data)
 
 
 def request_history(profile_id, name, cid):
@@ -1450,6 +1444,8 @@ def request_details(profile_id, name, cid):
     hour_url = 'https://www.etoro.com/sapi/userstats/stats/username/%s/trades/oneYearAgo?CopyAsAsset=true' % name
     hour_obj = get_json_resp(hour_url)
     minutes = hour_obj.get('all', {}).get('avgHoldingTimeInMinutes', 0)
+    avgProfitPct = hour_obj.get('all', {}).get('avgProfitPct', 0)
+    avgLossPct = hour_obj.get('all', {}).get('avgLossPct', 0)
     hour = '%.1f' % (minutes / 60)
     assets = hour_obj.get('assets')
     assets_perc = {}
@@ -1467,7 +1463,7 @@ def request_details(profile_id, name, cid):
 
     for perc in sorted_perc:
         type_name = TYPEID_NAME.get(perc[0])
-        one_row = [profile_id, name, type_name, "%.2f%%" % perc[1], trade_per_week, hour, activate_date, profitableWeeksPct]
+        one_row = [profile_id, name, total_trades, avgProfitPct, avgLossPct, type_name, "%.2f%%" % perc[1], trade_per_week, hour, activate_date, profitableWeeksPct]
         sheet2_data.append(one_row)
     print(one_row)
 
@@ -1477,7 +1473,7 @@ def request_sheet2(filename, start=1):
     data = xlrd.open_workbook(filename, encoding_override="cp1252")
     table = data.sheets()[0]
 
-    for i in range(13398, table.nrows):
+    for i in range(start, table.nrows):
         row = table.row(i)
         try:
             profile_id = row[0].value
@@ -1490,5 +1486,6 @@ def request_sheet2(filename, start=1):
 
 # request_sheet3('data/sheet1.xls')
 load_id_typeid()
-request_sheet2('data/sheet1_Overall.xls')
+# request_sheet1()
+request_sheet2('data/sheet1.xls')
 

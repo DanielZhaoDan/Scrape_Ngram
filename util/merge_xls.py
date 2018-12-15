@@ -29,14 +29,9 @@ def read_excel(filename, start):
         row = table.row(i)
         try:
             one_row = []
-            uid = row[0].value
-            if uid in uid_set:
-                duplicated_count += 1
-                continue
             for j in range(0, table.ncols):
                 one_row.append(row[j].value)
             alldata.append(one_row)
-            uid_set.add(uid)
         except:
             print(i)
 

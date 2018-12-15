@@ -15,14 +15,20 @@ age_list = [
     ('18', '24'),
     ('24', '35'),
 ]
-location_list = ['ID', 'VN', 'TH']
-gender_list = ['1', '2']
-interest_list = ['none', '6003423248519']
-url_list = []
+location_list = ['TH', 'ID', 'VN', 'TR', 'BR']
+gender_list = ['2', '1']
+interest_list = ['none']
 cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; c_user=100006957738125; xs=15%3AV4OG6OHVXc5A5Q%3A2%3A1533303142%3A20772%3A8703; pl=n; spin=r.4367080_b.trunk_t.1538235332_s.1_v.2_; fr=0NT9QsWhwBGUSDrtW.AWV6gSGpG-Ir2WoiDbwhn7hFOSw.BazwYT.Bv.AAA.0.0.Bbr5vJ.AWUy6jFd; dpr=2; act=1538236815132%2F0; wd=1233x401; presence=EDvF3EtimeF1538236953EuserFA21B06957738125A2EstateFDutF1538236953769CEchFDp_5f1B06957738125F3CC; pnl_data2=eyJhIjoib25hZnRlcmxvYWQiLCJjIjoiWEFkc0tlcGxlckNvbnRyb2xsZXIiLCJiIjpmYWxzZSwiZCI6Ii9hZHMvYXVkaWVuY2UtaW5zaWdodHMvaW50ZXJlc3RzIiwiZSI6W119'
-base_url = 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=%s&age[1]=%s&country[0]=%s&gender=%s&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ'
+base_url = 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&education[0]=3&education[1]=4&age[0]=%s&age[1]=%s&country[0]=%s&gender=%s&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ'
 
 sheet1_data = []
+
+url_list = [
+    # ('18-14M', 'ID', 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=18&age[1]=24&country[0]=ID&gender=2&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ&interests[0]=6003142845761&interests[1]=6003174867249&interests[2]=6003174913249&interests[3]=6003176678152&interests[4]=6003290348256&interests[5]=6003573036687'),
+    # ('25-35M', 'ID', 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=25&age[1]=35&country[0]=ID&gender=2&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ&interests[0]=6003174867249&interests[1]=6003174913249&interests[2]=6003573036687&interests[3]=6003594632887&interests[4]=6004160395895'),
+    # ('18-24W', 'ID', 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=18&age[1]=24&country[0]=ID&gender=2&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ&interests[0]=6002839660079&interests[1]=6003174867249&interests[2]=6003270811593&interests[3]=6003327060545&interests[4]=6003745655504&interests[5]=6003896280066&interests[6]=6004160395895'),
+    # ('25-35W', 'ID', 'https://www.facebook.com/ads/audience-insights/query/?dpr=2&age[0]=25&age[1]=35&country[0]=ID&gender=2&metrics[0]=6&admarket_id=6017625189745&logger_session_id=e26d0c2b09149f49b70bd155fa98b3642e2ec774&__user=100006957738125&__a=1&__dyn=5V8WUmFoO3yqSudg9odoKFVe8UhBWqxiF88ooUdXCwAy8WqErxSawmWx-ex2axuF8iBAzouxa2e6FQ3mcUS2S4og-m10xicx21hwEyoC8yEqx6cw9a15UnDxm5EK10wOwRxeaCwjHGbwLghKbm7Qpy9US252odoKUryolyU6W78hDzo23xKicDwCx-mE465uaG4Hx63e0z8S15w_Ki8xWbwFyFE-17xS&__req=n&__be=1&__rev=4365232&__spin_r=4365232&__spin_b=trunk&__spin_t=1538186191&__pc=PHASED:DEFAULT&fb_dtsg_ag=AdyjS0F6SS__bcy29MRcsADIzmHoTDJhp0763NHcc0oWcQ:Adz907OWkmK8rW-QnFJGU0SnqdHR37xIZWZ6w0N7MB0TYQ&interests[0]=6003174867249&interests[1]=6003232228485&interests[2]=6003270811593&interests[3]=6003327060545&interests[4]=6003445225483&interests[5]=6003745655504&interests[6]=6003896280066&interests[7]=6004160395895'),
+]
 
 
 def compose_urls():
@@ -159,7 +165,7 @@ def get_request(get_url):
 reload(sys)
 sys.setdefaultencoding('utf8')
 compose_urls()
-for url in url_list[-6:]:
+for url in url_list:
     try:
         filename = url[0] + '-' + url[1] + '.xls'
         parse_data(url[2])
