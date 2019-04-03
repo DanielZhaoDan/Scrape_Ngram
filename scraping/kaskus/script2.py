@@ -8,11 +8,20 @@ import requests
 import HTMLParser
 
 
-sheet0_data = [['Thread ID', 'Title', 'Title URL', 'Create Date', 'Last Date', 'No. views', 'No. replies', 'No. shares', 'No. Replies', 'Category', 'Rating']]
+sheet0_data = [['Thread', 'Thread URL', 'Sub topic name', 'No. views', 'No. replies', 'Sub topic URL', 'Create Date', 'Last Date']]
+sheet1_data = [['Thread', 'Thread URL', 'Sub topic name', 'Sub topic URL', 'Repli No.', 'Reply date', 'Replier reputation', 'Text']]
 
-url_base = 'https://www.kaskus.co.id/forum/725/healthy-lifestyle/%d?sort=rating&order=desc'
-cookie = 'display=grid; kuid=ZwZ1A1ru1INQSTBIDgFvAg==; forkrtg={"generic":"29112019"}; __asc=0656012716334ee38013146c4c7; __auc=0656012716334ee38013146c4c7; __utma=40758456.522550202.1525601417.1525601417.1525601417.1; __utmc=40758456; __utmz=40758456.1525601417.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; _ga=GA1.3.522550202.1525601417; _gid=GA1.3.1397254987.1525601417; notices=%5B%5D; AMP_TOKEN=%24NOT_FOUND; __utmb=40758456.5.10.1525601417'
-P_ID = 1
+cookie = 'kuid=ZwZ1AlwWIuKMohV0DQlhAg==; __asc=24bc9c43167b67849cac95403a9; __auc=24bc9c43167b67849cac95403a9; __utma=40758456.698408157.1544954596.1544954596.1544954596.1; __utmc=40758456; __utmz=40758456.1544954596.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); AMP_TOKEN=%24NOT_FOUND; _ga=GA1.3.698408157.1544954596; _gid=GA1.3.1390293499.1544954596; notices=%5B%5D; thread_lastview=a%3A1%3A%7Bs%3A24%3A%225492995596bde615218b456d%22%3Bi%3A1544758618%3B%7D; post_order=1; forkrtg={"generic":"29112019"}; _fbp=fb.2.1544954990430.1707517265; iUUID=dfa4db9d0a5ed79fd80ec7473bd0b700; innity.dmp.170.sess.id=250431571.170.1544954990507; innity.dmp.cks.appxs=1; innity.dmp.cks.innity=1; _a1_f=99c1269d-8702-4367-b9d1-2eb52f9199ee; _daxbypass=true; __gads=ID=745729c3adcef617:T=1544954991:S=ALNI_MZCdfTch3xvE2Qahhkqts6GwsJzeg; innity.dmp.170.sess=2.1544954990507.1544954990507.1544954994868; __utmt=1; __utmb=40758456.29.10.1544954596; _dc_gtm_UA-132312-41=1; _gat_UA-132312-41=1; _gat=1; _dc_gtm_UA-132312-60=1'
+
+url_list = [
+    # ('Fitness & Healthy Body', 'https://www.kaskus.co.id/forum/558/fitness--healthy-body/%d'),
+    # ('Fat-Loss,Gain-Mass,Nutrisi Diet & Suplementasi Fitness', 'https://www.kaskus.co.id/forum/274/fat-lossgain-massnutrisi-diet--suplementasi-fitness/%d'),
+    ('Muscle Building', 'https://www.kaskus.co.id/forum/236/muscle-building/%d'),
+    ('Health Consultation', 'https://www.kaskus.co.id/forum/724/health-consultation/%d'),
+    ('Healthy Lifestyle', 'https://www.kaskus.co.id/forum/725/healthy-lifestyle/%d'),
+    ('Quit Drugs, Alcohol & Smoking', 'https://www.kaskus.co.id/forum/559/quit-drugs-alcohol--smoking/%d'),
+    ('Women’s Health', 'https://www.kaskus.co.id/forum/718/womens-health/%d'),
+]
 
 
 def write(html, filename):
@@ -23,11 +32,35 @@ def write(html, filename):
 
 
 def write_excel(filename, alldata, flag=None):
+    filename = 'data/' + filename
     if flag:
-        filename = filename.replace('.xls', '_'+str(flag)+'.xls')
+        filename = filename.replace('.xls', '_' + str(flag) + '.xls')
     d = os.path.dirname(filename)
     if not os.path.exists(d):
         os.makedirs(d)
+
+    i = 0
+    while len(alldata) > 65500:
+        _filename = filename.replace('.xls', '_%s.xls' % i)
+        start_index = 0
+        end_index = 65500
+        data = alldata[start_index:end_index]
+        alldata = alldata[end_index:]
+        w = xlwt.Workbook(encoding='utf-8')
+        ws = w.add_sheet('old', cell_overwrite_ok=True)
+        for row in range(0, len(data)):
+            one_row = data[row]
+            for col in range(0, len(one_row)):
+                try:
+                    ws.write(row, col, one_row[col][:32766])
+                except:
+                    try:
+                        ws.write(row, col, one_row[col])
+                    except:
+                        print('===Write excel ERROR===' + str(one_row[col]))
+        w.save(_filename)
+        print("%s===========over============%d" % (_filename, len(data)))
+        i += 1
     w = xlwt.Workbook(encoding='utf-8')
     ws = w.add_sheet('old', cell_overwrite_ok=True)
     for row in range(0, len(alldata)):
@@ -39,95 +72,93 @@ def write_excel(filename, alldata, flag=None):
                 try:
                     ws.write(row, col, one_row[col])
                 except:
-                    print('===Write excel ERROR==='+str(one_row[col]))
+                    print('===Write excel ERROR===' + str(one_row[col]))
     w.save(filename)
-    print(filename+"===========over============")
+    print("%s===========over============%d" % (filename, len(alldata)))
 
 
-def request_sheet0(url):
-    global sheet0_data, P_ID
+def request_sheet0(topic_name, url):
+    global sheet0_data, sheet1_data
     html = get_request(url)
-    body = re.compile('<tbody>(.*?)</tbody>').findall(html)[0]
-    reg = 'itemprop="item" href="(.*?)".*?itemprop="name">(.*?)</span.*?class="author.*?</a>, (.*?) .*?Replies: (.*?) .*?Views: (.*?)<'
-    threads = re.compile(reg).findall(body.replace('&nbsp;', ''))
+    reg = 'class="C\(#4a4a4a\) Td\(n\):h.*?href="(.*?)\?.*?>(.*?)<div.*?Mstart\(7.*?>(.*?)<.*?Mstart\(7.*?>(.*?)<'
+    threads = re.compile(reg).findall(html)
     for thread in threads:
         try:
-            thread_url = 'https://www.kaskus.co.id' + thread[0]
-            thread_name = remove_html_tag(thread[1].encode('utf-8')).replace('Sticky: ', '')
-            create_date = get_date(thread[2])
-            category = "Healthy Lifestyle"
-            reply_count = thread[3]
-            view_count = thread[4]
-            share_count, comment_count, last_date, rating = request_share_and_commment_count(thread_url)
-            one_row = ['Kaskus_HL_%d' % P_ID, thread_name, thread_url, create_date, last_date, view_count, share_count, comment_count, category, rating]
-            print(one_row)
-            sheet0_data.append(one_row)
-            P_ID += 1
+           sub_topic_url = thread[0]
+           sub_topic_name = remove_html_tag(thread[1])
+           no_view = parse_number(thread[2])
+           no_reply = parse_number(thread[3])
+           sheet2_num = no_reply // 20 + 1
+           create_date = request_share_and_commment_count(url, topic_name, sub_topic_name, sub_topic_url, sheet2_num)
+           one_row = [topic_name, url, sub_topic_name, no_view, no_reply, sub_topic_url, create_date, create_date]
+           sheet0_data.append(one_row)
+           print one_row
         except Exception as e:
-            print (e)
+            print 'EX-sheet1', e
+    return len(threads)
 
 
-def request_share_and_commment_count(url):
-    html = get_request(url)
-    if 'pagination' in html:
-        reg = 'votes, (.*?) average.*?class="total-share">.*?>(.*?)<.*?page-count.*?of (.*?)<.*?href="(.*?)"'
-        share_page = re.compile(reg).findall(html)
-        if not share_page:
-            return 0, 0
-        share_page = share_page[0]
-        rating = share_page[0]
-        share_count = share_page[1]
-        next_url = 'https://www.kaskus.co.id/' + share_page[3] + '999'
-        next_html = get_request(next_url)
-    else:
-        next_html = html
-        reg = 'votes, (.*?) average.*?class="total-share">.*?>(.*?)<'
-        share_count = re.compile(reg).findall(html)
-        if share_count:
-            share_count = share_count[0]
-            rating = share_count[0]
-            share_count = share_count[1]
-        else:
-            rating = 0
-            share_count = 0
-    comment_reg = 'class="permalink".*?name="(.*?)".*?class="entry-date".*?> (.*?) '
-    comment_list = re.compile(comment_reg).findall(next_html)
-    if not comment_list:
-        return parse_number(share_count), 0, "N/A", rating
-    return parse_number(share_count), comment_list[-1][0], get_date(comment_list[-1][1]), rating
+def request_share_and_commment_count(main_url, main_topic, sub_name, url_base, total_num):
+    num = 1
+    global sheet1_data
+    create_date = None
+    reg = 'id="post.*?datetime="(.*?)T.*?Fx\(flexZero\) D\(f\) jsTippy(.*?)Fx\(flexZero\).*?article.*?>(.*?)</article'
+    for i in range(1, total_num + 1):
+        url = url_base + str(i)
+        try:
+            html = get_request(url)
+            start_index = 0 if i == 1 else 1
+            data_list = re.compile(reg).findall(html)
+            for data in data_list[start_index:]:
+                try:
+                    comment_date = get_date(data[0])
+                    reputation = get_reputation(data[1])
+                    content = remove_html_tag(data[2]).replace('Quote:Original Posted By ', '')
+                    one_row = [main_topic, main_url, sub_name, url_base, num, comment_date, reputation, content]
+                    sheet1_data.append(one_row)
+                    num += 1
+                    if not create_date:
+                        create_date = comment_date
+                except Exception as e:
+                    continue
+        except Exception as e:
+            print 'EX-sheet2: ', url, e
+    return create_date
 
 
-def extract_raw_topic(raw_topic):
-    reg = 'href="(.*?)".*?>(.*?)<.*?&raquo; (.*?)<'
-    entry = re.compile(reg).findall(raw_topic)[0]
-    url = 'https://www.kiasuparents.com/kiasu/forum/' + entry[0].replace('./', '').replace('&amp;', '&')
-    first_date = entry[2]
-    return entry[1].replace('&amp;', '&'), url, first_date
+def get_reputation(ori):
+    if 'c-red' in ori:
+        return -ori.count('c-red')
+    elif 'c-green' in ori:
+        return ori.count('c-green')
+    return 0
 
 
 def parse_number(ori):
     if 'k' in ori or 'K' in ori :
-        new = ori.replace('.', ',').replace('k', '').replace('K', '') + '00'
+        new = ori.replace('.', '').replace('k', '').replace('K', '') + '00'
     elif 'm' in ori or 'M' in ori:
-        new = ori.replace('.', ',').replace('m', '').replace('M', '') + '00,000'
+        new = ori.replace('.', '').replace('m', '').replace('M', '') + '00000'
     else:
         new = ori
-    return new
+    return int(new)
 
 
 def remove_html_tag(ori):
+    dr = re.compile(r'<[^>]+>', re.S)
+    dd = dr.sub('', ori)
     try:
-        dr = re.compile(r'<[^>]+>', re.S)
-        dd = dr.sub('', ori)
         return str(HTMLParser.HTMLParser().unescape(dd)).strip()
     except:
-        print 'remove_html_Tag error: ' + ori
-        return ori
+        return str(dd).strip()
 
 
 def get_date(ori):
-    d = datetime.strptime(ori, '%d-%m-%Y')
-    date = d.strftime('%d/%m/%Y')
+    try:
+        d = datetime.strptime(ori, '%d-%m-%Y')
+        date = d.strftime('%d/%m/%Y')
+    except:
+        return ori
     return date
 
 
@@ -141,9 +172,24 @@ def get_request(get_url):
     res = str(res).replace('\t', '').replace('\r', '').replace('\n', '').replace('&amp;', '&').replace('\\t', '').replace('\\r', '').replace('\\n', '')
     return res
 
-for i in range(1, 11):
-    url = url_base % i
-    request_sheet0(url)
 
-write_excel('data/sheet.xls', sheet0_data)
+for name_url in url_list:
+    name = name_url[0]
+    url_base = name_url[1]
+    for i in range(1, 28):
+        url = url_base % i
+        print name, i
+        if 0 == request_sheet0(name, url):
+            break
+    write_excel('data/%s_main.xls' % name, sheet0_data)
+    write_excel('data/%s_reply.xls' % name, sheet1_data)
+    del sheet0_data
+    del sheet1_data
+    sheet0_data = [
+        ['Thread', 'Thread URL', 'Sub topic name', 'No. views', 'No. replies', 'Sub topic URL', 'Create Date',
+         'Last Date']]
+    sheet1_data = [
+        ['Thread', 'Thread URL', 'Sub topic name', 'Sub topic URL', 'Repli No.', 'Reply date', 'Replier reputation',
+         'Text']]
+
 

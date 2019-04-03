@@ -14,7 +14,7 @@ stop = False
 FB_ACCOUNT = ['mymicro@live.com'][0]
 all_data = [['Also Like Url', 'No. likes', 'No. followers']]
 driver = None
-cookie = 'sb=4vPuWu4_DWNmHEBouS4jeeAI; datr=6vPuWmi5IYVhJZtr0yzaQ4Jl; js_ver=3130; dpr=2; locale=en_GB; ; c_user=100006957738125; xs=15%3AV4OG6OHVXc5A5Q%3A2%3A1533303142%3A20772%3A8703; fr=0NT9QsWhwBGUSDrtW.AWXZU8hiJ11Cq2_lr3GgWjlc5PM.BazwYT.Bv.AAA.0.0.BbZFlm.AWXK_LSG; pl=n; spin=r.4172604_b.trunk_t.1533303143_s.1_v.2_; wd=1233x386; act=1533303332078%2F0; presence=EDvF3EtimeF1533305363EuserFA21B06957738125A2EstateFDutF1533305363147CC'
+cookie = 'datr=RKzWW_1NuhIxB9RG7RUemqv0; sb=ovjqW-tww_Qe7OR39cZQ91wp; c_user=100006957738125; xs=204%3AxJOImzLFdPhW1A%3A2%3A1546597455%3A20772%3A8703; pl=n; spin=r.4715512_b.trunk_t.1548641776_s.1_v.2_; fr=0mVSQPNFOoV7LvCYc.AWXkEg3hpk_6rKGeLfbUa3ML6dc.Bb0aQ1.Cv.Fwc.0.0.BcTmXy.AWXRcSrx; presence=EDvF3EtimeF1548641781EuserFA21B06957738125A2EstateFDutF1548641781050CEchFDp_5f1B06957738125F2CC; wd=1829x338'
 
 url_data_dict = set()
 ERROR_COUNT = 0
@@ -170,7 +170,7 @@ def pre_load(filename):
 if __name__ == '__main__':
     reload(sys)
     sys.setdefaultencoding('utf8')
-    pre_load('data/like_follower_pre.xlsx')
+    # pre_load('data/like_follower_pre.xlsx')
     # init_browser()
     read_excel('data/also_likes.xlsx', start=0)
     write_excel('like_follower.xls', all_data)
