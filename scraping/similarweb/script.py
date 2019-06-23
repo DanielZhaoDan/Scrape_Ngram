@@ -20,7 +20,9 @@ proxy = [
     '223.243.176.211:38132'
 ]
 
-cookie = 'sgID=e453ee44-a01a-4631-a91c-e7817ea66399; __RequestVerificationToken=FxIVqTliSrNiTjBK9hVuHA1yOG21RynBf-NHn4awqIhdIHM0N3mAhz_BQF-VievyjxDr4U6WSyylmC0qQ5QQeY0uOCtNJ2gzFbCbNGBbLhw1; _ga=GA1.2.290070144.1535452671; _vwo_uuid_v2=DA740CE19A9A4ADB3E2F4F69EF8A7A753|5f6c070d96007040dd3d8d1f50b726b8; D_IID=5123994B-BDD6-372B-BE74-3FC15B476AF6; D_UID=791D6C54-80C8-3575-9B8B-15B9348AABED; D_SID=140.205.147.44:2Cd46dEVoY5gM1R3TR44jo7zyuo1HGwe/REpOw3biFs; loyal-user=%7B%22date%22%3A%222018-08-28T10%3A37%3A51.668Z%22%2C%22isLoyal%22%3Atrue%7D; user_num=nowset; _mkto_trk=id:891-VEY-973&token:_mch-similarweb.com-1535472703150-77360; intercom-id-e74067abd037cecbecb0662854f02aee12139f95=ba8ba923-48bc-4ee1-9ffd-34ccf19d097e; _gid=GA1.2.1665423203.1536379870; D_ZID=8E9F23C0-B4D8-3D9B-9A9D-EBEC06FA4E4D; D_ZUID=7FB6661D-1FAA-3E73-8EB1-5E72119D5D98; D_HID=E12585B9-8D29-366C-91D0-3BC1A17EA576; _pk_ses.1.fd33=*; .SGTOKEN.SIMILARWEB.COM=u7oVmwV1BULizH5ifI1f6ayuSgFgJUj8JN7cXm8ZFJgAlJUNcxH9cJpW0OyKWOmdAzztjOUwjHSwyPDAeIThfUykvZpF_qwqi22B2AC2F_JC6Y9R2sSluXo4E2yF4LeLVg2cZZDCJdMiYEKQ4H1qlY-DnTTajJIlXytGHux9C5gjau9RL4MO8RR2czf_qhMmXbGomx01Q7Y6RPprbmKFd5SnSyhV7PZCkkxIby-A2CDnM0583mYgG4dgTB3x_bEDIu8z5TC9zZDa8p8_g0IDfK2GajRhSLaqU7VLdwn42FiNB0WqDA7p5Z82LaAo1MmhSnPaPly1ZJ68Seg5QD_nmwqifIg-6mW2SDxkekWWYvc; locale=zh-cn; sgID=78b44adf-2a9a-4586-8184-b29b8b82c14e; _vis_opt_s=1%7C; _vis_opt_test_cookie=1; jaco_uid=edabef00-5a4c-4501-8678-54aadf100912; jaco_provided_id_4316adc2-eb98-4130-828f-0352f2dac395=danielzhaochina%40gmail.com; _vwo_uuid=D0F5AD64E46A4CBB4F040975B1A399CB6; _vis_opt_exp_260_combi=2; intercom-session-e74067abd037cecbecb0662854f02aee12139f95=d2FJMTg3NWxtVW04eXdmMndJTkxRQUFVN0ErWmVzMnlVRUptcDIrRmhtc0pwWVVIWTFoYm1qTGl2U3RzZUFDVi0tQURsVm5UZmVPckJXalJvOW9JWVliZz09--03773056d529d2efcc24891cb14b36c5cdd4b1a0; intercom-lou-e74067abd037cecbecb0662854f02aee12139f95=1; _gat=1; sc_is_visitor_unique=rx8617147.1536425491.EFC14FD416734FF62B4A91344EF87B9A.6.5.5.5.4.3.3.2.2; _pk_id.1.fd33=4a1ceb3e328cae31.1535452673.6.1536425492.1536424139.'
+cookie = 'D_SID=118.200.75.55:yC35iQB81X4INdYU2WIUVIgYEQfxWYtgEHeddbZV7So; sgID=849c32e2-f2d7-4169-ae2b-91ff29399725; .AspNetCore.Antiforgery.xd9Q-ZnrZJo=CfDJ8O3KJbQZozVFjBEXXPUInFJUiGhwucnScBNYWs4pSGX2VhjA1VIMQs0heJ-bFbSrPraOFLwkKKd3e6IV8ihC1j6qeg6LxfqU0IH5YxI3G1_udTELenisyI__GU4OXtSJhhSOWwQwXRAlCn1FZp60_iE; _vwo_uuid_v2=DABB1CC285DA0944113E6EC22332167B5|8e96436c3dc2c7689e562339097e1012; _ga=GA1.2.1227054292.1555214227; _gcl_au=1.1.1942965607.1555214228; user_num=nowset; sw-cookies-consent=1; intercom-id-e74067abd037cecbecb0662854f02aee12139f95=3690d29b-4599-4463-9283-a01d6e549dfe; visitor_id597341=343626332; visitor_id597341-hash=e023cb87892efb4f136145abed745df6ce87f29db5824d3b1a0f96a981d094f43f48dfa1e171664c4de463f495f527d770f476b0; loyal-user={%22date%22:%222019-04-14T03:57:06.612Z%22%2C%22isLoyal%22:true}; _pk_id.1.8c7a=16ce8bbd14c0f626.1555217293.1.1555217295.1555217294.; _gid=GA1.2.300442759.1556272553; _pk_ses.1.fd33=*; D_IID=CA001F9C-C2E4-3745-8D4F-B3850C6AF218; D_UID=799F360E-BA7F-308B-AE9E-60B48F32E221; D_ZID=AD829BB5-0AA9-3B59-9DE9-89C0D1B27EE9; D_ZUID=2D5114AF-226C-3BE7-800A-028203D9CD8F; D_HID=65AB865E-6C03-345C-AF6B-749FE3B06E28; _pk_id.1.fd33=9c7298165d514a12.1555214228.2.1556272597.1556272554.; sc_is_visitor_unique=rx8617147.1556272597.34CF0B6D91F14F6AD13B197373803E03.2.2.2.2.2.2.2.2.2; mp_7ccb86f5c2939026a4b5de83b5971ed9_mixpanel=%7B%22distinct_id%22%3A%20%2216a19fdd67c368-0f7d6d35a7e4ee-366d7e04-13c680-16a19fdd67d5de%22%2C%22%24device_id%22%3A%20%2216a19fdd67c368-0f7d6d35a7e4ee-366d7e04-13c680-16a19fdd67d5de%22%2C%22sgId%22%3A%20%22849c32e2-f2d7-4169-ae2b-91ff29399725%22%2C%22Site%20Type%22%3A%20%22Lite%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.similarweb.com%2Fwebsite%2Ftechwireasia.com%22%2C%22%24initial_referring_domain%22%3A%20%22www.similarweb.com%22%2C%22session%20ID%22%3A%20%220c0948ff-46f2-4568-a951-8050d4676843%22%2C%22section%22%3A%20%22website%22%2C%22last%20event%20time%22%3A%201556272597454%7D'
+
+# driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
 
 
 def write(html, filename):
@@ -45,19 +47,16 @@ def write_excel(filename, data):
 
 
 def open_browser_scroll(url):
-    global html_name
+    global html_name, driver
     try:
         # options = Options()
         # options.add_argument('--proxy-server=%s', random.choice(proxy))
-        driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
         driver.get(url)
         time.sleep(sleep_time)
         html_source = driver.page_source
         data = html_source.encode('utf-8').replace('\t', '').replace('\r', '').replace('\n', '')
     except Exception as e:
         raise e
-    finally:
-        driver.close()
     return data
 
 
@@ -69,10 +68,10 @@ def request_sheet2(base_url):
     country_tag = 'accordion-toggle.*?countValue">(.*?)<.*?country-name.*?>(.*?)<'
 
     url = 'https://www.similarweb.com/website/' + base_url.replace('http://', '').replace('https://', '').split('www.')[-1]
-    html = open_browser_scroll(url)
-    # html = get_request(url)
-    # if 'Unable To Identify Your Browser' in html or 'Pardon Our Interruption' in html:
-    #     stop = True
+    # html = open_browser_scroll(url)
+    html = get_request(url)
+    if 'Unable To Identify Your Browser' in html or 'Pardon Our Interruption' in html:
+        stop = True
     #     return [0, 0, 0, 0]
     global_ranks = re.compile(rank_reg).findall(html)
     if global_ranks:
@@ -83,9 +82,9 @@ def request_sheet2(base_url):
             ret.append(count_value)
         else:
             ret.append(0)
-        sleep_time = 5
+        sleep_time = 1
     else:
-        sleep_time = 25
+        sleep_time = 10
         ret = [0, 0, 0, 0]
 
     country_ranks = re.compile(country_tag).findall(html)
@@ -135,8 +134,9 @@ def read_excel_get_data(filename, filename_prefix, start=1, length=150):
             if global_rank == '' or global_rank == 0:
                 main_url = row[1].value
                 details = request_sheet2(main_url)
-                # if stop:
-                #     break
+                time.sleep(sleep_time)
+                if stop:
+                    break
                 one_row = [row[0].value, row[1].value, row[2].value, row[3].value] + details
                 print i, one_row
                 sheet2_data.append(one_row)
@@ -178,7 +178,7 @@ def get_date(ori):
 
 
 filename_prefix = 'sheet2'
-filename = 'data/sheet1.xls'
+# filename = 'data/sheet1.xls'
 # read_excel_filter_duplicated(filename, start=1)
 # write_excel('data/sheet2.xls', sheet2_data)
 read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=50)

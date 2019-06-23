@@ -194,18 +194,22 @@ def scrape_from_urls():
 
 def scrape_from_files():
     filename_list = [
-        ('BNP', 'Worldwide', '25-35', 'BNP_25-35_W.html'),
-        ('BNP', 'Worldwide', '36-65', 'BNP_36-65_W.html'),
-        ('BNP', 'SG', '25-35', 'BNP_25-35_SG.html'),
-        ('BNP', 'SG', '36-65', 'BNP_36-65_SG.html'),
-        ('Etoro', 'Worldwide', '25-35', 'Storo_25-35_W.html'),
-        ('Etoro', 'Worldwide', '36-65', 'Storo_36-65_W.html'),
-        ('Etoro', 'SG', '25-35', 'Storo_25-35_SG.html'),
-        ('Etoro', 'SG', '36-65', 'Storo_36-65_SG.html'),
-        ('UBS', 'Worldwide', '25-35', 'UBS_25-35_W.html'),
-        ('UBS', 'Worldwide', '36-65', 'UBS_36-65_W.html'),
-        ('UBS', 'SG', '25-35', 'UBS_25-35_SG.html'),
-        ('UBS', 'SG', '36-65', 'UBS_36-65_SG.html'),
+        ('Mazda', 'MY', 'MEN', 'MZ_M.html'),
+        ('Mazda', 'MY', 'WOMEN', 'MZ_W.html'),
+        ('Honda', 'MY', 'MEN', 'HD_M.html'),
+        ('Honda', 'MY', 'WOMEN', 'HD_W.html'),
+        ('Toyota', 'MY', 'MEN', 'TO_M.html'),
+        ('Toyota', 'MY', 'WOMEN', 'TO_W.html'),
+        ('Ford Motor Company', 'MY', 'MEN', 'FD_M.html'),
+        ('Ford Motor Company', 'MY', 'WOMEN', 'FD_W.html'),
+        ('Nissan', 'MY', 'MEN', 'NI_M.html'),
+        ('Nissan', 'MY', 'WOMEN', 'NI_W.html'),
+        ('Isuzu Motors', 'MY', 'MEN', 'IM_M.html'),
+        ('Isuzu Motors', 'MY', 'WOMEN', 'IM_W.html'),
+        ('Mitsubishi Motors', 'MY', 'MEN', 'MM_M.html'),
+        ('Mitsubishi Motors', 'MY', 'WOMEN', 'MM_W.html'),
+        ('Chevrolet', 'MY', 'MEN', 'CH_M.html'),
+        ('Chevrolet', 'MY', 'WOMEN', 'CH_W.html'),
     ]
     for filename in filename_list:
         try:

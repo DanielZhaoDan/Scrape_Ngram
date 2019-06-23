@@ -15,20 +15,24 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&tbs=cdr%3A1%2Ccd_min%3A7%2F1%2F2015%2Ccd_max%3A9%2F1%2F2018&tbm=nws&start='
+url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798&start='
 # url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
-FIRST_START = 6
+FIRST_START = 1
 cookie = [
-    'CGIC=IlV0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44; SID=cgZjk_kik6FHilRWlx6HfSr6tV-staFyhkhQhecQz-6CpSkhvOE1qznxbtsv6UrRhUd67w.; HSID=AMSuYi2cXgY_dUfoG; SSID=AxW2jgISg6QVbmNRX; APISID=W51HZZX-hAIppZNv/AOVruf572l3l3gUZI; SAPISID=mtSrEEnkV4zhxjb1/A6YeOZi_2HyfCHbBf; CONSENT=YES+SG.en+20180429-14-0; OGPC=230377472-1:; NID=138=IuzKK82Vcyt-KpetntAtPB1Vue0j21LpmHwvsO1L5O_P3XT46mrhv-fgWYs26joF5kNBu813rX0Gqe2C8TN9ZjeGK9TLHuvmN7pTQ9yB-LyKvSluuFVV11V7cuvRBHakDWh8X-ii6GTKqcKGnSLwFs7uKjt5b1RrXve-pZw6QZtqdhE_AeHKa2cei3Jw_v-MfbhjYmENlLcoy44RzA; GOOGLE_ABUSE_EXEMPTION=ID=aa943f3f8ef3845e:TM=1536378624:C=r:IP=205.204.117.25-:S=APGng0u4R1BX7Bmhus30vW1XGEww35wCgg; DV=w9OA4JY8WNxnQOFxVvCXSctCldp0W9ZjR6BRUOEUJA0AAADRB9mqW1MGYQMAAFihEEtryfc25wAAAIHf2gX9pij9QAAAADtlF9navNM_84EAAA; 1P_JAR=2018-9-8-3; SIDCC=AGIhQKTrK3hNOoL8KXrTTR2O0F308F6MZYjvDj2Yfw_jF_i7yQFsie8QlJ1lExrZPvgaxK3A0w'
+    'CGIC=EhQxQzVDSEZBX2VuU0c3OTJTRzc5MyJ2dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMw; SID=oQY33Rlhx85J4af4B2n72NOPr2pNAbvfPICmny5miXNDXRVxNM4DTHHjxNBkJfTVjohQGg.; HSID=Ap2enygwB99HVd1D8; SSID=ABWBdDX_SBTZ3vJqH; APISID=RVOf0003eCk60c8A/Aguwcd_oSWKjIfYVh; SAPISID=MUoaHPbzZY5IAWLF/AnunP-RaP6Oa2A_wm; GOOGLE_ABUSE_EXEMPTION=ID=4ac917569dc1792e:TM=1556272189:C=r:IP=205.204.117.47-:S=APGng0vsx_SrTso-gEyy1L4vE8LGY-tdww; NID=182=rjETpwxGcx_xY3wOfkJO2CM_kZ6ECrbfLnFlCdZAKIU2shW0RCZgYg6W1pwaQAntDaWAG3hcOSAnb-vsv295Rqc56XoHFm0w7ayYJtrXbGmItpUrDw4wCxDbgzY7thxzNfG4DgPErecn2Il9sgQvYvdxSPQW1FxnRtjWu_gBuJLisce2l_yI7-KwfVcP3-_7QXqHnkgYGDk4ZvHFP_OAGh3HXhxflxRqvZBAcgEgPWQxn6Uj0MVVpmg; DV=471lmmdi7j5SYIVCLK0l39usqemQpRY7ZRfZ2rzTPwAAAADRB9mqW1MGIQAAADx2BBoFFU5BFgAAAIHf2gX9pij9FwAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTU1NjI3MjI5MjUwNTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MzAyNjc5OTA3IGxvbmdpdHVkZV9lNzoxMjAxMDM0NzQxfSByYWRpdXM6MTg2MDA=; 1P_JAR=2019-04-26-09; SIDCC=AN0-TYswx-BXGDNKrtb3bFjSlRN3GObSeUVocnWNNuwfk3X2PsXBlJ40aMcHjozYIUx3ARiW7dcp'
 ]
 
 key_words = [
-    {'keyword': '"meatless monday" intext:dairy', 'bucket': 'protein', 'country': ''},
-    {'keyword': '"plant protein" intext:happy', 'bucket': 'protein', 'country': ''},
-    {'keyword': '"clean protein" intext:happy', 'bucket': 'protein', 'country': ''},
-    {'keyword': '"meatless monday" intext:happy', 'bucket': 'protein', 'country': ''},
+    {'keyword': 'intext:agile intext:technology location:malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+    {'keyword': 'intext:"change management" location:Malaysia', 'bucket': 'Telco SOFT Skill',
+        'country': 'MY'},
+    {'keyword': 'telecommunications intext:"digital marketing" location:Malaysia ', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+
 ]
+
 
 x_client_data = 'CIi2yQEIo7bJAQjBtskBCKmdygEI153KAQjZncoBCKijygE='
 
@@ -190,9 +194,9 @@ def get_date(ori):
     if 'hour' in ori:
         return datetime.now().strftime('%d/%m/%Y')
     try:
-        date = datetime.strptime(ori, '%b %d, %Y')
+        date = datetime.strptime(ori, '%d %b %Y')
         return date.strftime('%d/%m/%Y')
-    except:
+    except Exception as e:
         return ori
 
 
@@ -227,4 +231,4 @@ for i in range(len(urls)):
         break
 te = int(time.time())
 print('time: ', te - ts)
-write_excel('data/sheet1_1.xls', sheet1_data)
+write_excel('data/sheet1.xls', sheet1_data)

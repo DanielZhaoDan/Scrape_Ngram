@@ -15,22 +15,30 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com.sg/search?q={key_word}&newwindow=1&safe=strict&tbs=cdr:1,cd_min:1/1/2016,cd_max:6/30/2017&ei=fwqLWeO_PMXmvgTO977gCw&sa=N&biw=1220&bih=703&start='
+url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798'
 
 key_words = [
-    # {'keyword': 'kaligtasan sa credit credit card inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
-    # {'keyword': 'panloloko sa credit credit card inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
-    # {'keyword': 'panloloko sa internet inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
-    {'keyword': 'proteksyon sa password inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
-    # {'keyword': 'phishing sa pilipinas inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
-    # {'keyword': 'scam online sa pinas inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
-    # {'keyword': 'credit card sa internet inurl:ph', 'bucket': 'Credit Card', 'country': 'Philippines'},
-    # {'keyword': 'panloloko sa bangko online inurl:ph', 'bucket': 'Online', 'country': 'Philippines'},
-    # {'keyword': 'ligtas na paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
-    # {'keyword': 'raket sa paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
-    # {'keyword': 'tips sa paglalakbay inurl:ph', 'bucket': 'Travel', 'country': 'Philippines'},
-    # {'keyword': 'kabayaran sa kinabukasan online inurl:ph', 'bucket': 'Future payment/online',
-    #  'country': 'Philippines'},
+    {'keyword': 'telecommunications intext:IoT location:Malaysia', 'bucket': 'Telco HARD Skill', 'country': 'MY'},
+    {'keyword': 'telecommunications intext:"cloud computing" location:Malaysia', 'bucket': 'Telco HARD Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:"data analytics" location:Malaysia', 'bucket': 'Telco HARD Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:"artificial intelligence" location:Malaysia', 'bucket': 'Telco HARD Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:"cyber security" location:Malaysia', 'bucket': 'Telco HARD Skill',
+     'country': 'MY'},
+
+    {'keyword': 'telecommunications intext:”project management” location:Malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:”business development” location:Malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:”marketing strategy” location:Malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:”business analysis” location:Malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+    {'keyword': 'telecommunications intext:”product marketing” location:Malaysia', 'bucket': 'Telco SOFT Skill',
+     'country': 'MY'},
+
 ]
 
 http_proxies = [
@@ -38,7 +46,7 @@ http_proxies = [
 ]
 
 cookie = [
-    'OGPC=845686784-30:5062177-3:5062227-6:; SID=xQQ33Svb38r7qmapGxt4UVPyp9NavhVmfx1EBDGUtDzBdkC3FoPleuGWRx54BqpzkAkGhQ.; HSID=Azl-v0_BCpCYNZwMX; SSID=AUWY-HQGFpGmFQi2o; APISID=LfvnGfiTI2WZUQC-/AQrf72uCq7KTRkhoH; SAPISID=_6td03PWM2tP_0ej/ALEul5vhqbyIa_axX; GOOGLE_ABUSE_EXEMPTION=ID=abcc502aa7cea33a:TM=1502287996:C=r:IP=119.74.13.134-:S=APGng0u-Zbqu0qGFQZF1euPKm_dG-0amWw; NID=109=uQ57QFa8ZDLUWWFTOhWB6DGhYl0REVk-ml-wLSMsz1PrJJgROQqhp2HnVrfoDFDvpA6zTxgwxT2_oE8UR3yB1fXJP8MthNfqSjqz7EOqj2w5yFfUg7MKREAwYoz0LL8IeiaeUm1t6r_U7OgZ7OtnKGOtYZI4bUzLa0nxAj3-WlBJ-WafjNEYiryBL6H91h2UU0xbySIsZtbTEbvHX1BqL_u7hbKCQ_EZ2JNtFTP3wQ0vp4cCCOgx9wRJkHcZDLd9NFPBr0g--dXsVlHyxKDxfwRq12Po7iV6MuKp7GwNFPbeDAVKODhj57Bm7sW36LLRaDMqfYr9_F7PSDeSXk3CWV_bFmr9dKs; DV=471lmmdi7j5CMIY2UoZ-rYeIYX113FXttd0dLzc90QEAAMAyNxg4LoTvEQEAAIStbbx-WJC9WwAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTUwMjI4ODAxMzM5MDAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM1ODk2NzYgbG9uZ2l0dWRlX2U3OjEwMzg0MzY3NTF9IHJhZGl1czoyNDgwMA==',
+    'CGIC=EhQxQzVDSEZBX2VuU0c3OTJTRzc5MyJ2dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMw; SID=oQY33Rlhx85J4af4B2n72NOPr2pNAbvfPICmny5miXNDXRVxNM4DTHHjxNBkJfTVjohQGg.; HSID=Ap2enygwB99HVd1D8; SSID=ABWBdDX_SBTZ3vJqH; APISID=RVOf0003eCk60c8A/Aguwcd_oSWKjIfYVh; SAPISID=MUoaHPbzZY5IAWLF/AnunP-RaP6Oa2A_wm; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTU1NTE0ODcxOTQ5NTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM2OTMwMDQgbG9uZ2l0dWRlX2U3OjEwMzg0ODM5MTJ9IHJhZGl1czoyODUyMA==; NID=181=IlCHD6QbaH9Kej1qGgaRv69dBXz4WCxGWSh9UR5Paeyv4pcASpJubJGp89duvpSKMYd23gnTSAOjHQCIvLI7BLDURQ5w63GnGcTVcdWVyUojzRbIXU9boQ8sD1ixtJ54bJxYdehX9IcWDwsrtCzmYM9musPyj3nO91fvxwZrHyS_XLOpqMKKITVmk2zNvnEBfcrGuHVPFZZBS9uLqGiQm0hsJDN_n2olpKrhbiR4RyFS3hgRjD1eXIo; 1P_JAR=2019-4-14-3; SIDCC=AN0-TYs4MCwkbEw5BiEFUE3qKHI-2Ffws4TYMNaPqf1iCnSMbzja_-sUl28ikl-DqjjA9sZLkbI9',
 ]
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
@@ -240,4 +248,4 @@ for url in urls:
     stop = request_sheet1(url[0], url[1])
     if stop:
         break
-write_excel('data/sheet2.xls', sheet1_data)
+write_excel('data/sheet1.xls', sheet1_data)
