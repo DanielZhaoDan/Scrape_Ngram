@@ -20,17 +20,12 @@ url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&
 
 FIRST_START = 1
 cookie = [
-    'CGIC=EhQxQzVDSEZBX2VuU0c3OTJTRzc5MyJ2dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMw; SID=oQY33Rlhx85J4af4B2n72NOPr2pNAbvfPICmny5miXNDXRVxNM4DTHHjxNBkJfTVjohQGg.; HSID=Ap2enygwB99HVd1D8; SSID=ABWBdDX_SBTZ3vJqH; APISID=RVOf0003eCk60c8A/Aguwcd_oSWKjIfYVh; SAPISID=MUoaHPbzZY5IAWLF/AnunP-RaP6Oa2A_wm; GOOGLE_ABUSE_EXEMPTION=ID=4ac917569dc1792e:TM=1556272189:C=r:IP=205.204.117.47-:S=APGng0vsx_SrTso-gEyy1L4vE8LGY-tdww; NID=182=rjETpwxGcx_xY3wOfkJO2CM_kZ6ECrbfLnFlCdZAKIU2shW0RCZgYg6W1pwaQAntDaWAG3hcOSAnb-vsv295Rqc56XoHFm0w7ayYJtrXbGmItpUrDw4wCxDbgzY7thxzNfG4DgPErecn2Il9sgQvYvdxSPQW1FxnRtjWu_gBuJLisce2l_yI7-KwfVcP3-_7QXqHnkgYGDk4ZvHFP_OAGh3HXhxflxRqvZBAcgEgPWQxn6Uj0MVVpmg; DV=471lmmdi7j5SYIVCLK0l39usqemQpRY7ZRfZ2rzTPwAAAADRB9mqW1MGIQAAADx2BBoFFU5BFgAAAIHf2gX9pij9FwAAAA; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTU1NjI3MjI5MjUwNTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MzAyNjc5OTA3IGxvbmdpdHVkZV9lNzoxMjAxMDM0NzQxfSByYWRpdXM6MTg2MDA=; 1P_JAR=2019-04-26-09; SIDCC=AN0-TYswx-BXGDNKrtb3bFjSlRN3GObSeUVocnWNNuwfk3X2PsXBlJ40aMcHjozYIUx3ARiW7dcp'
+    'CGIC=InZ0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIz; ANID=AHWqTUmO8w1qOdrwQVFRYsuXMaiCZISEiYZnRxN56vS78KD4eZYIFyl_AATHefbx; SID=mQc33W3LSF99ekG9eLtEyv_nSUxEsZjSGg2JFQOhvoWczvtKxIKORi-dCj2NeV2U1BGEOA.; HSID=AZmgxefONPYiGv9Md; SSID=AH4jqU2_YcWuLZ0N8; APISID=NkmiXhUdobCd4UdY/A6S6SFnbflsnny0pv; SAPISID=4HJsgOO2YfyLW-1i/ANdfdcAxTCuUT3AGL; CONSENT=YES+SG.en+20180429-14-0; SEARCH_SAMESITE=CgQItI0B; NID=188=Qd0lVGEmyZMGhxHHk5t_vhJ4JuRMEKGK1iSeduQ_X4mwMUpd72BVRRT-271aTuX5OOSAB-3Mc55xAKVzan8bcoDd5KsRj6zoS1aJGKiUf6HdigSo7IxngIb7_7ySSvvq5ykI8yMHsxZKKRZP2GI1xAE_3RrDDuryw9BABtbgbP1nJxh7gWcHkO5NDNyjHR1YFhnCzQ1xGnxIEPTnP8Ulh0bzPqfowOnfhzPJZETLJajiLZe8pAhT4nJGUnbBqAM168AkC8_BFwcFgAUk10fqp4iYA-hX; DV=471lmmdi7j5CEC-3iDq2DVtigzAWwxYvSfGgakooKQAAAGCxdu1bVsRpBgAAALgeeSgvfOIYAAAAAA; 1P_JAR=2019-7-27-3; SIDCC=AN0-TYsNxFmuJXhIXzGCEAQL_nCQ7IGSF-SVCQ3qCuXgY_G-vKgGQ4a7d1TFLphQHItMo-L3iPj9'
 ]
 
 key_words = [
-    {'keyword': 'intext:agile intext:technology location:malaysia', 'bucket': 'Telco SOFT Skill',
-     'country': 'MY'},
-    {'keyword': 'intext:"change management" location:Malaysia', 'bucket': 'Telco SOFT Skill',
-        'country': 'MY'},
-    {'keyword': 'telecommunications intext:"digital marketing" location:Malaysia ', 'bucket': 'Telco SOFT Skill',
-     'country': 'MY'},
-
+    {'keyword': 'amd intext:benchmark', 'bucket': 'AMD', 'country': 'ALL'},
+    {'keyword': 'intel intext:benchmark', 'bucket': 'AMD', 'country': 'ALL'},
 ]
 
 

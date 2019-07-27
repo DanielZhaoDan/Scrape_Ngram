@@ -20,7 +20,7 @@ R_ID = 1
 url_bases = [
     # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298184&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
     # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298566&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
-    'https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&geo=298570&ajax=1&cat=10659,10346&sortOrder=popularity&zfz=10665&o=a0&availSearchEnabled=false&o=%s',
+    'https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&geo=298570&ajax=1&cat=10346&itags=10591&sortOrder=popularity&availSearchEnabled=false&o=a%s',
     'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298112&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
     'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298106&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
 ]
@@ -110,15 +110,15 @@ def request_sheet1(url, key_prefix):
         try:
             id = key_prefix+str(R_ID)
             rank = R_ID
-            link = 'https://www.tripadvisor.com.sg' + detail[0]
+            link = 'https://www.tripadvisor.com.my' + detail[0]
             name = detail[1]
             avg_rating, review_number = get_ratings(detail[2])
             can_booking = 'Yes'
             if detail[4] == '':
                 can_booking = 'No'
-            location, review_page_no, cu_type, delivery_by = get_rest_detail_and_comment_page(link)
+            location, review_page_no, cu_type, delivery_by, pricing = get_rest_detail_and_comment_page(link)
             # ['ID', 'URL', 'Name', 'Rank', 'Address', 'Rating', 'Type', 'Number of reviews', 'pricing', 'Reserve Online', 'Delivery by']]
-            one_row = [id, link, name, rank, location, avg_rating, ','.join(cu_type), review_number, '$$ - $$$', can_booking, delivery_by, review_page_no]
+            one_row = [id, link, name, rank, location, avg_rating, ','.join(cu_type), review_number, pricing, can_booking, delivery_by, review_page_no]
             print one_row
             sheet1_data.append(one_row)
             # if review_page_no > 0:
@@ -138,9 +138,7 @@ def get_comment_date(ori):
 
 def request_sheet2(hotel_id, number, hotel_url, index):
     global sheet2_data, sheet3_data
-    for i in range(0, number):
-        if i >= 30:
-            break
+    for i in range(0, number+1):
         try:
             url = hotel_url.replace('-Reviews-', '-Reviews-or%s-' % str(i*10))
             html = get_request(url)
@@ -324,17 +322,17 @@ def get_rest_detail_and_comment_page(link):
     html = get_request(link)
     reg = 'tagsContainer"(.*?)restaurantDescription.*?map-pin-fill">(.*?)</div.*?atf_commerce_and_photos(.*)id="btf_wrap"'
     data = re.compile(reg).findall(html)[0]
-    types = get_types(data[0])
+    pricing, types = get_types(data[0])
     location = remove_html_tag(data[1])
     deliver = get_deliver(data[2])
     eng_comment_no = get_eng_comment_no(html)
-    return location, eng_comment_no, types, deliver
+    return location, eng_comment_no, types, deliver, pricing
 
 
 def get_types(ori):
     reg = 'href=.*?>(.*?)<'
     data = re.compile(reg).findall(ori)
-    return data[1:]
+    return data[0], data[1:]
 
 
 def get_deliver(ori):
@@ -470,10 +468,11 @@ def read_excel(filename, start=1):
             id = row[0].value
             review_no = int(row[11].value)
             name = row[2].value
-            if review_no > 0:
-                request_sheet2(id, int(review_no), main_url, i)
+            print request_pricing(main_url)
+            # if review_no > 0:
+            #     request_sheet2(id, int(review_no), main_url, i)
             R_ID += 1
-            if R_ID % 4000 == 0:
+            if R_ID % 1000 == 0:
                 write_excel('sheet2_rest_%d.xls' % R_ID, sheet2_data)
                 del sheet2_data
                 sheet2_data = []
@@ -481,10 +480,20 @@ def read_excel(filename, start=1):
             print(i)
 
 
+def request_pricing(url):
+    res = get_rest_detail_and_comment_page(url)
+    return res[-1]
+
+
 reload(sys)
 
-read_excel('data/sheet1.xls')
-write_excel('sheet2.xls', sheet2_data)
+
+read_excel('data/TripAdvisor_v2.xls')
+# write_excel('sheet2.xls', sheet2_data)
+
+# for i in range(0, 10):
+#     request_sheet1(url_bases[0] % str(i*30), 'KLIND_')
+# write_excel('data/sheet1.xls', sheet1_data)
 
 
 
