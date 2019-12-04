@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;&#10;# Conflicts:&#10;#&#9;scraping/TripAdvisor/profile_comment.py">
-      <change afterPath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/steampowered/read.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/steampowered/script.py" afterDir="false" />
+    <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
+      <change afterPath="$PROJECT_DIR$/scraping/FB_insight/jobTitle.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/amazonlist/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/amazonlist/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/amazonseller/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/cafe.naver/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/google/client_secrets.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/google/vision.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/openrice201910/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/paytm/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/paytm/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/utils.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/webscreenshot/chromedriver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/webscreenshot/screenshot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/FB_insight/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/google/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/google/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/similarweb/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/similarweb/script.py" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,133 +33,86 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/scrape_ngram$profile_comment.coverage" NAME="profile_comment Coverage Results" MODIFIED="1535990413741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$people.coverage" NAME="people Coverage Results" MODIFIED="1512006261615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Attractions.coverage" NAME="Attractions Coverage Results" MODIFIED="1536470479528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__4_.coverage" NAME="script (4) Coverage Results" MODIFIED="1556275757121" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/CleanHtml" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$5_get_likes_followers.coverage" NAME="5_get_likes_followers Coverage Results" MODIFIED="1548641806381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1532020835268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1532773524845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_stopwords.coverage" NAME="filter_stopwords Coverage Results" MODIFIED="1486691213822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$run.coverage" NAME="run Coverage Results" MODIFIED="1501232916682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$new_FB.coverage" NAME="new_FB Coverage Results" MODIFIED="1525615744575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1569778132383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/cafe.naver" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts.coverage" NAME="1_Posts Coverage Results" MODIFIED="1545099671229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$SearchForm.coverage" NAME="SearchForm Coverage Results" MODIFIED="1550994968438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script__4_.coverage" NAME="script (4) Coverage Results" MODIFIED="1525878567434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$webFormContext.coverage" NAME="webFormContext Coverage Results" MODIFIED="1548054646201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/data" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1553841989268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$reindex.coverage" NAME="reindex Coverage Results" MODIFIED="1488769049618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$test.coverage" NAME="test Coverage Results" MODIFIED="1517280694527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/go" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1523243926784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1544971205933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$excel_to_txt.coverage" NAME="excel_to_txt Coverage Results" MODIFIED="1488330939333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts__1_.coverage" NAME="1_Posts (1) Coverage Results" MODIFIED="1542806118315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/every_3_hour" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed.coverage" NAME="Employed Coverage Results" MODIFIED="1518846521810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518845877716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$test_http2.coverage" NAME="test_http2 Coverage Results" MODIFIED="1534014094499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$YT_setupWars.coverage" NAME="YT_setupWars Coverage Results" MODIFIED="1549123069301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/YouTube" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1556272959056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$read.coverage" NAME="read Coverage Results" MODIFIED="1561467193505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/steampowered" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$img.coverage" NAME="img Coverage Results" MODIFIED="1495000287545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/img" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1481075833871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1564196939479" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$diff.coverage" NAME="diff Coverage Results" MODIFIED="1496572059947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$comments.coverage" NAME="comments Coverage Results" MODIFIED="1546352787886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/YouTube" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$diff2.coverage" NAME="diff2 Coverage Results" MODIFIED="1496572391315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$get_likes_followers.coverage" NAME="get_likes_followers Coverage Results" MODIFIED="1533305408372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1515983780046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_filterresult.coverage" NAME="merge_filterresult Coverage Results" MODIFIED="1485150439222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Get_Fanpage_list.coverage" NAME="Get_Fanpage_list Coverage Results" MODIFIED="1494902058819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2__1_.coverage" NAME="Vacancy_v2 (1) Coverage Results" MODIFIED="1523522358378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_vacancy" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_text.coverage" NAME="filter_text Coverage Results" MODIFIED="1486782775004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$ngram.coverage" NAME="ngram Coverage Results" MODIFIED="1486551827535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1525537080775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1570537098416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
     <SUITE FILE_PATH="coverage/scrape_ngram$also_like.coverage" NAME="also_like Coverage Results" MODIFIED="1533259641726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$get_comment_detail.coverage" NAME="get_comment_detail Coverage Results" MODIFIED="1496119121296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1564193692282" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$assign_id.coverage" NAME="assign_id Coverage Results" MODIFIED="1493809104880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1561442616260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2.coverage" NAME="Vacancy_v2 Coverage Results" MODIFIED="1523283968242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1535040245483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1564194219399" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1525880717151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge.coverage" NAME="merge Coverage Results" MODIFIED="1481295264889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Nosetests_in_test_http2_py.coverage" NAME="Nosetests in test_http2.py Coverage Results" MODIFIED="1554126583784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1532778093820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/geoexpat" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$baidu_result.coverage" NAME="baidu_result Coverage Results" MODIFIED="1498010542740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/MVM Proj" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1547890323676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1537112566228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$errorhandler.coverage" NAME="errorhandler Coverage Results" MODIFIED="1481162969553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Python/2.7/site-packages/selenium/webdriver/remote" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1516093812739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$comment_share.coverage" NAME="comment_share Coverage Results" MODIFIED="1496118972300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1525361525739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__5_.coverage" NAME="script (5) Coverage Results" MODIFIED="1561563954608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/steampowered" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1523929413440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1550112838774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Employed_v2__1_.coverage" NAME="Employed_v2 (1) Coverage Results" MODIFIED="1523291429111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_employed" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Hotels.coverage" NAME="Hotels Coverage Results" MODIFIED="1537059653947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$VR_zone.coverage" NAME="VR_zone Coverage Results" MODIFIED="1488362779531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
     <SUITE FILE_PATH="coverage/scrape_ngram$get_cookie.coverage" NAME="get_cookie Coverage Results" MODIFIED="1533303168957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$hardware.coverage" NAME="hardware Coverage Results" MODIFIED="1550192047433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/HW" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$company.coverage" NAME="company Coverage Results" MODIFIED="1503641209270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/glassdoor" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$google.coverage" NAME="google Coverage Results" MODIFIED="1555212884607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1562414281597" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
-    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518878233822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1518854804927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$timeout.coverage" NAME="timeout Coverage Results" MODIFIED="1488521912644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Hotels.coverage" NAME="Hotels Coverage Results" MODIFIED="1537059653947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1535040245483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1544971205933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$assign_id.coverage" NAME="assign_id Coverage Results" MODIFIED="1493809104880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1525361525739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1532778093820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/geoexpat" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$new_FB.coverage" NAME="new_FB Coverage Results" MODIFIED="1525615744575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1532020835268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$run.coverage" NAME="run Coverage Results" MODIFIED="1501232916682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1516093812739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge.coverage" NAME="merge Coverage Results" MODIFIED="1481295264889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts__1_.coverage" NAME="1_Posts (1) Coverage Results" MODIFIED="1542806118315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/every_3_hour" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$webFormContext.coverage" NAME="webFormContext Coverage Results" MODIFIED="1548054646201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/data" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$jobTitle.coverage" NAME="jobTitle Coverage Results" MODIFIED="1569380920424" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$5_get_likes_followers.coverage" NAME="5_get_likes_followers Coverage Results" MODIFIED="1548641806381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$diff.coverage" NAME="diff Coverage Results" MODIFIED="1496572059947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$vision.coverage" NAME="vision Coverage Results" MODIFIED="1572793918171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1572363215550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/openrice201910" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$job_details.coverage" NAME="job_details Coverage Results" MODIFIED="1509957323036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$timeout.coverage" NAME="timeout Coverage Results" MODIFIED="1488521912644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1561442616260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$hardware.coverage" NAME="hardware Coverage Results" MODIFIED="1550192047433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/HW" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$errorhandler.coverage" NAME="errorhandler Coverage Results" MODIFIED="1481162969553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Python/2.7/site-packages/selenium/webdriver/remote" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$reindex.coverage" NAME="reindex Coverage Results" MODIFIED="1488769049618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$google.coverage" NAME="google Coverage Results" MODIFIED="1555212884607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$read.coverage" NAME="read Coverage Results" MODIFIED="1561467193505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/steampowered" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$company.coverage" NAME="company Coverage Results" MODIFIED="1503641209270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/glassdoor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$ngram.coverage" NAME="ngram Coverage Results" MODIFIED="1486551827535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Attractions.coverage" NAME="Attractions Coverage Results" MODIFIED="1536470479528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1525537080775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$excel_to_txt.coverage" NAME="excel_to_txt Coverage Results" MODIFIED="1488330939333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Nosetests_in_test_http2_py.coverage" NAME="Nosetests in test_http2.py Coverage Results" MODIFIED="1554126583784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518878233822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$comments.coverage" NAME="comments Coverage Results" MODIFIED="1546352787886" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/YouTube" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1518854804927" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$baidu_result.coverage" NAME="baidu_result Coverage Results" MODIFIED="1498010542740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/MVM Proj" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$SearchForm.coverage" NAME="SearchForm Coverage Results" MODIFIED="1550994968438" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Get_Fanpage_list.coverage" NAME="Get_Fanpage_list Coverage Results" MODIFIED="1494902058819" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$test__1_.coverage" NAME="test (1) Coverage Results" MODIFIED="1515983780046" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$get_comment_detail.coverage" NAME="get_comment_detail Coverage Results" MODIFIED="1496119121296" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$comment_share.coverage" NAME="comment_share Coverage Results" MODIFIED="1496118972300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$get_likes_followers.coverage" NAME="get_likes_followers Coverage Results" MODIFIED="1533305408372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__4_.coverage" NAME="script (4) Coverage Results" MODIFIED="1572756188980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/amazonlist" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_filterresult.coverage" NAME="merge_filterresult Coverage Results" MODIFIED="1485150439222" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$profile_comment.coverage" NAME="profile_comment Coverage Results" MODIFIED="1535990413741" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_stopwords.coverage" NAME="filter_stopwords Coverage Results" MODIFIED="1486691213822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$YT_setupWars.coverage" NAME="YT_setupWars Coverage Results" MODIFIED="1549123069301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/YouTube" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$diff2.coverage" NAME="diff2 Coverage Results" MODIFIED="1496572391315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$VR_zone.coverage" NAME="VR_zone Coverage Results" MODIFIED="1488362779531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1565987724981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$test_http2.coverage" NAME="test_http2 Coverage Results" MODIFIED="1534014094499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1525880717151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1550112838774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1547890323676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script__4_.coverage" NAME="script (4) Coverage Results" MODIFIED="1525878567434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1553841989268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1537112566228" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1523243926784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518845877716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2__1_.coverage" NAME="Vacancy_v2 (1) Coverage Results" MODIFIED="1523522358378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_vacancy" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$test.coverage" NAME="test Coverage Results" MODIFIED="1517280694527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/go" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$people.coverage" NAME="people Coverage Results" MODIFIED="1512006261615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1481075833871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2.coverage" NAME="Vacancy_v2 Coverage Results" MODIFIED="1523283968242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1566106815083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1523929413440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1532773524845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_text.coverage" NAME="filter_text Coverage Results" MODIFIED="1486782775004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed.coverage" NAME="Employed Coverage Results" MODIFIED="1518846521810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__5_.coverage" NAME="script (5) Coverage Results" MODIFIED="1572768527392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/paytm" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$img.coverage" NAME="img Coverage Results" MODIFIED="1495000287545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/img" />
+    <SUITE FILE_PATH="coverage/scrape_ngram$Employed_v2__1_.coverage" NAME="Employed_v2 (1) Coverage Results" MODIFIED="1523291429111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_employed" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
-  </component>
-  <component name="FUSProjectUsageTrigger">
-    <session id="181616739">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="79" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.2" value="3" />
-          <entry key="project.open.time.3" value="25" />
-          <entry key="project.open.time.4" value="35" />
-          <entry key="project.open.time.5" value="9" />
-          <entry key="project.open.time.6" value="2" />
-          <entry key="project.open.time.7" value="2" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="81" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="html" value="161" />
-          <entry key="py" value="185" />
-          <entry key="txt" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="161" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="Python" value="185" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="Python Console" value="1001" />
-          <entry key="dummy" value="11" />
-          <entry key="html" value="7" />
-          <entry key="py" value="31145" />
-          <entry key="txt" value="26" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="HTML" value="7" />
-          <entry key="PLAIN_TEXT" value="37" />
-          <entry key="Python" value="32146" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Scrape_Ngram" />
@@ -156,43 +123,43 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>&quot;https:\\/\\/store.steampowered.com\\/app(.*?)\?</find>
-      <find>tags</find>
-      <find>tag</find>
-      <find>app_tag</find>
-      <find>app_tag.*?&gt;(.*?)&lt;</find>
-      <find>&quot;app_tag&quot;.*?&gt;(.*?)&lt;</find>
+      <find>content-cell-wrapper</find>
+      <find>content-cell-wrapper.*?&quot;title-name&quot;.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?js-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?subtitle-wrapper(.*?)details-wrapper.*?icon-info address.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?icon-info icon-info-food-price.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?icon-info icon-info-food-name</find>
       <find>class=&quot;name&quot;</find>
-      <find>positive</find>
-      <find>review type</find>
-      <find>review type.*?user_reviews_count.*?\((.*?)\).*?user_reviews_count.*?\((.*?)\).*?user_reviews_count.*?\((.*?)\)</find>
-      <find>game_area_sys_req</find>
-      <find>sysreq_contents</find>
-      <find>Chutney Mary</find>
-      <find>Havelly</find>
-      <find>KLIND_level1</find>
-      <find>get_rest_detail_and_comment_page</find>
-      <find>'</find>
-      <find>----</find>
-      <find>H</find>
-      <find>responsive_apppage_details_left</find>
-      <find>VR Su</find>
-      <find>VR</find>
-      <find>game_area_details_specs</find>
-      <find>vrsupport=</find>
-      <find>feature</find>
-      <find>\n</find>
-      <find>game_page_autocollapse</find>
-      <find>class=&quot;game_area_sys_req</find>
-      <find>%</find>
-      <find>g_id</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;</find>
+      <find>js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section</find>
+      <find>data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
+      <find>You may be interested in</find>
+      <find>address-info-section</find>
+      <find>address-info-section.*?content&quot;&gt;(.*?)&lt;/div</find>
+      <find>class=&quot;item&quot;</find>
+      <find>li class=&quot;item&quot;</find>
+      <find>li class=&quot;item&quot;.*?href=&quot;(.*?)&quot;</find>
+      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score-show-more(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
+      <find>a-section aok-relative s-image-fixed-height</find>
+      <find>a-section aok-relative s-image-fixed-height.*?src=&quot;(.*?)&quot;.*?a-link-normal a-text-normal.*?href=&quot;(.*?)&quot;.*?a-size-medium a-color-base a-text-normal&quot;&gt;(.*?)&lt;</find>
+      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;feature-bullets&quot;(.*?)id=&quot;seeMoreDetailsLink&quot;</find>
+      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;productTitle&quot;.*?&gt;(.*?)&lt;.*?id=&quot;feature-bullets&quot;(.*?)id=&quot;seeMoreDetailsLink&quot;</find>
+      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;productTitle&quot;.*?&gt;(.*?)&lt;.*?id=&quot;feature-bullets&quot;(.*?)</find>
+      <find>ist index out</find>
+      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;</find>
+      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*)</find>
+      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*?)&quot;</find>
+      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*?)&quot;.*?img.*?src=&quot;(.*?)\?</find>
+      <find>class=&quot;_3v_O&quot; src=&quot;(.*?)\?.*?class=&quot;NZJI&quot;?(.*?)&lt;(.*?)class=&quot;_3a59&quot;</find>
+      <find>read excel excep</find>
+      <find>read</find>
     </findStrings>
     <replaceStrings>
       <replace>',</replace>
@@ -225,23 +192,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scraping/FB_insight/UBS_36-65_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/UBS_36-65_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/UBS_25-35_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/UBS_25-35_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/BNP_25-35_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/BNP_25-35_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/BNP_36-65_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/BNP_36-65_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/Storo_25-35_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/Storo_25-35_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/Storo_36-65_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/Storo_36-65_SG.html" />
-        <option value="$PROJECT_DIR$/scraping/etoro/script.py" />
-        <option value="$PROJECT_DIR$/scraping/carlist/script.py" />
-        <option value="$PROJECT_DIR$/util/test_http2.py" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/MZ_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/MZ_M.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/HD_M.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/HD_W.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/TO_W.html" />
@@ -257,7 +207,6 @@
         <option value="$PROJECT_DIR$/scraping/FB_insight/CH_M.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/CH_W.html" />
         <option value="$PROJECT_DIR$/scraping/google/google.py" />
-        <option value="$PROJECT_DIR$/scraping/similarweb/script.py" />
         <option value="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
         <option value="$PROJECT_DIR$/scraping/steampowered/read.py" />
@@ -273,22 +222,34 @@
         <option value="$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Women.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Women.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Men.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
+        <option value="$PROJECT_DIR$/scraping/amazon/2.html" />
         <option value="$PROJECT_DIR$/scraping/google/script.py" />
+        <option value="$PROJECT_DIR$/scraping/lowyat/script.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/jobTitle.py" />
+        <option value="$PROJECT_DIR$/scraping/cafe.naver/script.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
+        <option value="$PROJECT_DIR$/scraping/similarweb/script.py" />
+        <option value="$PROJECT_DIR$/scraping/webscreenshot/screenshot.py" />
+        <option value="$PROJECT_DIR$/scraping/openrice201910/script.py" />
+        <option value="$PROJECT_DIR$/scraping/common/TextUtil.py" />
+        <option value="$PROJECT_DIR$/scraping/common/utils.py" />
+        <option value="$PROJECT_DIR$/scraping/common/__init__.py" />
+        <option value="$PROJECT_DIR$/scraping/amazon/script.py" />
+        <option value="$PROJECT_DIR$/scraping/amazonseller/script.py" />
+        <option value="$PROJECT_DIR$/scraping/amazonlist/1.html" />
+        <option value="$PROJECT_DIR$/scraping/amazonlist/2.html" />
+        <option value="$PROJECT_DIR$/scraping/utils.py" />
+        <option value="$PROJECT_DIR$/scraping/amazonlist/script.py" />
+        <option value="$PROJECT_DIR$/scraping/paytm/script.py" />
+        <option value="$PROJECT_DIR$/scraping/google/vision.py" />
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
-  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="1394" />
-    <option name="height" value="877" />
+    <option name="width" value="1870" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -302,11 +263,6 @@
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
-              <item name="scraping" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -318,7 +274,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FullScreen" value="false" />
     <property name="GO_FMT" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="web&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;we&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;w&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;pr&#9;FILE&#9;file:///Users/zhaodan/Documents/workspace/python/codes/zhaodan/scrape_ngram/scraping/TripAdvisor/profile_comment.py" />
+    <property name="SearchEverywhereHistoryKey" value="read_ex&#9;null&#9;null&#10;open_browser_scroll&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;we&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;w&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;pr&#9;FILE&#9;file:///Users/zhaodan/Documents/workspace/python/codes/zhaodan/scrape_ngram/scraping/TripAdvisor/profile_comment.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/scraping/lowyat/1.html&#10;/Users/zhaod/Documents/Learning/Scrape_Ngram/scraping/lowyat/2.html" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -330,18 +286,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scraping/steampowered/data" />
-      <recent name="$PROJECT_DIR$/scraping/steampowered" />
-      <recent name="$PROJECT_DIR$/scraping/TripAdvisor/data" />
-      <recent name="$PROJECT_DIR$/scraping/FB_insight" />
-      <recent name="$PROJECT_DIR$/util" />
+      <recent name="$PROJECT_DIR$/scraping" />
+      <recent name="$PROJECT_DIR$/scraping/amazonlist" />
+      <recent name="$PROJECT_DIR$/scraping/amazon" />
+      <recent name="$PROJECT_DIR$/scraping/openrice201910/data" />
+      <recent name="$PROJECT_DIR$/scraping/openrice201910" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scraping/FB_insight/source" />
-      <recent name="$PROJECT_DIR$/scraping/FB_insight" />
-      <recent name="$PROJECT_DIR$/scraping/similarweb/data" />
-      <recent name="$PROJECT_DIR$/scraping/CleanHtml/data" />
-      <recent name="$PROJECT_DIR$/scraping/FB_insight/data" />
+      <recent name="$PROJECT_DIR$/scraping/google/data" />
+      <recent name="$PROJECT_DIR$/scraping/google" />
+      <recent name="$PROJECT_DIR$/scraping/paytm" />
+      <recent name="$PROJECT_DIR$/scraping/amazon" />
+      <recent name="$PROJECT_DIR$/scraping/webscreenshot" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -356,7 +312,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.script">
+  <component name="RunManager" selected="Python.vision">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$" />
@@ -485,28 +441,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="demographics" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB_insight" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="page_likes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -521,28 +455,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="read" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/steampowered" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/steampowered/read.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -573,7 +485,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="script (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="script (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -581,12 +493,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB_insight" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/openrice201910" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/script.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/openrice201910/script.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="script (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/amazonlist" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/amazonlist/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -603,12 +537,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/steampowered" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/paytm" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/steampowered/script.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/paytm/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -639,7 +573,29 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+    <configuration name="vision" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/google" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/google/vision.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
       <gulpfile />
@@ -655,19 +611,19 @@
       <item itemvalue="Python.Employed_v2" />
       <item itemvalue="Python.Vacancy_v2 (1)" />
       <item itemvalue="Python.1_Posts (1)" />
-      <item itemvalue="Python.script (5)" />
-      <item itemvalue="Python.read" />
-      <item itemvalue="Python.demographics" />
-      <item itemvalue="Python.script (2)" />
       <item itemvalue="Python.page_likes" />
+      <item itemvalue="Python.script (3)" />
+      <item itemvalue="Python.vision" />
+      <item itemvalue="Python.script (4)" />
+      <item itemvalue="Python.script (5)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.page_likes" />
-        <item itemvalue="Python.demographics" />
-        <item itemvalue="Python.script (2)" />
+        <item itemvalue="Python.vision" />
         <item itemvalue="Python.script (5)" />
-        <item itemvalue="Python.read" />
+        <item itemvalue="Python.script (4)" />
+        <item itemvalue="Python.script (3)" />
+        <item itemvalue="Python.page_likes" />
       </list>
     </recent_temporary>
   </component>
@@ -681,6 +637,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1493862843423</updated>
+      <workItem from="1575472565238" duration="479000" />
     </task>
     <task id="LOCAL-00001" summary="ADD: google">
       <created>1493981762445</created>
@@ -920,7 +877,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561264402396</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
+      <created>1564214130293</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1564214130293</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -952,6 +916,9 @@
       <configuration name="Nosetests in test_http2.py" configurationId="tests" />
     </history-entry>
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="479000" />
+  </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
       <is-autoscroll-to-source value="true" />
@@ -962,25 +929,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1394" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1870" height="1057" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23816568" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1619256" />
       <window_info id="Structure" order="1" weight="0.24852653" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32866243" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.12993631" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3284974" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.46735752" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="5" weight="0.32896653" />
-      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49766627" weight="0.29044586" />
+      <window_info anchor="bottom" id="TODO" order="5" weight="0.32866243" />
+      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49766627" weight="0.29015544" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49652174" visible="true" weight="0.5057325" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49304348" weight="0.28025478" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5034783" side_tool="true" weight="0.45414847" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49556214" weight="0.43626943" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49304348" weight="0.42901555" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50443786" side_tool="true" weight="0.5057325" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" sideWeight="0.49649122" weight="0.32881" />
-      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.21910828" />
+      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.41968912" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1021,6 +988,46 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -1028,9 +1035,6 @@
     <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
       <collection />
     </option>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="ADD: google" />
@@ -1051,7 +1055,8 @@
     <MESSAGE value="UPD: similarweb" />
     <MESSAGE value="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;&#10;# Conflicts:&#10;#&#9;scraping/TripAdvisor/profile_comment.py&#10;" />
     <MESSAGE value="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;&#10;# Conflicts:&#10;#&#9;scraping/TripAdvisor/profile_comment.py" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;&#10;# Conflicts:&#10;#&#9;scraping/TripAdvisor/profile_comment.py" />
+    <MESSAGE value="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1065,11 +1070,6 @@
           <url>file://$PROJECT_DIR$/others/Py_PB0531-13/test.py</url>
           <line>2</line>
           <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/lowyat/script.py</url>
-          <line>49</line>
-          <option name="timeStamp" value="128" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed.py</url>
@@ -1118,13 +1118,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/google/script.py</url>
-          <line>222</line>
+          <line>231</line>
           <option name="timeStamp" value="220" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/similarweb/script.py</url>
-          <line>173</line>
-          <option name="timeStamp" value="222" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/FB_search_result/run.py</url>
@@ -1227,16 +1222,6 @@
           <option name="timeStamp" value="350" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB_insight/script.py</url>
-          <line>115</line>
-          <option name="timeStamp" value="351" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB_insight/script.py</url>
-          <line>129</line>
-          <option name="timeStamp" value="352" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/etoro/script.py</url>
           <line>1452</line>
           <option name="timeStamp" value="354" />
@@ -1262,14 +1247,56 @@
           <option name="timeStamp" value="363" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/amazonseller/script.py</url>
+          <line>146</line>
+          <option name="timeStamp" value="366" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/similarweb/script.py</url>
+          <line>123</line>
+          <option name="timeStamp" value="367" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/similarweb/script.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="368" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB_insight/demographics.py</url>
-          <line>88</line>
-          <option name="timeStamp" value="365" />
+          <line>97</line>
+          <option name="timeStamp" value="370" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/cafe.naver/script.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="389" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/cafe.naver/script.py</url>
+          <line>92</line>
+          <option name="timeStamp" value="390" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
+          <line>83</line>
+          <option name="timeStamp" value="391" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
+          <line>129</line>
+          <option name="timeStamp" value="392" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/openrice201910/script.py</url>
+          <line>36</line>
+          <option name="timeStamp" value="402" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/google/vision.py</url>
+          <line>26</line>
+          <option name="timeStamp" value="412" />
         </line-breakpoint>
       </breakpoints>
-      <breakpoints-dialog>
-        <breakpoints-dialog />
-      </breakpoints-dialog>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -1282,6 +1309,11 @@
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
       <expression>
+        <expression-string>comment_text == 'Mpay... lol'</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>P_ID == 1029</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1289,292 +1321,615 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>remove_html_tag('First time visiting the place. Was there for an event. Absolutely loved the setting. The exclusive yet open RSVP lounges gave a great chance for me and my friends to catch up, we\xe2\x80\x99re secluded yet aware of the party. The cocktails were amazing. Absolutely recommend the Long Island ice tea sangrias . The music was nice. The staff were very hospitable. Above all the twin towers view complemented the evening. A good place to be at. ')</expression-string>
+        <expression-string>texts[1]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>remove_html_tag('First time visiting the place. Was there for an event. Absolutely loved the setting. The exclusive yet open RSVP lounges gave a great chance for me and my friends to catch up, we\xe2\x80\x99re secluded yet aware of the party. The cocktails were amazing. Absolutely recommend the Long Island ice tea &amp;amp; sangrias . The music was nice. The staff were very hospitable. Above all the twin towers view complemented the evening. A good place to be at. ')</expression-string>
+        <expression-string>len(texts)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>re.compile(reg).findall(ori)</expression-string>
+        <expression-string>len(tests)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>re.compile('class=.post .*?href=&quot;(.*?)&quot;').findall(html)</expression-string>
+        <expression-string>len(testx)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>re.compile('postDate.&gt;(.*?)&lt;.*?postBody.&gt;(.*?)&lt;div class=&quot;postTools&quot;').findall(html)</expression-string>
+        <expression-string>text.description.strip().lower()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data[1]</expression-string>
+        <expression-string>text.description.strip().upper()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data[0]</expression-string>
+        <expression-string>'acer' == text.description.strip().lower()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>data[0][0]</expression-string>
+        <expression-string>'Acer' == text.description.strip()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>comment_item['commentThreadRenderer']</expression-string>
+        <expression-string>'acer' == text.description.strip()</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/UBS_36-65_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB/4_get_also_like_urls.py">
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Women.html" />
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Men.html" />
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Women.html" />
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Men.html" />
+    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-705">
-          <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+        <state relative-caret-position="-19416">
+          <caret column="112253" selection-start-column="112253" selection-end-column="112253" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/2_likes_profile.py">
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/product.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-728" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/etoro/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5063">
-          <caret line="1299" column="23" lean-forward="true" selection-end-line="1537" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-            <marker date="1553841924247" expanded="true" signature="50636:50934" ph="..." />
-          </folding>
+        <state relative-caret-position="175">
+          <caret column="96424" selection-start-column="94965" selection-end-column="96424" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/doctorshangout/script.py">
+    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/2.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="260" column="14" selection-start-line="260" selection-start-column="14" selection-end-line="260" selection-end-column="67" />
+        <state relative-caret-position="202">
+          <caret line="4" column="274735" selection-start-line="4" selection-start-column="274702" selection-end-line="4" selection-end-column="274735" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/carlist/1.html">
+    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/2_1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret column="508757" selection-start-column="508285" selection-end-column="508757" />
+        <state relative-caret-position="15">
+          <caret column="596" selection-start-column="596" selection-end-column="596" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/carlist/script.py">
+    <entry file="file://$PROJECT_DIR$/scraping/FB/3_also_like.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret line="335" column="26" selection-start-line="335" selection-start-column="26" selection-end-line="335" selection-end-column="26" />
+        <state relative-caret-position="185">
+          <caret line="121" selection-start-line="121" selection-end-line="134" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/carlist/2.html">
+    <entry file="file://$PROJECT_DIR$/scraping/similarweb/1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2730">
-          <caret column="182210" selection-start-column="181289" selection-end-column="182210" />
+        <state relative-caret-position="1200">
+          <caret column="80827" selection-start-column="78610" selection-end-column="80827" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pycharm/_jb_nosetest_runner.py">
+    <entry file="file://$PROJECT_DIR$/scraping/lowyat/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="271">
+          <caret line="102" column="62" selection-start-line="102" selection-start-column="62" selection-end-line="102" selection-end-column="62" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/test_http2.py">
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="24" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
+        <state relative-caret-position="1230">
+          <caret line="89" column="52" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/MZ_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/MZ_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/HD_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/HD_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/TO_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/TO_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/FD_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/FD_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/NI_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/NI_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/IM_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/IM_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/MM_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/MM_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/CH_W.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/CH_M.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/google/google_deprecated.py">
+    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="48" column="951" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="951" />
+        <state relative-caret-position="186">
+          <caret column="135649" selection-start-column="131964" selection-end-column="135649" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret column="19346" selection-start-column="16613" selection-end-column="19346" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/jobTitle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="106">
+          <caret line="65" selection-start-line="65" selection-end-line="68" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/HTMLParser.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-261">
+          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/data/sheet1.csv" />
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/webscreenshot.js" />
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/webscreenshot.py" />
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/__init__.py" />
     <entry file="file://$PROJECT_DIR$/scraping/similarweb/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="174" column="11" lean-forward="true" selection-start-line="174" selection-start-column="11" selection-end-line="174" selection-end-column="11" />
+        <state relative-caret-position="360">
+          <caret line="24" column="119" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="119" />
           <folding>
             <element signature="e#0#11#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/CleanHtml/script.py">
+    <entry file="file://$PROJECT_DIR$/scraping/webscreenshot/screenshot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="90" column="29" selection-start-line="90" selection-start-column="29" selection-end-line="90" selection-end-column="29" />
+        <state relative-caret-position="60">
+          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/1.html">
+    <entry file="file://$PROJECT_DIR$/FB_search_result/run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="77040">
-          <caret column="653032" selection-start-column="653032" selection-end-column="653032" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2424">
-          <caret column="117558" lean-forward="true" selection-start-column="117558" selection-end-column="117558" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="126" selection-start-column="43" selection-end-column="83" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/2_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret column="232475" selection-start-column="232471" selection-end-column="232475" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="265">
-          <caret line="472" column="49" selection-start-line="472" selection-start-column="49" selection-end-line="472" selection-end-column="49" />
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="e#25#34#0" expanded="true" />
-            <marker date="1561442616252" expanded="true" signature="15947:16487" ph="..." />
-            <marker date="1561442616252" expanded="true" signature="21056:21126" ph="..." />
+            <element signature="e#16#27#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/read.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/2_1.html">
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/SearchForm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret column="39956" selection-start-column="39956" selection-end-column="39956" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="312" column="15" selection-start-line="312" selection-start-column="15" selection-end-line="312" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/out.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12506" selection-end-column="12506" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/steampowered/2_2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="708">
-          <caret column="53669" selection-start-column="53659" selection-end-column="53669" />
+        <state relative-caret-position="-259">
+          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB_insight/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="178" selection-start-line="178" selection-end-line="181" selection-end-column="34" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-            <marker date="1562413008681" expanded="true" signature="10283:10286" ph="..." />
-          </folding>
+        <state relative-caret-position="484">
+          <caret line="175" column="26" lean-forward="true" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Monster Hunter_Men.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Monster Hunter_Women.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Grand Theft Auto V_Men.html">
+    <entry file="file://$PROJECT_DIR$/scraping/carlist/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" lean-forward="true" selection-start-column="17" selection-end-column="17" />
-        </state>
+        <state relative-caret-position="-4140" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Grand Theft Auto V_Women.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Women.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Men.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Women.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Men.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
+    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="10" selection-end-line="13" />
+        <state relative-caret-position="169">
+          <caret line="182" selection-start-line="182" selection-end-line="194" selection-end-column="14" />
           <folding>
             <element signature="e#24#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
+    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/1.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="118" column="43" selection-start-line="118" selection-start-column="43" selection-end-line="118" selection-end-column="43" />
+        <state relative-caret-position="266">
+          <caret column="663436" selection-start-column="663431" selection-end-column="663436" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/FB_search_result/get_comment_detail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="52" selection-start-line="52" selection-end-line="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret column="51458" selection-start-column="35163" selection-end-column="51458" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#input#0;n#label#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#18546#18551#0" expanded="true" />
+            <element signature="e#22585#22590#0" expanded="true" />
+            <element signature="n#style#0;n#rect#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#1;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#68086#68091#0" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#75040#75045#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#3;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#80322#80327#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#4;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#85491#85496#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#5;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#90725#90730#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#95739#95744#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#109052#109057#0" expanded="true" />
+            <element signature="e#109157#109163#0" expanded="true" />
+            <element signature="e#109164#109170#0" expanded="true" />
+            <element signature="e#109171#109176#0" expanded="true" />
+            <element signature="e#109177#109183#0" expanded="true" />
+            <element signature="e#109184#109190#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/google_deprecated.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="51" column="43" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/cloud/vision_v1/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/cloud/vision_v1/gapic/transports/image_annotator_grpc_transport.py" />
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/api_core/grpc_helpers.py" />
+    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/auth/_default.py" />
+    <entry file="file://$PROJECT_DIR$/scraping/common/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/scraping/common/utils.py" />
     <entry file="file://$PROJECT_DIR$/scraping/google/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="214" column="9" lean-forward="true" selection-start-line="214" selection-start-column="9" selection-end-line="214" selection-end-column="9" />
+        <state relative-caret-position="665">
+          <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="72" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="160" lean-forward="true" selection-start-column="160" selection-end-column="160" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="29" column="74" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="229" selection-start-line="229" selection-end-line="240" selection-end-column="20" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="386">
+          <caret column="6360" lean-forward="true" selection-start-column="6360" selection-end-column="6360" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#6082#6087#0" expanded="true" />
+            <element signature="e#6513#6519#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/paytm/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret column="117113" selection-start-column="116184" selection-end-column="117113" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#75973#75978#0" expanded="true" />
+            <element signature="e#76234#76239#0" expanded="true" />
+            <element signature="e#76986#76991#0" expanded="true" />
+            <element signature="e#77255#77260#0" expanded="true" />
+            <element signature="e#77392#77397#0" expanded="true" />
+            <element signature="e#77525#77530#0" expanded="true" />
+            <element signature="e#77656#77661#0" expanded="true" />
+            <element signature="e#77795#77800#0" expanded="true" />
+            <element signature="e#81217#81222#0" expanded="true" />
+            <element signature="e#81845#81850#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#117300#117305#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#127220#127225#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#129002#129007#0" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#140735#140740#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#143621#143626#0" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#152795#152801#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#154429#154434#0" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#162244#162249#0" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#167411#167417#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#169738#169743#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#7;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#8;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#8;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#10;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#173054#173059#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#10;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#173214#173220#1" expanded="true" />
+            <element signature="e#173848#173855#0" expanded="true" />
+            <element signature="e#174035#174042#0" expanded="true" />
+            <element signature="e#174275#174280#0" expanded="true" />
+            <element signature="e#174967#174972#0" expanded="true" />
+            <element signature="e#175106#175111#0" expanded="true" />
+            <element signature="e#175758#175764#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#2;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#176317#176323#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#1;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#177505#177512#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#178516#178523#0" expanded="true" />
+            <element signature="e#178717#178723#1" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#7;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#178901#178906#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#8;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#181343#181348#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#13;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#182179#182185#1" expanded="true" />
+            <element signature="e#182229#182234#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#15;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#16;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#183688#183693#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#1;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#2;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#3;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#3;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#4;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#4;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#5;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#18;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#185249#185254#0" expanded="true" />
+            <element signature="e#185626#185631#0" expanded="true" />
+            <element signature="e#187947#187952#0" expanded="true" />
+            <element signature="e#192170#192175#0" expanded="true" />
+            <element signature="e#192863#192868#0" expanded="true" />
+            <element signature="e#193047#193052#0" expanded="true" />
+            <element signature="e#193236#193241#0" expanded="true" />
+            <element signature="e#193329#193334#0" expanded="true" />
+            <element signature="e#193435#193440#0" expanded="true" />
+            <element signature="e#193528#193533#0" expanded="true" />
+            <element signature="e#193830#193835#0" expanded="true" />
+            <element signature="e#194408#194413#0" expanded="true" />
+            <element signature="e#194745#194750#0" expanded="true" />
+            <element signature="e#196274#196279#0" expanded="true" />
+            <element signature="e#196473#196478#0" expanded="true" />
+            <element signature="e#198190#198195#0" expanded="true" />
+            <element signature="e#198289#198294#0" expanded="true" />
+            <element signature="e#198378#198383#0" expanded="true" />
+            <element signature="e#198482#198487#0" expanded="true" />
+            <element signature="e#202219#202224#0" expanded="true" />
+            <element signature="e#202728#202733#0" expanded="true" />
+            <element signature="e#202834#202839#0" expanded="true" />
+            <element signature="e#202940#202945#0" expanded="true" />
+            <element signature="e#206061#206066#0" expanded="true" />
+            <element signature="e#206990#206995#0" expanded="true" />
+            <element signature="e#207083#207088#0" expanded="true" />
+            <element signature="e#207871#207876#0" expanded="true" />
+            <element signature="e#208349#208354#0" expanded="true" />
+            <element signature="e#209333#209338#0" expanded="true" />
+            <element signature="e#209841#209846#0" expanded="true" />
+            <element signature="e#210533#210538#0" expanded="true" />
+            <element signature="e#210901#210906#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/paytm/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret column="111882" selection-start-column="104189" selection-end-column="111882" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#101165#101170#0" expanded="true" />
+            <element signature="e#101426#101431#0" expanded="true" />
+            <element signature="e#102178#102183#0" expanded="true" />
+            <element signature="e#102447#102452#0" expanded="true" />
+            <element signature="e#102584#102589#0" expanded="true" />
+            <element signature="e#102717#102722#0" expanded="true" />
+            <element signature="e#102848#102853#0" expanded="true" />
+            <element signature="e#102987#102992#0" expanded="true" />
+            <element signature="e#103548#103553#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#109866#109871#0" expanded="true" />
+            <element signature="e#120985#120990#0" expanded="true" />
+            <element signature="e#121196#121201#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#125552#125557#0" expanded="true" />
+            <element signature="e#125929#125934#0" expanded="true" />
+            <element signature="e#128250#128255#0" expanded="true" />
+            <element signature="e#132473#132478#0" expanded="true" />
+            <element signature="e#133166#133171#0" expanded="true" />
+            <element signature="e#133350#133355#0" expanded="true" />
+            <element signature="e#133539#133544#0" expanded="true" />
+            <element signature="e#133632#133637#0" expanded="true" />
+            <element signature="e#133738#133743#0" expanded="true" />
+            <element signature="e#133831#133836#0" expanded="true" />
+            <element signature="e#134133#134138#0" expanded="true" />
+            <element signature="e#134711#134716#0" expanded="true" />
+            <element signature="e#135048#135053#0" expanded="true" />
+            <element signature="e#136577#136582#0" expanded="true" />
+            <element signature="e#136776#136781#0" expanded="true" />
+            <element signature="e#138493#138498#0" expanded="true" />
+            <element signature="e#138592#138597#0" expanded="true" />
+            <element signature="e#138681#138686#0" expanded="true" />
+            <element signature="e#138785#138790#0" expanded="true" />
+            <element signature="e#142522#142527#0" expanded="true" />
+            <element signature="e#143031#143036#0" expanded="true" />
+            <element signature="e#143137#143142#0" expanded="true" />
+            <element signature="e#143243#143248#0" expanded="true" />
+            <element signature="e#146364#146369#0" expanded="true" />
+            <element signature="e#147293#147298#0" expanded="true" />
+            <element signature="e#147386#147391#0" expanded="true" />
+            <element signature="e#148174#148179#0" expanded="true" />
+            <element signature="e#148652#148657#0" expanded="true" />
+            <element signature="e#149636#149641#0" expanded="true" />
+            <element signature="e#150144#150149#0" expanded="true" />
+            <element signature="e#150836#150841#0" expanded="true" />
+            <element signature="e#151204#151209#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/paytm/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="69" column="28" lean-forward="true" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/client_secrets.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/vision.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="36" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out.txt">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

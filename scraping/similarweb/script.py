@@ -13,14 +13,14 @@ from datetime import datetime
 
 sheet2_data = [['Name of Publisher', 'Main url', 'Url of article', 'Country', 'Global Rank', 'Country Rank', 'Category Rank', 'Engagement', 'Top Country 1', 'Traffic 1', 'Top Country 2', 'Traffic 2', 'Top Country 3', 'Traffic 3', 'Top Country 4', 'Traffic 4', 'Top Country 5', 'Traffic 5']]
 sheet_dict = {}
-sleep_time = 3
+sleep_time = 1
 failed_count = 0
 stop = False
 proxy = [
     '223.243.176.211:38132'
 ]
 
-cookie = 'D_SID=118.200.75.55:yC35iQB81X4INdYU2WIUVIgYEQfxWYtgEHeddbZV7So; sgID=849c32e2-f2d7-4169-ae2b-91ff29399725; .AspNetCore.Antiforgery.xd9Q-ZnrZJo=CfDJ8O3KJbQZozVFjBEXXPUInFJUiGhwucnScBNYWs4pSGX2VhjA1VIMQs0heJ-bFbSrPraOFLwkKKd3e6IV8ihC1j6qeg6LxfqU0IH5YxI3G1_udTELenisyI__GU4OXtSJhhSOWwQwXRAlCn1FZp60_iE; _vwo_uuid_v2=DABB1CC285DA0944113E6EC22332167B5|8e96436c3dc2c7689e562339097e1012; _ga=GA1.2.1227054292.1555214227; _gcl_au=1.1.1942965607.1555214228; user_num=nowset; sw-cookies-consent=1; intercom-id-e74067abd037cecbecb0662854f02aee12139f95=3690d29b-4599-4463-9283-a01d6e549dfe; visitor_id597341=343626332; visitor_id597341-hash=e023cb87892efb4f136145abed745df6ce87f29db5824d3b1a0f96a981d094f43f48dfa1e171664c4de463f495f527d770f476b0; loyal-user={%22date%22:%222019-04-14T03:57:06.612Z%22%2C%22isLoyal%22:true}; _pk_id.1.8c7a=16ce8bbd14c0f626.1555217293.1.1555217295.1555217294.; _gid=GA1.2.300442759.1556272553; _pk_ses.1.fd33=*; D_IID=CA001F9C-C2E4-3745-8D4F-B3850C6AF218; D_UID=799F360E-BA7F-308B-AE9E-60B48F32E221; D_ZID=AD829BB5-0AA9-3B59-9DE9-89C0D1B27EE9; D_ZUID=2D5114AF-226C-3BE7-800A-028203D9CD8F; D_HID=65AB865E-6C03-345C-AF6B-749FE3B06E28; _pk_id.1.fd33=9c7298165d514a12.1555214228.2.1556272597.1556272554.; sc_is_visitor_unique=rx8617147.1556272597.34CF0B6D91F14F6AD13B197373803E03.2.2.2.2.2.2.2.2.2; mp_7ccb86f5c2939026a4b5de83b5971ed9_mixpanel=%7B%22distinct_id%22%3A%20%2216a19fdd67c368-0f7d6d35a7e4ee-366d7e04-13c680-16a19fdd67d5de%22%2C%22%24device_id%22%3A%20%2216a19fdd67c368-0f7d6d35a7e4ee-366d7e04-13c680-16a19fdd67d5de%22%2C%22sgId%22%3A%20%22849c32e2-f2d7-4169-ae2b-91ff29399725%22%2C%22Site%20Type%22%3A%20%22Lite%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.similarweb.com%2Fwebsite%2Ftechwireasia.com%22%2C%22%24initial_referring_domain%22%3A%20%22www.similarweb.com%22%2C%22session%20ID%22%3A%20%220c0948ff-46f2-4568-a951-8050d4676843%22%2C%22section%22%3A%20%22website%22%2C%22last%20event%20time%22%3A%201556272597454%7D'
+cookie = '.AspNetCore.Antiforgery.xd9Q-ZnrZJo=CfDJ8P7q8u2iyLhHnGjyS00LkJr5q591Sse1XyPmyHT0onWK_db8DNlfUp_MoUz8zEs67554Wgm6Ixj2AR5NTAMmqVLSu5JqDALXxfODYhL6XyBnpfXkTXZUGTmTUtHjlMEmcWqWDQkE10pOo9OEzhlEPe8; _ga=GA1.2.82153105.1564392021; _gid=GA1.2.1992988524.1564392021; _vwo_uuid_v2=D6B9795E33B8AA40D68297689793B48FB|c7ba77ab9f42b5f819863e5256ab080a; _gcl_au=1.1.565111866.1564392021; sgID=153cec4f-1ae3-9646-7262-fda58c4cd2c3; _pk_ref.1.fd33=%5B%22%22%2C%22%22%2C1564392023%2C%22https%3A%2F%2Fwww.google.com%2F%22%5D; _pk_ses.1.fd33=*; D_SID=47.88.134.117:nXqYa2jyDRQwyHaXGHPg9Hl/XXjAW2gqpjtpzIujOOg; user_num=nowset; visitor_id597341=386271307; visitor_id597341-hash=ea3d8434d754ab57c5e5105a34a3a03df45242012532cf9eaf0c0a363d852da659704170953ae1c2dea14a7a706409ad0cd56679; sw-cookies-consent=1; _hjid=0705b538-047e-4e9c-986b-022aca8d465c; loyal-user={%22date%22:%222019-07-29T09:20:21.495Z%22%2C%22isLoyal%22:true}; _hjIncludedInSample=1; _pk_id.1.8c7a=7075a810d47f9b76.1564393865.1.1564393867.1564393865.; _pk_ses.1.8c7a=*; D_IID=879341C7-AE74-35ED-8CE9-85799A00DA32; D_UID=BAC651B9-BC73-3553-B21E-36DC22BF1FFD; D_ZID=80511FD1-0A52-3653-B35C-D9C61CC079CE; D_ZUID=7AAA8773-FFA9-340A-9722-6C79FE80B8E1; D_HID=7614D935-E5A4-3E31-8249-7CF1A2DF6ECF; sc_is_visitor_unique=rx8617147.1564394693.B62B459BF2164F658D7BDB3A6479240B.1.1.1.1.1.1.1.1.1; _gat=1; _gat_UA-42469261-1=1; _pk_id.1.fd33=e09aacad73ceab74.1564392023.1.1564394695.1564392023.; mp_7ccb86f5c2939026a4b5de83b5971ed9_mixpanel=%7B%22distinct_id%22%3A%20%2216c3d07e1d1dad-01c619c63e5b18-37667c02-1fa400-16c3d07e1d2bb4%22%2C%22%24device_id%22%3A%20%2216c3d07e1d1dad-01c619c63e5b18-37667c02-1fa400-16c3d07e1d2bb4%22%2C%22sgId%22%3A%20%22153cec4f-1ae3-9646-7262-fda58c4cd2c3%22%2C%22site_type%22%3A%20%22Lite%22%2C%22session_id%22%3A%20%229b712a95-c0fe-4d2e-8954-d0c26eb1363d%22%2C%22session_first_event_time%22%3A%20%222019-07-29T09%3A20%3A22.489Z%22%2C%22url%22%3A%20%22https%3A%2F%2Fwww.similarweb.com%2Fwebsite%2Fmayfieldrecorder.com%22%2C%22is_sw_user%22%3A%20false%2C%22language%22%3A%20%22en%22%2C%22section%22%3A%20%22website%22%2C%22first_time_visitor%22%3A%20false%2C%22last_event_time%22%3A%201564394694845%2C%22%24search_engine%22%3A%20%22yahoo%22%2C%22%24initial_referrer%22%3A%20%22https%3A%2F%2Fwww.google.com%2F%22%2C%22%24initial_referring_domain%22%3A%20%22www.google.com%22%2C%22page_number%22%3A%20%221%22%2C%22entity_name%22%3A%20%22mayfieldrecorder.com%22%2C%22entity_id%22%3A%20%22mayfieldrecorder.com%22%2C%22main_category%22%3A%20%22Unknown%22%2C%22sub_category%22%3A%20%22%22%7D'
 
 # driver = webdriver.Chrome(executable_path=r'./chromedriver')  # Optional argument, if not specified will search path.
 
@@ -96,20 +96,17 @@ def request_sheet2(base_url):
     return ret
 
 
-def read_excel_filter_duplicated(filename, start=1):
+def read_excel_filter_duplicated(filename, main_index, start=1):
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
 
     for i in range(start, table.nrows):
         row = table.row(i)
         try:
-            main_url = row[8].value
-            publisher = row[7].value
-            article_url = row[5].value
-            country = row[2].value
+            main_url = row[main_index].value
             if sheet_dict.get(main_url):
                 continue
-            one_row = [publisher, main_url, article_url, country] + []
+            one_row = [main_url]
             sheet2_data.append(one_row)
             sheet_dict[main_url] = True
         except Exception as e:
@@ -122,7 +119,22 @@ def remove_html_tag(ori):
     return str(HTMLParser.HTMLParser().unescape(dd)).strip()
 
 
-def read_excel_get_data(filename, filename_prefix, start=1, length=150):
+def request_category(base_url):
+    global stop
+    url = 'https://www.similarweb.com/website/' + base_url.replace('http://', '').replace('https://', '').split('www.')[
+        -1]
+    html = get_request(url)
+    if 'Unable To Identify Your Browser' in html or 'Pardon Our Interruption' in html:
+        stop = True
+    reg = 'js-categoryRank.*?websiteRanks-nameText.*?>(.*?)<.*?js-websiteRanksValue.*?>(.*?)</div'
+    data = re.compile(reg).findall(html)
+
+    if data:
+        return [data[0][0], remove_html_tag(data[0][1])]
+    return ['N/A', 'N/A']
+
+
+def read_excel_get_data(filename, filename_prefix, type='', start=1, length=350):
     global sheet2_data
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
@@ -130,14 +142,14 @@ def read_excel_get_data(filename, filename_prefix, start=1, length=150):
     for i in xrange(start, table.nrows):
         row = table.row(i)
         try:
-            global_rank = row[4].value
-            if global_rank == '' or global_rank == 0:
-                main_url = row[1].value
-                details = request_sheet2(main_url)
-                time.sleep(sleep_time)
-                if stop:
-                    break
-                one_row = [row[0].value, row[1].value, row[2].value, row[3].value] + details
+            global_rank = row[2].value
+            if global_rank == '' or global_rank == 0 or global_rank == 'N/A':
+                main_url = row[0].value
+                if 'category' == type:
+                    details = request_category(main_url)
+                else:
+                    details = request_sheet2(main_url)
+                one_row = [row[0].value] + details
                 print i, one_row
                 sheet2_data.append(one_row)
             else:
@@ -165,6 +177,7 @@ def get_request(get_url):
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return res
 
+
 def get_date(ori):
     ori = ori.replace('Mei', 'May')
     if 'hour' in ori:
@@ -179,7 +192,7 @@ def get_date(ori):
 
 filename_prefix = 'sheet2'
 # filename = 'data/sheet1.xls'
-# read_excel_filter_duplicated(filename, start=1)
+# read_excel_filter_duplicated(filename, 8, start=1)
 # write_excel('data/sheet2.xls', sheet2_data)
-read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, length=50)
+read_excel_get_data('data/%s.xls' % filename_prefix, filename_prefix, start=1, type='category')
 write_excel('data/%s_end.xls' % filename_prefix, sheet2_data)

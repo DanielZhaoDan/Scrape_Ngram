@@ -15,21 +15,30 @@ sheet1_data = [
      'Main url of newspaper/magazine', 'Headline', 'Content', 'Rank']]
 sheet_dict = {}
 
-url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798&start='
+url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798&tbs=qdr:y&start='
 # url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
 FIRST_START = 1
 cookie = [
-    'CGIC=InZ0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIz; ANID=AHWqTUmO8w1qOdrwQVFRYsuXMaiCZISEiYZnRxN56vS78KD4eZYIFyl_AATHefbx; SID=mQc33W3LSF99ekG9eLtEyv_nSUxEsZjSGg2JFQOhvoWczvtKxIKORi-dCj2NeV2U1BGEOA.; HSID=AZmgxefONPYiGv9Md; SSID=AH4jqU2_YcWuLZ0N8; APISID=NkmiXhUdobCd4UdY/A6S6SFnbflsnny0pv; SAPISID=4HJsgOO2YfyLW-1i/ANdfdcAxTCuUT3AGL; CONSENT=YES+SG.en+20180429-14-0; SEARCH_SAMESITE=CgQItI0B; NID=188=Qd0lVGEmyZMGhxHHk5t_vhJ4JuRMEKGK1iSeduQ_X4mwMUpd72BVRRT-271aTuX5OOSAB-3Mc55xAKVzan8bcoDd5KsRj6zoS1aJGKiUf6HdigSo7IxngIb7_7ySSvvq5ykI8yMHsxZKKRZP2GI1xAE_3RrDDuryw9BABtbgbP1nJxh7gWcHkO5NDNyjHR1YFhnCzQ1xGnxIEPTnP8Ulh0bzPqfowOnfhzPJZETLJajiLZe8pAhT4nJGUnbBqAM168AkC8_BFwcFgAUk10fqp4iYA-hX; DV=471lmmdi7j5CEC-3iDq2DVtigzAWwxYvSfGgakooKQAAAGCxdu1bVsRpBgAAALgeeSgvfOIYAAAAAA; 1P_JAR=2019-7-27-3; SIDCC=AN0-TYsNxFmuJXhIXzGCEAQL_nCQ7IGSF-SVCQ3qCuXgY_G-vKgGQ4a7d1TFLphQHItMo-L3iPj9'
+    'CGIC=EhQxQzVDSEZBX2VuU0c3OTJTRzc5MyJ2dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMw; ANID=AHWqTUmO8w1qOdrwQVFRYsuXMaiCZISEiYZnRxN56vS78KD4eZYIFyl_AATHefbx; SID=mQc33W3LSF99ekG9eLtEyv_nSUxEsZjSGg2JFQOhvoWczvtKxIKORi-dCj2NeV2U1BGEOA.; HSID=AZmgxefONPYiGv9Md; SSID=AH4jqU2_YcWuLZ0N8; APISID=NkmiXhUdobCd4UdY/A6S6SFnbflsnny0pv; SAPISID=4HJsgOO2YfyLW-1i/ANdfdcAxTCuUT3AGL; CONSENT=YES+SG.en+20180429-14-0; SEARCH_SAMESITE=CgQIyY0B; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTU2NTk4NzU3MDM5MTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM3NjEwNTEgbG9uZ2l0dWRlX2U3OjEwMzg0Njg3NDV9IHJhZGl1czoyNTQyMA==; GOOGLE_ABUSE_EXEMPTION=ID=db16af4e2719d258:TM=1565987666:C=r:IP=121.7.113.240-:S=APGng0vxIsPxn0lakUbG6THFldr8mogGCg; NID=188=s00jvvDAfRb-Ju9rikvEvhsv_HujjjR4nIzNEYbHSmy3qb8EM3gGp-msoRNjZIdXK7kjx9hSlPt_NDQgYULfDCeNQESpiP2PT9kAp9K87IedKs1heTQz3h119pmapoZg85F7gSaysrcKo3MhbCP8BEaOwRUELh2DrwN52BkRlP4xBZBI8VEVNO9wR5mLw3UBKcMBE9tAiqAsYBq9IZy1EaJu_iynKHButzxqcm_JRw; DV=471lmmdi7j5SYLF27VtWxGn2NjnCyRYvSfGgakooaQEAABAvt4g6tg1bUgAAALgeeSgvfOIYFAAAADQKmJDzn0kTDgAAAA; 1P_JAR=2019-8-16-20; SIDCC=AN0-TYvfICKlWd17ZnR9djr8i0U8aYBd1enOPGNgz7uRS1djXwbrP0f_tx8tlW1c_Py9G-JbzQ'
 ]
 
 key_words = [
-    {'keyword': 'amd intext:benchmark', 'bucket': 'AMD', 'country': 'ALL'},
-    {'keyword': 'intel intext:benchmark', 'bucket': 'AMD', 'country': 'ALL'},
+    # {'keyword': 'dbs business class intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
+    # {'keyword': '"enterprise singapore" intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
+    # {'keyword': 'CPF intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
+    # {'keyword': 'automobile intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
+    # {'keyword': '"work-life balance" intext:SME location:singapore', 'bucket': '', 'country': 'SG'},
+    # {'keyword': '"financial schemes" intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
+    # {'keyword': 'agriculture intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
+    # {'keyword': 'health intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
+    # {'keyword': 'wellness intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
+    {'keyword': '"financial support" intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
+    {'keyword': 'E-commerce intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
 ]
 
 
-x_client_data = 'CIi2yQEIo7bJAQjBtskBCKmdygEI153KAQjZncoBCKijygE='
+x_client_data = 'CJe2yQEIo7bJAQjBtskBCNC3yQEIqZ3KAQioo8oBCLmlygEI4qjKAQiXrcoBCM2tygEIy67KAQjKr8oBCMiwygE='
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
 
