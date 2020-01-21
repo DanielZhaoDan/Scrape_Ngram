@@ -2,7 +2,7 @@ import xlrd
 import os
 import xlwt
 
-alldata = []
+alldata = [['Landing page', 'Search Query', 'Impressions', 'Clicks', 'CTR', 'Ave position']]
 files = []
 uid_set = set()
 P_ID = 0
@@ -14,7 +14,7 @@ xlrd.book.unicode=lambda s, e: s.decode(e, errors="ignore")
 def walk(rootDir):
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
-        if '.xls' in path or 'txt' in path:
+        if '.xlsx' in path or 'txt' in path:
             if 'result' not in path:
                 files.append(path)
         if os.path.isdir(path):
@@ -27,14 +27,14 @@ def read_excel(filename, start):
     print('process -> '+filename)
     try:
         data = xlrd.open_workbook(filename)
-        table = data.sheets()[0]
+        table = data.sheets()[1]
 
         for i in range(start, table.nrows):
             row = table.row(i)
             try:
-                # one_row = ['IND_%d' % P_ID]
-                one_row = []
-                for j in range(1, table.ncols):
+                url = filename.replace('_', '/').replace('data/', '')
+                one_row = [url]
+                for j in range(0, table.ncols):
                     one_row.append(row[j].value)
                 P_ID += 1
                 alldata.append(one_row)
@@ -92,7 +92,7 @@ def write_excel(filename, alldata, flag=None):
 
 files = walk('data')
 for i in range(len(files)):
-    if '' in files[i]:
-        read_excel(files[i], 0 if i == 0 else 1)
-write_excel('Sheet3'+'.xls', alldata)
+    read_excel(files[i], 1)
+
+write_excel('dataset2'+'.xls', alldata)
 print(duplicated_count)

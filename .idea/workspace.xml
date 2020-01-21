@@ -2,28 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
-      <change afterPath="$PROJECT_DIR$/scraping/FB_insight/jobTitle.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/amazonlist/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/amazonlist/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/amazonseller/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/cafe.naver/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/google/client_secrets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/google/vision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/openrice201910/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/paytm/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/paytm/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/webscreenshot/chromedriver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/webscreenshot/screenshot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/amazonChoice/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/google/attachments.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/google/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/google/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/similarweb/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/similarweb/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/kiasuparents/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/kiasuparents/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/merge_xls.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/merge_xls.py" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,13 +22,14 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1569778132383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/cafe.naver" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1575645320676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts.coverage" NAME="1_Posts Coverage Results" MODIFIED="1545099671229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1570537098416" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1575549897908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
     <SUITE FILE_PATH="coverage/scrape_ngram$also_like.coverage" NAME="also_like Coverage Results" MODIFIED="1533259641726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$get_cookie.coverage" NAME="get_cookie Coverage Results" MODIFIED="1533303168957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Hotels.coverage" NAME="Hotels Coverage Results" MODIFIED="1537059653947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
     <SUITE FILE_PATH="coverage/scrape_ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1535040245483" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__6_.coverage" NAME="script (6) Coverage Results" MODIFIED="1575551006686" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/amazonChoice" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1544971205933" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$assign_id.coverage" NAME="assign_id Coverage Results" MODIFIED="1493809104880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1525361525739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
@@ -48,6 +38,7 @@
     <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1532020835268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$run.coverage" NAME="run Coverage Results" MODIFIED="1501232916682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1516093812739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$utils.coverage" NAME="utils Coverage Results" MODIFIED="1576490191636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$merge.coverage" NAME="merge Coverage Results" MODIFIED="1481295264889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts__1_.coverage" NAME="1_Posts (1) Coverage Results" MODIFIED="1542806118315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/every_3_hour" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$webFormContext.coverage" NAME="webFormContext Coverage Results" MODIFIED="1548054646201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/data" />
@@ -57,8 +48,9 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$vision.coverage" NAME="vision Coverage Results" MODIFIED="1572793918171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1572363215550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/openrice201910" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$job_details.coverage" NAME="job_details Coverage Results" MODIFIED="1509957323036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$attachments.coverage" NAME="attachments Coverage Results" MODIFIED="1579336502343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$timeout.coverage" NAME="timeout Coverage Results" MODIFIED="1488521912644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1561442616260" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1577147190104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$hardware.coverage" NAME="hardware Coverage Results" MODIFIED="1550192047433" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/HW" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$errorhandler.coverage" NAME="errorhandler Coverage Results" MODIFIED="1481162969553" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="/Library/Python/2.7/site-packages/selenium/webdriver/remote" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$reindex.coverage" NAME="reindex Coverage Results" MODIFIED="1488769049618" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
@@ -90,7 +82,7 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1565987724981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/scrape_ngram$test_http2.coverage" NAME="test_http2 Coverage Results" MODIFIED="1534014094499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1525880717151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1550112838774" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1576511763232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$leetcode.coverage" NAME="leetcode Coverage Results" MODIFIED="1547890323676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script__4_.coverage" NAME="script (4) Coverage Results" MODIFIED="1525878567434" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1553841989268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
@@ -102,7 +94,7 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$people.coverage" NAME="people Coverage Results" MODIFIED="1512006261615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1481075833871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2.coverage" NAME="Vacancy_v2 Coverage Results" MODIFIED="1523283968242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1566106815083" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1575485261746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1523929413440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
     <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1532773524845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_text.coverage" NAME="filter_text Coverage Results" MODIFIED="1486782775004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
@@ -118,7 +110,20 @@
     <favorites_list name="Scrape_Ngram" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/scraping/google/attachments.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-115">
+              <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+              <folding>
+                <element signature="e#5918#7575#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -130,36 +135,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>content-cell-wrapper</find>
-      <find>content-cell-wrapper.*?&quot;title-name&quot;.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?js-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?subtitle-wrapper(.*?)details-wrapper.*?icon-info address.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?icon-info icon-info-food-price.*?&lt;span&gt;(.*?)&lt;/span&gt;.*?icon-info icon-info-food-name</find>
-      <find>class=&quot;name&quot;</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;</find>
-      <find>js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section</find>
-      <find>data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score&quot;&gt;(.*?)&lt;.*?reviewCount&quot;&gt;(.*?)&lt;.*?header-score-details-right(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
-      <find>You may be interested in</find>
-      <find>address-info-section</find>
-      <find>address-info-section.*?content&quot;&gt;(.*?)&lt;/div</find>
-      <find>class=&quot;item&quot;</find>
-      <find>li class=&quot;item&quot;</find>
-      <find>li class=&quot;item&quot;.*?href=&quot;(.*?)&quot;</find>
-      <find>class=&quot;name&quot;&gt;(.*?)&lt;.*?header-score-show-more(.*?)header-popular-info-divider.*?js-header-bookmark-count.*?data-count=&quot;(.*?)&quot;.*?priceRange.*?href.*?&gt;(.*?)&lt;.*?header-poi-categories(.*?)&lt;/div.*?header-smile-section(.*?)promotion-section.*?Photo \((.*?)\)</find>
-      <find>a-section aok-relative s-image-fixed-height</find>
-      <find>a-section aok-relative s-image-fixed-height.*?src=&quot;(.*?)&quot;.*?a-link-normal a-text-normal.*?href=&quot;(.*?)&quot;.*?a-size-medium a-color-base a-text-normal&quot;&gt;(.*?)&lt;</find>
-      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;feature-bullets&quot;(.*?)id=&quot;seeMoreDetailsLink&quot;</find>
-      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;productTitle&quot;.*?&gt;(.*?)&lt;.*?id=&quot;feature-bullets&quot;(.*?)id=&quot;seeMoreDetailsLink&quot;</find>
-      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;.*?id=&quot;productTitle&quot;.*?&gt;(.*?)&lt;.*?id=&quot;feature-bullets&quot;(.*?)</find>
-      <find>ist index out</find>
-      <find>id=&quot;imgTagWrapperId&quot;.*?data-old-hires=&quot;(.*?)&quot;</find>
-      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*)</find>
-      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*?)&quot;</find>
-      <find>class=&quot;_3WhJ&quot;.*?href=&quot;(.*?)&quot;.*?title=&quot;(.*?)&quot;.*?img.*?src=&quot;(.*?)\?</find>
-      <find>class=&quot;_3v_O&quot; src=&quot;(.*?)\?.*?class=&quot;NZJI&quot;?(.*?)&lt;(.*?)class=&quot;_3a59&quot;</find>
-      <find>read excel excep</find>
-      <find>read</find>
+      <find>request_sheet2</find>
+      <find>url</find>
+      <find>get_request</find>
+      <find>shee</find>
+      <find>TR_41'</find>
+      <find>&quot;review_(.*?)&quot;.*?avatar profile_(.*?)&quot;.*?usernameClick.*?div&gt;(.*?)&lt;.*?ui_bubble_rating bubble_(.*?)&quot;.*?title=\'(.*?)\'.*?noQuotes\'&gt;(.*?)&lt;</find>
+      <find>index</find>
+      <find>href=&quot;(.*?)&quot;(.*?)memberdescriptionReviewEnhancements(.*?)countsReviewEnhancements(.*?)&lt;/ul.*?&lt;div class=&quot;wrap</find>
+      <find>get_level_of_uid</find>
+      <find>rowCellReviewEnhancements&quot;&gt;(.*?)&lt;</find>
+      <find>post</find>
+      <find>err--</find>
+      <find>rawat-kulit-kepala-untuknya</find>
+      <find>articles-untuk-pria</find>
+      <find>apa-itu-ketombe</find>
+      <find>boldness-quiz</find>
+      <find>helping-chat-id</find>
+      <find>walk</find>
+      <find>sheet2_data</find>
+      <find>sheet1_data</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;</find>
+      <find>NOX - Dine in</find>
+      <find>booking&quot;&gt;(.*?)&lt;/div</find>
+      <find>restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)data-test</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/span</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3&quot;&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/span</find>
+      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3&quot;&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</find>
+      <find>a116178497w86333592p89585249</find>
     </findStrings>
     <replaceStrings>
       <replace>',</replace>
@@ -192,23 +197,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scraping/FB_insight/HD_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/HD_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/TO_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/TO_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/FD_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/FD_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/NI_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/NI_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/IM_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/IM_W.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/MM_W.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/MM_M.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/CH_M.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/CH_W.html" />
         <option value="$PROJECT_DIR$/scraping/google/google.py" />
         <option value="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
-        <option value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
         <option value="$PROJECT_DIR$/scraping/steampowered/read.py" />
         <option value="$PROJECT_DIR$/scraping/steampowered/out.txt" />
         <option value="$PROJECT_DIR$/scraping/steampowered/2_1.html" />
@@ -225,10 +219,8 @@
         <option value="$PROJECT_DIR$/scraping/amazon/2.html" />
         <option value="$PROJECT_DIR$/scraping/google/script.py" />
         <option value="$PROJECT_DIR$/scraping/lowyat/script.py" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/jobTitle.py" />
         <option value="$PROJECT_DIR$/scraping/cafe.naver/script.py" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
         <option value="$PROJECT_DIR$/scraping/similarweb/script.py" />
         <option value="$PROJECT_DIR$/scraping/webscreenshot/screenshot.py" />
         <option value="$PROJECT_DIR$/scraping/openrice201910/script.py" />
@@ -239,14 +231,27 @@
         <option value="$PROJECT_DIR$/scraping/amazonseller/script.py" />
         <option value="$PROJECT_DIR$/scraping/amazonlist/1.html" />
         <option value="$PROJECT_DIR$/scraping/amazonlist/2.html" />
-        <option value="$PROJECT_DIR$/scraping/utils.py" />
         <option value="$PROJECT_DIR$/scraping/amazonlist/script.py" />
         <option value="$PROJECT_DIR$/scraping/paytm/script.py" />
         <option value="$PROJECT_DIR$/scraping/google/vision.py" />
+        <option value="$PROJECT_DIR$/scraping/amazonChoice/1.html" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
+        <option value="$PROJECT_DIR$/scraping/amazonChoice/script.py" />
+        <option value="$PROJECT_DIR$/scraping/kiasuparents/2.html" />
+        <option value="$PROJECT_DIR$/scraping/kiasuparents/script.py" />
+        <option value="$PROJECT_DIR$/scraping/TripAdvisor/2.html" />
+        <option value="$PROJECT_DIR$/scraping/TripAdvisor/3.html" />
+        <option value="$PROJECT_DIR$/scraping/TripAdvisor/2_1.html" />
+        <option value="$PROJECT_DIR$/scraping/utils.py" />
+        <option value="$PROJECT_DIR$/util/merge_xls.py" />
+        <option value="$PROJECT_DIR$/scraping/TripAdvisor/1.html" />
+        <option value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
+        <option value="$PROJECT_DIR$/scraping/google/attachments.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1870" />
     <option name="height" value="1057" />
@@ -262,6 +267,49 @@
             <path>
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="google" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="google" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="google" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="TripAdvisor" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="webscreenshot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -286,18 +334,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping/TripAdvisor/data" />
+      <recent name="$PROJECT_DIR$/util/data" />
       <recent name="$PROJECT_DIR$/scraping" />
       <recent name="$PROJECT_DIR$/scraping/amazonlist" />
       <recent name="$PROJECT_DIR$/scraping/amazon" />
-      <recent name="$PROJECT_DIR$/scraping/openrice201910/data" />
-      <recent name="$PROJECT_DIR$/scraping/openrice201910" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping/TripAdvisor" />
       <recent name="$PROJECT_DIR$/scraping/google/data" />
       <recent name="$PROJECT_DIR$/scraping/google" />
       <recent name="$PROJECT_DIR$/scraping/paytm" />
       <recent name="$PROJECT_DIR$/scraping/amazon" />
-      <recent name="$PROJECT_DIR$/scraping/webscreenshot" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -312,7 +360,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.vision">
+  <component name="RunManager" selected="Python.attachments">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$" />
@@ -419,6 +467,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Restaraunt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/TripAdvisor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Vacancy_v2 (1)" type="PythonConfigurationType" factoryName="Python">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -441,7 +511,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="page_likes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="attachments" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -449,12 +519,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB_insight" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/google" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/google/attachments.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="merge_xls" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/merge_xls.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -485,7 +577,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="script (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="script (2)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -493,56 +585,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/openrice201910" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/kiasuparents" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/openrice201910/script.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="script (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/amazonlist" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/amazonlist/script.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="script (5)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/paytm" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/paytm/script.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/kiasuparents/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -573,7 +621,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="vision" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -581,12 +629,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/google" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/google/vision.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -611,19 +659,19 @@
       <item itemvalue="Python.Employed_v2" />
       <item itemvalue="Python.Vacancy_v2 (1)" />
       <item itemvalue="Python.1_Posts (1)" />
-      <item itemvalue="Python.page_likes" />
-      <item itemvalue="Python.script (3)" />
-      <item itemvalue="Python.vision" />
-      <item itemvalue="Python.script (4)" />
-      <item itemvalue="Python.script (5)" />
+      <item itemvalue="Python.script (2)" />
+      <item itemvalue="Python.Restaraunt" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.attachments" />
+      <item itemvalue="Python.merge_xls" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.vision" />
-        <item itemvalue="Python.script (5)" />
-        <item itemvalue="Python.script (4)" />
-        <item itemvalue="Python.script (3)" />
-        <item itemvalue="Python.page_likes" />
+        <item itemvalue="Python.attachments" />
+        <item itemvalue="Python.Restaraunt" />
+        <item itemvalue="Python.merge_xls" />
+        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.script (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -638,6 +686,17 @@
       <option name="presentableId" value="Default" />
       <updated>1493862843423</updated>
       <workItem from="1575472565238" duration="479000" />
+      <workItem from="1575473048041" duration="12960000" />
+      <workItem from="1575507191269" duration="6442000" />
+      <workItem from="1575641947312" duration="12384000" />
+      <workItem from="1575869754444" duration="29746000" />
+      <workItem from="1576052541301" duration="7394000" />
+      <workItem from="1576486926681" duration="7051000" />
+      <workItem from="1576641995423" duration="6931000" />
+      <workItem from="1576762716094" duration="8770000" />
+      <workItem from="1577125719257" duration="5040000" />
+      <workItem from="1577754463000" duration="1622000" />
+      <workItem from="1579334075934" duration="2313000" />
     </task>
     <task id="LOCAL-00001" summary="ADD: google">
       <created>1493981762445</created>
@@ -917,7 +976,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="479000" />
+    <option name="totallyTimeSpent" value="101132000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -929,25 +988,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1870" height="1057" extended-state="6" />
+    <frame x="0" y="23" width="1870" height="1057" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1619256" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.79075426" visible="true" weight="0.22155361" />
       <window_info id="Structure" order="1" weight="0.24852653" />
-      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info id="Favorites" order="2" sideWeight="0.20924574" side_tool="true" weight="0.1892405" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3284974" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.46735752" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.34611398" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32866243" />
-      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49766627" weight="0.29015544" />
+      <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49766627" weight="0.28917196" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49556214" weight="0.43626943" />
+      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49556214" weight="0.39481866" />
       <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49304348" weight="0.42901555" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50443786" side_tool="true" weight="0.5057325" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" sideWeight="0.49649122" weight="0.32881" />
-      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.41968912" />
+      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.4238342" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1233,12 +1292,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
-          <line>107</line>
-          <option name="timeStamp" value="357" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
-          <line>153</line>
+          <line>264</line>
           <option name="timeStamp" value="362" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1278,13 +1332,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
-          <line>83</line>
+          <line>86</line>
           <option name="timeStamp" value="391" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
-          <line>129</line>
-          <option name="timeStamp" value="392" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/openrice201910/script.py</url>
@@ -1295,6 +1344,41 @@
           <url>file://$PROJECT_DIR$/scraping/google/vision.py</url>
           <line>26</line>
           <option name="timeStamp" value="412" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/amazonChoice/script.py</url>
+          <line>506</line>
+          <option name="timeStamp" value="416" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/amazonChoice/script.py</url>
+          <line>502</line>
+          <option name="timeStamp" value="418" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
+          <line>137</line>
+          <option name="timeStamp" value="419" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/kiasuparents/script.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="420" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
+          <line>156</line>
+          <option name="timeStamp" value="424" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
+          <line>635</line>
+          <option name="timeStamp" value="425" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
+          <line>134</line>
+          <option name="timeStamp" value="427" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -1321,198 +1405,58 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>texts[1]</expression-string>
+        <expression-string>re.compile('').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(texts)</expression-string>
+        <expression-string>re.compile('alt=\'(.*?) .*?reviewCount&quot;&gt;(.*?) ').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(tests)</expression-string>
+        <expression-string>re.compile('alt=\'(.*?) .*?reviewCount&quot;&gt;(.*?)&lt;').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>len(testx)</expression-string>
+        <expression-string>re.compile('alt=\'(.*?) .*?reviewCount&quot;&gt;').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>text.description.strip().lower()</expression-string>
+        <expression-string>ori</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>text.description.strip().upper()</expression-string>
+        <expression-string>re.compile('alt=\'(.*?) .*?reviewCount').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>'acer' == text.description.strip().lower()</expression-string>
+        <expression-string>re.compile('alt=\'(.*?) ').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>'Acer' == text.description.strip()</expression-string>
+        <expression-string>re.compile('alt=(.*?) ').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>'acer' == text.description.strip()</expression-string>
+        <expression-string>re.compile('alt=(.*?) .*?reviewCount&quot;&gt;.*?&gt;(.*?) review').findall(ori)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>re.compile('alt=(.*?) of 5 bubbles.*?reviewCount&quot;&gt;.*?&gt;(.*?) review').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Women.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Destiny (video game)_Men.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Women.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Men.html" />
-    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19416">
-          <caret column="112253" selection-start-column="112253" selection-end-column="112253" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/product.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret column="96424" selection-start-column="94965" selection-end-column="96424" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="4" column="274735" selection-start-line="4" selection-start-column="274702" selection-end-line="4" selection-end-column="274735" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/2_1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret column="596" selection-start-column="596" selection-end-column="596" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB/3_also_like.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="121" selection-start-line="121" selection-end-line="134" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/similarweb/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret column="80827" selection-start-column="78610" selection-end-column="80827" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/lowyat/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="102" column="62" selection-start-line="102" selection-start-column="62" selection-end-line="102" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="89" column="52" selection-start-line="89" selection-start-column="44" selection-end-line="89" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret column="135649" selection-start-column="131964" selection-end-column="135649" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret column="19346" selection-start-column="16613" selection-end-column="19346" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/jobTitle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="65" selection-start-line="65" selection-end-line="68" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/HTMLParser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="97" column="8" selection-start-line="97" selection-start-column="8" selection-end-line="97" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/data/sheet1.csv" />
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="23" column="17" lean-forward="true" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/webscreenshot.js" />
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/webscreenshot.py" />
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/webscreenshot/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/scraping/similarweb/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="119" lean-forward="true" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="119" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/webscreenshot/screenshot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FB_search_result/run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="e#16#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/SearchForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-259">
-          <caret line="53" column="25" lean-forward="true" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="175" column="26" lean-forward="true" selection-start-line="175" selection-start-column="26" selection-end-line="175" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/carlist/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4140" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
@@ -1607,13 +1551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="160" lean-forward="true" selection-start-column="160" selection-end-column="160" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/amazonseller/script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
@@ -1643,16 +1580,6 @@
             <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="e#6082#6087#0" expanded="true" />
             <element signature="e#6513#6519#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="4" column="9" lean-forward="true" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1918,18 +1845,865 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out.txt" />
+    <entry file="file://$PROJECT_DIR$/scraping/kiasuparents/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret column="50072" selection-start-column="48409" selection-end-column="50072" />
+          <folding>
+            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#7;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#8;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#9;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#10;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#11;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#79015#79021#0" expanded="true" />
+            <element signature="e#79058#79064#0" expanded="true" />
+            <element signature="e#79103#79109#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#strong#3;n#p#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#80810#80815#0" expanded="true" />
+            <element signature="e#80831#80837#0" expanded="true" />
+            <element signature="e#81435#81441#1" expanded="true" />
+            <element signature="e#81625#81631#1" expanded="true" />
+            <element signature="e#82569#82575#1" expanded="true" />
+            <element signature="e#82763#82769#1" expanded="true" />
+            <element signature="e#95884#95891#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/amazonlist/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="74" column="8" selection-start-line="74" selection-start-column="8" selection-end-line="74" selection-end-column="36" />
+        <state relative-caret-position="225">
+          <caret line="15" column="28" lean-forward="true" selection-end-line="86" selection-end-column="39" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out.txt">
+    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret column="454589" selection-start-column="454589" selection-end-column="454589" />
+          <folding>
+            <element signature="e#1225#1232#0" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#351#358#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret column="87990" selection-start-column="85810" selection-end-column="87990" />
+          <folding>
+            <element signature="e#9129#9134#0" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#47420#47426#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#73137#73145#1" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#table#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#104129#104136#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#136015#136019#0" expanded="true" />
+            <element signature="e#1351#1358#0" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#364#371#1" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#171023#171031#1" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#a#0;n#div#0;n#span#1;n#div#2;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#a#2;n#div#0;n#span#1;n#div#2;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#9;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#11;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#176670#176676#1" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#9;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#11;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#178642#178648#1" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#9;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#11;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#180273#180279#1" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#9;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#11;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#181910#181916#1" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#9;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#11;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#noscript#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="704" lean-forward="true" selection-start-column="704" selection-end-column="704" />
+          <folding>
+            <element signature="e#2786#2791#0" expanded="true" />
+            <element signature="e#2803#2808#0" expanded="true" />
+            <element signature="e#3543#3548#1" expanded="true" />
+            <element signature="e#3560#3565#1" expanded="true" />
+            <element signature="e#4298#4303#1" expanded="true" />
+            <element signature="e#4315#4320#1" expanded="true" />
+            <element signature="e#5049#5054#1" expanded="true" />
+            <element signature="e#5066#5071#1" expanded="true" />
+            <element signature="e#5808#5813#1" expanded="true" />
+            <element signature="e#5825#5830#1" expanded="true" />
+            <element signature="e#6567#6572#1" expanded="true" />
+            <element signature="e#6584#6589#1" expanded="true" />
+            <element signature="e#7318#7323#1" expanded="true" />
+            <element signature="e#7335#7340#1" expanded="true" />
+            <element signature="e#8091#8096#1" expanded="true" />
+            <element signature="e#8108#8113#1" expanded="true" />
+            <element signature="e#8870#8875#1" expanded="true" />
+            <element signature="e#8887#8892#1" expanded="true" />
+            <element signature="e#9619#9624#1" expanded="true" />
+            <element signature="e#9636#9641#1" expanded="true" />
+            <element signature="e#10379#10384#1" expanded="true" />
+            <element signature="e#10396#10401#1" expanded="true" />
+            <element signature="e#11153#11158#1" expanded="true" />
+            <element signature="e#11170#11175#1" expanded="true" />
+            <element signature="e#11939#11944#1" expanded="true" />
+            <element signature="e#11956#11961#1" expanded="true" />
+            <element signature="e#12727#12732#1" expanded="true" />
+            <element signature="e#12744#12749#1" expanded="true" />
+            <element signature="e#13491#13496#1" expanded="true" />
+            <element signature="e#13508#13513#1" expanded="true" />
+            <element signature="e#14251#14256#1" expanded="true" />
+            <element signature="e#14268#14273#1" expanded="true" />
+            <element signature="e#15029#15034#1" expanded="true" />
+            <element signature="e#15046#15051#1" expanded="true" />
+            <element signature="e#15807#15812#1" expanded="true" />
+            <element signature="e#15824#15829#1" expanded="true" />
+            <element signature="e#16565#16570#1" expanded="true" />
+            <element signature="e#16582#16587#1" expanded="true" />
+            <element signature="e#17317#17322#1" expanded="true" />
+            <element signature="e#17334#17339#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="851" selection-start-column="482" selection-end-column="851" />
+          <folding>
+            <element signature="e#2786#2791#0" expanded="true" />
+            <element signature="e#2803#2808#0" expanded="true" />
+            <element signature="e#3543#3548#1" expanded="true" />
+            <element signature="e#3560#3565#1" expanded="true" />
+            <element signature="e#4298#4303#1" expanded="true" />
+            <element signature="e#4315#4320#1" expanded="true" />
+            <element signature="e#5049#5054#1" expanded="true" />
+            <element signature="e#5066#5071#1" expanded="true" />
+            <element signature="e#5808#5813#1" expanded="true" />
+            <element signature="e#5825#5830#1" expanded="true" />
+            <element signature="e#6567#6572#1" expanded="true" />
+            <element signature="e#6584#6589#1" expanded="true" />
+            <element signature="e#7318#7323#1" expanded="true" />
+            <element signature="e#7335#7340#1" expanded="true" />
+            <element signature="e#8091#8096#1" expanded="true" />
+            <element signature="e#8108#8113#1" expanded="true" />
+            <element signature="e#8870#8875#1" expanded="true" />
+            <element signature="e#8887#8892#1" expanded="true" />
+            <element signature="e#9619#9624#1" expanded="true" />
+            <element signature="e#9636#9641#1" expanded="true" />
+            <element signature="e#10379#10384#1" expanded="true" />
+            <element signature="e#10396#10401#1" expanded="true" />
+            <element signature="e#11153#11158#1" expanded="true" />
+            <element signature="e#11170#11175#1" expanded="true" />
+            <element signature="e#11939#11944#1" expanded="true" />
+            <element signature="e#11956#11961#1" expanded="true" />
+            <element signature="e#12727#12732#1" expanded="true" />
+            <element signature="e#12744#12749#1" expanded="true" />
+            <element signature="e#13491#13496#1" expanded="true" />
+            <element signature="e#13508#13513#1" expanded="true" />
+            <element signature="e#14251#14256#1" expanded="true" />
+            <element signature="e#14268#14273#1" expanded="true" />
+            <element signature="e#15029#15034#1" expanded="true" />
+            <element signature="e#15046#15051#1" expanded="true" />
+            <element signature="e#15807#15812#1" expanded="true" />
+            <element signature="e#15824#15829#1" expanded="true" />
+            <element signature="e#16565#16570#1" expanded="true" />
+            <element signature="e#16582#16587#1" expanded="true" />
+            <element signature="e#17317#17322#1" expanded="true" />
+            <element signature="e#17334#17339#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/location_script.py">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/product.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="10" column="571" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="571" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="215" column="42" lean-forward="true" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/0.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret column="178424" selection-start-column="178424" selection-end-column="178424" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/kiasuparents/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret column="2681" selection-start-column="359" selection-end-column="2681" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#748#755#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#1215#1222#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#3155#3162#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#3619#3626#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#5140#5147#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#5606#5613#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#7029#7036#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#7492#7499#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#8571#8578#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#8939#8946#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#10034#10041#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#10495#10502#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#11587#11594#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#11959#11966#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#6;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#13054#13061#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#13520#13527#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#7;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#14922#14929#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#15386#15393#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#8;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#16914#16921#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#17382#17389#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#9;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#19314#19321#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#19776#19783#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#10;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#21400#21407#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#21867#21874#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#11;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#12;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#12;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#23801#23808#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#12;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#12;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#24264#24271#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#12;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#26282#26289#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#26750#26757#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#13;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#14;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#14;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#28697#28704#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#14;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#14;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#29160#29167#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#14;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#15;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#15;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#30801#30808#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#15;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#15;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#31269#31276#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#15;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#16;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#16;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#32806#32813#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#16;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#16;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#33273#33280#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#16;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#34447#34454#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#34916#34923#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#17;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#dt#0;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#36084#36091#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#36545#36552#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#18;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#19;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#19;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#37945#37952#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#dt#0;n#dl#0;n#li#19;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#19;n#ul#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#38414#38421#0" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#19;n#ul#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="26" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/profile_comment.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1083" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt2.py" />
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/Hotels.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="104" column="99" selection-start-line="104" selection-start-column="99" selection-end-line="104" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="401">
+          <caret column="1256072" selection-start-column="1256072" selection-end-column="1256072" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="130" column="4" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/3.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret column="669652" selection-start-column="669652" selection-end-column="669652" />
+          <folding>
+            <element signature="e#628#633#0" expanded="true" />
+            <element signature="e#15244#55971#2" expanded="true" />
+            <element signature="e#196962#197325#2" expanded="true" />
+            <element signature="e#197414#197959#2" expanded="true" />
+            <element signature="e#198050#198739#2" expanded="true" />
+            <element signature="e#198827#199792#2" expanded="true" />
+            <element signature="e#296210#296573#2" expanded="true" />
+            <element signature="e#296661#297206#2" expanded="true" />
+            <element signature="e#297296#297985#2" expanded="true" />
+            <element signature="e#298072#299037#2" expanded="true" />
+            <element signature="e#563544#563577#0" expanded="true" />
+            <element signature="e#577841#577846#0" expanded="true" />
+            <element signature="e#577859#577864#0" expanded="true" />
+            <element signature="e#578034#578039#0" expanded="true" />
+            <element signature="e#581090#581095#0" expanded="true" />
+            <element signature="e#584776#584803#0" expanded="true" />
+            <element signature="e#594193#594199#1" expanded="true" />
+            <element signature="e#594249#594255#1" expanded="true" />
+            <element signature="e#594485#594491#1" expanded="true" />
+            <element signature="e#594541#594547#1" expanded="true" />
+            <element signature="e#594774#594780#1" expanded="true" />
+            <element signature="e#594830#594836#1" expanded="true" />
+            <element signature="e#595136#595142#1" expanded="true" />
+            <element signature="e#595192#595198#1" expanded="true" />
+            <element signature="e#603748#603771#0" expanded="true" />
+            <element signature="e#609649#609729#0" expanded="true" />
+            <element signature="e#610028#610108#0" expanded="true" />
+            <element signature="e#610401#610481#0" expanded="true" />
+            <element signature="e#610774#610854#0" expanded="true" />
+            <element signature="e#611151#611231#0" expanded="true" />
+            <element signature="e#611527#611607#0" expanded="true" />
+            <element signature="e#611910#611990#0" expanded="true" />
+            <element signature="e#612283#612363#0" expanded="true" />
+            <element signature="e#612660#612740#0" expanded="true" />
+            <element signature="e#613027#613107#0" expanded="true" />
+            <element signature="e#613818#613898#0" expanded="true" />
+            <element signature="e#614302#614382#0" expanded="true" />
+            <element signature="e#614972#615052#0" expanded="true" />
+            <element signature="e#615380#615460#0" expanded="true" />
+            <element signature="e#615792#615872#0" expanded="true" />
+            <element signature="e#616203#616283#0" expanded="true" />
+            <element signature="e#616621#616701#0" expanded="true" />
+            <element signature="e#617029#617109#0" expanded="true" />
+            <element signature="e#617441#617521#0" expanded="true" />
+            <element signature="e#617843#617923#0" expanded="true" />
+            <element signature="e#636165#636245#0" expanded="true" />
+            <element signature="e#636994#636999#0" expanded="true" />
+            <element signature="e#637306#637386#0" expanded="true" />
+            <element signature="e#637646#637651#0" expanded="true" />
+            <element signature="e#638047#638052#0" expanded="true" />
+            <element signature="e#638468#638548#0" expanded="true" />
+            <element signature="e#642737#642770#0" expanded="true" />
+            <element signature="e#643346#643380#0" expanded="true" />
+            <element signature="e#643954#643988#0" expanded="true" />
+            <element signature="e#644559#644592#0" expanded="true" />
+            <element signature="e#654531#654564#0" expanded="true" />
+            <element signature="e#655140#655174#0" expanded="true" />
+            <element signature="e#655748#655782#0" expanded="true" />
+            <element signature="e#656353#656386#0" expanded="true" />
+            <element signature="e#661505#661585#0" expanded="true" />
+            <element signature="e#663721#663761#0" expanded="true" />
+            <element signature="e#663768#663848#0" expanded="true" />
+            <element signature="e#663974#663999#0" expanded="true" />
+            <element signature="e#664179#664204#0" expanded="true" />
+            <element signature="e#666522#666527#0" expanded="true" />
+            <element signature="e#668244#668324#0" expanded="true" />
+            <element signature="e#672199#672204#0" expanded="true" />
+            <element signature="e#672303#672308#0" expanded="true" />
+            <element signature="e#672417#672422#0" expanded="true" />
+            <element signature="e#673788#673868#0" expanded="true" />
+            <element signature="e#675390#675395#0" expanded="true" />
+            <element signature="e#677624#677629#0" expanded="true" />
+            <element signature="e#677693#677698#0" expanded="true" />
+            <element signature="e#679014#679094#0" expanded="true" />
+            <element signature="e#680829#680834#0" expanded="true" />
+            <element signature="e#684578#684658#0" expanded="true" />
+            <element signature="e#690007#690087#0" expanded="true" />
+            <element signature="e#695879#695959#0" expanded="true" />
+            <element signature="e#699329#699335#0" expanded="true" />
+            <element signature="e#701697#701777#0" expanded="true" />
+            <element signature="e#703253#703258#0" expanded="true" />
+            <element signature="e#706977#707057#0" expanded="true" />
+            <element signature="e#711781#711861#0" expanded="true" />
+            <element signature="e#718724#718745#0" expanded="true" />
+            <element signature="e#720007#720037#0" expanded="true" />
+            <element signature="e#720410#720433#0" expanded="true" />
+            <element signature="e#721896#721926#0" expanded="true" />
+            <element signature="e#722300#722323#0" expanded="true" />
+            <element signature="e#723786#723816#0" expanded="true" />
+            <element signature="e#724205#724228#0" expanded="true" />
+            <element signature="e#725696#725726#0" expanded="true" />
+            <element signature="e#726113#726136#0" expanded="true" />
+            <element signature="e#728056#728086#0" expanded="true" />
+            <element signature="e#728463#728486#0" expanded="true" />
+            <element signature="e#729999#730029#0" expanded="true" />
+            <element signature="e#730266#730271#0" expanded="true" />
+            <element signature="e#730446#730469#0" expanded="true" />
+            <element signature="e#731933#731963#0" expanded="true" />
+            <element signature="e#732346#732369#0" expanded="true" />
+            <element signature="e#733864#733894#0" expanded="true" />
+            <element signature="e#734293#734316#0" expanded="true" />
+            <element signature="e#736243#736273#0" expanded="true" />
+            <element signature="e#736661#736684#0" expanded="true" />
+            <element signature="e#738153#738183#0" expanded="true" />
+            <element signature="e#738562#738585#0" expanded="true" />
+            <element signature="e#740067#740097#0" expanded="true" />
+            <element signature="e#740494#740517#0" expanded="true" />
+            <element signature="e#742020#742050#0" expanded="true" />
+            <element signature="e#742283#742288#0" expanded="true" />
+            <element signature="e#742460#742483#0" expanded="true" />
+            <element signature="e#744211#744216#0" expanded="true" />
+            <element signature="e#745805#745825#0" expanded="true" />
+            <element signature="e#746101#746125#0" expanded="true" />
+            <element signature="e#834318#834375#0" expanded="true" />
+            <element signature="e#834444#834465#0" expanded="true" />
+            <element signature="e#834709#834879#0" expanded="true" />
+            <element signature="e#889478#889484#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/2_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2197" selection-start-column="2197" selection-end-column="2197" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#1;n#div#0;n#ul#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#1;n#div#1;n#ul#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#1;n#div#2;n#ul#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#1;n#div#3;n#ul#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#span#1;n#div#4;n#ul#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2/typing.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="40" selection-start-line="40" selection-end-line="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/kiasuparents/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="23" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/conf/pyenv/lib/python2.7/site-packages/requests/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="941" selection-start-line="941" selection-end-line="941" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/merge_xls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="33" column="16" lean-forward="true" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/Attractions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="98" column="22" selection-start-line="98" selection-start-column="11" selection-end-line="98" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret column="219894" selection-start-column="216441" selection-end-column="219894" />
+          <folding>
+            <element signature="e#78432#78437#0" expanded="true" />
+            <element signature="e#105264#105269#0" expanded="true" />
+            <element signature="e#111781#111786#0" expanded="true" />
+            <element signature="e#111799#111804#0" expanded="true" />
+            <element signature="e#112539#112544#0" expanded="true" />
+            <element signature="e#112555#112560#0" expanded="true" />
+            <element signature="e#115356#115363#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#167743#167748#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#9;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#189584#189589#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#10;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#12;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#199142#199147#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#13;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#204923#204928#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#14;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#15;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#16;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#18;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#19;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#20;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#21;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#22;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#24;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#25;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#26;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#27;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#28;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#30;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#31;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#286982#286987#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#32;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#288968#288973#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#33;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#295245#295250#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#34;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#35;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+            <element signature="e#309817#309822#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#a#0;n#span#0;n#div#0;n#div#0;n#div#36;n#div#0;n#div#0;n#div#0;n#div#4;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="637" column="30" lean-forward="true" selection-start-line="637" selection-start-column="30" selection-end-line="637" selection-end-column="30" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/attachments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-115">
+          <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+          <folding>
+            <element signature="e#5918#7575#0" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>

@@ -8,15 +8,18 @@ import HTMLParser
 import json
 import os, sys
 
-cookie = 'datr=RKzWW_1NuhIxB9RG7RUemqv0; sb=ovjqW-tww_Qe7OR39cZQ91wp; c_user=100006957738125; xs=204%3AxJOImzLFdPhW1A%3A2%3A1546597455%3A20772%3A8703; fr=0mVSQPNFOoV7LvCYc.AWXamP8Ag4Yu_zgArwvpNP0gJpo.Bb0aQ1.Cv.F2A.0.0.BditFT.AWUknhrQ; spin=r.1001266026_b.trunk_t.1570529080_s.1_v.2_; presence=EDvF3EtimeF1570529929EuserFA21B06957738125A2EstateFDutF1570529929756CEchFDp_5f1B06957738125F1CC; wd=1647x541; act=1570530170543%2F9; pnl_data2=eyJhIjoib25hZnRlcmxvYWQiLCJjIjoiWEFkc0tlcGxlckNvbnRyb2xsZXIiLCJiIjpmYWxzZSwiZCI6Ii9hZHMvYXVkaWVuY2UtaW5zaWdodHMvaW50ZXJlc3RzIiwiZSI6W119'
+cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; locale=en_GB; c_user=100044116672366; xs=43%3AO3CPKtJnpU-Rlg%3A2%3A1575484489%3A-1%3A-1; fr=00b9BjLp9YpJZJ1dF.AWUvlIHgYzV7iZtqqgJBcWKhU9k.Bd35LM.nu.AAA.0.0.Bd5_xJ.AWU8k8Vq; spin=r.1001494170_b.trunk_t.1575484490_s.1_v.2_; wd=1779x578; presence=EDvF3EtimeF1575484828EuserFA21B44116672366A2EstateFDutF1575484505253CEchFDp_5f1B44116672366F0CC; pnl_data2=eyJhIjoiYWxsX3BhZ2VsZXRzX2Rpc3BsYXllZCIsImMiOiJYQWRzS2VwbGVyQ29udHJvbGxlciIsImIiOmZhbHNlLCJkIjoiL2Fkcy9hdWRpZW5jZS1pbnNpZ2h0cy9wZW9wbGUiLCJlIjpbXX0%3D'
 
-url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQwDIx2AYByWYySMACGCacExLAQEGnAxKRnbuDFTE19dNQ%3AAQxgoMTlSb7xJMfc-elrAaPybvLtdMbV_kzn2tX0HY9PVQ&city[0]={}&metrics[0]={}'
+url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQwDIx2AYByWYySMACGCacExLAQEGnAxKRnbuDFTE19dNQ%3AAQxgoMTlSb7xJMfc-elrAaPybvLtdMbV_kzn2tX0HY9PVQ&metrics[0]={}'
 url_base += '&admarket_id=6017625189745&logger_session_id=ef675544a3427aa08790fc71c423af75b797087c&__user=100006957738125&__a=1&__dyn=7xeUmFoO3-SudwCwBzUKFVedzFuCEkG11wTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwxxicwko42EiyEqx68w9q15w5VCwjHwKxG2Z2odoK7UC5oK1KxO4Ujw9-icwKwEwgolUScw4JwgHAy85iawnEfU6Oq2l2Utgvx-2y1uw9a2WE9EjwgEmwkE-58C4V8&__csr=&__req=1q&__be=1&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001266026&__s=%3Ayrvwm7%3Ak7ofa5&__hsi=6745374670875311486-0&jazoest=27854&__spin_r=1001266026&__spin_b=trunk&__spin_t=1570529080'
 
 param_list = [
-    # ('ID_1', 'Boost Mobile, Digital Wallet, Go-jek', '&interests[0]=6003149389749&interests[1]=6003280248159&interests[2]=977370282327350', '1002881', 'Yogykarta'),
-    # ('ID_2', 'Boost Mobile, Digital Wallet, Go-jek', '&interests[0]=6003149389749&interests[1]=6003280248159&interests[2]=977370282327350', '989399', 'Semarang'),
-    ('ID_3', 'Boost Mobile, Digital Wallet, Go-jek', '&interests[0]=6003149389749&interests[1]=6003280248159&interests[2]=977370282327350', '992961', 'Surakarta'),
+    ('ID_1', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=18&age[1]=19&country[0]=BR&country[1]=FR&country[2]=DE&country[3]=IN&country[4]=MX&country[5]=RU&country[6]=US&country[7]=GB&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=10482f9d47c8b294337c801ce11e8b8ab6f961ea&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu3Oq1Fx-ewSAxamaDxW4E8U5Cezobohxim7E8okz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0n2V8y1kyE5W3-1ICwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxW4V8&__csr=&__req=2k&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=10ehry%3Ae29d83%3A6fccjp&__hsi=6766832954723853906-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '18-19'),
+    ('ID_2', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=20&age[1]=24&country[0]=BR&country[1]=DE&country[2]=FR&country[3]=GB&country[4]=IN&country[5]=MX&country[6]=RU&country[7]=US&education[0]=4&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&metrics[0]=2&admarket_id=23844093502180140&logger_session_id&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu13wqovzEdF8iBxa7EiwzwmoWdwJx659ouwxxicw9aEiyEqx60DU4m0nCq1eK2W6EbQ9wRyUvyolyU6W78jwbeicwKwEwgolUScw5MKi8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei&__csr=&__req=4&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=xub0tz%3Ae29d83%3Arzee8i&__hsi=6766838907222854163-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '20-24'),
+    ('ID_3', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=25&age[1]=34&country[0]=BR&country[1]=DE&country[2]=FR&country[3]=GB&country[4]=IN&country[5]=MX&country[6]=RU&country[7]=US&education[0]=4&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&family_statuses[0]=6002714398372&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=5ae7fd9a981014b429a4eed28fa0afacf11d756a&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu3Oq1Fx-ewSAxamaDxW4E8U5Cezobohxim7E8okz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0n2V8y1kyE5W3-1PwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxW4V8&__csr=&__req=l&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=kbjnee%3Ae29d83%3Arzee8i&__hsi=6766838907222854163-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '25-34'),
+    ('ID_4', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=35&age[1]=44&country[0]=BR&country[1]=DE&country[2]=FR&country[3]=GB&country[4]=IN&country[5]=MX&country[6]=RU&country[7]=US&education[0]=4&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&family_statuses[0]=6002714398372&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=5ae7fd9a981014b429a4eed28fa0afacf11d756a&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu3Oq1Fx-ewSAxamaDxW4E8U5Cezobohxim7E8okz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0n2V8y1kyE5W3-1PwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxW4V8&__csr=&__req=l&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=kbjnee%3Ae29d83%3Arzee8i&__hsi=6766838907222854163-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '35-44'),
+    ('ID_5', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=45&age[1]=54&country[0]=BR&country[1]=DE&country[2]=FR&country[3]=GB&country[4]=IN&country[5]=MX&country[6]=RU&country[7]=US&education[0]=4&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&family_statuses[0]=6002714398372&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=5ae7fd9a981014b429a4eed28fa0afacf11d756a&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu3Oq1Fx-ewSAxamaDxW4E8U5Cezobohxim7E8okz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0n2V8y1kyE5W3-1PwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxW4V8&__csr=&__req=l&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=kbjnee%3Ae29d83%3Arzee8i&__hsi=6766838907222854163-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '45-54'),
+    ('ID_5', 'HP', 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzji92kJsPhk0fSKeFCKVJcTqkcIaZk4QvWRP4M_nISYA%3AAQwYXhyv5SBwveT2-Yx7lHPGxgQ7Uz20HgrkRCDNLxFDIg&age[0]=55&age[1]=64&country[0]=BR&country[1]=DE&country[2]=FR&country[3]=GB&country[4]=IN&country[5]=MX&country[6]=RU&country[7]=US&education[0]=4&interests[0]=6003200182684&interests[1]=6003533303598&interests[2]=6006406219142&interests[3]=6002925240321&interests[4]=6003154042305&interests[5]=6003196812767&family_statuses[0]=6002714398372&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=5ae7fd9a981014b429a4eed28fa0afacf11d756a&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu3Oq1Fx-ewSAxamaDxW4E8U5Cezobohxim7E8okz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0n2V8y1kyE5W3-1PwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxW4V8&__csr=&__req=l&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=kbjnee%3Ae29d83%3Arzee8i&__hsi=6766838907222854163-0&jazoest=27989&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490', '', 'ALL', '55-64'),
 ]
 
 age_list = [
@@ -108,13 +111,14 @@ def scrape_from_urls():
 
 
 def generate_url(country, type, interest):
-    url = url_base.format(country, type)
+    url = url_base.format(type)
 
     res = []
     for age in age_list:
         for gender in gender_list:
-            res.append([url + interest + parse_age_str(age) + gender, 'Men' if '2' in gender else 'Women', '-'.join(age)])
-
+            # res.append([url + interest + parse_age_str(age) + gender, 'Men' if '2' in gender else 'Women', '-'.join(age)])
+            res.append(
+                [url + interest, 'ALL', '18-ANY'])
     return res
 
 
@@ -124,14 +128,10 @@ def parse_age_str(age):
 
 def parse_from_url(url_obj):
     global sheet1
-    g_id, name, interest, country, country_name = url_obj
-    job_url_list = generate_url(country, '2', interest)
+    g_id, name, url, country_name, gender, age = url_obj
 
-    for url_entry in job_url_list:
-        url, gender, age = url_entry
-
-        res_json = get_request(url)
-        process_json(g_id, res_json, gender, country_name, age)
+    res_json = get_request(url)
+    process_json(g_id, res_json, gender, country_name, age)
 
 
 def process_json(g_id, res_json, gender, country, age):
@@ -157,7 +157,7 @@ def scrape_from_files():
 
 def request_product(url):
     html = get_html(url)
-    reg = '<div class="_50f4">Products</div>(.*?)See more'
+    reg = '<div class="_4bl9 _5m_o">.*?href.*?>(.*?)<'
     data = re.compile(reg).findall(html)
 
     return 'N/A' if not data else remove_html_tag(data[0])
@@ -166,7 +166,7 @@ def request_product(url):
 def scrape_product(start=1):
     res = [[]]
     url_detail = {}
-    data = xlrd.open_workbook("data/FB Insights.xls", encoding_override="utf-8")
+    data = xlrd.open_workbook("data/page_likes.xls", encoding_override="utf-8")
     table = data.sheets()[0]
 
     for i in range(start, table.nrows):

@@ -8,12 +8,12 @@ import HTMLParser
 import json
 import os, sys
 
-cookie = 'datr=RKzWW_1NuhIxB9RG7RUemqv0; sb=ovjqW-tww_Qe7OR39cZQ91wp; c_user=100006957738125; xs=204%3AxJOImzLFdPhW1A%3A2%3A1546597455%3A20772%3A8703; ; fr=0mVSQPNFOoV7LvCYc.AWUvbhXxVSvGgNeRpWC3jlm-3zc.Bb0aQ1.Cv.Fyn.0.0.BdS4B7.AWXVNuAZ; act=1565229224169%2F4; spin=r.1001072277_b.trunk_t.1566104867_s.1_v.2_; wd=1873x292; presence=EDvF3EtimeF1566106310EuserFA21B06957738125A2EstateFDt3F_5b_5dElm3FA2user_3a175814135854019A2Eutc3F1551963747010G566106310257CEchFDp_5f1B06957738125F1CC; pnl_data2=eyJhIjoib25hZnRlcmxvYWQiLCJjIjoiWEFkc0tlcGxlckNvbnRyb2xsZXIiLCJiIjpmYWxzZSwiZCI6Ii9hZHMvYXVkaWVuY2UtaW5zaWdodHMvaW50ZXJlc3RzIiwiZSI6W119'
+cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; locale=en_GB; c_user=100044116672366; xs=43%3AO3CPKtJnpU-Rlg%3A2%3A1575484489%3A-1%3A-1; fr=00b9BjLp9YpJZJ1dF.AWUvlIHgYzV7iZtqqgJBcWKhU9k.Bd35LM.nu.AAA.0.0.Bd5_xJ.AWU8k8Vq; spin=r.1001494170_b.trunk_t.1575484490_s.1_v.2_; wd=1779x578; presence=EDvF3EtimeF1575484828EuserFA21B44116672366A2EstateFDutF1575484505253CEchFDp_5f1B44116672366F0CC; pnl_data2=eyJhIjoiYWxsX3BhZ2VsZXRzX2Rpc3BsYXllZCIsImMiOiJYQWRzS2VwbGVyQ29udHJvbGxlciIsImIiOmZhbHNlLCJkIjoiL2Fkcy9hdWRpZW5jZS1pbnNpZ2h0cy9wZW9wbGUiLCJlIjpbXX0%3D'
 
-url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQwSdRuRhiC1lNIvyECY_Ynj4LhESEdEMMwj8nfknlwhkg%3AAQxgl5v5XoAyP045VCl-kwTKx46m2tu-j7hwDEiktpVvAA&age[0]=18&age[1]=-1&country[0]={}&&metrics[0]={}&admarket_id=6017625189745&logger_session_id=537caf7b5b241f661817b68e6625f457b1d0c007&__user=100006957738125&__a=1&__dyn=7xeUmFoO3yqSudwCwBzUKFVe79uCEkG11wTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwxxicwko42EiyEqx68w825o4m0nCq1eK2W6EbQ9wRyUvyolyU6W78jxe0DV8O2W2y11xnyGz81bo4aV8y1kyE5W3-1PwBgK7k7UvwEwnE2iwKG2q4U4a5E5afxi&__req=k&__be=1&__pc=PHASED%3Aufi_home_page_pkg&dpr=1&__rev=1001072277&__s=2woygf%3A1dlwd5%3Al9zr5s&__hsi=6726375366434162411-0&jazoest=28230&__spin_r=1001072277&__spin_b=trunk&__spin_t=1566104867'
+url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQyFRbBit5KBs93Gmepxo4HPUivsyIurje_0uqeXxyJSTg%3AAQxD8h9XnwiiPheGLHU6wWsSoBslmR4qGRcTYir45POJJg&age[0]=18&age[1]=-1&metrics[0]={}&admarket_id=23844093502180140&logger_session_id&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu13wqovzEdF8iBxa7EiwzwmoWdwJx659ouwxxicw9aEiyEqx60DU4m0nCq1eK2W6EbQ9wRyUvyolyU6W78jwbeicwKwEwgolUScw5MKi8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei&__csr=&__req=7&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=eelzzs%3A1fpzv9%3Abi3ysp&__hsi=6766655804713496006-0&jazoest=28349&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490'
 
 param_list = [
-    ('ID_1', 'AMD', '&interests[0]=6003060775932&interests[1]=6003507858586&interests[2]=6003506463031&interests[3]=6011835283233&interests[4]=6004144552809&interests[5]=6003110510235&interests[6]=6016289746149', 'KR'),
+    ('ID_1', 'HP', '&interests[0]=6003200182684&interests[1]=6003293850143&interests[2]=6003533303598&interests[3]=6006406219142', 'ALL'),
 ]
 
 sheet1 = [['Game ID', 'Name', 'Country', 'Gender', 'Age range', 'Percentage', 'Max New Audience']]
@@ -79,7 +79,7 @@ def scrape_from_urls():
 
 
 def generate_url(country, type, interest):
-    url = url_base.format(country, type)
+    url = url_base.format(type)
 
     return url + interest
 

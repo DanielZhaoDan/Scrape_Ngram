@@ -3,22 +3,21 @@
 import re
 import xlwt
 from datetime import datetime
-from html.parser import HTMLParser
+from scraping import utils
 import os
-import xlrd
 import html
 import requests
 
 import requests.packages.urllib3.util.ssl_
 requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS = 'ALL'
 
-sheet0_data = [['Topic ID', 'Main Topic Name', 'Link to inside', 'Topics within', 'Posts within', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted']]
-sheet1_data = [['Topic ID', 'Main Topic Name', 'Link to inside', 'Topics within', 'Posts within', 'Sub Topic', 'Link to Sub Topic', 'Replies', 'Views', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted']]
+sheet0_data = [['Topic ID', 'Forum Category',  'Forum Name', 'Forum url', 'No. Topics', 'No. Posts', 'Last post date', 'Last post date Converted']]
+sheet1_data = [['Topic ID', 'Forum Category', 'Forum Name', 'Topic Name', 'Topics url', 'Replies', 'Views', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted']]
 sheet2_data = [['Sub Topic', 'Link to Sub Topic', 'Replies', 'Views', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted', 'Comment URL', 'Comment Text', 'Comment Date', 'Comment Date Converted']]
 
 url_base = 'https://www.kiasuparents.com/kiasu/forum/viewforum.php?f=32&start=%s'
 
-cookie = 'phpbb3_e5hmi_wps_u=1; phpbb3_e5hmi_wps_k=; phpbb3_e5hmi_wps_sid=c8f9fc66fa215bfa9be9a386cf054dde; integral-mailchimp-cookie=e644a99940ed66361bb5ed52187d089a; PHPSESSID=8441ec3e356be16243e3d9632246ed8d; ksp_visited=1; style_cookie=null; _ga=GA1.2.1977853298.1512140249; _gid=GA1.2.828697368.1512140249'
+cookie = 'phpbb3_e5hmi_wps_u=1; phpbb3_e5hmi_wps_k=; phpbb3_e5hmi_wps_sid=a59d4f87b753b7ce087ce43a1506921b; _ga=GA1.2.971203275.1575473549; _gid=GA1.2.1685841714.1575473550'
 
 
 def write(html, filename):
@@ -50,10 +49,18 @@ def write_excel(filename, alldata, flag=None):
     print(filename+"===========over============")
 
 
+def get_category(i):
+    if i < 12:
+        return 'General parenting'
+    if i < 19:
+        return 'Schooling'
+    return 'Educare'
+
+
 def request_sheet0():
     global sheet1_data, sheet2_data
     url = 'https://www.kiasuparents.com/kiasu/forum/index.php'
-    reg = 'class="row".*?href="(.*?)".*?>(.*?)</a>(.*?)</dt>.*?class="topics">(.*?)<.*?class="posts">(.*?)<.*?View the latest post.*?</a> <br />(.*?)</span'
+    reg = 'class="row".*?href="(.*?)".*?>(.*?)</a>(.*?)</dt>.*?class="topics">(.*?)<.*?class="posts">(.*?)<.*?Last post.*?<br />(.*?)<'
     html = get_request(url)
     lists_0 = re.compile(reg).findall(html)
     id = 1
@@ -64,46 +71,44 @@ def request_sheet0():
         posts = list_0[4].strip()
         last_date = list_0[5]
         last_date_converted = get_date(last_date)
-        first_date = request_sheet1(id, title, link, topics, posts, int(topics) // 50 + 1)
-        one_row = [id, link, title, topics, posts, first_date, get_date(first_date), last_date, last_date_converted]
+        one_row = [id, get_category(id), title, link, topics, posts, last_date, last_date_converted]
         sheet0_data.append(one_row)
+        print one_row
+        request_sheet1(id, get_category(id), link, title, int(topics) // 20)
         id += 1
-        write_excel('data/sheet1_%d.xls' % id, sheet1_data)
-        write_excel('data/sheet2_%d.xls' % id, sheet2_data)
-        del sheet1_data
-        del sheet2_data
-        sheet1_data = [['Topic ID', 'Main Topic Name', 'Link to inside', 'Topics within', 'Posts within', 'Sub Topic', 'Link to Sub Topic', 'Replies', 'Views', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted']]
-        sheet2_data = [['Sub Topic', 'Link to Sub Topic', 'Replies', 'Views', 'First Post Date', 'First Post Date Converted', 'Last Post date', 'Last post date converted', 'Comment URL', 'Comment Text', 'Comment Date', 'Comment Date Converted']]
 
 
-def request_sheet1(main_id, main_title, main_url, main_topics, main_posts, size):
+def request_sheet1(main_id, form_category, main_url, form_name, size):
     global sheet1_data
-    size = min(size, 40)
-    topic_body_reg = 'class="forumbg".*?class="topiclist topics"(.*?)/ul'
-    topic_detail_reg = '<dt .*?title.*?>(.*?)</dt>.*?class="posts">(.*?)<.*?class="views">(.*?)<.*?title="View the latest post".*?<br />(.*?)<'
+    # size = min(size, 40)
+    topic_body_reg = 'class="forumbg".*?class="topiclist topics"(.*?)action-bar bar-bottom'
+    topic_detail_reg = 'No unread posts.*?href="(.*?)".*?>(.*?)<.*?&raquo; (.*?)<.*?class="posts">(.*?) .*?class="views">(.*?) .*?sr-only.*?br />(.*?)<'
     last_main_date = None
-    for i in range(1, size+1):
-        url_base = main_url + '&start=%s'
+
+    url_base = main_url + '&start=%s'
+
+    for i in range(1, size):
         print('-----Level 1 Page ' + str(i) + '-----' + str(size))
-        url = url_base % str(i*50)
+        url = url_base % str(i*20)
         html = get_request(url)
         topic_body = re.compile(topic_body_reg).findall(html)
         if not topic_body:
             continue
         topic_detail = re.compile(topic_detail_reg).findall(topic_body[0])
         for detail in topic_detail:
-            raw_topic = detail[0]
-            topic, link, first_date = extract_raw_topic(raw_topic)
+            topic_url = 'https://www.kiasuparents.com/kiasu/forum/' + detail[0].replace('./', '').replace('&amp;', '&')
+            topic = utils.remove_html_tag(detail[1])
+            first_date = detail[2]
             first_date_converted = get_date(first_date)
-            replies = int(detail[1])
-            views = int(detail[2])
-            last_date = detail[3]
+
+            replies = int(detail[3])
+            views = int(detail[4])
+            last_date = detail[5]
             last_date_converted = get_date(last_date)
-            one_row = [main_id, main_title, main_url, main_topics, main_posts, topic, link, replies, views, first_date, first_date_converted, last_date, last_date_converted]
+
+            one_row = [main_id, form_category, form_name, topic, topic_url, replies, views, first_date, first_date_converted, last_date, last_date_converted]
             sheet1_data.append(one_row)
-            page_number = replies // 10
-            request_sheet2(topic, link, replies, views, first_date, first_date_converted, last_date_converted, last_date_converted, page_number)
-            last_main_date = last_date
+
     return last_main_date
 
 
@@ -130,15 +135,10 @@ def request_sheet2(sub_title, sub_link, sub_replied, sub_views, sub_first_date, 
         for reply in reply_lists:
             comment_date = reply[0]
             date = get_date(comment_date)
-            content = remove_html_tag(reply[1])
+            content = utils.remove_html_tag(reply[1])
             one_row = [sub_title, sub_link, sub_replied, sub_views, sub_first_date, sub_first_date_con, sub_last_date, sub_last_date_con, url, content, comment_date, date]
             sheet2_data.append(one_row)
 
-
-def remove_html_tag(ori):
-    dr = re.compile(r'<[^>]+>', re.S)
-    dd = dr.sub('', ori)
-    return str(html.unescape(dd)).strip()
 
 
 def get_date(ori):
@@ -168,3 +168,4 @@ def get_request(get_url):
 
 print(request_sheet0())
 write_excel('data/sheet0.xls', sheet0_data)
+write_excel('data/sheet1.xls', sheet1_data)

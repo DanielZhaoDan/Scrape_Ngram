@@ -9,20 +9,47 @@ from datetime import datetime
 import HTMLParser
 import os
 import requests
+from scraping.utils import timeout
 
 base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
 
-sheet1_data = [['ID', 'URL', 'Name', 'Rank', 'Address', 'Rating', 'Type', 'Number of reviews', 'pricing', 'Reserve Online', 'Delivery by']]
-sheet2_data = [['R_ID', 'Handle', 'Location', 'rating', 'comment date', 'Headline', 'Review text', 'Contributor level']]
+sheet0_data = [[]]
+sheet1_data = [['ID', 'Name', 'Rest. Url', 'website url', 'address', 'cuisine', 'price range', 'pricing', 'can reserve', 'special diet', 'Number of reviews', 'Rating', 'Rank', 'Food rating', 'Service rating', 'Value rating', 'Traveller type', 'Excellent', 'V. good', 'Avg', 'Poor', 'Terrible']]
+sheet2_data = [['ID', 'Rest. Url', 'Reviewer name', 'reviewer country', 'rating', 'comment date', 'Contributor level', 'Excellent', 'V. good', 'Avg', 'Poor', 'Terrible', 'Headline', 'Review text']]
 sheet3_data = [['UID', 'restaurant url', 'restaurant name', 'rating', 'restaurant address', 'restaurant country']]
 R_ID = 1
 
 url_bases = [
     # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298184&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
     # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298566&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
-    'https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&geo=298570&ajax=1&cat=10346&itags=10591&sortOrder=popularity&availSearchEnabled=false&o=a%s',
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298112&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
-    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298106&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
+    # 'https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&geo=298570&ajax=1&cat=10346&itags=10591&sortOrder=popularity&availSearchEnabled=false&o=a%s',
+    # 'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=298112&ajax=1&itags=10591&pid=14&sortOrder=relevance&o=%s&availSearchEnabled=false',
+    'https://www.tripadvisor.com.sg/RestaurantSearch?Action=PAGE&geo=294262&ajax=1&sortOrder=relevance&o=a%s&availSearchEnabled=false&pid=8',
+]
+
+error_url = [
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d878178-Reviews-Hai_Tien_Lo-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d2538710-Reviews-Tandoori_Culture-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d3359846-Reviews-KENG_ENG_KEE_SEAFOOD-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d15086890-Reviews-Rizu-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d3855842-Reviews-Din_Tai_Fung-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d3543833-Reviews-Tiong_Bahru_Bakery-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d17171783-Reviews-Fu_Lin_Men_Seafood_NSRCC-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d817015-Reviews-StraitsKitchen-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d1863524-Reviews-Stellar_at_1_Altitude-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d5429851-Reviews-Common_Man_Coffee_Roasters-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d3194658-Reviews-Nylon_Coffee_Roasters-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d4007798-Reviews-Lime_Restaurant-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d3383759-Reviews-Arteastiq_Boutique_Tea_House-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d941652-Reviews-RAS_The_Essence_of_India-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d2459079-Reviews-Luke_s_Oyster_Bar_Chop_House-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d4079480-Reviews-Wine_Connection_Cheese_Bar-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d14923574-Reviews-Papi_s_Tacos_Singapore-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d1466538-Reviews-Basilico-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d13075207-Reviews-Merci_Marcel-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d13322650-Reviews-The_Dim_Sum_Place-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d1937704-Reviews-CE_LA_VI_Restaurant-Singapore.html',
+    'https://www.tripadvisor.com.my/Restaurant_Review-g294265-d2338744-Reviews-The_Lobby_Lounge_at_InterContinental_Singapore-Singapore.html',
 ]
 
 key_prefixs = [
@@ -33,7 +60,7 @@ key_prefixs = [
     'Nagoya_',
 ]
 
-cookie = 'TASSK=enc%3AAOXETkGtSLgIR%2BBeKK3mL0jRs%2BDZ056%2F%2BFKdT6GURmBLzpbtZeP71pzSaLEppaD28E6QmzfXrhtI6xRFxRg0P8EZJfHtNijvRhBQF%2Bg835hkQrgJ7Q3MeND1VhSKipUM0A%3D%3D; ServerPool=A; PMC=V2*MS.40*MD.20190622*LD.20190622; TART=%1%enc%3AOCnwr8UMvA4cqnmZjkKzJjjXTcPsH9va%2F3wSG8%2BrItw7bGQzyB6abtrxeGdYx61CUO4ZANeUmCY%3D; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*RS.1; CM=%1%PremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C%2C-1%7CPremiumSURPers%2C%2C-1%7CPremiumMCSess%2C%2C-1%7CUVOwnersSess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCCSess%2C%2C-1%7CCYLSess%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7CPremiumORSess%2C%2C-1%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CTADORSess%2C%2C-1%7CTARSWBPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CRCSess%2C%2C-1%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPremRPers%2C%2C-1%7CUVOwnersPers%2C%2C-1%7Csh%2C%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7CCYLPers%2C%2C-1%7CCCPers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CTADORPers%2C%2C-1%7CTheForkORPers%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7CTARSWBSess%2C%2C-1%7CPremiumORPers%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7C; TAUnique=%1%enc%3AIBMFJUdk5zU4KfCvxQy8DrH7ps%2F6uZg4%2Frou20s40KQVAETMq8nxvA%3D%3D; TAReturnTo=%1%%2FRestaurants-g298570-Kuala_Lumpur_Wilayah_Persekutuan.html; PAC=ABFTn9M7cWyq6Kj39_NO1ApIfMscXnvqu98VUzRE_tGB9HEc-CIO7DwL9MAbobO2-j0GQbucR5sqoHdjUslBaMp5UWqdd7I_n45_-s9q6lVXpjAESLKCNNV9_EtV_gcFUGn9JoFFs6MMSSnZcXZBAlDCZ1u6K7MnWQb8tejij6mpN6pqhLE5vKbWt07qsWS4Qf00a0G2zRAw_iJHBnovMFY%3D; SecureLogin2=3.4%3AADf9%2F%2B00839hne5MptlRhG5tXdwiKZm6PBz2LcneLdTvmMwq71RczTDGEi3dEoNzIQ3wafaWxcYct2Q4Hahc2up3IBoExm%2BQcjxmjXIhPvlrtt8MQ%2BIC3%2Frt7sv%2FgmZyOQ256zNnzhAluUzlRS48AqKJP9KN2yv%2FNrbXY%2Bqjzr2ERy0%2FsS91OhX3BFrW4AA%2Bs1%2FuQgGGLXlvN950DF8vP9%2FVvH%2BOuaplCyf%2BDWSqVYVA; TAAuth3=3%3Ae959419dc328c857b0cf8dbae0eb4e5b%3AAGTCfTmCz%2F%2Fmb73j%2FIQlD1wJOpwsKc51LXzM5LFFrB0kgb0qpz42fLwwHOoFEolacLuHaHMYTa7%2F5BLnQ32Za3Rc3U%2FeyHlxvininDxTPiRd%2BU2WLAAu1bA5VREV3T6zRzofiavpO8eZA6Ij5yIW3rraXPA8F7hyLeLXHsM0zIy90EeYjRksvZrM5sDtjYQbqQ%3D%3D; roybatty=TNI1625!AHYZ8F3x5WHhys5uPAzt4%2BzIrkAt2iHE5AQ5rWTnhOQRKR8Oj%2B7msLnlm%2BNHI8iGjtTwDIJ8Ium7B66m1PJApNiFZKsKpylQIM7Cd9yQP5NFSFh3So9YPwkdZBWpFJ4vj78f%2FxW6kSe9ySfQGYoni5BuD9QXAmB8DcGcQv2PDRQP%2C1; SRT=%1%enc%3AOCnwr8UMvA4cqnmZjkKzJjjXTcPsH9va%2F3wSG8%2BrItw7bGQzyB6abtrxeGdYx61CUO4ZANeUmCY%3D; TASession=%1%V2ID.D0B35761A30A6EC9F4D4A8015D144065*SQ.27*PR.40185%7C*LS.Restaurants*GR.67*TCPAR.46*TBR.86*EXEX.59*ABTR.44*PHTB.27*FS.88*CPU.72*HS.recommended*ES.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.ABD562818D249697A8AB4E2FFBFCE092*FA.1*DF.0*RT.0*TRA.true*LD.298570; TAUD=LA-1561231929982-1*RDD-1-2019_06_23*LG-466105-2.1.F.*LD-466106-.....'
+cookie = 'TAUnique=%1%enc%3As%2BYXT9FjuYfX4GCNWewjScq5nXQZFLzt1xVuzcww%2BTU%3D; TASSK=enc%3AALjC%2FTpEb5QPFAizzhNQ5wfKEqpfXmk5zqhq1DqovLNNV%2BV1%2FBsNpuXTA%2FszMd%2FL3IqC3Mx8vfDNl%2F7VyKc2InqLThwMKanbY8LiCF01%2BzVtWCVKwgvZcHCYJofOk7VyVg%3D%3D; TAAuth3=3%3A48fc7124816b1162f720832116be3cd3%3AAEIiA6UU5DE3cuneh0Uh%2BOfhijHyTA3qq%2F2uhdP2CAdnHfqa4g5nDJQhQLbRtLjeZtnU%2BEsbdnsezQD6j3KY6zrMwVDDXVgVD8XF99eey570yOdTwLW0OtDqeyDyT6djl%2Bw2b1LX85ouJntLld82ksQOw4bkjk4BCesEGIcWAXLKjm3tD641LjQ94%2Bk3mr%2Bvww%3D%3D; TADCID=iALg6oKA3Um0Vf8VABQC5UI2n8iqRdCoS-RMXjJFU1oxu7TSCnd4L6zCEt6Vd6jUld5h0KOTYkzVYCRt9bzAuyh3KXXhpKgY43s; ServerPool=X; PAC=APLcU8DEj3w9FUJS3Mc9APnjMYaqqw6oYGuB7DMedMBt5uJlIaGPh_U9RyoMqA1dUkMiIO5zJd8Sg8CSFbOc-KZmq7-k-cL8lYHx9ICXzGV0NxqTHomncgvZZgyrzmOBOuBnrgiozMOvIRSHLivmm627WQ4xj2B8VdVSdMD5R5gj; PMC=V2*MS.30*MD.20191206*LD.20191219; __vt=Z7_sgiy-tpT1RxzLABQCKh0bQ-d8T96qptG7UVr_ZQoYUOAEqqlSimmsj1PHxm5nD83rQq2ryNBRNEQFQQj6ogmWFaKy0CGTqEKIyMC5kC3iHuiczONIVp_KTVzeufe92TidJ54Hmg06qiSDGZQptqIElA; TART=%1%enc%3A1%2BBgjVnsI0mOfiZVJBN4AJDxyzL119NfgmJY4Xf%2BxOw91DO8OUyF1di5omuSPkL4Nox8JbUSTxk%3D; TAReturnTo=%1%%2FRestaurant_Review-g294265-d3856071-Reviews-Wine_Universe_Restaurant_Tapas_Bar-Singapore.html; TATravelInfo=V2*A.2*MG.-1*HP.2*FL.3*DSM.1576052738656*RS.1*RY.2019*RM.12*RD.19*RH.20*RG.2; roybatty=TNI1625!AAooajk%2FgexqBbXQZNAN%2B7G6bon8oAvRuHLLgGK%2BeGNr9cfykstJrlVg1mqadAO3Oasb0R7KxRZlW36LUD6jB%2FVZQJCUc%2F0U7vYbMgImbHpkkIIGkdvbyNlALJjrYsEi04xekSDugD9T9px1Y817v9wHExBVGZcIkVfyXa2JpMtL%2C1; SRT=%1%enc%3A1%2BBgjVnsI0mOfiZVJBN4AJDxyzL119NfgmJY4Xf%2BxOw91DO8OUyF1di5omuSPkL4Nox8JbUSTxk%3D; CM=%1%HanaPersist%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7Csesstch15%2C%2C-1%7CFtrPers%2C%2C-1%7CCYLPUSess%2C%2C-1%7Ctvsess%2C%2C-1%7CPremiumMCSess%2C%2C-1%7CUVOwnersSess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7C%24%2CSGD%2C0%7Csesssticker%2C%2C-1%7Ct4b-sc%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csesshours%2C%2C-1%7CTARSWBPers%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CLaFourchette+MC+Banners%2C%2C-1%7Csesslaf%2C%2C-1%7CCYLPUPers%2C%2C-1%7CUVOwnersPers%2C%2C-1%7CRevHubRMPers%2C%2C-1%7Cperslaf%2C%2C-1%7Csh%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7CCCPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7Cperswifi%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CRevHubRMSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CTrayssess%2C%2C-1%7CPremiumORPers%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7Cbooksticks%2C%2C-1%7CSPMCWBSess%2C%2C-1%7Cbookstickp%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Csesswifi%2C%2C-1%7Ct4b-pc%2C%2C-1%7CWShadeSeen%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C%2C-1%7CPremiumSURPers%2C%2C-1%7CTBPers%2C%2C-1%7Cperstch15%2C%2C-1%7CCCSess%2C%2C-1%7CCYLSess%2C%2C-1%7Cpershours%2C%2C-1%7CPremiumORSess%2C%2C-1%7CRestAdsPers%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CTrayspers%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CTADORSess%2C%2C-1%7CAdsRetPers%2C%2C-1%7CMCPPers%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7Cpers_rev%2C%2C-1%7Cmdpers%2C%2C-1%7CMetaFtrSess%2C%2C-1%7Cmds%2C1576809860342%2C1576896260%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CHomeAPers%2C%2C-1%7CRCSess%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cpssamex%2C%2C-1%7CCYLPers%2C%2C-1%7Ctvpers%2C%2C-1%7CTBSess%2C%2C-1%7CAdsRetSess%2C%2C-1%7CMCPSess%2C%2C-1%7CTADORPers%2C%2C-1%7CTheForkORPers%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7CTARSWBSess%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7Cmdsess%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TASession=V2ID.9C1A5F0302D1A14D973DCD4E6EFD0E46*SQ.9*LS.DemandLoadAjax*GR.56*TCPAR.69*TBR.35*EXEX.9*ABTR.77*PHTB.38*FS.96*CPU.86*HS.recommended*ES.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.ABD562818D249697A8AB4E2FFBFCE092*LF.en*FA.1*DF.0*TRA.false*LD.3856071; TAUD=LA-1575646157999-1*RDD-1-2019_12_07*HDD-406580650-2019_12_22.2019_12_23*RD-406590325-2019_12_11.18190065*LG-1163716354-2.1.F.*LD-1163716355-.....'
 
 uid_level_dict = {}
 user_url_set = set()
@@ -92,15 +119,15 @@ def write_excel(filename, alldata, flag=None):
     print("%s===========over============%d" % (filename, len(alldata)))
 
 
-def request_sheet1(url, key_prefix):
+def request_sheet0(url, key_prefix):
     print key_prefix + 'level1--'+url
     global sheet1_data, R_ID
     # link, name, replies, views
-    raw_reg = 'class="title">.*?href="(.*?)".*?>(.*?)<.*?class="rating(.*?)popIndexBlock.*?class="cuisines">(.*?)</div.*?booking">(.*?)</div'
+    raw_reg = 'restaurants-list-ListCell__nameBlock--1hL7F.*?href="(.*?)".*?>(.*?)<.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3">(.*?)<.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)</div></div><div(.*?)</div></div><div></div></div>'
     try:
         html = get_request(url)
-    except:
-        print 'ERR---level 1---' + url
+    except Exception as e:
+        print 'ERR---level 1---' + url, e
         return
     topic_body = re.compile(raw_reg).findall(html)
     if not topic_body:
@@ -109,23 +136,105 @@ def request_sheet1(url, key_prefix):
         link = ''
         try:
             id = key_prefix+str(R_ID)
-            rank = R_ID
-            link = 'https://www.tripadvisor.com.my' + detail[0]
+            link = 'https://www.tripadvisor.com.sg' + detail[0]
             name = detail[1]
-            avg_rating, review_number = get_ratings(detail[2])
-            can_booking = 'Yes'
-            if detail[4] == '':
-                can_booking = 'No'
-            location, review_page_no, cu_type, delivery_by, pricing = get_rest_detail_and_comment_page(link)
-            # ['ID', 'URL', 'Name', 'Rank', 'Address', 'Rating', 'Type', 'Number of reviews', 'pricing', 'Reserve Online', 'Delivery by']]
-            one_row = [id, link, name, rank, location, avg_rating, ','.join(cu_type), review_number, pricing, can_booking, delivery_by, review_page_no]
-            print one_row
-            sheet1_data.append(one_row)
-            # if review_page_no > 0:
-            #     request_sheet2(id, review_page_no, link, name)
+            pricing = detail[2]
+
+            is_reserved = 'YES'
+            if 'Reserve' not in detail[4]:
+                is_reserved = 'NO'
+
+            request_sheet1(id, name, link, pricing, is_reserved)
+
             R_ID += 1
         except Exception as e:
             print 'ERR---level 1---', link, e
+
+
+def request_sheet1(R_ID, name, url, pricing, is_reserved):
+    # link, name, replies, views
+    try:
+        html = get_request(url)
+        process_html(R_ID, name, html, url, pricing, is_reserved)
+    except Exception as e:
+        print 'ERR---level 1---' + url, e
+        return
+
+
+@timeout(2)
+def process_html(R_ID, name, html, url, overall_pricing, is_reserved):
+    global sheet1_data
+    raw_reg = 'class="rating(.*?)popInde.*?RATINGS_INFO.*?span.*?>(.*?)<.*?header_links">(.*?)</div.*?onAddressClicked.*?<span class="detail ">(.*?)</div.*?restaurants-detail-overview-cards-DetailOverviewCards__wrapperDiv--1Dfhf(.*?)restaurants-detail-overview-cards-DetailOverviewCards__cardColumn--1BmXT(.*?)restaurants-detail-overview-cards-DetailOverviewCards__cardColumn--1BmXT.*?taplc_detail_filters_rr_resp_0(.*?)noncollapsible'
+
+    topic_body = re.compile(raw_reg).findall(html)
+    if topic_body:
+        try:
+            avg_rating, review_number = get_ratings(topic_body[0][0])
+            rank = topic_body[0][1].replace('#', '').replace(',', '')
+            cuisine = get_cuisine(topic_body[0][2])
+            address = remove_html_tag(topic_body[0][3])
+            food_rating, service_rating, value_rating = get_detail_rating(topic_body[0][4])
+            price, special_diet = get_details(topic_body[0][5])
+            excellent, v_good, avg, poor, terrible = get_comment_no(topic_body[0][6])
+
+            website = get_website(html)
+            eng_comment_no = get_eng_comment_no(html)
+
+            one_row = [R_ID, name, url, website, address, cuisine, price, overall_pricing, is_reserved, special_diet, review_number, avg_rating, rank,
+                       food_rating, service_rating, value_rating, 'N/A', excellent, v_good, avg, poor, terrible,
+                       eng_comment_no]
+            print one_row
+            sheet1_data.append(one_row)
+
+        except Exception as e:
+            print 'ERR---level 1---', url, e
+
+
+def get_website(ori):
+    if '"website":"http' in ori:
+        return 'http' + re.compile('"website":"http(.*?)"').findall(ori)[0]
+    return 'N/A'
+
+
+def get_detail_rating(ori):
+    reg = 'restaurants-detail-overview-cards-RatingsOverviewCard__ratingText.*?>(.*?)<.*?ui_bubble_rating bubble_(.*?)"'
+
+    items = re.compile(reg).findall(ori)
+
+    res = ['N/A', 'N/A', 'N/A']
+
+    for item in items:
+        if item[0] == 'Food':
+            res[0] = str(float(item[1]) / 10)
+        if item[0] == 'Service':
+            res[1] = str(float(item[1]) / 10)
+        if item[0] == 'Value':
+            res[2] = str(float(item[1]) / 10)
+
+    return res
+
+
+def get_details(ori):
+    reg = 'restaurants-detail-overview-cards-DetailsSectionOverviewCard__categoryTitle.*?>(.*?)<.*?restaurants-detail-overview-cards-DetailsSectionOverviewCard__tagText.*?>(.*?)<'
+    items = re.compile(reg).findall(ori)
+
+    res = ['N/A', 'N/A']
+
+    for item in items:
+        if item[0] == 'PRICE RANGE':
+            res[0] = item[1].replace('\xc2\xa5', 'Y ')
+        if item[0] == 'Special Diets':
+            res[1] = item[1]
+    return res
+
+
+def get_comment_no(ori):
+    reg = '"filters_detail_checkbox_trating_.*?row_num.*?>(.*?)<'
+    items = re.compile(reg).findall(ori)
+
+    if items:
+        return items[0:5]
+    return ['N/A' for i in range(5)]
 
 
 def get_comment_date(ori):
@@ -138,11 +247,13 @@ def get_comment_date(ori):
 
 def request_sheet2(hotel_id, number, hotel_url, index):
     global sheet2_data, sheet3_data
-    for i in range(0, number+1):
+    if number > 50:
+        number = 50
+    for i in range(0, number):
         try:
             url = hotel_url.replace('-Reviews-', '-Reviews-or%s-' % str(i*10))
             html = get_request(url)
-            print('sheet2--300 of ', index, number, i)
+            print 'sheet2-- of ', hotel_id, number, i
             reg = '"review_(.*?)".*?avatar profile_(.*?)".*?usernameClick.*?div>(.*?)<.*?ui_bubble_rating bubble_(.*?)".*?title=\'(.*?)\'.*?noQuotes\'>(.*?)<'
 
             comment_list = re.compile(reg).findall(html)
@@ -151,17 +262,18 @@ def request_sheet2(hotel_id, number, hotel_url, index):
             for comment in comment_list:
                 comment_ids.append(comment[0])
                 comment_id_data[comment[0]] = [comment[0], comment[1], comment[2], comment[3], comment[4], comment[5]]
-            comment_details = get_comment_detail(comment_ids)
+            # comment_details = get_comment_detail(comment_ids)
+            comment_details = {}
             for k, v in comment_id_data.items():
                 uid = v[1]
                 name = v[2]
                 rating = v[3][0]
                 comment_date = v[4]
                 title = remove_html_tag(v[5])
-                comment_detail = comment_details.get(k)
-                level, user_url, location, no_review, no_helpful, travel_style = get_level_of_uid(uid)
-                # [['R_ID', 'Handle', 'Location', 'rating', 'comment date', 'Headline', 'Review text', 'Contributor level']]
-                one_row = [hotel_id, name, location.replace('From ', ''), rating, get_comment_date(comment_date), title, comment_detail, level]
+                comment_detail = comment_details.get(k, '-')
+                level, user_url, location, no_review, no_helpful, travel_style, excellent, v_good, avg, poor, terrible = get_level_of_uid(uid)
+                # [['ID', 'Rest. Url', 'Reviewer name', 'reviewer country', 'rating', 'comment date', 'Contributor level', 'Excellent', 'V. good', 'Avg', 'Poor', 'Terrible', 'Headline', 'Review text']]
+                one_row = [hotel_id, hotel_url, name, location.replace('From ', ''), rating, get_comment_date(comment_date), level, travel_style, excellent, v_good, avg, poor, terrible, title, comment_detail]
                 # print one_row
                 sheet2_data.append(one_row)
                 # if user_url not in user_url_set:
@@ -218,9 +330,20 @@ def get_level_of_uid(uid):
     location = get_reviewer_location(data[0][2]).split('from ')[-1]
     no_review, no_helpful = get_review_helpful(data[0][3])
     travel_style = get_travel_style(data[0][4])
-    res = (level, user_url, location, no_review, no_helpful, travel_style)
+    rating = get_user_rating(data[0][4])
+    res = [level, user_url, location, no_review, no_helpful, travel_style] + rating
     uid_level_dict[uid] = res
     return res
+
+
+def get_user_rating(ori):
+    reg = 'rowCellReviewEnhancements">(.*?)<'
+
+    data = re.compile(reg).findall(ori)
+
+    if data:
+        return [data[i] for i in range(len(data)) if i % 3 == 2]
+    return ['N/A', 'N/A', 'N/A', 'N/A', 'N/A']
 
 
 def get_level(ori):
@@ -387,15 +510,16 @@ def get_feature_good_for(ori):
 
 
 def get_cuisine(ori):
-    if 'item cuisine' in ori:
-        reg = 'item cuisine".*?>(.*?)<'
-        return ','.join(re.compile(reg).findall(ori))
+    reg = 'href=.*?>(.*?)<'
+    datas = re.compile(reg).findall(ori)
+    if datas:
+        return ','.join(datas[1:])
     return 'N/A'
 
 
 def get_ratings(ori):
     if 'of 5 bubbles' in ori:
-        reg = 'alt="(.*?) of 5 bubbles.*?reviewCount">.*?>(.*?) review'
+        reg = 'alt=\'(.*?) .*?reviewCount">(.*?) '
         entry = re.compile(reg).findall(ori)[0]
         return entry[0], entry[1]
     return 0, 0
@@ -421,13 +545,13 @@ def get_date(ori):
     return date, d.weekday() + 1
 
 
-def get_request(get_url):
+def get_request(get_url, timeout=10):
     req = urllib2.Request(get_url)
     req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
     req.add_header("connection", "Keep-Alive")
     req.add_header("Referer", 'https://www.tripadvisor.com.sg/Restaurants-g294226-Bali.html')
     req.add_header("Cookie", cookie)
-    res_data = urllib2.urlopen(req, timeout=10)
+    res_data = urllib2.urlopen(req, timeout=timeout)
     res = res_data.read()
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
     return res
@@ -461,23 +585,22 @@ def read_excel(filename, start=1):
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
 
-    for i in range(start, table.nrows):
+    i = start
+    while i < table.nrows:
         row = table.row(i)
         try:
-            main_url = row[1].value
+            main_url = row[2].value
             id = row[0].value
-            review_no = int(row[11].value)
-            name = row[2].value
-            print request_pricing(main_url)
-            # if review_no > 0:
-            #     request_sheet2(id, int(review_no), main_url, i)
-            R_ID += 1
-            if R_ID % 1000 == 0:
-                write_excel('sheet2_rest_%d.xls' % R_ID, sheet2_data)
-                del sheet2_data
-                sheet2_data = []
-        except:
-            print(i)
+            comment_no = int(row[20].value)
+            request_sheet2(id, comment_no, main_url, i)
+            i += 1
+        except Exception as e:
+            print i, e
+
+        if i % 30 == 0:
+            write_excel('sheet2_%d.xls' % i, sheet2_data)
+
+    write_excel('sheet2_end.xls', sheet2_data)
 
 
 def request_pricing(url):
@@ -485,15 +608,35 @@ def request_pricing(url):
     return res[-1]
 
 
-reload(sys)
+def get_name_from_url(url):
+    return url.split('-')[-2].replace('_', ' ')
 
 
-read_excel('data/TripAdvisor_v2.xls')
-# write_excel('sheet2.xls', sheet2_data)
+def get_sheet1():
+    global sheet1_data
+    for i in range(0, 12):
+        request_sheet0(url_bases[0] % str(i*30), 'TR_')
 
-# for i in range(0, 10):
-#     request_sheet1(url_bases[0] % str(i*30), 'KLIND_')
-# write_excel('data/sheet1.xls', sheet1_data)
+        if (i+1) % 20 == 0:
+            write_excel('data/sheet1_%d.xls' % i, sheet1_data)
+            del sheet1_data
+            sheet1_data = []
+
+    write_excel('data/sheet1_end.xls', sheet1_data)
 
 
+def do_retry():
+    global R_ID
+    for url in error_url:
+        try:
+            if 'RestaurantSearch' in url:
+                request_sheet0(url, 'TR_')
+            else:
+                name = get_name_from_url(url)
+                request_sheet1('TR_' + str(R_ID), name, url)
+                R_ID += 1
+        except Exception as e:
+            print 'err-', url, e
+    write_excel('data/sheet1_retry.xls', sheet1_data)
 
+read_excel('data/sheet1_end.xls')

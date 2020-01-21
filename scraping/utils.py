@@ -3,6 +3,12 @@ import requests
 import xlwt, xlrd
 import HTMLParser
 import os
+from functools import wraps
+import errno
+import os
+import signal
+
+cookie = '__utmz=231532751.1576219136.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmc=231532751; GA_XSRF_TOKEN=AO6Y7m8Up0G1PuGh2qIWQ_keK2zT0RVU6A:1576489731389; __utma=231532751.760866652.1575884403.1576487154.1576489741.4; __utmb=231532751.0.10.1576489741; _ga=GA1.3-2.760866652.1575884403; _gid=GA1.3-2.1548239716.1576486976; SID=rgc33ZPGn35d-9-JT3xlfZKbWLWHLBqxscXpMo7UusJg8YsK1Xm5zmqdwX06ZQRi9hzjNw.; __Secure-3PSID=rgc33ZPGn35d-9-JT3xlfZKbWLWHLBqxscXpMo7UusJg8YsKVOsMD5ptSK0xm8op5xk-Zg.; HSID=AfYRkOGYiSvbQArRa; SSID=AFy3hjCGqjKOm7mwr; APISID=_BvfqyTu7nnB9_kw/AtKjekBw8UaxVP4qy; SAPISID=cGOet470hpGsWQEV/ATpbBTKsxu5vxPDaL; __Secure-HSID=AfYRkOGYiSvbQArRa; __Secure-SSID=AFy3hjCGqjKOm7mwr; __Secure-APISID=_BvfqyTu7nnB9_kw/AtKjekBw8UaxVP4qy; __Secure-3PAPISID=cGOet470hpGsWQEV/ATpbBTKsxu5vxPDaL; SEARCH_SAMESITE=CgQIxo4B; 1P_JAR=2019-12-16-9; NID=193=HKrRZUHs3jR2X6FIWchUPTfwSSuP0b0eHMMKSztXkVMgAPu8RaQpaFucfiet9Sb3cd-UeZojsZh16_YFQ90uCgWWRMmF4VgIC9njAPgwEpSXUg3YH0u123ogI7ieqKJeDkOgOFtoxPNlNzIAMY4DKIkdbyi2n23Z0Z2lsTpuq7jyNGJLM0GFBD1PPe4enxSmKmLD-Mcc-sWYu6DILoIcLkTASglzv5pO_isRHXgAs9qfbapiCfC9CVINnvSLAwuwH9ohbBlHnOzAuBEJfSkPisb8VOZVzXg; _gid=GA1.3.1548239716.1576486976; S=analytics-realtime-frontend=EVnXGHnmR77CR0CzbT1X3ZLWpXlmKOyR; _gat=1; _gat_ta=1; _gat_tw=1; _gat_UA-60390233-3=1; _ga=GA1.1.760866652.1575884403; _ga_X6LMX9VR0Y=GS1.1.1576487089.5.1.1576489801.0; SIDCC=AN0-TYtyYXkjWKvNrjpBudVmiqoF5aF5MI088UaIyILTqoRHwNyrkLX8gVjzcrI2qyLP57FIumY'
 
 
 def remove_html_tag(ori):
@@ -70,7 +76,7 @@ def write_html(html, filename):
 
 def get_request_html(get_url, cookie):
     headers = {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3941.4 Safari/537.36 OPR/66.0.3489.0 (Edition developer)',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
         'connection': 'Keep-Alive',
         'Referer': get_url,
         'Cookie': cookie,
@@ -80,3 +86,50 @@ def get_request_html(get_url, cookie):
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
 
     return res
+
+
+def post_request_html(get_url, cookie, data={}):
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+        'referer': 'https://analytics.google.com/analytics/app/?authuser=1',
+        'cookie': cookie,
+        'origin': 'https://analytics.google.com',
+        'content-type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'x-client-data': 'CLG1yQEIh7bJAQimtskBCMG2yQEIqZ3KAQioo8oBCLGnygEI4qjKAQjxqcoBCMuuygEI97TKAQ==',
+        'x-gafe4-xsrf-token': 'AO6Y7m_sJPwrWC4k_zGAmlAI7lg6U8ekcg:1576489737904',
+    }
+    res_data = requests.post(get_url, headers=headers, timeout=5, data=data)
+    res = res_data.content
+    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
+
+    return res
+
+
+class TimeoutError(Exception):
+    pass
+
+
+def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
+    def decorator(func):
+        def _handle_timeout(signum, frame):
+            raise TimeoutError(error_message)
+
+        def wrapper(*args, **kwargs):
+            signal.signal(signal.SIGALRM, _handle_timeout)
+            signal.setitimer(signal.ITIMER_REAL,seconds) #used timer instead of alarm
+            try:
+                result = func(*args, **kwargs)
+            finally:
+                signal.alarm(0)
+            return result
+        return wraps(func)(wrapper)
+    return decorator
+
+
+def get_attachments(url, filename, timeout=5, headers={}, data={}):
+    print "Getting url", url
+    response = requests.post(url, timeout=timeout, stream=True, headers=headers, data=data)
+    if response.status_code == 200:
+        if response.headers.get('Content-Disposition'):
+            print "Writing file to", filename
+            open(filename, 'wb').write(response.content)
