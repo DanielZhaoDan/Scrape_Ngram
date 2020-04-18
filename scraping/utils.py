@@ -4,12 +4,15 @@ import xlwt, xlrd
 import HTMLParser
 import os
 from functools import wraps
+from selenium import webdriver
 import errno
 import os
 import signal
+import time
 
 cookie = '__utmz=231532751.1576219136.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmc=231532751; GA_XSRF_TOKEN=AO6Y7m8Up0G1PuGh2qIWQ_keK2zT0RVU6A:1576489731389; __utma=231532751.760866652.1575884403.1576487154.1576489741.4; __utmb=231532751.0.10.1576489741; _ga=GA1.3-2.760866652.1575884403; _gid=GA1.3-2.1548239716.1576486976; SID=rgc33ZPGn35d-9-JT3xlfZKbWLWHLBqxscXpMo7UusJg8YsK1Xm5zmqdwX06ZQRi9hzjNw.; __Secure-3PSID=rgc33ZPGn35d-9-JT3xlfZKbWLWHLBqxscXpMo7UusJg8YsKVOsMD5ptSK0xm8op5xk-Zg.; HSID=AfYRkOGYiSvbQArRa; SSID=AFy3hjCGqjKOm7mwr; APISID=_BvfqyTu7nnB9_kw/AtKjekBw8UaxVP4qy; SAPISID=cGOet470hpGsWQEV/ATpbBTKsxu5vxPDaL; __Secure-HSID=AfYRkOGYiSvbQArRa; __Secure-SSID=AFy3hjCGqjKOm7mwr; __Secure-APISID=_BvfqyTu7nnB9_kw/AtKjekBw8UaxVP4qy; __Secure-3PAPISID=cGOet470hpGsWQEV/ATpbBTKsxu5vxPDaL; SEARCH_SAMESITE=CgQIxo4B; 1P_JAR=2019-12-16-9; NID=193=HKrRZUHs3jR2X6FIWchUPTfwSSuP0b0eHMMKSztXkVMgAPu8RaQpaFucfiet9Sb3cd-UeZojsZh16_YFQ90uCgWWRMmF4VgIC9njAPgwEpSXUg3YH0u123ogI7ieqKJeDkOgOFtoxPNlNzIAMY4DKIkdbyi2n23Z0Z2lsTpuq7jyNGJLM0GFBD1PPe4enxSmKmLD-Mcc-sWYu6DILoIcLkTASglzv5pO_isRHXgAs9qfbapiCfC9CVINnvSLAwuwH9ohbBlHnOzAuBEJfSkPisb8VOZVzXg; _gid=GA1.3.1548239716.1576486976; S=analytics-realtime-frontend=EVnXGHnmR77CR0CzbT1X3ZLWpXlmKOyR; _gat=1; _gat_ta=1; _gat_tw=1; _gat_UA-60390233-3=1; _ga=GA1.1.760866652.1575884403; _ga_X6LMX9VR0Y=GS1.1.1576487089.5.1.1576489801.0; SIDCC=AN0-TYtyYXkjWKvNrjpBudVmiqoF5aF5MI088UaIyILTqoRHwNyrkLX8gVjzcrI2qyLP57FIumY'
 
+driver = webdriver.Chrome(executable_path=r'./chromedriver')
 
 def remove_html_tag(ori):
     try:
@@ -79,13 +82,30 @@ def get_request_html(get_url, cookie):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
         'connection': 'Keep-Alive',
         'Referer': get_url,
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
         'Cookie': cookie,
     }
     res_data = requests.get(get_url, headers=headers, timeout=10)
     res = res_data.content
-    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
+    res = res.replace('\t', '').replace('\r', '').replace('\n', '').replace("&quot;", '"').replace("&#92;", '')
 
     return res
+
+
+def get_request_json(get_url, cookie):
+    headers = {
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36',
+        'connection': 'Keep-Alive',
+        'Referer': get_url,
+        'Cookie': cookie,
+        'x-csrftoken': 'jhmwjduVDHhuwLoGd6gN3FKUqywwcBQL',
+        'x-ig-app-id': '936619743392459',
+        'x-ig-www-claim': 'hmac.AR0R2OWhvU4GxrOhjPvsyujuBfI94KcCvSV2Confwyu6QXvI',
+        'x-requested-with': 'XMLHttpRequest'
+    }
+    res_data = requests.get(get_url, headers=headers, timeout=10)
+
+    return res_data.json()
 
 
 def post_request_html(get_url, cookie, data={}):
@@ -133,3 +153,16 @@ def get_attachments(url, filename, timeout=5, headers={}, data={}):
         if response.headers.get('Content-Disposition'):
             print "Writing file to", filename
             open(filename, 'wb').write(response.content)
+
+
+def open_browser_scroll(url, sleep_time=1):
+    try:
+        # options = Options()
+        # options.add_argument('--proxy-server=%s', random.choice(proxy))
+        driver.get(url)
+        time.sleep(sleep_time)
+        html_source = driver.page_source
+        data = html_source.encode('utf-8').replace('\t', '').replace('\r', '').replace('\n', '')
+    except Exception as e:
+        raise e
+    return data

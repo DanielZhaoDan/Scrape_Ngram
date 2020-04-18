@@ -8,12 +8,12 @@ import HTMLParser
 import json
 import os, sys
 
-cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; locale=en_GB; c_user=100044116672366; xs=43%3AO3CPKtJnpU-Rlg%3A2%3A1575484489%3A-1%3A-1; fr=00b9BjLp9YpJZJ1dF.AWUvlIHgYzV7iZtqqgJBcWKhU9k.Bd35LM.nu.AAA.0.0.Bd5_xJ.AWU8k8Vq; spin=r.1001494170_b.trunk_t.1575484490_s.1_v.2_; wd=1779x578; presence=EDvF3EtimeF1575484828EuserFA21B44116672366A2EstateFDutF1575484505253CEchFDp_5f1B44116672366F0CC; pnl_data2=eyJhIjoiYWxsX3BhZ2VsZXRzX2Rpc3BsYXllZCIsImMiOiJYQWRzS2VwbGVyQ29udHJvbGxlciIsImIiOmZhbHNlLCJkIjoiL2Fkcy9hdWRpZW5jZS1pbnNpZ2h0cy9wZW9wbGUiLCJlIjpbXX0%3D'
+cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; c_user=100044116672366; xs=43%3AO3CPKtJnpU-Rlg%3A2%3A1575484489%3A-1%3A-1; fr=00b9BjLp9YpJZJ1dF.AWWBoZVnMnfayKew9ta3T_9YheM.Bd35LM.nu.F4G.0.0.BeKS3-.; ; spin=r.1001666243_b.trunk_t.1580528507_s.1_v.2_; presence=EDvF3EtimeF1580528647EuserFA21B44116672366A2EstateFDutF1580528647612CEchFDp_5f1B44116672366F0CC; act=1580528783585%2F5; wd=1390x300'
 
-url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQyFRbBit5KBs93Gmepxo4HPUivsyIurje_0uqeXxyJSTg%3AAQxD8h9XnwiiPheGLHU6wWsSoBslmR4qGRcTYir45POJJg&age[0]=18&age[1]=-1&metrics[0]={}&admarket_id=23844093502180140&logger_session_id&__user=100044116672366&__a=1&__dyn=7xeUmFoO3-SudwCwBybGbGujxOnFG5awgodXCwAxu13wqovzEdF8iBxa7EiwzwmoWdwJx659ouwxxicw9aEiyEqx60DU4m0nCq1eK2W6EbQ9wRyUvyolyU6W78jwbeicwKwEwgolUScw5MKi8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei&__csr=&__req=7&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001494170&__s=eelzzs%3A1fpzv9%3Abi3ysp&__hsi=6766655804713496006-0&jazoest=28349&__spin_r=1001494170&__spin_b=trunk&__spin_t=1575484490'
+url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzlMD3AwbVpXqt9UQ5s2WV_7Vaunusbjbejfy7XBf1h1w%3AAQy6oZYYGaZgKkcWrFNgx03WSUxJyf6TAUDJwu8M9zCkug&age[0]=18&age[1]=-1&metrics[0]={}&admarket_id=23844093502180140&logger_session_id=ea4d9ae31995c5bf3b4118f11f360643632b0531&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5U4e1Fx-ewSAxam4Euxa2e1pzES2S4okBxW3qcw9aEiyEqx60DU4m0nCq1eK2W6EbQ9wRyUvyolyU6W78jwbeicwKwEwgolUScw4JwgHAy85iawnEfU7e2l2Utgvx-2y1uw9a2WE9Ejx2365E5afxW4V8&__csr=&__req=28&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001666243&__s=5a7hs2%3A3gkisx%3A8pi171&__hsi=6788318344457357401-0&jazoest=28254&__spin_r=1001666243&__spin_b=trunk&__spin_t=1580528507'
 
 param_list = [
-    ('ID_1', 'HP', '&interests[0]=6003200182684&interests[1]=6003293850143&interests[2]=6003533303598&interests[3]=6006406219142', 'ALL'),
+    ('ID_1', 'CLEAR', '&country[0]=ID&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519', 'Indonesia'),
 ]
 
 sheet1 = [['Game ID', 'Name', 'Country', 'Gender', 'Age range', 'Percentage', 'Max New Audience']]

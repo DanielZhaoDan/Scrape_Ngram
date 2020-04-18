@@ -18,23 +18,20 @@ sheet_dict = {}
 url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798&tbs=qdr:y&start='
 # url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
-FIRST_START = 1
+FIRST_START = 5 # latest + 1
 cookie = [
-    'CGIC=EhQxQzVDSEZBX2VuU0c3OTJTRzc5MyJ2dGV4dC9odG1sLGFwcGxpY2F0aW9uL3hodG1sK3htbCxhcHBsaWNhdGlvbi94bWw7cT0wLjksaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMw; ANID=AHWqTUmO8w1qOdrwQVFRYsuXMaiCZISEiYZnRxN56vS78KD4eZYIFyl_AATHefbx; SID=mQc33W3LSF99ekG9eLtEyv_nSUxEsZjSGg2JFQOhvoWczvtKxIKORi-dCj2NeV2U1BGEOA.; HSID=AZmgxefONPYiGv9Md; SSID=AH4jqU2_YcWuLZ0N8; APISID=NkmiXhUdobCd4UdY/A6S6SFnbflsnny0pv; SAPISID=4HJsgOO2YfyLW-1i/ANdfdcAxTCuUT3AGL; CONSENT=YES+SG.en+20180429-14-0; SEARCH_SAMESITE=CgQIyY0B; UULE=a+cm9sZToxIHByb2R1Y2VyOjEyIHByb3ZlbmFuY2U6NiB0aW1lc3RhbXA6MTU2NTk4NzU3MDM5MTAwMCBsYXRsbmd7bGF0aXR1ZGVfZTc6MTM3NjEwNTEgbG9uZ2l0dWRlX2U3OjEwMzg0Njg3NDV9IHJhZGl1czoyNTQyMA==; GOOGLE_ABUSE_EXEMPTION=ID=db16af4e2719d258:TM=1565987666:C=r:IP=121.7.113.240-:S=APGng0vxIsPxn0lakUbG6THFldr8mogGCg; NID=188=s00jvvDAfRb-Ju9rikvEvhsv_HujjjR4nIzNEYbHSmy3qb8EM3gGp-msoRNjZIdXK7kjx9hSlPt_NDQgYULfDCeNQESpiP2PT9kAp9K87IedKs1heTQz3h119pmapoZg85F7gSaysrcKo3MhbCP8BEaOwRUELh2DrwN52BkRlP4xBZBI8VEVNO9wR5mLw3UBKcMBE9tAiqAsYBq9IZy1EaJu_iynKHButzxqcm_JRw; DV=471lmmdi7j5SYLF27VtWxGn2NjnCyRYvSfGgakooaQEAABAvt4g6tg1bUgAAALgeeSgvfOIYFAAAADQKmJDzn0kTDgAAAA; 1P_JAR=2019-8-16-20; SIDCC=AN0-TYvfICKlWd17ZnR9djr8i0U8aYBd1enOPGNgz7uRS1djXwbrP0f_tx8tlW1c_Py9G-JbzQ'
+    'CGIC=InZ0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIz; OGP=-19015603:; SID=swc33X793ENWLhrhiGP_PPRTFqWWemNExIDv488udw4qo76O5yCYDaa73OBOlKc8B1nbGg.; __Secure-3PSID=swc33X793ENWLhrhiGP_PPRTFqWWemNExIDv488udw4qo76O8IULgIMyU5aXvjAcCk1S1w.; HSID=AIcvYAGoOt_Nx5wep; SSID=Am6qj81m9aDUn5zBr; APISID=d3z5uqrCuUVib7q1/AsShSIjMtN8lDTc-H; SAPISID=k8jlVE1Z_6h_XE2F/AeNNiahCz9G5ZglUw; __Secure-HSID=AIcvYAGoOt_Nx5wep; __Secure-SSID=Am6qj81m9aDUn5zBr; __Secure-APISID=d3z5uqrCuUVib7q1/AsShSIjMtN8lDTc-H; __Secure-3PAPISID=k8jlVE1Z_6h_XE2F/AeNNiahCz9G5ZglUw; OGPC=19015603-1:19015995-1:; ANID=AHWqTUkzxB_Jeg3XGY2DKvx81lh9nBeki5sv3Gdxg3u-Vu8Z40626RebumYsCbV2; OTZ=5322893_24_24__24_; SEARCH_SAMESITE=CgQIgo8B; GOOGLE_ABUSE_EXEMPTION=ID=8ab236911f5da7e5:TM=1581694365:C=r:IP=45.56.153.36-:S=APGng0sPVFvridsNCimH7x8d5mNuCWW9iQ; NID=198=shcRY3T5jv1_xurzFG5dyGgj7ZUyuhwIv_auGRyHaBg3BGbfHsfImVtrrM3RC5JoVTQXL4NW4JBTuNryhgrcsqpfi3NXqjmgmKXa7Bq4jaMxMmR5WPbDOGBsJzninNbxe7hPkZDTEFvW7dHpCWpgQvsssWu5XrAFJol1ZrW2dAodEBRI8H3S0dXYp5MBFtJXQEvJFvjY0qTwScmUupT8_Vn4mwQRjHRbS0uQbsXTl1pIvf1Of3wFcklgLqe1c2B8f3YIu_lYrFuwUsI1yl-hqgk79obc4hB4LjsQwHrlJEN2; 1P_JAR=2020-2-14-15; DV=471lmmdi7j6SwEtSPKiaEkqaIExFBBevmRT-xpqUTwAAAEDu4Mrds2zWcQAAAHiTyaGRLmmCJgAAAAHiplD9Std3nU0AgHuAAUDITkZUaBMAUHFnxQKTMX9v2gQAhK8VD2Yq_qfBNgEAVv8NPdVZCHlc3QMA; SIDCC=AN0-TYv0XueZC_fDXDgX0cCicBNasRywdJkBdmWAwQA2OIhP_o2lSJ40ns1G_RsleKaIbonJwcuh'
 ]
 
 key_words = [
     # {'keyword': 'dbs business class intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
-    # {'keyword': '"enterprise singapore" intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
-    # {'keyword': 'CPF intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
-    # {'keyword': 'automobile intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
-    # {'keyword': '"work-life balance" intext:SME location:singapore', 'bucket': '', 'country': 'SG'},
-    # {'keyword': '"financial schemes" intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
-    # {'keyword': 'agriculture intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
-    # {'keyword': 'health intext:SME location:Malaysia ', 'bucket': '', 'country': 'MY'},
-    # {'keyword': 'wellness intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
-    {'keyword': '"financial support" intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
-    {'keyword': 'E-commerce intext:SME location:Malaysia', 'bucket': '', 'country': 'MY'},
+    {'keyword': 'temasek inurl:economictimes.indiatimes.com'},
+    {'keyword': 'temasek inurl:straitstimes.com'},
+    {'keyword': 'temasek inurl:wsj.com'},
+    {'keyword': 'temasek inurl:channelnewsasia.com'},
+    {'keyword': 'temasek inurl:bbc.com'},
+    {'keyword': 'temasek inurl:businesstimes.com.sg'},
+
 ]
 
 
@@ -86,7 +83,7 @@ def request_sheet1(key_word, url_base, page_no=1):
     while True:
         url = url_base + str(page_no - 1) + '0'
         print(url)
-        if page_no > 10:
+        if page_no > 5:
             break
         html = get_request(url)
         if 'Our systems have detected unusual traffic from your computer network' in html:
@@ -109,7 +106,7 @@ def request_sheet1(key_word, url_base, page_no=1):
             # content = get_raw_content(url)
             content = ''
             rank = str(page_no) + '.' + ('0' if i < 10 else '') + str(i)
-            one_row = [key_word['keyword'], bucket, key_word['country'], total_count, page_no, url, date,
+            one_row = [key_word['keyword'], '-', '-', total_count, page_no, url, date,
                        publisher, main_url, headline, content,
                        rank]
             sheet1_data.append(one_row)

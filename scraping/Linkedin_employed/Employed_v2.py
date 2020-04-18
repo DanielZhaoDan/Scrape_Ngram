@@ -3,7 +3,6 @@ import re
 import xlwt
 import sys
 from datetime import datetime
-from html.parser import HTMLParser
 import html
 import os
 import xlrd
@@ -11,6 +10,7 @@ import requests
 import json
 import time
 import ssl
+from scraping.utils import write_excel
 
 P_ID = 1
 sheet0_data = [['Keyword', 'Location', 'Total Result', 'Profile ID', 'Name', 'Profile URL', 'Title', 'Company']]
@@ -21,8 +21,8 @@ pwd = 'babushona13'
 email = 'tegan.jarin@0hboy.com'
 # cookie = 'bcookie="v=2&3e470d6e-fee8-426c-8726-d79eef672dc9"; bscookie="v=1&201701021358090f97fb6d-775b-4655-801b-d9eba782defdAQE25DicscU3FoKVlh4xa_LoXsyFYCNS"; JSESSIONID="ajax:6858942346055442004"; lang="v=2&lang=en-us"; leo_auth_token="GST:ZTjiPE0iIFyoArInCFIb2EA-5rPoRO6pQ9IV7G0rta-lFJs51AyKz0:1523289977:0d498476057ca91d6a34d79d51b0630a1fab085d"; sl="v=1&shQfZ"; liap=true; li_at=AQEDARzXAV8CZ6JJAAABYqsodUsAAAFizzT5S1EAG_srlFPhpaBAS-nJQJ-7o6iu06KarobUduLd8cl9VnEhhVYZN1Q3P8GDiSfvqJYnoURPSu7s3stJc1PZNcPUnmJJuDzdO_xa5iML93pStzfvbf3B; RT=s=1523289978560&r=https%3A%2F%2Fwww.linkedin.com%2Fuas%2Flogin; _guid=739ca3da-4b66-4cda-8799-805ebac3b3b0; _ga=GA1.2.428934987.1523289981; _gat=1; visit="v=1&M"; _lipt=CwEAAAFiqyojDHIdjeKy3crFpztvoTSKrtRJcymIujN_l7memSDT0uh0Yc8sdx2r-7tEP2gi9hY9B1ZdUqARLUEbuTGm932ekbQaYP2Vbq-tYz-jBur1AbiDzDQv-E--at_kZLd30mE-kgrsst5CCtxmnk9-xaEh56ed5S1CUzYAWu_OeTwWjbt3-LIpObK7GEAs3zC7U3GBbaiG4tTkxaJ95tb_gao0MAzMrYKe2lkcmOkH3YMreXnYprRL94npEJUz8aBFIvB7F39EjLIAj-PhTtkO9Ey_Onhumi63I8t1w7Kdqzodir2kP9LMRYRE30tdGHrzq7N9OIjJEsT7Y4332rsbAwpoSfwiVi9zY0OgHjW5i8thDaT8olo; lidc="b=SB39:g=48:u=56:i=1523290340:t=1523335206:s=AQGKuX_g5h5KXALwUCYhkMCsLjTahj4m"'
 # csrf = 'ajax:6858942346055442004'
-cookie = 'bcookie="v=2&74219b48-1ccd-4aeb-8466-f59864535f9c"; bscookie="v=1&201608091552185c8d9623-6d9e-4a35-8691-d110a1d88056AQGZm-7AEvD7o3e2bz1bNcK_8yK41Y9o"; visit="v=1&M"; _chartbeat2=BJt6ifO0CcmBe3LOe.1500744286051.1500744286064.1; __ssid=33c01209-3fc9-4b43-8b5f-46a7229d7a41; _lipt=CwEAAAFiqGlLFm4uXKMO45-wun8YIHnQzuKik-ykpoN9VoS4BoH53n9QfaeBWZLZx_38T1V4fiQq6NBgh722ZbOFQl4Ed0kGek06SqtVzikJUXzPNGKoTJZH23c; PLAY_SESSION=0d6aaf00389ac14afec669ee410ea4f3789c7fe7-chsInfo=fe832c30-003f-4c21-953e-83f3bc513985+premium_nav_upsell_text; li_at=AQEDASbBeMkFTk3rAAABYqrJXBwAAAFiztXgHFEAxzb_kbtPoO4fO_zW72uLXLLH0gJTkASLoqzV4XDyg9Wp87g6Koj_YuZ5sjX6Drh94_tPQbvwlniAYknFUGWgDOj4JgeqX_xYo5jPFjnBc3TsM7L4; JSESSIONID="ajax:0527940450066958550"; liap=true; _gat=1; lidc="b=SB77:g=48:u=2:i=1523283846:t=1523369541:s=AQGYSooA62ELWoz84g-NVR0pr5uwLXWm"; lang="v=2&lang=en-us"; RT=s=1523283849548&r=https%3A%2F%2Fwww.linkedin.com%2Fpremium%2Fcancel%2Fcomplete; _ga=GA1.2.1479882839.1470758235'
-csrf = 'ajax:0527940450066958550'
+cookie = 'li_sugr=a8ce6728-71d6-4b67-abf1-fd22471a652a; _ga=GA1.2.1103327498.1578739635; aam_uuid=67510623380186900253362623901423547553; _guid=0bc3ad95-9840-4d57-8e4e-c629e8a6d46e; lissc1=1; lissc2=1; cap_session_id=3029172246:1; u_tz=GMT+08:00; li_oatml=AQFWt9jC8rbmPQAAAW_Q2xxXmYrvpp5wzqyqnrEWOBNNNAIGuSdvJHf9L32SEmkH413u6hiX42T3oI-_NFc1YgdFE9aNsLPn; bcookie=v=2&aadbda16-1705-4ed3-8b4e-6cb06e3868a3; bscookie=v=1&2019112809180736397064-7c03-48ee-8c1c-0224dd7be59cAQFN8z_rzSFPrnVCTGKoPzx1PRK8emTl; lissc=1; fid=AQFErU8xR2XxzwAAAW_SwnKZeoIZbJlK97f6Camhnr-pt2W3gbKzwoQdDiXv5NYi0mnG5_P9y2kqeA; AMCVS_14215E3D5995C57C0A495C55%40AdobeOrg=1; spectroscopyId=5416f06f-7b8f-48be-9805-47ef843ddbbb; visit=v=1&M; _lipt=CwEAAAFv1gP0vCPnISYiXCxezdux-MoYXMLXjjv5NrKPQ0INr60; JSESSIONID="ajax:8800147073815231271"; sl=v=1&d17Jg; li_at=AQEDARo-DEsBfFNBAAABb9cJhLgAAAFv-xYIuE0AF1HbU3Nsf5iluls_XOmJm-LKNLNf1E9SBujaJxNHUGQCT1HQtLg4TpTQcA3qWejih32ggtwHYF-DxsxN7VzIXWi_qdGfYTbU4r30QZeH8fMfCjcZ; liap=true; lang=v=2&lang=en-us; AMCV_14215E3D5995C57C0A495C55%40AdobeOrg=-1303530583%7CMCIDTS%7C18285%7CMCMID%7C67373062266571776343343183455992432490%7CMCAAMLH-1580465535%7C3%7CMCAAMB-1580465535%7CRKhpRz8krg2tLO6pguXWp5olkAcUniQYPHaMWWgdJ3xzPWQmdj0y%7CMCOPTOUT-1579864353s%7CNONE%7CvVersion%7C3.3.0%7CMCCIDH%7C-89769995; _gat=1; UserMatchHistory=AQItM-iFnZyOIAAAAW_XfgT6Ft3eE6WoPjlTp2pmFqhnefDQJNMiofjvrjjC6LgYPeukiIlc7wHcegqON0S8WkSeaRT1CEeJvmrboSOrudID-S2Ca_71sF0W3UO2rr5QZSHQdLyAa0CbbLTneifEyEu3xmmPGbNd-GcXKFemkrDU-3RLTI_b8j15t_-CpzWYyw4UcifxgZIJVH4hL5oQBA2NOu8LcY5f; lidc="b=SB95:g=134:u=174:i=1579868359:t=1579926639:s=AQGD3VixFBjbLugLbZyPMct41hDRwW2I"'
+csrf = 'ajax:8800147073815231271'
 
 manual_data = [
     {'url': 'https://www.linkedin.com/search/results/people/?company=&facetGeoRegion=%5B%22id%3A0%22%5D&facetIndustry=%5B%228%22%5D&keywords=digital&page=', 'keyword': 'digital ID', 'total_result': 3896, 'pid_prefix': 'DI_ID_%d', 'location': 'ID'},
@@ -50,28 +50,6 @@ def write(html, filename):
     fp.write(html)
     fp.close()
     print("write over")
-
-
-def write_excel(filename, alldata, flag=None):
-    if flag:
-        filename = filename.replace('.xls', '_'+str(flag)+'.xls')
-    d = os.path.dirname(filename)
-    if not os.path.exists(d):
-        os.makedirs(d)
-    w = xlwt.Workbook(encoding='utf-8')
-    ws = w.add_sheet('old', cell_overwrite_ok=True)
-    for row in range(0, len(alldata)):
-        one_row = alldata[row]
-        for col in range(0, len(one_row)):
-            try:
-                ws.write(row, col, one_row[col][:32766])
-            except:
-                try:
-                    ws.write(row, col, one_row[col])
-                except:
-                    print('===Write excel ERROR==='+str(one_row[col]))
-    w.save(filename)
-    print(filename+"===========over============"+str(len(alldata)))
 
 
 def get_profile_list(item, index):
@@ -182,13 +160,46 @@ def request_profile_detail(html):
 
 def get_endorse_details(profile_id, url):
     global sheet2_data
-    endorse_url = 'https://www.linkedin.com/voyager/api/identity/profiles/%s/featuredSkills?includeHiddenEndorsers=true&count=50' % url.split('/')[-1]
+    if profile_id in ['C_25', 'C_34', 'C_123', 'C_132', 'C_145', 'C_156', 'C_163', 'C_164', 'C_170', 'C_186', 'C_189',
+                'C_206', 'C_208', 'C_220', 'C_221', 'C_225', 'C_226', 'C_228', 'C_231', 'C_232', 'C_233', 'C_234',
+                'C_235', 'C_238', 'C_239', 'C_240', 'C_241', 'C_253', 'C_262', 'C_263', 'C_270', 'C_271', 'C_279',
+                'C_291', 'C_293', 'C_360', 'C_370', 'C_387', 'C_388', 'C_390', 'C_391', 'C_394', 'C_395', 'C_396',
+                'C_400', 'C_405', 'C_417', 'C_462', 'C_476', 'C_557', 'C_559', 'C_562', 'C_565', 'C_567', 'C_573',
+                'C_582', 'C_583', 'C_584', 'C_592', 'C_595', 'C_611', 'C_620', 'C_633', 'C_656', 'C_722', 'C_727',
+                'C_728', 'C_731', 'C_736', 'C_737', 'C_741', 'C_742', 'C_744', 'C_746', 'C_747', 'C_748', 'C_752',
+                'C_754', 'C_755', 'C_759', 'C_760', 'C_762', 'C_767', 'C_768', 'C_769', 'C_770', 'C_771', 'C_775',
+                'C_778', 'C_786', 'C_792', 'C_795', 'C_804', 'C_810', 'C_813', 'C_838', 'C_839', 'C_844', 'C_872',
+                'C_898', 'C_909', 'C_910', 'C_925', 'C_929', 'C_930', 'C_931', 'C_932', 'C_934', 'C_936', 'C_942',
+                'C_946', 'C_947', 'C_948', 'C_949', 'C_950', 'C_952', 'C_953', 'C_956', 'C_966', 'C_968', 'C_969',
+                'C_971', 'C_973', 'C_978', 'C_982', 'C_990', 'C_993', 'C_996', 'C_999', 'C_1000', 'C_1002', 'C_1003',
+                'C_1020', 'C_1023']:
+        one_row = [profile_id, url, 'N/A', 'N/A', 'N/A']
+        sheet2_data.append(one_row)
+    return 1
+    endorse_url = 'https://www.linkedin.com/voyager/api/identity/profiles/%s/skillCategory?includeHiddenEndorsers=true&count=50' % url.split('/')[-1]
     html = get_request(endorse_url)
     data_obj = json.loads(html)
 
-    for item in data_obj.get('elements', []):
-        one_row = [profile_id, item['skill']['name'], item['endorsementCount']]
+    name_dic = {}
+    category_dic = {}
+    res = []
+
+    if data_obj.get('status'):
+        print url, data_obj.get('status')
+    for item in data_obj.get('included', []):
+
+        if item.get('$type') == 'com.linkedin.voyager.identity.profile.EndorsedSkill':
+            res.append([item.get('originalCategoryType'), item.get('endorsementCount'), item.get('*skill')])
+        elif item.get('$type') == 'com.linkedin.voyager.identity.profile.Skill':
+            name_dic[item['entityUrn']] = item['name']
+        elif item.get('$type') == 'com.linkedin.voyager.identity.profile.ProfileSkillCategory':
+            category_dic[item.get('type')] = item['categoryName']
+
+    for item in res:
+        one_row = [profile_id, url, category_dic.get(item[0], item[0]), name_dic.get(item[2], item[2]), item[1]]
+        print one_row
         sheet2_data.append(one_row)
+    return len(item)
 
 
 def get_date(timestamp):
@@ -208,12 +219,15 @@ def remove_html_tag(ori):
 def get_request(url):
     header = {
         'cookie': cookie,
+        'accept': 'application/vnd.linkedin.normalized+json+2.1',
         'csrf-token': csrf,
+        'x-li-page-instance': 'urn:li:page:d_flagship3_profile_view_base;S/sxjWBcSZaqeRO3Ln/XXw==',
+        'referer': url,
     }
     res_data = requests.get(url, headers=header, timeout=8)
     res = res_data.content.decode("utf-8")
     res = res.replace('\t', '').replace('\r', '').replace('\n', '')
-    return html.unescape(res)
+    return res
 
 
 def request_company(url):
@@ -332,6 +346,23 @@ def preload_company_size():
     print('preload size: ', len(company_size))
 
 
+def get_data2(filename):
+    data = xlrd.open_workbook(filename)
+    table = data.sheets()[0]
+
+    for i in range(1, 383):
+        row = table.row(i)
+        c_id = row[0].value
+        url = row[2].value
+        try:
+            length = get_endorse_details(c_id, url)
+            print '----', c_id, url, length, '---'
+            # time.sleep(3)
+        except Exception as e:
+            print c_id, e
+    write_excel('sheet2.xls', sheet2_data)
+
+
 
 # scrape profile data
 # step 1: profile data
@@ -341,6 +372,6 @@ def preload_company_size():
 # write_excel('data/res1.xls', sheet1_data)
 # write_excel('data/res2.xls', sheet2_data)
 # step 3: company size
-preload_company_size()
-request_company_size()
-
+# preload_company_size()
+# request_company_size()
+get_data2('data/sheet0.xls')

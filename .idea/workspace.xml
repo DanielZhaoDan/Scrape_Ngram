@@ -2,17 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
-      <change afterPath="$PROJECT_DIR$/scraping/amazonChoice/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/google/attachments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/INSTA/Insta_profile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/Linkedin_employed/Company_people.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/bestbuy/chromedriver" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/bestbuy/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/chromedriver" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/CleanHtml/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/CleanHtml/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/demographics.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/kiasuparents/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/kiasuparents/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/google/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/google/script.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/merge_xls.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/merge_xls.py" afterDir="false" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,9 +23,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1575645320676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__2_.coverage" NAME="script (2) Coverage Results" MODIFIED="1581698126135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/CleanHtml" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts.coverage" NAME="1_Posts Coverage Results" MODIFIED="1545099671229" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1575549897908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$page_likes.coverage" NAME="page_likes Coverage Results" MODIFIED="1583407172823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
     <SUITE FILE_PATH="coverage/scrape_ngram$also_like.coverage" NAME="also_like Coverage Results" MODIFIED="1533259641726" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$get_cookie.coverage" NAME="get_cookie Coverage Results" MODIFIED="1533303168957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Hotels.coverage" NAME="Hotels Coverage Results" MODIFIED="1537059653947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
@@ -38,7 +39,7 @@
     <SUITE FILE_PATH="coverage/scrape_ngram$likes_profile.coverage" NAME="likes_profile Coverage Results" MODIFIED="1532020835268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$run.coverage" NAME="run Coverage Results" MODIFIED="1501232916682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FB_search_result" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$test__2_.coverage" NAME="test (2) Coverage Results" MODIFIED="1516093812739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$utils.coverage" NAME="utils Coverage Results" MODIFIED="1576490191636" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$utils.coverage" NAME="utils Coverage Results" MODIFIED="1579765455463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$merge.coverage" NAME="merge Coverage Results" MODIFIED="1481295264889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$1_Posts__1_.coverage" NAME="1_Posts (1) Coverage Results" MODIFIED="1542806118315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/every_3_hour" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$webFormContext.coverage" NAME="webFormContext Coverage Results" MODIFIED="1548054646201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util/data" />
@@ -46,8 +47,8 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$5_get_likes_followers.coverage" NAME="5_get_likes_followers Coverage Results" MODIFIED="1548641806381" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$diff.coverage" NAME="diff Coverage Results" MODIFIED="1496572059947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$vision.coverage" NAME="vision Coverage Results" MODIFIED="1572793918171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1572363215550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/openrice201910" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$job_details.coverage" NAME="job_details Coverage Results" MODIFIED="1509957323036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1587216003165" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/bestbuy" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$attachments.coverage" NAME="attachments Coverage Results" MODIFIED="1579336502343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$timeout.coverage" NAME="timeout Coverage Results" MODIFIED="1488521912644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$Restaraunt.coverage" NAME="Restaraunt Coverage Results" MODIFIED="1577147190104" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
@@ -57,6 +58,7 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$google.coverage" NAME="google Coverage Results" MODIFIED="1555212884607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$read.coverage" NAME="read Coverage Results" MODIFIED="1561467193505" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/steampowered" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$company.coverage" NAME="company Coverage Results" MODIFIED="1503641209270" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/glassdoor" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Insta_profile.coverage" NAME="Insta_profile Coverage Results" MODIFIED="1584891132182" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/INSTA" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$ngram.coverage" NAME="ngram Coverage Results" MODIFIED="1486551827535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Attractions.coverage" NAME="Attractions Coverage Results" MODIFIED="1536470479528" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/TripAdvisor" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script__3_.coverage" NAME="script (3) Coverage Results" MODIFIED="1525537080775" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/similarweb" />
@@ -78,8 +80,9 @@
     <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_stopwords.coverage" NAME="filter_stopwords Coverage Results" MODIFIED="1486691213822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$YT_setupWars.coverage" NAME="YT_setupWars Coverage Results" MODIFIED="1549123069301" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/YouTube" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$diff2.coverage" NAME="diff2 Coverage Results" MODIFIED="1496572391315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/Py_PB0531-13" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Employed_v2__1_.coverage" NAME="Employed_v2 (1) Coverage Results" MODIFIED="1579880425398" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_employed" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$VR_zone.coverage" NAME="VR_zone Coverage Results" MODIFIED="1488362779531" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kiasuparents" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1565987724981" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$script.coverage" NAME="script Coverage Results" MODIFIED="1581694387471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/google" />
     <SUITE FILE_PATH="coverage/scrape_ngram$test_http2.coverage" NAME="test_http2 Coverage Results" MODIFIED="1534014094499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script2.coverage" NAME="script2 Coverage Results" MODIFIED="1525880717151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/kaskus" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$merge_xls.coverage" NAME="merge_xls Coverage Results" MODIFIED="1576511763232" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
@@ -90,11 +93,12 @@
     <SUITE FILE_PATH="coverage/scrape_ngram$Employed_v2.coverage" NAME="Employed_v2 Coverage Results" MODIFIED="1523243926784" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$Vacancy.coverage" NAME="Vacancy Coverage Results" MODIFIED="1518845877716" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2__1_.coverage" NAME="Vacancy_v2 (1) Coverage Results" MODIFIED="1523522358378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_vacancy" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$Company_people.coverage" NAME="Company_people Coverage Results" MODIFIED="1579861506804" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin_employed" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$test.coverage" NAME="test Coverage Results" MODIFIED="1517280694527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/others/go" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$people.coverage" NAME="people Coverage Results" MODIFIED="1512006261615" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1481075833871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/scrape_ngram$Vacancy_v2.coverage" NAME="Vacancy_v2 Coverage Results" MODIFIED="1523283968242" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/Linkedin" />
-    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1575485261746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
+    <SUITE FILE_PATH="coverage/Scrape_Ngram$demographics.coverage" NAME="demographics Coverage Results" MODIFIED="1580529637385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB_insight" />
     <SUITE FILE_PATH="coverage/scrape_ngram$script__1_.coverage" NAME="script (1) Coverage Results" MODIFIED="1523929413440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/etoro" />
     <SUITE FILE_PATH="coverage/scrape_ngram$FB_BabasAndU.coverage" NAME="FB_BabasAndU Coverage Results" MODIFIED="1532773524845" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/scraping/FB" />
     <SUITE FILE_PATH="coverage/Scrape_Ngram$filter_text.coverage" NAME="filter_text Coverage Results" MODIFIED="1486782775004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ngram" />
@@ -112,12 +116,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scraping/google/attachments.py">
+        <entry file="file://$PROJECT_DIR$/scraping/bestbuy/script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-115">
-              <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+            <state relative-caret-position="274">
+              <caret line="115" column="27" lean-forward="true" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
               <folding>
-                <element signature="e#5918#7575#0" />
+                <element signature="e#0#26#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -135,36 +139,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>request_sheet2</find>
-      <find>url</find>
-      <find>get_request</find>
-      <find>shee</find>
-      <find>TR_41'</find>
-      <find>&quot;review_(.*?)&quot;.*?avatar profile_(.*?)&quot;.*?usernameClick.*?div&gt;(.*?)&lt;.*?ui_bubble_rating bubble_(.*?)&quot;.*?title=\'(.*?)\'.*?noQuotes\'&gt;(.*?)&lt;</find>
-      <find>index</find>
-      <find>href=&quot;(.*?)&quot;(.*?)memberdescriptionReviewEnhancements(.*?)countsReviewEnhancements(.*?)&lt;/ul.*?&lt;div class=&quot;wrap</find>
-      <find>get_level_of_uid</find>
-      <find>rowCellReviewEnhancements&quot;&gt;(.*?)&lt;</find>
-      <find>post</find>
-      <find>err--</find>
-      <find>rawat-kulit-kepala-untuknya</find>
-      <find>articles-untuk-pria</find>
-      <find>apa-itu-ketombe</find>
-      <find>boldness-quiz</find>
-      <find>helping-chat-id</find>
-      <find>walk</find>
-      <find>sheet2_data</find>
-      <find>sheet1_data</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;</find>
-      <find>NOX - Dine in</find>
-      <find>booking&quot;&gt;(.*?)&lt;/div</find>
-      <find>restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)data-test</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/span</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3&quot;&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/span</find>
-      <find>restaurants-list-ListCell__nameBlock--1hL7F.*?href=&quot;(.*?)&quot;.*?&gt;(.*?)&lt;.*?restaurants-list-ListCell__infoRowElement--2E6E3.*?restaurants-list-ListCell__infoRowElement--2E6E3&quot;&gt;(.*?)&lt;.*?restaurants-list-components-ReviewSnippets__snippetWrapper--2M8Bw(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div(.*?)&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;/div&gt;&lt;/div&gt;</find>
-      <find>a116178497w86333592p89585249</find>
+      <find>5340</find>
+      <find>video_view_count</find>
+      <find>&quot;video_view_count&quot;:(.*?),.*?&quot;edges&quot;:\[\{&quot;node&quot;:\{&quot;text&quot;:&quot;(.*?)&quot;.*?taken_at_timestamp&quot;:(.*?),&quot;edge_media_preview_like&quot;:\{&quot;count&quot;:(.*?),.*?owner.*?name&quot;:&quot;(.*?)&quot;</find>
+      <find>&quot;edges&quot;:\[\{&quot;node&quot;:\{&quot;text&quot;:&quot;(.*?)&quot;.*?taken_at_timestamp&quot;:(.*?),&quot;edge_media_preview_like&quot;:\{&quot;count&quot;:(.*?),.*?owner.*?name&quot;:&quot;(.*?)&quot;</find>
+      <find>url_prefix</find>
+      <find>end_cursor</find>
+      <find>martavsilva10</find>
+      <find>start_y</find>
+      <find>get_endorse_details</find>
+      <find>Had such a great</find>
+      <find>alldata</find>
+      <find>B4wuG6qgmAP</find>
+      <find>/2019</find>
+      <find>metrics</find>
+      <find>=BR</find>
+      <find>BRue</find>
+      <find>&quot;edges&quot;:\[\{&quot;node&quot;:\{&quot;text&quot;:&quot;(.*?)&quot;.*?taken_at_timestamp&quot;:(.*?),&quot;edge_media_preview_like&quot;:\{&quot;count&quot;:(.*?),</find>
+      <find>bestBuy</find>
+      <find>from</find>
+      <find>chromedri</find>
+      <find>from selenium import webdriver</find>
+      <find>driver</find>
+      <find>init_browser</find>
+      <find>class=&quot;sku-item&quot;.*?class=&quot;image-link&quot; href=&quot;(.*?)&quot;.*?src=&quot;(.*?)</find>
+      <find>class=&quot;sku-item&quot; data-sku-id=&quot;(.*?)&quot;.*?class=&quot;image-link&quot; href=&quot;(.*?)&quot;.*?src=&quot;(.*?)&quot;.*?class=&quot;sku-header&quot;&gt;(.*?)&lt;/h4.*?c-ratings-reviews-v2.*?sr-only&quot;&gt;(.*?)&lt;</find>
+      <find>class=&quot;sku-item&quot; data-sku-id=&quot;(.*?)&quot;.*?class=&quot;image-link&quot; href=&quot;(.*?)&quot;.*?src=&quot;(.*?)&quot;.*?right-column(.*?)class=&quot;sku-header&quot;&gt;(.*?)&lt;/h4.*?c-ratings-reviews-v2.*?sr-only&quot;&gt;(.*?)&lt;</find>
+      <find>class=&quot;specs-table col-xs-9&quot;</find>
+      <find>class=&quot;specs-table col-xs-9&quot;(.*?)&lt;/ul&gt;</find>
+      <find>class=&quot;row-title&quot;</find>
+      <find>class=&quot;row-title&quot;&gt;(.*?)&lt;.*?class=&quot;row-value.*?&gt;(.*?)&lt;</find>
     </findStrings>
     <replaceStrings>
       <replace>',</replace>
@@ -177,10 +181,13 @@
       <replace>\'</replace>
       <replace>\n</replace>
       <replace>', '</replace>
+      <replace>PH</replace>
+      <replace>'VN'</replace>
     </replaceStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/scraping</dir>
       <dir>$PROJECT_DIR$/util</dir>
+      <dir>$PROJECT_DIR$/scraping/</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -197,14 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/scraping/FB_insight/MM_W.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/MM_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/CH_M.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/CH_W.html" />
-        <option value="$PROJECT_DIR$/scraping/google/google.py" />
-        <option value="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
-        <option value="$PROJECT_DIR$/scraping/steampowered/read.py" />
-        <option value="$PROJECT_DIR$/scraping/steampowered/out.txt" />
         <option value="$PROJECT_DIR$/scraping/steampowered/2_1.html" />
         <option value="$PROJECT_DIR$/scraping/steampowered/script.py" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/script.py" />
@@ -217,7 +216,6 @@
         <option value="$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Women.html" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/source/Tekken 7_Men.html" />
         <option value="$PROJECT_DIR$/scraping/amazon/2.html" />
-        <option value="$PROJECT_DIR$/scraping/google/script.py" />
         <option value="$PROJECT_DIR$/scraping/lowyat/script.py" />
         <option value="$PROJECT_DIR$/scraping/FB_insight/jobTitle.py" />
         <option value="$PROJECT_DIR$/scraping/cafe.naver/script.py" />
@@ -235,32 +233,43 @@
         <option value="$PROJECT_DIR$/scraping/paytm/script.py" />
         <option value="$PROJECT_DIR$/scraping/google/vision.py" />
         <option value="$PROJECT_DIR$/scraping/amazonChoice/1.html" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
-        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
         <option value="$PROJECT_DIR$/scraping/amazonChoice/script.py" />
         <option value="$PROJECT_DIR$/scraping/kiasuparents/2.html" />
         <option value="$PROJECT_DIR$/scraping/kiasuparents/script.py" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/2.html" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/3.html" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/2_1.html" />
-        <option value="$PROJECT_DIR$/scraping/utils.py" />
         <option value="$PROJECT_DIR$/util/merge_xls.py" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/1.html" />
         <option value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
         <option value="$PROJECT_DIR$/scraping/google/attachments.py" />
+        <option value="$PROJECT_DIR$/scraping/Linkedin_employed/2.html" />
+        <option value="$PROJECT_DIR$/scraping/Linkedin_employed/Company_people.py" />
+        <option value="$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
+        <option value="$PROJECT_DIR$/scraping/google/script.py" />
+        <option value="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
+        <option value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
+        <option value="$PROJECT_DIR$/scraping/INSTA/1.html" />
+        <option value="$PROJECT_DIR$/scraping/INSTA/Insta_profile.py" />
+        <option value="$PROJECT_DIR$/scraping/FB/3_also_like.py" />
+        <option value="$PROJECT_DIR$/scraping/utils.py" />
+        <option value="$PROJECT_DIR$/scraping/bestbuy/script.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
+    <option name="x" value="117" />
     <option name="y" value="23" />
-    <option name="width" value="1870" />
-    <option name="height" value="1057" />
+    <option name="width" value="1323" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -277,20 +286,20 @@
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
               <item name="scraping" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
+              <item name="bestbuy" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
               <item name="scraping" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
+              <item name="bestbuy" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
               <item name="scraping" type="462c0819:PsiDirectoryNode" />
-              <item name="google" type="462c0819:PsiDirectoryNode" />
+              <item name="bestbuy" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
               <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -298,13 +307,27 @@
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
               <item name="scraping" type="462c0819:PsiDirectoryNode" />
-              <item name="TripAdvisor" type="462c0819:PsiDirectoryNode" />
+              <item name="FB" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
               <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
               <item name="scraping" type="462c0819:PsiDirectoryNode" />
-              <item name="webscreenshot" type="462c0819:PsiDirectoryNode" />
+              <item name="FB" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="similarweb" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scrape_Ngram" type="462c0819:PsiDirectoryNode" />
+              <item name="scraping" type="462c0819:PsiDirectoryNode" />
+              <item name="similarweb" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Scrape_Ngram" type="b2602c69:ProjectViewProjectNode" />
@@ -315,7 +338,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -334,18 +356,18 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping/bestbuy/data" />
       <recent name="$PROJECT_DIR$/scraping/TripAdvisor/data" />
       <recent name="$PROJECT_DIR$/util/data" />
       <recent name="$PROJECT_DIR$/scraping" />
       <recent name="$PROJECT_DIR$/scraping/amazonlist" />
-      <recent name="$PROJECT_DIR$/scraping/amazon" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/scraping/TripAdvisor" />
-      <recent name="$PROJECT_DIR$/scraping/google/data" />
-      <recent name="$PROJECT_DIR$/scraping/google" />
-      <recent name="$PROJECT_DIR$/scraping/paytm" />
-      <recent name="$PROJECT_DIR$/scraping/amazon" />
+      <recent name="$PROJECT_DIR$/scraping" />
+      <recent name="$PROJECT_DIR$/scraping/bestbuy" />
+      <recent name="$PROJECT_DIR$/scraping/CleanHtml/data" />
+      <recent name="$PROJECT_DIR$/scraping/Linkedin_employed/data" />
+      <recent name="$PROJECT_DIR$/scraping/INSTA/data" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -360,7 +382,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.attachments">
+  <component name="RunManager" selected="Python.script (3)">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$" />
@@ -467,7 +489,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Restaraunt" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Insta_profile" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -475,12 +497,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/TripAdvisor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/INSTA" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/INSTA/Insta_profile.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -511,7 +533,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="attachments" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="demographics" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -519,12 +541,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/google" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB_insight" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/google/attachments.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/demographics.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -533,7 +555,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="merge_xls" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="page_likes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -541,12 +563,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/FB_insight" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/merge_xls.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -585,12 +607,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/kiasuparents" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/CleanHtml" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/kiasuparents/script.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/CleanHtml/script.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="script (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/bestbuy" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/bestbuy/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -621,28 +665,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/utils.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp">
       <node-interpreter>project</node-interpreter>
       <node-options />
@@ -659,19 +681,19 @@
       <item itemvalue="Python.Employed_v2" />
       <item itemvalue="Python.Vacancy_v2 (1)" />
       <item itemvalue="Python.1_Posts (1)" />
+      <item itemvalue="Python.Insta_profile" />
+      <item itemvalue="Python.page_likes" />
+      <item itemvalue="Python.demographics" />
       <item itemvalue="Python.script (2)" />
-      <item itemvalue="Python.Restaraunt" />
-      <item itemvalue="Python.utils" />
-      <item itemvalue="Python.attachments" />
-      <item itemvalue="Python.merge_xls" />
+      <item itemvalue="Python.script (3)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.attachments" />
-        <item itemvalue="Python.Restaraunt" />
-        <item itemvalue="Python.merge_xls" />
-        <item itemvalue="Python.utils" />
+        <item itemvalue="Python.script (3)" />
+        <item itemvalue="Python.Insta_profile" />
+        <item itemvalue="Python.page_likes" />
         <item itemvalue="Python.script (2)" />
+        <item itemvalue="Python.demographics" />
       </list>
     </recent_temporary>
   </component>
@@ -697,6 +719,18 @@
       <workItem from="1577125719257" duration="5040000" />
       <workItem from="1577754463000" duration="1622000" />
       <workItem from="1579334075934" duration="2313000" />
+      <workItem from="1579578364208" duration="1507000" />
+      <workItem from="1579757282632" duration="20411000" />
+      <workItem from="1579843083429" duration="10935000" />
+      <workItem from="1580528339624" duration="1576000" />
+      <workItem from="1581225751037" duration="565000" />
+      <workItem from="1581301780643" duration="5107000" />
+      <workItem from="1581693922350" duration="2750000" />
+      <workItem from="1582023303924" duration="1727000" />
+      <workItem from="1583043271945" duration="1581000" />
+      <workItem from="1583406454676" duration="727000" />
+      <workItem from="1584884851269" duration="5473000" />
+      <workItem from="1587205179822" duration="11792000" />
     </task>
     <task id="LOCAL-00001" summary="ADD: google">
       <created>1493981762445</created>
@@ -943,7 +977,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564214130293</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
+      <created>1579578452247</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1579578452247</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -976,7 +1017,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="101132000" />
+    <option name="totallyTimeSpent" value="165283000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -988,25 +1029,25 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1870" height="1057" extended-state="0" />
+    <frame x="117" y="23" width="1323" height="877" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.79075426" visible="true" weight="0.22155361" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.79075426" visible="true" weight="0.30210772" />
       <window_info id="Structure" order="1" weight="0.24852653" />
       <window_info id="Favorites" order="2" sideWeight="0.20924574" side_tool="true" weight="0.1892405" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3284974" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.34611398" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32738853" />
+      <window_info anchor="bottom" id="Debug" order="2" weight="0.39481866" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" weight="0.32866243" />
       <window_info anchor="bottom" id="Terminal" order="6" sideWeight="0.49766627" weight="0.28917196" />
       <window_info anchor="bottom" id="Messages" order="7" />
       <window_info anchor="bottom" id="Application Servers" order="8" />
-      <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49556214" weight="0.39481866" />
-      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49304348" weight="0.42901555" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" sideWeight="0.49556214" visible="true" weight="0.5732484" />
+      <window_info anchor="bottom" id="Python Console" order="10" sideWeight="0.49304348" weight="0.2624204" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50443786" side_tool="true" weight="0.5057325" />
       <window_info anchor="bottom" id="Docker" order="12" show_stripe_button="false" sideWeight="0.49649122" weight="0.32881" />
-      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.4238342" />
+      <window_info anchor="bottom" id="Run" order="13" sideWeight="0.49713877" weight="0.6726115" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -1152,17 +1193,17 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py</url>
-          <line>126</line>
+          <line>104</line>
           <option name="timeStamp" value="198" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py</url>
-          <line>266</line>
+          <line>280</line>
           <option name="timeStamp" value="205" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py</url>
-          <line>77</line>
+          <line>55</line>
           <option name="timeStamp" value="208" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1177,7 +1218,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/google/script.py</url>
-          <line>231</line>
+          <line>228</line>
           <option name="timeStamp" value="220" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="python-line">
@@ -1332,7 +1373,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
-          <line>86</line>
+          <line>106</line>
           <option name="timeStamp" value="391" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1357,7 +1398,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py</url>
-          <line>137</line>
+          <line>157</line>
           <option name="timeStamp" value="419" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -1379,6 +1420,31 @@
           <url>file://$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py</url>
           <line>134</line>
           <option name="timeStamp" value="427" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Company_people.py</url>
+          <line>171</line>
+          <option name="timeStamp" value="435" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/INSTA/Insta_profile.py</url>
+          <line>53</line>
+          <option name="timeStamp" value="443" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py</url>
+          <line>197</line>
+          <option name="timeStamp" value="444" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/INSTA/Insta_profile.py</url>
+          <line>81</line>
+          <option name="timeStamp" value="445" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/bestbuy/script.py</url>
+          <line>89</line>
+          <option name="timeStamp" value="452" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -1405,6 +1471,26 @@
     </expressions>
     <expressions id="evaluateExpression">
       <expression>
+        <expression-string>sheet2_title[0]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>p_id</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>re.compile('&quot;edges&quot;:\[\{&quot;node&quot;:\{&quot;text&quot;:&quot;(.*?)&quot;.*?taken_at_timestamp&quot;:(.*?),&quot;edge_media_preview_like&quot;:\{&quot;count&quot;:(.*?),.*?owner.*?name&quot;:&quot;(.*?)&quot;').findall(html)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>re.compile()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
         <expression-string>re.compile('').findall(ori)</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
@@ -1429,780 +1515,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>re.compile('alt=\'(.*?) .*?reviewCount').findall(ori)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>re.compile('alt=\'(.*?) ').findall(ori)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>re.compile('alt=(.*?) ').findall(ori)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>re.compile('alt=(.*?) .*?reviewCount&quot;&gt;.*?&gt;(.*?) review').findall(ori)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>re.compile('alt=(.*?) of 5 bubbles.*?reviewCount&quot;&gt;.*?&gt;(.*?) review').findall(ori)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/scraping/cafe.naver/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="182" selection-start-line="182" selection-end-line="194" selection-end-column="14" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret column="663436" selection-start-column="663431" selection-end-column="663436" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FB_search_result/get_comment_detail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="52" selection-start-line="52" selection-end-line="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret column="51458" selection-start-column="35163" selection-end-column="51458" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#nav#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#18546#18551#0" expanded="true" />
-            <element signature="e#22585#22590#0" expanded="true" />
-            <element signature="n#style#0;n#rect#0;n#svg#0;n#div#0;n#div#0;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#1;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#1;n#div#0;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#0;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#section#1;n#div#1;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#2;n#div#1;n#div#0;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#1;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#68086#68091#0" expanded="true" />
-            <element signature="n#style#0;n#section#0;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#2;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#75040#75045#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#3;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#3;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#80322#80327#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#4;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#85491#85496#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#div#1;n#div#5;n#section#0;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#90725#90730#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#0;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#1;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#95739#95744#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#2;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#a#0;n#li#3;n#ul#0;n#div#2;n#div#1;n#div#1;n#div#1;n#main#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#109052#109057#0" expanded="true" />
-            <element signature="e#109157#109163#0" expanded="true" />
-            <element signature="e#109164#109170#0" expanded="true" />
-            <element signature="e#109171#109176#0" expanded="true" />
-            <element signature="e#109177#109183#0" expanded="true" />
-            <element signature="e#109184#109190#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/google/google_deprecated.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="11" selection-end-line="51" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/cloud/vision_v1/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/cloud/vision_v1/gapic/transports/image_annotator_grpc_transport.py" />
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/api_core/grpc_helpers.py" />
-    <entry file="file://$PROJECT_DIR$/../../../projects/2.7/lib/python2.7/site-packages/google/auth/_default.py" />
-    <entry file="file://$PROJECT_DIR$/scraping/common/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/scraping/common/utils.py" />
-    <entry file="file://$PROJECT_DIR$/scraping/google/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="665">
-          <caret line="110" column="12" selection-start-line="110" selection-start-column="12" selection-end-line="110" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="29" column="74" selection-start-line="29" selection-start-column="74" selection-end-line="29" selection-end-column="74" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/openrice201910/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="229" selection-start-line="229" selection-end-line="240" selection-end-column="20" />
-          <folding>
-            <element signature="e#24#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret column="6360" lean-forward="true" selection-start-column="6360" selection-end-column="6360" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#6082#6087#0" expanded="true" />
-            <element signature="e#6513#6519#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/paytm/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret column="117113" selection-start-column="116184" selection-end-column="117113" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#75973#75978#0" expanded="true" />
-            <element signature="e#76234#76239#0" expanded="true" />
-            <element signature="e#76986#76991#0" expanded="true" />
-            <element signature="e#77255#77260#0" expanded="true" />
-            <element signature="e#77392#77397#0" expanded="true" />
-            <element signature="e#77525#77530#0" expanded="true" />
-            <element signature="e#77656#77661#0" expanded="true" />
-            <element signature="e#77795#77800#0" expanded="true" />
-            <element signature="e#81217#81222#0" expanded="true" />
-            <element signature="e#81845#81850#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#117300#117305#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#127220#127225#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#129002#129007#0" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#2;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#3;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#140735#140740#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#143621#143626#0" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#4;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#5;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#152795#152801#0" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#154429#154434#0" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#6;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#162244#162249#0" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#7;n#div#1;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#167411#167417#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#2;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#169738#169743#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#4;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#5;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#6;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#7;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#7;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#8;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#8;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#9;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#0;n#td#0;n#tr#10;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#173054#173059#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#10;n#tbody#0;n#table#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#173214#173220#1" expanded="true" />
-            <element signature="e#173848#173855#0" expanded="true" />
-            <element signature="e#174035#174042#0" expanded="true" />
-            <element signature="e#174275#174280#0" expanded="true" />
-            <element signature="e#174967#174972#0" expanded="true" />
-            <element signature="e#175106#175111#0" expanded="true" />
-            <element signature="e#175758#175764#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#2;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#176317#176323#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#1;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#4;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#177505#177512#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#5;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#178516#178523#0" expanded="true" />
-            <element signature="e#178717#178723#1" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#7;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#178901#178906#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#8;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#9;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#10;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#11;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#181343#181348#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#12;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#13;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#182179#182185#1" expanded="true" />
-            <element signature="e#182229#182234#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#15;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#16;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#183688#183693#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#0;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#1;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#2;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#3;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#3;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#4;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#a#4;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#5;n#p#17;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#p#18;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#185249#185254#0" expanded="true" />
-            <element signature="e#185626#185631#0" expanded="true" />
-            <element signature="e#187947#187952#0" expanded="true" />
-            <element signature="e#192170#192175#0" expanded="true" />
-            <element signature="e#192863#192868#0" expanded="true" />
-            <element signature="e#193047#193052#0" expanded="true" />
-            <element signature="e#193236#193241#0" expanded="true" />
-            <element signature="e#193329#193334#0" expanded="true" />
-            <element signature="e#193435#193440#0" expanded="true" />
-            <element signature="e#193528#193533#0" expanded="true" />
-            <element signature="e#193830#193835#0" expanded="true" />
-            <element signature="e#194408#194413#0" expanded="true" />
-            <element signature="e#194745#194750#0" expanded="true" />
-            <element signature="e#196274#196279#0" expanded="true" />
-            <element signature="e#196473#196478#0" expanded="true" />
-            <element signature="e#198190#198195#0" expanded="true" />
-            <element signature="e#198289#198294#0" expanded="true" />
-            <element signature="e#198378#198383#0" expanded="true" />
-            <element signature="e#198482#198487#0" expanded="true" />
-            <element signature="e#202219#202224#0" expanded="true" />
-            <element signature="e#202728#202733#0" expanded="true" />
-            <element signature="e#202834#202839#0" expanded="true" />
-            <element signature="e#202940#202945#0" expanded="true" />
-            <element signature="e#206061#206066#0" expanded="true" />
-            <element signature="e#206990#206995#0" expanded="true" />
-            <element signature="e#207083#207088#0" expanded="true" />
-            <element signature="e#207871#207876#0" expanded="true" />
-            <element signature="e#208349#208354#0" expanded="true" />
-            <element signature="e#209333#209338#0" expanded="true" />
-            <element signature="e#209841#209846#0" expanded="true" />
-            <element signature="e#210533#210538#0" expanded="true" />
-            <element signature="e#210901#210906#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/paytm/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="412">
-          <caret column="111882" selection-start-column="104189" selection-end-column="111882" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#101165#101170#0" expanded="true" />
-            <element signature="e#101426#101431#0" expanded="true" />
-            <element signature="e#102178#102183#0" expanded="true" />
-            <element signature="e#102447#102452#0" expanded="true" />
-            <element signature="e#102584#102589#0" expanded="true" />
-            <element signature="e#102717#102722#0" expanded="true" />
-            <element signature="e#102848#102853#0" expanded="true" />
-            <element signature="e#102987#102992#0" expanded="true" />
-            <element signature="e#103548#103553#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#109866#109871#0" expanded="true" />
-            <element signature="e#120985#120990#0" expanded="true" />
-            <element signature="e#121196#121201#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#div#0;n#div#1;n#div#1;n#div#3;n#div#1;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#125552#125557#0" expanded="true" />
-            <element signature="e#125929#125934#0" expanded="true" />
-            <element signature="e#128250#128255#0" expanded="true" />
-            <element signature="e#132473#132478#0" expanded="true" />
-            <element signature="e#133166#133171#0" expanded="true" />
-            <element signature="e#133350#133355#0" expanded="true" />
-            <element signature="e#133539#133544#0" expanded="true" />
-            <element signature="e#133632#133637#0" expanded="true" />
-            <element signature="e#133738#133743#0" expanded="true" />
-            <element signature="e#133831#133836#0" expanded="true" />
-            <element signature="e#134133#134138#0" expanded="true" />
-            <element signature="e#134711#134716#0" expanded="true" />
-            <element signature="e#135048#135053#0" expanded="true" />
-            <element signature="e#136577#136582#0" expanded="true" />
-            <element signature="e#136776#136781#0" expanded="true" />
-            <element signature="e#138493#138498#0" expanded="true" />
-            <element signature="e#138592#138597#0" expanded="true" />
-            <element signature="e#138681#138686#0" expanded="true" />
-            <element signature="e#138785#138790#0" expanded="true" />
-            <element signature="e#142522#142527#0" expanded="true" />
-            <element signature="e#143031#143036#0" expanded="true" />
-            <element signature="e#143137#143142#0" expanded="true" />
-            <element signature="e#143243#143248#0" expanded="true" />
-            <element signature="e#146364#146369#0" expanded="true" />
-            <element signature="e#147293#147298#0" expanded="true" />
-            <element signature="e#147386#147391#0" expanded="true" />
-            <element signature="e#148174#148179#0" expanded="true" />
-            <element signature="e#148652#148657#0" expanded="true" />
-            <element signature="e#149636#149641#0" expanded="true" />
-            <element signature="e#150144#150149#0" expanded="true" />
-            <element signature="e#150836#150841#0" expanded="true" />
-            <element signature="e#151204#151209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/paytm/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="69" column="28" lean-forward="true" selection-start-line="69" selection-start-column="28" selection-end-line="69" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/google/client_secrets.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/google/vision.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/out.txt" />
-    <entry file="file://$PROJECT_DIR$/scraping/kiasuparents/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret column="50072" selection-start-column="48409" selection-end-column="50072" />
-          <folding>
-            <element signature="n#style#0;n#iframe#0;n#noscript#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#svg#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#2;n#div#1;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#7;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#7;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#8;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#8;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#9;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#9;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#10;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#10;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#11;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#11;n#ul#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#6;n#ul#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#0;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#dt#0;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#1;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#2;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#3;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#4;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#dt#0;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#span#0;n#dd#2;n#dl#0;n#li#5;n#ul#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#79015#79021#0" expanded="true" />
-            <element signature="e#79058#79064#0" expanded="true" />
-            <element signature="e#79103#79109#0" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#strong#3;n#p#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#1;n#div#2;n#div#0;n#main#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#80810#80815#0" expanded="true" />
-            <element signature="e#80831#80837#0" expanded="true" />
-            <element signature="e#81435#81441#1" expanded="true" />
-            <element signature="e#81625#81631#1" expanded="true" />
-            <element signature="e#82569#82575#1" expanded="true" />
-            <element signature="e#82763#82769#1" expanded="true" />
-            <element signature="e#95884#95891#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="28" lean-forward="true" selection-end-line="86" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="74">
-          <caret column="454589" selection-start-column="454589" selection-end-column="454589" />
-          <folding>
-            <element signature="e#1225#1232#0" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#351#358#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret column="87990" selection-start-column="85810" selection-end-column="87990" />
-          <folding>
-            <element signature="e#9129#9134#0" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#47420#47426#0" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#2;n#div#0;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#header#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#73137#73145#1" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#table#0;n#div#4;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#104129#104136#0" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#4;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#8;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#0;n#div#9;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#136015#136019#0" expanded="true" />
-            <element signature="e#1351#1358#0" expanded="true" />
-            <element signature="n#style#0;n#span#1;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#span#0;n#span#0;n#a#0;n#div#4;n#div#0;n#!!top" expanded="true" />
-            <element signature="e#364#371#1" expanded="true" />
-            <element signature="n#style#0;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#171023#171031#1" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#a#0;n#div#0;n#span#1;n#div#2;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#2;n#a#2;n#div#0;n#span#1;n#div#2;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#9;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#11;n#tr#0;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#176670#176676#1" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#9;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#11;n#tr#2;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#178642#178648#1" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#9;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#11;n#tr#4;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#180273#180279#1" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#9;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#11;n#tr#6;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="e#181910#181916#1" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#3;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#9;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#11;n#tr#8;n#table#0;n#div#3;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#5;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#noscript#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/3.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="704" lean-forward="true" selection-start-column="704" selection-end-column="704" />
-          <folding>
-            <element signature="e#2786#2791#0" expanded="true" />
-            <element signature="e#2803#2808#0" expanded="true" />
-            <element signature="e#3543#3548#1" expanded="true" />
-            <element signature="e#3560#3565#1" expanded="true" />
-            <element signature="e#4298#4303#1" expanded="true" />
-            <element signature="e#4315#4320#1" expanded="true" />
-            <element signature="e#5049#5054#1" expanded="true" />
-            <element signature="e#5066#5071#1" expanded="true" />
-            <element signature="e#5808#5813#1" expanded="true" />
-            <element signature="e#5825#5830#1" expanded="true" />
-            <element signature="e#6567#6572#1" expanded="true" />
-            <element signature="e#6584#6589#1" expanded="true" />
-            <element signature="e#7318#7323#1" expanded="true" />
-            <element signature="e#7335#7340#1" expanded="true" />
-            <element signature="e#8091#8096#1" expanded="true" />
-            <element signature="e#8108#8113#1" expanded="true" />
-            <element signature="e#8870#8875#1" expanded="true" />
-            <element signature="e#8887#8892#1" expanded="true" />
-            <element signature="e#9619#9624#1" expanded="true" />
-            <element signature="e#9636#9641#1" expanded="true" />
-            <element signature="e#10379#10384#1" expanded="true" />
-            <element signature="e#10396#10401#1" expanded="true" />
-            <element signature="e#11153#11158#1" expanded="true" />
-            <element signature="e#11170#11175#1" expanded="true" />
-            <element signature="e#11939#11944#1" expanded="true" />
-            <element signature="e#11956#11961#1" expanded="true" />
-            <element signature="e#12727#12732#1" expanded="true" />
-            <element signature="e#12744#12749#1" expanded="true" />
-            <element signature="e#13491#13496#1" expanded="true" />
-            <element signature="e#13508#13513#1" expanded="true" />
-            <element signature="e#14251#14256#1" expanded="true" />
-            <element signature="e#14268#14273#1" expanded="true" />
-            <element signature="e#15029#15034#1" expanded="true" />
-            <element signature="e#15046#15051#1" expanded="true" />
-            <element signature="e#15807#15812#1" expanded="true" />
-            <element signature="e#15824#15829#1" expanded="true" />
-            <element signature="e#16565#16570#1" expanded="true" />
-            <element signature="e#16582#16587#1" expanded="true" />
-            <element signature="e#17317#17322#1" expanded="true" />
-            <element signature="e#17334#17339#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/amazonChoice/1.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="851" selection-start-column="482" selection-end-column="851" />
-          <folding>
-            <element signature="e#2786#2791#0" expanded="true" />
-            <element signature="e#2803#2808#0" expanded="true" />
-            <element signature="e#3543#3548#1" expanded="true" />
-            <element signature="e#3560#3565#1" expanded="true" />
-            <element signature="e#4298#4303#1" expanded="true" />
-            <element signature="e#4315#4320#1" expanded="true" />
-            <element signature="e#5049#5054#1" expanded="true" />
-            <element signature="e#5066#5071#1" expanded="true" />
-            <element signature="e#5808#5813#1" expanded="true" />
-            <element signature="e#5825#5830#1" expanded="true" />
-            <element signature="e#6567#6572#1" expanded="true" />
-            <element signature="e#6584#6589#1" expanded="true" />
-            <element signature="e#7318#7323#1" expanded="true" />
-            <element signature="e#7335#7340#1" expanded="true" />
-            <element signature="e#8091#8096#1" expanded="true" />
-            <element signature="e#8108#8113#1" expanded="true" />
-            <element signature="e#8870#8875#1" expanded="true" />
-            <element signature="e#8887#8892#1" expanded="true" />
-            <element signature="e#9619#9624#1" expanded="true" />
-            <element signature="e#9636#9641#1" expanded="true" />
-            <element signature="e#10379#10384#1" expanded="true" />
-            <element signature="e#10396#10401#1" expanded="true" />
-            <element signature="e#11153#11158#1" expanded="true" />
-            <element signature="e#11170#11175#1" expanded="true" />
-            <element signature="e#11939#11944#1" expanded="true" />
-            <element signature="e#11956#11961#1" expanded="true" />
-            <element signature="e#12727#12732#1" expanded="true" />
-            <element signature="e#12744#12749#1" expanded="true" />
-            <element signature="e#13491#13496#1" expanded="true" />
-            <element signature="e#13508#13513#1" expanded="true" />
-            <element signature="e#14251#14256#1" expanded="true" />
-            <element signature="e#14268#14273#1" expanded="true" />
-            <element signature="e#15029#15034#1" expanded="true" />
-            <element signature="e#15046#15051#1" expanded="true" />
-            <element signature="e#15807#15812#1" expanded="true" />
-            <element signature="e#15824#15829#1" expanded="true" />
-            <element signature="e#16565#16570#1" expanded="true" />
-            <element signature="e#16582#16587#1" expanded="true" />
-            <element signature="e#17317#17322#1" expanded="true" />
-            <element signature="e#17334#17339#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB_insight/location_script.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -2220,24 +1535,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="10" column="571" lean-forward="true" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="571" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/FB_insight/script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
           <caret line="215" column="42" lean-forward="true" selection-start-line="215" selection-start-column="42" selection-end-line="215" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369">
-          <caret line="187" lean-forward="true" selection-start-line="187" selection-end-line="187" />
         </state>
       </provider>
     </entry>
@@ -2577,13 +1878,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2/typing.pyi">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/kiasuparents/script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -2685,22 +1979,613 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/attachments.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="915">
+          <caret line="62" column="36" lean-forward="true" selection-start-line="62" selection-start-column="36" selection-end-line="62" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/company.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="298" column="4" selection-start-line="298" selection-start-column="4" selection-end-line="298" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="218" column="11" selection-start-line="218" selection-start-column="11" selection-end-line="218" selection-end-column="48" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5917">
+          <caret column="283265" selection-start-column="260420" selection-end-column="283265" />
+          <folding>
+            <element signature="n#style#0;n#g#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#span#0;n#li#6;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#span#0;n#li#6;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#g#0;n#svg#0;n#li-icon#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#261113#261118#0" expanded="true" />
+            <element signature="e#261128#261133#0" expanded="true" />
+            <element signature="e#261341#261346#0" expanded="true" />
+            <element signature="e#261356#261361#0" expanded="true" />
+            <element signature="e#261569#261574#0" expanded="true" />
+            <element signature="e#261584#261589#0" expanded="true" />
+            <element signature="e#261797#261802#0" expanded="true" />
+            <element signature="e#261812#261817#0" expanded="true" />
+            <element signature="e#262865#262870#0" expanded="true" />
+            <element signature="e#262880#262885#0" expanded="true" />
+            <element signature="e#263093#263098#0" expanded="true" />
+            <element signature="e#263108#263113#0" expanded="true" />
+            <element signature="e#263321#263326#0" expanded="true" />
+            <element signature="e#263336#263341#0" expanded="true" />
+            <element signature="e#263549#263554#0" expanded="true" />
+            <element signature="e#263564#263569#0" expanded="true" />
+            <element signature="e#264539#264544#0" expanded="true" />
+            <element signature="e#264554#264559#0" expanded="true" />
+            <element signature="e#264767#264772#0" expanded="true" />
+            <element signature="e#264782#264787#0" expanded="true" />
+            <element signature="e#264995#265000#0" expanded="true" />
+            <element signature="e#265010#265015#0" expanded="true" />
+            <element signature="e#265223#265228#0" expanded="true" />
+            <element signature="e#265238#265243#0" expanded="true" />
+            <element signature="e#266203#266208#0" expanded="true" />
+            <element signature="e#266218#266223#0" expanded="true" />
+            <element signature="e#266431#266436#0" expanded="true" />
+            <element signature="e#266446#266451#0" expanded="true" />
+            <element signature="e#266659#266664#0" expanded="true" />
+            <element signature="e#266674#266679#0" expanded="true" />
+            <element signature="e#266887#266892#0" expanded="true" />
+            <element signature="e#266902#266907#0" expanded="true" />
+            <element signature="e#267872#267877#0" expanded="true" />
+            <element signature="e#267887#267892#0" expanded="true" />
+            <element signature="e#268100#268105#0" expanded="true" />
+            <element signature="e#268115#268120#0" expanded="true" />
+            <element signature="e#268328#268333#0" expanded="true" />
+            <element signature="e#268343#268348#0" expanded="true" />
+            <element signature="e#268556#268561#0" expanded="true" />
+            <element signature="e#268571#268576#0" expanded="true" />
+            <element signature="e#269537#269542#0" expanded="true" />
+            <element signature="e#269552#269557#0" expanded="true" />
+            <element signature="e#269765#269770#0" expanded="true" />
+            <element signature="e#269780#269785#0" expanded="true" />
+            <element signature="e#269993#269998#0" expanded="true" />
+            <element signature="e#270008#270013#0" expanded="true" />
+            <element signature="e#270221#270226#0" expanded="true" />
+            <element signature="e#270236#270241#0" expanded="true" />
+            <element signature="e#271280#271285#0" expanded="true" />
+            <element signature="e#271295#271300#0" expanded="true" />
+            <element signature="e#271508#271513#0" expanded="true" />
+            <element signature="e#271523#271528#0" expanded="true" />
+            <element signature="e#271736#271741#0" expanded="true" />
+            <element signature="e#271751#271756#0" expanded="true" />
+            <element signature="e#271964#271969#0" expanded="true" />
+            <element signature="e#271979#271984#0" expanded="true" />
+            <element signature="e#272948#272953#0" expanded="true" />
+            <element signature="e#272963#272968#0" expanded="true" />
+            <element signature="e#273176#273181#0" expanded="true" />
+            <element signature="e#273191#273196#0" expanded="true" />
+            <element signature="e#273404#273409#0" expanded="true" />
+            <element signature="e#273419#273424#0" expanded="true" />
+            <element signature="e#273632#273637#0" expanded="true" />
+            <element signature="e#273647#273652#0" expanded="true" />
+            <element signature="e#274694#274699#0" expanded="true" />
+            <element signature="e#274709#274714#0" expanded="true" />
+            <element signature="e#274922#274927#0" expanded="true" />
+            <element signature="e#274937#274942#0" expanded="true" />
+            <element signature="e#275150#275155#0" expanded="true" />
+            <element signature="e#275165#275170#0" expanded="true" />
+            <element signature="e#275378#275383#0" expanded="true" />
+            <element signature="e#275393#275398#0" expanded="true" />
+            <element signature="e#276350#276355#0" expanded="true" />
+            <element signature="e#276365#276370#0" expanded="true" />
+            <element signature="e#276578#276583#0" expanded="true" />
+            <element signature="e#276593#276598#0" expanded="true" />
+            <element signature="e#276806#276811#0" expanded="true" />
+            <element signature="e#276821#276826#0" expanded="true" />
+            <element signature="e#277447#277452#0" expanded="true" />
+            <element signature="e#277462#277467#0" expanded="true" />
+            <element signature="e#277675#277680#0" expanded="true" />
+            <element signature="e#277690#277695#0" expanded="true" />
+            <element signature="e#277903#277908#0" expanded="true" />
+            <element signature="e#277918#277923#0" expanded="true" />
+            <element signature="e#278543#278548#0" expanded="true" />
+            <element signature="e#278558#278563#0" expanded="true" />
+            <element signature="e#278771#278776#0" expanded="true" />
+            <element signature="e#278786#278791#0" expanded="true" />
+            <element signature="e#278999#279004#0" expanded="true" />
+            <element signature="e#279014#279019#0" expanded="true" />
+            <element signature="e#279639#279644#0" expanded="true" />
+            <element signature="e#279654#279659#0" expanded="true" />
+            <element signature="e#279867#279872#0" expanded="true" />
+            <element signature="e#279882#279887#0" expanded="true" />
+            <element signature="e#280095#280100#0" expanded="true" />
+            <element signature="e#280110#280115#0" expanded="true" />
+            <element signature="n#style#0;n#code#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#15;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#16;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret column="373031" selection-start-column="373012" selection-end-column="373031" />
+          <folding>
+            <element signature="n#style#0;n#g#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#div#0;n#div#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#0;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#1;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#2;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#3;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#a#0;n#li#4;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#0;n#svg#0;n#li-icon#0;n#span#0;n#span#0;n#li#6;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#path#1;n#svg#0;n#li-icon#0;n#span#0;n#span#0;n#li#6;n#ul#0;n#nav#0;n#div#0;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#g#0;n#svg#0;n#li-icon#0;n#div#0;n#div#0;n#div#1;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#5;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#15;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#7;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#16;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#17;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#8;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#18;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#19;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#9;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#20;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#21;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#10;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#22;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#23;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#11;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#24;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#25;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#12;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#26;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#27;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#13;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#28;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#29;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#src#0;n#img#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#14;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#code#30;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/json/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="337" selection-start-line="337" selection-end-line="337" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/2_1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="62357" selection-start-column="44044" selection-end-column="62357" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#960#965#0" expanded="true" />
+            <element signature="e#976#981#0" expanded="true" />
+            <element signature="e#1008#1013#0" expanded="true" />
+            <element signature="e#1048#1053#0" expanded="true" />
+            <element signature="e#1771#1776#0" expanded="true" />
+            <element signature="e#1787#1792#0" expanded="true" />
+            <element signature="e#1819#1824#0" expanded="true" />
+            <element signature="e#1859#1864#0" expanded="true" />
+            <element signature="e#2691#2696#0" expanded="true" />
+            <element signature="e#2707#2712#0" expanded="true" />
+            <element signature="e#2739#2744#0" expanded="true" />
+            <element signature="e#2779#2784#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-1967721711/datetime.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="191" column="36" selection-start-line="191" selection-start-column="27" selection-end-line="191" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="42256" selection-start-column="42246" selection-end-column="42256" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/PyCharm2018.3/python_stubs/-1967721711/time.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1815">
+          <caret line="121" column="7" selection-start-line="121" selection-start-column="7" selection-end-line="121" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/Employed_v2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="364" selection-start-line="364" selection-end-line="364" />
+          <folding>
+            <element signature="e#24#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/Linkedin_employed/Company_people.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="633">
+          <caret line="226" column="10" selection-start-line="226" selection-start-column="10" selection-end-line="226" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/demographics.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="63" column="11" lean-forward="true" selection-start-line="63" selection-start-column="11" selection-end-line="63" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/CleanHtml/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/google/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB_insight/page_likes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="43" column="19" lean-forward="true" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/Insta.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/Insta 2.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/Insta_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
+          <folding>
+            <element signature="e#25#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/INSTA/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="28225" selection-start-column="28199" selection-end-column="28225" />
+          <folding>
+            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#span#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonseller/script.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/amazonlist/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="53" column="39" lean-forward="true" selection-end-line="86" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/2_likes_profile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/1_Posts.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4377" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/similarweb/script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="62" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/FB/3_also_like.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="48" />
+          <folding>
+            <element signature="e#16#34#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/bestbuy/1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret column="267522" selection-start-column="265302" selection-end-column="267522" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/typeshed/stdlib/2/typing.pyi">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="248" column="9" lean-forward="true" selection-start-line="248" selection-start-column="9" selection-end-line="248" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/test/test_descrtut.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="223">
+          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scraping/bestbuy/2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret column="217746" selection-start-column="216591" selection-end-column="217746" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#header#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#header#0;n#div#0;n#div#0;n#div#3;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#67466#67471#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#button#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#svg#0;n#button#0;n#div#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#109017#109021#0" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#label#0;n#div#0;n#div#0;n#div#0;n#div#1;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#label#0;n#div#1;n#div#0;n#div#0;n#div#1;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#label#0;n#div#2;n#div#0;n#div#0;n#div#1;n#fieldset#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#2;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#210108#210113#0" expanded="true" />
+            <element signature="e#278184#278189#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#2;n#label#0;n#div#0;n#div#0;n#fieldset#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#2;n#label#0;n#div#0;n#div#1;n#fieldset#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#2;n#label#0;n#div#0;n#div#2;n#fieldset#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#2;n#label#0;n#div#0;n#div#3;n#fieldset#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#span#2;n#label#0;n#div#0;n#div#4;n#fieldset#0;n#div#1;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#0;n#section#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#2;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#3;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#4;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#5;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#6;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#p#0;n#div#1;n#div#0;n#div#0;n#li#0;n#ul#0;n#li#7;n#ul#0;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#2;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#410317#410322#0" expanded="true" />
+            <element signature="e#460448#460453#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#2;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#3;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#4;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#5;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#6;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#li#7;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#6;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#0;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#1;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#2;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#3;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#li#4;n#ul#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#595257#595262#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#5;n#div#0;n#div#5;n#div#0;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#2;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#3;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#4;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#button#0;n#span#0;n#span#0;n#div#5;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#main#0;n#div#4;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#646906#646911#0" expanded="true" />
+            <element signature="e#648504#648509#0" expanded="true" />
+            <element signature="e#648833#648838#0" expanded="true" />
+            <element signature="e#648996#649001#0" expanded="true" />
+            <element signature="e#649417#649422#0" expanded="true" />
+            <element signature="e#651895#651900#0" expanded="true" />
+            <element signature="e#652279#652284#0" expanded="true" />
+            <element signature="n#style#0;n#div#6;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/scraping/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
+        <state relative-caret-position="-1556">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scraping/google/attachments.py">
+    <entry file="file://$PROJECT_DIR$/scraping/bestbuy/script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-115">
-          <caret line="48" column="61" lean-forward="true" selection-start-line="48" selection-start-column="61" selection-end-line="48" selection-end-column="61" />
+        <state relative-caret-position="274">
+          <caret line="115" column="27" lean-forward="true" selection-start-line="115" selection-start-column="27" selection-end-line="115" selection-end-column="27" />
           <folding>
-            <element signature="e#5918#7575#0" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
