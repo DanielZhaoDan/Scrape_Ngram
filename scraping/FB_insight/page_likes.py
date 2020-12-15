@@ -7,37 +7,158 @@ from datetime import datetime
 import HTMLParser
 import json
 import os, sys
+from scraping.utils import post_request_html
 
-cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; c_user=100044116672366; xs=43%3AO3CPKtJnpU-Rlg%3A2%3A1575484489%3A-1%3A-1; fr=00b9BjLp9YpJZJ1dF.AWVA5nlYFzJGjn27TDQcaqYhpDQ.Bd35LM.nu.F4G.0.0.BeS8nu.AWURaZ56; spin=r.1001794891_b.trunk_t.1583406679_s.1_v.2_; wd=1691x551; presence=EDvF3EtimeF1583406692EuserFA21B44116672366A2EstateFDutF0CEchF_7bCC'
+cookie = 'datr=PtbnXY4VhzC3ORxIZFyQZLkX; sb=yNvnXS1Y5B51KzRCZXpY8hMy; dpr=2; locale=en_US; c_user=100000028096171; xs=10%3A3CoCL9mOeZ5XtA%3A2%3A1595688072%3A6181%3A9564; fr=00b9BjLp9YpJZJ1dF.AWXf-ahkv_QPByimlTr7hv-n78U.Bd35LM.nu.AAA.0.0.BfHESH.AWUnTMam; spin=r.1002419897_b.trunk_t.1595688073_s.1_v.2_; presence=EDvF3EtimeF1595688081EuserFA21BB28096171A2EstateFDutF1595688077322CEchF_7bCC; wd=1390x346; act=1595688572901%2F47'
 
 url_base = 'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQwDIx2AYByWYySMACGCacExLAQEGnAxKRnbuDFTE19dNQ%3AAQxgoMTlSb7xJMfc-elrAaPybvLtdMbV_kzn2tX0HY9PVQ&metrics[0]={}'
-url_base += '&admarket_id=6017625189745&logger_session_id=ef675544a3427aa08790fc71c423af75b797087c&__user=100006957738125&__a=1&__dyn=7xeUmFoO3-SudwCwBzUKFVedzFuCEkG11wTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwxxicwko42EiyEqx68w9q15w5VCwjHwKxG2Z2odoK7UC5oK1KxO4Ujw9-icwKwEwgolUScw4JwgHAy85iawnEfU6Oq2l2Utgvx-2y1uw9a2WE9EjwgEmwkE-58C4V8&__csr=&__req=1q&__be=1&__pc=PHASED%3ADEFAULT&dpr=1&__rev=1001266026&__s=%3Ayrvwm7%3Ak7ofa5&__hsi=6745374670875311486-0&jazoest=27854&__spin_r=1001266026&__spin_b=BRunk&__spin_t=1570529080'
+url_base += '&admarket_id=23842889858960749&fb_dtsg_ag=AQw40ueOpC_tZkaYBbt4-YNYhiw30eNfTd-rsYZkiTXuCw%3AAQzJ9LLD1lgnyJERxtU0ltx_7Hgw05dEd7FjqN_eB8axyA'
 
 param_list = [
+    # ('ID_1', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=ID&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'MEN', '18-25'),
+    # ('ID_2', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=ID&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=ID&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'MEN', '26-35'),
+    # ('ID_4', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=ID&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'WOMEN', '26-35'),
+    # ('ID_5', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=ID&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'MEN', '18-25'),
+    # ('ID_6', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=ID&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=ID&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=ID&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'ID', 'WOMEN', '26-35'),
+    # ('ID_1', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'MEN', '18-25'),
+    # ('ID_2', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'MEN', '26-35'),
+    # ('ID_4', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'WOMEN', '26-35'),
+    # ('ID_5', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TR&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'MEN', '18-25'),
+    # ('ID_6', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TR&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TR&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TR&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TR', 'WOMEN', '26-35'),
+    # ('ID_1', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TH&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'MEN', '18-25'),
+    # ('ID_2', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TH&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TH&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'MEN', '26-35'),
+    # ('ID_4', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TH&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'WOMEN', '26-35'),
+    # ('ID_5', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TH&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'MEN', '18-25'),
+    # ('ID_6', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=TH&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TH&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=TH&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'TH', 'WOMEN', '26-35'),
     ('ID_1', 'Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=18&age[1]=25&country[0]=TR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672&interests[1]=6002970347721&interests[2]=6003423248519&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=1z&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fava9d%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'MEN', '18-25'),
-    ('ID_2', 'Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=18&age[1]=25&country[0]=TR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=22&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=hsd98z%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'WOMEN', '18-25'),
-    ('ID_3', 'Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=26&age[1]=35&country[0]=TR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=1z&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fava9d%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'MEN', '26-35'),
-    ('ID_4', 'Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=26&age[1]=35&country[0]=TR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=22&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=hsd98z%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'WOMEN', '26-35'),
+     'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=BR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+     'BR', 'MEN', '18-25'),
+    # ('ID_2', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=BR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=BR&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'MEN', '26-35'),
+    # ('ID_4', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=BR&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'WOMEN', '26-35'),
     ('ID_5', 'non-Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=18&age[1]=25&country[0]=TR&gender=2&relationship[0]=0&relationship[2]=2&relationship[3]=4&relationship[4]=5&metrics[0]=2&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=2v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fu1ab4%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'MEN', '18-25'),
+     'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=BR&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+     'BR', 'MEN', '18-25'),
+    # ('ID_6', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=BR&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=BR&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=BR&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'BR', 'WOMEN', '26-35'),
+    # ('ID_1', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=VN&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'MEN', '18-25'),
+    # ('ID_2', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=VN&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=VN&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'MEN', '26-35'),
+    # ('ID_4', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=VN&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'WOMEN', '26-35'),
+    # ('ID_5', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=VN&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'MEN', '18-25'),
+    # ('ID_6', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=VN&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=VN&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=VN&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'VN', 'WOMEN', '26-35'),
+    # ('ID_1', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=RU&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'RU', 'MEN', '18-25'),
+    ('ID_2', 'Single',
+     'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=RU&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+     'RU', 'WOMEN', '18-25'),
+    # ('ID_3', 'Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=RU&gender=2&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+    #  'RU', 'MEN', '26-35'),
+    ('ID_4', 'Single',
+     'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=RU&gender=1&relationship[0]=1&metrics[0]=2&interests[0]=6003110325672',
+     'RU', 'WOMEN', '26-35'),
+    # ('ID_5', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=RU&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'RU', 'MEN', '18-25'),
     ('ID_6', 'non-Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=18&age[1]=25&country[0]=TR&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&gender=1&relationship[0]=0&relationship[2]=2&relationship[3]=4&relationship[4]=5&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=2v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fu1ab4%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'WOMEN', '18-25'),
-    ('ID_7', 'non-Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=26&age[1]=35&country[0]=TR&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&gender=2&relationship[0]=0&relationship[2]=2&relationship[3]=4&relationship[4]=5&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=2v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fu1ab4%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'MEN', '26-35'),
-    ('ID_8', 'non-Single',
-     'https://www.facebook.com/ads/audience-insights/query/?fb_dtsg_ag=AQzyY4Ti3f5VO7odh1deurAdeD_Jbhei5dzTOLC0NQTA-g:AQxGbE1WIbHxueCF6J1FEx2NBuoBT0aorIDyFrd6SRm6Ww&age[0]=26&age[1]=35&country[0]=TR&interests[0]=6003547497642&interests[1]=6002970347721&interests[2]=6003423248519&gender=1&relationship[0]=0&relationship[2]=2&relationship[3]=4&relationship[4]=5&metrics[0]=2&admarket_id=23844093502180140&logger_session_id=ba53e88e6c56b3530792301c62cb696bbe33082c&__user=100044116672366&__a=1&__dyn=7xeXxaBz8fXpUS2q2mfyWDAUsBWqxiEqwCwTKq2i5Uf9E6C7UW3qi4FoGu7EiwzwmoWdwJx659ouwSz82iG4EG6Ehy82mwho1upE4WUbEqwLgC3mbx-9xmbwrEsxe0IV8O2W2y11xnzoO0iS12Ki8wl8G1uw_wsU9kbxR1-7Ua85W0AEbGwCxe12xq1izUuxei0i61dw&__csr=&__req=2v&__beoa=0&__pc=PHASED%3ADEFAULT&dpr=2&__rev=1001722648&__s=fu1ab4%3Avaybue%3A9f00qf&__hsi=6794739195959889700-0&__comet_req=0&jazoest=28193&__spin_r=1001722648&__spin_b=trunk&__spin_t=1582021532',
-     'TR', 'WOMEN', '26-35'),
+     'https://www.facebook.com/ads/audience-insights/query/?age[0]=18&age[1]=25&country[0]=RU&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+     'RU', 'WOMEN', '18-25'),
+    # ('ID_7', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=RU&gender=2&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'RU', 'MEN', '26-35'),
+    # ('ID_8', 'non-Single',
+    #  'https://www.facebook.com/ads/audience-insights/query/?age[0]=26&age[1]=35&country[0]=RU&gender=1&relationship[0]=2&relationship[1]=4&relationship[2]=5&metrics[0]=2&interests[0]=6003110325672',
+    #  'RU', 'WOMEN', '26-35'),
 ]
 
 age_list = [
@@ -150,8 +271,43 @@ def parse_from_url(url_obj):
     global sheet1
     g_id, status, url, country, gender, age = url_obj
 
-    res_json = get_request(url)
+    # res_json = get_request(url)
+    res_json = post_request(url)
     process_json(g_id, res_json, gender, country, age, status)
+
+
+def post_request(url):
+    param = url.split('?')[-1]
+    param_l = param.split('&')
+
+    body = {}
+    for p in param_l:
+        k_v = p.split('=')
+        body[k_v[0]] = k_v[1]
+    body['admarket_id'] = '23842889858960749'
+    body['logger_session_id'] = 'c90abdb40456798f099ca596572e083656381afd'
+    body['__user'] = '100000028096171'
+    body['__a'] = '1'
+    body['__dyn'] = '7xeUmFoO3-SudwCwBzUKFV8-EKnFG5axG2q3uVE98nwYCwqovzEdF8iByFUuxa2e1pzES2S4okBxW3qcw9m4EG6Ehy82mwho3Ywv9E4WUbEqwLgC3mbx-9xm1WxO4Uow9GicwKwAK11xnzoO0iS12Ki8wl8G1uw_wr9E9kbxR12ewi85W1ywLwKG2q4UgwNxq8wio-7EjAw8e0RE4idwmEy9wVwgo6q59o'
+    body['__csr'] = ''
+    body['__req'] = '3h'
+    body['__beoa'] = '0'
+    body['__pc'] = 'PHASED:DEFAULT'
+    body['dpr'] = '2'
+    body['__ccg'] = 'EXCELLENT'
+    body['__rev'] = '1002419897'
+    body['__s'] = 'p82mh7:uyhu6z:iz0bwg'
+    body['__hsi'] = '6853428119464301773-0'
+    body['__comet_req'] = '0'
+    body['fb_dtsg'] = 'AQEGmXaVzcZT:AQF9gTS80tiF'
+    body['jazoest'] = '22057'
+    body['__spin_r'] = '1002419897'
+    body['__spin_b'] = 'trunk'
+    body['__spin_t'] = '1595688073'
+
+    html = post_request_html(url.split('?')[0], cookie=cookie, data=body)
+    res = html.replace('for (;;);', '')
+    return json.loads(res)
 
 
 def process_json(g_id, res_json, gender, country, age, status):

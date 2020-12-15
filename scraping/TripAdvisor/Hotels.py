@@ -285,29 +285,6 @@ def get_date(ori):
     return date, d.weekday() + 1
 
 
-def get_request(get_url):
-    req = urllib2.Request(get_url)
-    req.add_header("user-agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36")
-    req.add_header("connection", "Keep-Alive")
-    req.add_header("Referer", base_url)
-    req.add_header("Cookie", cookie)
-    res_data = urllib2.urlopen(req, timeout=5)
-    res = res_data.read()
-    res = HTMLParser.HTMLParser().unescape(res).decode('unicode-escape').replace('\\', '')
-    return res.replace('\n', '').replace('\r', '')
-
-
-def post_request(url, data):
-    headers = {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36',
-        'connection': 'Keep-Alive',
-        'Referer': base_url,
-        'Cookie': cookie,
-    }
-    resp = requests.post(url, data=data, headers=headers)
-    return resp.content.replace('\n', '').replace('\r', '')
-
-
 def get_location_amenaties(url):
     html = get_request(url)
     location_reg = 'class="detail">(.*?)</di'

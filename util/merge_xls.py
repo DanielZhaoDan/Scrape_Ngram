@@ -1,6 +1,8 @@
 import xlrd
 import os
-import xlwt
+import xlwt, xlsxwriter
+import csv
+from datetime import datetime, date
 
 alldata = [['Landing page', 'Search Query', 'Impressions', 'Clicks', 'CTR', 'Ave position']]
 files = []
@@ -14,7 +16,7 @@ xlrd.book.unicode=lambda s, e: s.decode(e, errors="ignore")
 def walk(rootDir):
     for lists in os.listdir(rootDir):
         path = os.path.join(rootDir, lists)
-        if '.xlsx' in path or 'txt' in path:
+        if '.xlsx' in path or 'xls' in path:
             if 'result' not in path:
                 files.append(path)
         if os.path.isdir(path):
@@ -24,16 +26,15 @@ def walk(rootDir):
 
 def read_excel(filename, start):
     global duplicated_count, P_ID
-    print('process -> '+filename)
     try:
         data = xlrd.open_workbook(filename)
-        table = data.sheets()[1]
+        table = data.sheets()[0]
+        print('process -> ' + filename, table.nrows)
 
         for i in range(start, table.nrows):
             row = table.row(i)
             try:
-                url = filename.replace('_', '/').replace('data/', '')
-                one_row = [url]
+                one_row = []
                 for j in range(0, table.ncols):
                     one_row.append(row[j].value)
                 P_ID += 1
@@ -42,6 +43,23 @@ def read_excel(filename, start):
                 print(i)
     except Exception as e:
         print 'EXP--'+filename, e
+
+
+def write_xlsx(filename, alldata):
+    d = os.path.dirname(filename)
+    if not os.path.exists(d):
+        os.makedirs(d)
+    w = xlsxwriter.Workbook(filename)
+    ws = w.add_worksheet()
+    for row in range(0, len(alldata)):
+        one_row = alldata[row]
+        for col in range(0, len(one_row)):
+            try:
+                ws.write_string(row, col, (one_row[col]))
+            except:
+                ws.write(row, col, (one_row[col]))
+    w.close()
+    print filename+"===========over============"
 
 
 def write_excel(filename, alldata, flag=None):
@@ -90,9 +108,9 @@ def write_excel(filename, alldata, flag=None):
     print("%s===========over============%d" % (filename, len(alldata)))
 
 
-files = walk('data')
+files = walk('./data')
 for i in range(len(files)):
-    read_excel(files[i], 1)
+    read_excel(files[i], 0)
 
-write_excel('dataset2'+'.xls', alldata)
+write_xlsx('data/mumset'+'.xlsx', alldata)
 print(duplicated_count)

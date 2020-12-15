@@ -3,7 +3,7 @@ import re
 import requests
 import xlwt, xlrd
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 import HTMLParser
 import os
 from urlparse import urlparse
@@ -18,24 +18,18 @@ sheet_dict = {}
 url_bases = 'https://www.google.com/search?q={key_word}&newwindow=1&safe=strict&rlz=1C5CHFA_enSG792SG793&source=lnms&tbm=nws&sa=X&ved=0ahUKEwi8jMn9zs7hAhUDbn0KHc6mABMQ_AUIDigB&biw=1440&bih=798&tbs=qdr:y&start='
 # url_bases = 'https://www.google.com/search?q={key_word}&tbm=nws&start='
 
-FIRST_START = 5 # latest + 1
+FIRST_START = 1 # latest + 1
 cookie = [
-    'CGIC=InZ0ZXh0L2h0bWwsYXBwbGljYXRpb24veGh0bWwreG1sLGFwcGxpY2F0aW9uL3htbDtxPTAuOSxpbWFnZS93ZWJwLGltYWdlL2FwbmcsKi8qO3E9MC44LGFwcGxpY2F0aW9uL3NpZ25lZC1leGNoYW5nZTt2PWIz; OGP=-19015603:; SID=swc33X793ENWLhrhiGP_PPRTFqWWemNExIDv488udw4qo76O5yCYDaa73OBOlKc8B1nbGg.; __Secure-3PSID=swc33X793ENWLhrhiGP_PPRTFqWWemNExIDv488udw4qo76O8IULgIMyU5aXvjAcCk1S1w.; HSID=AIcvYAGoOt_Nx5wep; SSID=Am6qj81m9aDUn5zBr; APISID=d3z5uqrCuUVib7q1/AsShSIjMtN8lDTc-H; SAPISID=k8jlVE1Z_6h_XE2F/AeNNiahCz9G5ZglUw; __Secure-HSID=AIcvYAGoOt_Nx5wep; __Secure-SSID=Am6qj81m9aDUn5zBr; __Secure-APISID=d3z5uqrCuUVib7q1/AsShSIjMtN8lDTc-H; __Secure-3PAPISID=k8jlVE1Z_6h_XE2F/AeNNiahCz9G5ZglUw; OGPC=19015603-1:19015995-1:; ANID=AHWqTUkzxB_Jeg3XGY2DKvx81lh9nBeki5sv3Gdxg3u-Vu8Z40626RebumYsCbV2; OTZ=5322893_24_24__24_; SEARCH_SAMESITE=CgQIgo8B; GOOGLE_ABUSE_EXEMPTION=ID=8ab236911f5da7e5:TM=1581694365:C=r:IP=45.56.153.36-:S=APGng0sPVFvridsNCimH7x8d5mNuCWW9iQ; NID=198=shcRY3T5jv1_xurzFG5dyGgj7ZUyuhwIv_auGRyHaBg3BGbfHsfImVtrrM3RC5JoVTQXL4NW4JBTuNryhgrcsqpfi3NXqjmgmKXa7Bq4jaMxMmR5WPbDOGBsJzninNbxe7hPkZDTEFvW7dHpCWpgQvsssWu5XrAFJol1ZrW2dAodEBRI8H3S0dXYp5MBFtJXQEvJFvjY0qTwScmUupT8_Vn4mwQRjHRbS0uQbsXTl1pIvf1Of3wFcklgLqe1c2B8f3YIu_lYrFuwUsI1yl-hqgk79obc4hB4LjsQwHrlJEN2; 1P_JAR=2020-2-14-15; DV=471lmmdi7j6SwEtSPKiaEkqaIExFBBevmRT-xpqUTwAAAEDu4Mrds2zWcQAAAHiTyaGRLmmCJgAAAAHiplD9Std3nU0AgHuAAUDITkZUaBMAUHFnxQKTMX9v2gQAhK8VD2Yq_qfBNgEAVv8NPdVZCHlc3QMA; SIDCC=AN0-TYv0XueZC_fDXDgX0cCicBNasRywdJkBdmWAwQA2OIhP_o2lSJ40ns1G_RsleKaIbonJwcuh'
+    'CGIC=EhQxQzVDSEZBX2VuQ045MTdTRzkxOCKHAXRleHQvaHRtbCxhcHBsaWNhdGlvbi94aHRtbCt4bWwsYXBwbGljYXRpb24veG1sO3E9MC45LGltYWdlL2F2aWYsaW1hZ2Uvd2VicCxpbWFnZS9hcG5nLCovKjtxPTAuOCxhcHBsaWNhdGlvbi9zaWduZWQtZXhjaGFuZ2U7dj1iMztxPTAuOQ; HSID=A5Ih5jNB8oyGjIXTx; SSID=AH1M1EVJJxaiJThB8; APISID=OcqjtgzVNahCxh0x/AR86aXJZJkw2ha6NI; SAPISID=3IgpFeZLrJfJb9gO/ADFzzMTgR95YSrf3e; __Secure-3PAPISID=3IgpFeZLrJfJb9gO/ADFzzMTgR95YSrf3e; OGPC=19019112-1:; SEARCH_SAMESITE=CgQI0JAB; SID=1gc33ZTLp7-0jcS053ZQGdcPKicSY3SrC1gRanBVukzSa2Lplpq9_PkOjfhjSJxpa6WbbA.; __Secure-3PSID=1gc33ZTLp7-0jcS053ZQGdcPKicSY3SrC1gRanBVukzSa2LpgbMh5BfrHzAurmhtLQaQmA.; NID=204=VL5UZP1q1evxgqCe80Fcpu9Hzhvs1dohAow05wkXKzc8xlZsnNwM54rKdmrd-kstJaPiR7vjvjC6pLIHrmzc_jJ0yu6kRZzMFtDRp1pX02A__YMHkJ5r8ZjU8s-RxwSrmF0HO6UUmYpNWEQXwlO1SIkyko8THhdPdusQhkYYxsSfAZGnaXWv4DoMOxXK-ndq2TQDgAlatcfU0NWDZjM7CHhraZFx43-mudpwds9D; 1P_JAR=2020-10-16-17; DV=471lmmdi7j5CEL5WPJip-J_GpJcmU5d7gAFAyE5GFAQAAFBxZ8UCkzF_DwEAAASIm0L1K13faQAAAA; SIDCC=AJi4QfEdCwpZwwJ4xZdckwIljPA9KO9FT8j__PQWXwYYWXC8jACFIjEaSaRk-PxG6pJx1-0CAsM; __Secure-3PSIDCC=AJi4QfHYY2D1hB31yhsRoe6DwSmHbJmHqTyHfuWpEfI75It2q_91B0QIjyHQkyzgLijPXOUgeCU'
 ]
 
 key_words = [
-    # {'keyword': 'dbs business class intext:SME location:Singapore', 'bucket': '', 'country': 'SG'},
-    {'keyword': 'temasek inurl:economictimes.indiatimes.com'},
-    {'keyword': 'temasek inurl:straitstimes.com'},
-    {'keyword': 'temasek inurl:wsj.com'},
-    {'keyword': 'temasek inurl:channelnewsasia.com'},
-    {'keyword': 'temasek inurl:bbc.com'},
-    {'keyword': 'temasek inurl:businesstimes.com.sg'},
+    {'keyword': 'edtech intext:teachers intext:training location:india'},
 
 ]
 
 
-x_client_data = 'CJe2yQEIo7bJAQjBtskBCNC3yQEIqZ3KAQioo8oBCLmlygEI4qjKAQiXrcoBCM2tygEIy67KAQjKr8oBCMiwygE='
+x_client_data = 'CLG1yQEIh7bJAQimtskBCMG2yQEIqZ3KAQjQoMoBCJesygEIrMfKAQj1x8oBCOfIygEI6cjKAQjC18oBCPyXywEYi8HKAQ==Decoded:message ClientVariations {  // Active client experiment variation IDs.  repeated int32 variation_id = [3300017, 3300103, 3300134, 3300161, 3313321, 3313744, 3315223, 3318700, 3318773, 3318887, 3318889, 3320770, 3329020];  // Active client experiment variation IDs that trigger server-side behavior.  repeated int32 trigger_variation_id = [3317899];}'
 
 API_KEY = '051278798bc5c8d530a33186637244a9'
 
@@ -90,7 +84,7 @@ def request_sheet1(key_word, url_base, page_no=1):
             return True
         if total_count == 0:
             total_count = get_total_count(html)
-        topic_detail_reg = '<h3 .*?href="(.*?)".*?>(.*?)</a>.*?span.*?>(.*?)<.*?f nsa .*?">(.*?)<'
+        topic_detail_reg = 'class="dbsr" .*?href="(.*?)".*?>.*?class="QyR1Ze".*?>.*?img>(.*?)<.*?JheGif nDgy9d.*?>(.*?)</div.*?class="WG9SHc".*?span>(.*?)<'
         topic_detail = re.compile(topic_detail_reg).findall(html)
         if not topic_detail:
             break
@@ -99,8 +93,8 @@ def request_sheet1(key_word, url_base, page_no=1):
             url = detail[0]
             o = urlparse(url)
             main_url = o.scheme + '://' + o.netloc
-            headline = remove_html_tag(detail[1])
-            publisher = detail[2]
+            headline = remove_html_tag(detail[2])
+            publisher = detail[1]
             date = get_date(detail[3])
             bucket = key_word['keyword'].split(' intext:')[0]
             # content = get_raw_content(url)
@@ -109,6 +103,7 @@ def request_sheet1(key_word, url_base, page_no=1):
             one_row = [key_word['keyword'], '-', '-', total_count, page_no, url, date,
                        publisher, main_url, headline, content,
                        rank]
+            print one_row
             sheet1_data.append(one_row)
             i += 1
         page_no += 1
@@ -190,15 +185,31 @@ def remove_html_tag(ori):
     return str(HTMLParser.HTMLParser().unescape(dd)).strip()
 
 
-def get_date(ori):
-    ori = ori.replace('Mei', 'May')
-    if 'hour' in ori:
-        return datetime.now().strftime('%d/%m/%Y')
-    try:
-        date = datetime.strptime(ori, '%d %b %Y')
-        return date.strftime('%d/%m/%Y')
-    except Exception as e:
-        return ori
+def get_date(datetime_ago):
+    matches = re.search(r"(\d+ weeks?,? )?(\d+ days?,? )?(\d+ hours?,? )?(\d+ mins?,? )?(\d+ secs? )?ago", datetime_ago)
+
+    if not matches:
+        date = datetime.strptime(datetime_ago, "%b %d, %Y")
+        return date.strftime("%d/%m/%Y")
+
+    date_pieces = {'week': 0, 'day': 0, 'hour': 0, 'min': 0, 'sec': 0}
+
+    for i in range(1, len(date_pieces) + 1):
+        if matches.group(i):
+            value_unit = matches.group(i).rstrip(', ')
+            if len(value_unit.split()) == 2:
+                value, unit = value_unit.split()
+                date_pieces[unit.rstrip('s')] = int(value)
+
+    d = datetime.today() - timedelta(
+        weeks=date_pieces['week'],
+        days=date_pieces['day'],
+        hours=date_pieces['hour'],
+        minutes=date_pieces['min'],
+        seconds=date_pieces['sec']
+    )
+
+    return d.strftime("%d/%m/%Y")
 
 
 def get_request(get_url):

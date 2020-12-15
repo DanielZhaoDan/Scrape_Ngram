@@ -54,7 +54,3 @@ def get_google_result_number(keyword):
         return int(res[0].replace(',', ''))
     return -1
 
-
-for keyword in tw_keywords:
-    print get_google_result_number(keyword)
-
