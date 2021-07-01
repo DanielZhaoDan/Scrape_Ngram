@@ -127,5 +127,5 @@ sys.setdefaultencoding('utf-8')
 url_template = 'http://shopping.naver.com/search/all_search.nhn?query=pc%EA%B2%8C%EC%9E%84&productSet=total&viewType=list&sort=rel&frm=NVSHPAG&sps=N&pagingIndex={pagingIndex}&pagingSize={paging_size}'
 save_date(url_template, 'shopping_naver.xls', 51, 100)
 # html = request_html('http://shopping.naver.com/search/all_search.nhn?query=pc%EA%B2%8C%EC%9E%84&productSet=total&viewType=list&sort=rel&frm=NVSHPAG&sps=N&pagingIndex=5&pagingSize=200')
-# write(html,'1.html')
+# write(html,'0.html')
 # parse_html(html)
