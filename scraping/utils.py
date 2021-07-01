@@ -150,7 +150,7 @@ def post_request_html(get_url, cookie, data={}, add_header={}):
         'referer': get_url,
         'cookie': cookie,
     }
-    for k, v in add_header.itms():
+    for k, v in add_header.items():
         headers[k] = v
     res_data = requests.post(get_url, headers=headers, timeout=10, data=data)
     res = str(res_data.content)

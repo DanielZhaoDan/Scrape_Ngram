@@ -27,19 +27,19 @@ headers = {
 
 sheet1_data = [['country', 'platform', 'ID', 'Creator', 'Type', 'Permalink', 'Post Message', 'date', 'Lifetime Post Total Reach', 'Lifetime Post Paid Reach', 'Lifetime Post organic reach', 'Lifetime Post Total Comments', 'Lifetime Post Total Shares', 'Lifetime Post Total Clicks', 'Lifetime Post Total Reactions', 'Lifetime Post Total save']]
 urls = [
-    ('global', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=333389816697888&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
-    ('RU', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=809819392381976&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
-    ('TR', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
-    ('EG', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=509931205722897&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'), #
-    ('KZ', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=221215561376869&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'), #
-    ('Id', 'Instagram', 'https://business.facebook.com/creatorstudio/?tab=instagram_monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%2217841401312923496%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3Anull%2C%22insights_start_date%22%3A1577808000%7D'),
-
-    ('global', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=333389816697888&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'),
-    ('PH', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=146131338887530&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'),
-    ('TH', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'), #
-    ('TR', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'), #
-    ('BR', 'Facebook', 'https://business.facebook.com/creatorstudio/?tab=monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%22166866083481130%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3A[%22Facebook%22]%2C%22insights_start_date%22%3A1577808000%7D'), #
-    ('ID', 'Facebook', 'https://business.facebook.com/creatorstudio/?tab=monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%22174889372570036%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3A[%22Facebook%22]%2C%22insights_start_date%22%3A1577808000%7D'), #
+    # ('global', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=333389816697888&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
+    # ('RU', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=809819392381976&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
+    # ('TR', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'),
+    # ('EG', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=509931205722897&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'), #
+    # ('KZ', 'Instagram', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=221215561376869&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Instagram&insights_start_date=1577808000'), #
+    # ('Id', 'Instagram', 'https://business.facebook.com/creatorstudio/?tab=instagram_monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%2217841401312923496%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3Anull%2C%22insights_start_date%22%3A1577808000%7D'),
+    #
+    # ('global', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=333389816697888&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'),
+    # ('PH', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=146131338887530&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'),
+    # ('TH', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'), #
+    # ('TR', 'Facebook', 'https://www.facebook.com/collabsmanager/brand/insights?page_id=138354229593892&entry_source=page_insights&insights_end_date=1735660800&insights_platforms=Facebook&insights_start_date=1577808000'), #
+    # ('BR', 'Facebook', 'https://business.facebook.com/creatorstudio/?tab=monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%22166866083481130%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3A[%22Facebook%22]%2C%22insights_start_date%22%3A1577808000%7D'), #
+    # ('ID', 'Facebook', 'https://business.facebook.com/creatorstudio/?tab=monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%22174889372570036%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3A[%22Facebook%22]%2C%22insights_start_date%22%3A1577808000%7D'), #
     ('VN', 'Facebook', 'https://business.facebook.com/creatorstudio/?tab=monetization_branded_content&collection_id=free_form_collection&branded_content=%7B%22page_id%22%3A%22359149557454798%22%2C%22bc_auto_shown_tagged_post_id%22%3Anull%2C%22active_tab%22%3A%22insights%22%2C%22insights_campaign_types%22%3Anull%2C%22insights_creator_id%22%3Anull%2C%22insights_end_date%22%3A1735660800%2C%22insights_platforms%22%3A[%22Facebook%22]%2C%22insights_start_date%22%3A1577808000%7D'),
 
 ]
@@ -122,15 +122,17 @@ def process_response(bc_posts_insights, realurl, assetID, country, platform):
                 author = node.get('additional_ig_post_metadata', {}).get('owner_username', 'N/A')
                 content, create_time = get_ig_basic(ig_post)
                 media_type, details = get_details(realurl, assetID, post_id)
+            else:
+                continue
         except Exception as e:
             print 'EXCEPTION---', realurl, assetID, post_id, e
             continue
 
         Permalink = 'https://facebook.com/collabsmanager/creator/insights/?page_id=' + assetID + '&bc_auto_shown_tagged_post_id=' + post_id
 
-        one_row = [country, platform, post_id, author, media_type, Permalink, content, get_date(create_time)] + details
+        one_row = [country, platform, post_id, author, media_type, Permalink, content.encode('utf-8'), get_date(create_time)] + details
 
-        # print one_row
+        print one_row, create_time
         sheet1_data.append(one_row)
 
     end_cursor = bc_posts_insights.get('page_info', {}).get('end_cursor')
@@ -311,7 +313,7 @@ def two_export_details(filename):
 
             length -= page_size
             t += 1
-            v = v[t*page_size:]
+            v = v[page_size:]
 
 
 def three_assemble(basic_filename):
@@ -377,5 +379,5 @@ def three_assemble(basic_filename):
     write_excel('final.xls', sheet1_data)
 
 one_sheet1_()
-two_export_details('data/sheet1.xls')
-three_assemble('data/sheet1.xls')
+# two_export_details('data/sheet1.xls')
+# three_assemble('data/sheet1.xls')
