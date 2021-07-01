@@ -12,7 +12,7 @@ saved_hotel = set()
 R_ID = 1
 sheet1_data = [['ID', 'SKU des', 'Rank', 'Price', 'Brand', 'Product Url', 'Display Size', 'Seller', 'Shipping location', 'Condition']]
 
-cookie = 'session-id=357-6516861-3431162; ubid-acbsg=356-2157839-3441606; x-acbsg="7ZVCncggBjBvVVSRgNvBSYxeAAPsi9op@6s8CJCsR8VdEKQ2PvnTlD2WyPQDb3pF"; at-acbsg=Atza|IwEBIMEHmuErrnEYwVUFkpNctkhroo73cnXrMojTYCzU_pEKoBanDU0oiLjaLojQt6tJRmI4_5dC8BkfFGBPd3Zmj6UgMcMj2t5DD4tEmEpwRJClqKqhWedJRc7GjSi_FKoEiE4OhE4rvqvnyZh9mqJnRwV7Y2-myAkkY52BP1bmbMsWEXfIs6NGFUhV1FVcOGcEPsXjkBPCRZRfq9mPx3-i1hqR5yol4sZTYYk9wyeVeXLEHsITpMrVTfZFbx9cm2-3ZVY; sess-at-acbsg="KQJJ+QDxxFW1H+6X1h2zTFT0yKSXiwky/pncHTyFbt8="; sst-acbsg=Sst1|PQFqOaQnYrMbARCXsCAnwWVQCaJZGnaIw3Jz6lK9xGmACYQPQibU-ETqdGYcCXDVFHvQZoobz9Z09YzcRb9_jIb7V2IM59dDhLyFsqLgolKYVEvV9YmV4061D2KLKEnStBOsOYJF4Kjyq2u0t9GQTGxwL3NbxZeggdo_4Oxq79CLl4Dc8M7S-wGiEo03PzPRfvW4MtrdKc5mJE739r8JEkev8xhhIjcwA6uttJU772lmoQs7_bDKvAmK1tEluuUyiaYHJhN5GdXC_35HUqN9NxVOeUtz4GP1YJlVB74m-69hH_o; i18n-prefs=SGD; session-token="erljp7i6pm9BlHJmU+Gmq6ie5EeYy7APifBn4+ez6oEAKfJCpVMuGJgoqjHCKXo5uVJjEw0VOv1s+9bOhZM7kNicds92160Zk+3+7GNa34v9iNeiYQ5gWdfERWah3y8H/1rrIFejBDGgyaNm9tXrv0HhKawKI3Kr+BWhrNJorXWMybE5u3EYlRqh2mqfJt/503hVJO9urSLqzwRDPBOg6g=="; csm-hit=tb:s-AKA49CBVQNWWS6Q9T3M5|1607243913254&t:1607243914625&adb:adblk_no; session-id-time=2082787201l'
+cookie = 'session-id=357-6516861-3431162; ubid-acbsg=356-2157839-3441606; x-acbsg="7ZVCncggBjBvVVSRgNvBSYxeAAPsi9op@6s8CJCsR8VdEKQ2PvnTlD2WyPQDb3pF"; at-acbsg=Atza|IwEBIMEHmuErrnEYwVUFkpNctkhroo73cnXrMojTYCzU_pEKoBanDU0oiLjaLojQt6tJRmI4_5dC8BkfFGBPd3Zmj6UgMcMj2t5DD4tEmEpwRJClqKqhWedJRc7GjSi_FKoEiE4OhE4rvqvnyZh9mqJnRwV7Y2-myAkkY52BP1bmbMsWEXfIs6NGFUhV1FVcOGcEPsXjkBPCRZRfq9mPx3-i1hqR5yol4sZTYYk9wyeVeXLEHsITpMrVTfZFbx9cm2-3ZVY; sess-at-acbsg="KQJJ+QDxxFW1H+6X1h2zTFT0yKSXiwky/pncHTyFbt8="; sst-acbsg=Sst1|PQFqOaQnYrMbARCXsCAnwWVQCaJZGnaIw3Jz6lK9xGmACYQPQibU-ETqdGYcCXDVFHvQZoobz9Z09YzcRb9_jIb7V2IM59dDhLyFsqLgolKYVEvV9YmV4061D2KLKEnStBOsOYJF4Kjyq2u0t9GQTGxwL3NbxZeggdo_4Oxq79CLl4Dc8M7S-wGiEo03PzPRfvW4MtrdKc5mJE739r8JEkev8xhhIjcwA6uttJU772lmoQs7_bDKvAmK1tEluuUyiaYHJhN5GdXC_35HUqN9NxVOeUtz4GP1YJlVB74m-69hH_o; i18n-prefs=SGD; session-id-time=2082787201l; session-token="8JS7tkHvRt1KOrdofCGKMOZl2tORWf8j43SvViilV6/BYiJtJSVUwFgV7Ajw2k271bZejIwqZCh8NzptiDvvlJBSFrcPOuaQUmIRrljsyM91UvhcSNuCOvlRO4Vyk6yPRaffK5GlQ0zf2sKElRp09+eBCsY3ggX1lrGll539HnWlaSgfA/ED5x8FPtWCHrI8NMszPrsw9e01YZU+ZHi0cA=="; csm-hit=tb:Q97SPMWVY5SNAWCVNB8V+s-HR18T95G8JRMJEH67VQM|1615729601820&t:1615729601820&adb:adblk_yes'
 
 header = {
     'downlink': '10',
@@ -147,7 +147,8 @@ def remove_html_tag(ori):
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-url = 'https://www.amazon.sg/Laptops/b/?ie=UTF8&node=6436117051&ref_=sv_pc_1'
-request_sheet1(url, 229)
+# url = 'https://www.amazon.sg/Laptops/b/?ie=UTF8&node=6436117051&ref_=sv_pc_1'
+url = 'https://www.amazon.sg/s?i=computers&rh=n%3A6436117051'
+request_sheet1(url, 346)
 write_excel('laptop_amz.xls', sheet1_data)
 # print request_sheet2('https://www.amazon.sg/All-New-Amazon-Fire-Tablet-display/dp/B07KD8R6HD/ref=lp_6436117051_1_11?s=electronics&ie=UTF8&qid=1607239720&sr=1-11', '')

@@ -12,11 +12,11 @@ import random
 import xlsxwriter
 
 sheet1_data = [
-    ['ID', 'Headline', 'Links', 'Replies', 'Topic Starter', 'Views', 'Last Update Date', 'Post Date']]
+    ['ID', 'Title', 'SubTitle', 'Links', 'Replies', 'Topic Starter', 'Views', 'Last Update Date', 'Post Date']]
 sheet2_data = [['ID', 'Comments Text']]
-url_bases = 'https://forum.lowyat.net/TelcoTalk/+%d'
+url_bases = 'https://forum.lowyat.net/eWallet&MobilePayment/+%d'
 
-cookie = 'lyn_mobile=0; _ga=GA1.2.514277543.1518236204; _gid=GA1.2.1357979605.1518236204; __asc=757309a11617dedfc45c1ae5c47; __auc=757309a11617dedfc45c1ae5c47; __qca=P0-2124721906-1518236204239; lyn_forum_read=a%3A1%3A%7Bi%3A295%3Bi%3A1518236136%3B%7D'
+cookie = '__cfduid=dc036f68b68e0acaf1d054abaed7896981619240771; lyn_mobile=0; lyn_modtids=%2C; __asc=17684b0a179024560710c004832; __auc=17684b0a179024560710c004832; __cf_bm=4d0c9eb4ece0ecc3133bfa86b9453359ca9e7542-1619240772-1800-ASvmQ8ukJev2taOwuoT90F+IyQWgkPx3FqM0h4NBavf8APYbLa8bQXSz7E6wcyg3Qj0R7bNomCe1oB1OkqBeXqv1JyNKWPtD6anLN37NQSx6mn8KfBoMG/ppiVIJDiv/8g==; _gid=GA1.2.546668415.1619240772; lyn_forum_read=a%3A1%3A%7Bi%3A327%3Bi%3A1619240784%3B%7D; _ga=GA1.2.616972740.1619240772; _ga_ZC0B7MQG59=GS1.1.1619240771.1.1.1619240815.0'
 
 
 def write(html, filename):
@@ -61,7 +61,7 @@ def request_sheet1(url, starter=0):
             id = int(detail[0])
             topic_url = 'https://forum.lowyat.net/topic/%d/' % id
             start_date = get_date(detail[1].split(',')[0])
-            headline = remove_html_tag(detail[2])
+            title, sub_title = get_title_subTitle(detail[2])
             replies = detail[3]
             if '--' in replies:
                 replies = 0
@@ -74,13 +74,23 @@ def request_sheet1(url, starter=0):
             else:
                 views = int(views.replace(',', ''))
             end_date = get_last_date(detail[6])
-            one_row = [id, headline, topic_url, replies, topic_starter, views, end_date, start_date]
+            one_row = [id, title, sub_title, topic_url, replies, topic_starter, views, end_date, start_date]
+            # print one_row
             sheet1_data.append(one_row)
             request_sheet2(id, topic_url+'+%d')
         except Exception as e:
             print 'ERROR-- ' + url
             print e
         i += 1
+
+
+def get_title_subTitle(ori):
+    title = ori.split('</a>')[0]
+    reg = '<div class="desc" .*?>(.*?)</div>'
+    sub_title = re.compile(reg).findall(ori)
+    if sub_title:
+        return title, sub_title[0]
+    return title, 'N/A'
 
 
 def request_sheet2(topic_id, topic_url):
@@ -92,7 +102,9 @@ def request_sheet2(topic_id, topic_url):
         total_page = get_total_page(html)
     else:
         total_page = 1
+
     print topic_url, total_page
+    # total_page = min(total_page, 20)
     for i in range(total_page):
         single_url = topic_url % i*20
         if i > 0:
@@ -123,9 +135,9 @@ def remove_html_tag(ori):
 
 def get_last_date(ori):
     if 'Today' in ori:
-        return '25/07/2017'
+        return '24/04/2021'
     elif 'Yesterday' in ori:
-        ori = '24/07/2017'
+        ori = '23/04/2021'
     try:
         date = datetime.strptime(ori.split('-')[0].replace('th ', ' ').replace('rd ', ' ').replace('st ', ' ').replace('nd ', ' '), '%d %B %Y ')
         return date.strftime('%d/%m/%Y')
@@ -197,7 +209,7 @@ def write_old_excel(filename, alldata):
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-for i in range(0, 43):
+for i in range(0, 3):
     url = url_bases % (30 * i)
     request_sheet1(url, starter=0)
 

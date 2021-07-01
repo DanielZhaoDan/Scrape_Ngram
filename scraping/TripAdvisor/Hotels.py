@@ -9,6 +9,7 @@ import HTMLParser
 import os
 import xlrd
 import requests
+from scraping.utils import get_request_html
 
 saved_hotel = set()
 R_ID = 1
@@ -16,16 +17,16 @@ sheet1_data = [['ID', 'Hotel URL', 'Hotel Name', 'Address', 'Rating', 'Number of
 sheet2_data = [['ID', 'Hotel URL', 'Reviewer Name', 'Review Date' 'Rating', 'Text Review', 'Reviewer Location', 'Contributor Level', 'Travel Style']]
 sheet3_data = [['Reviewer Name', 'Reviewer url', 'Category', 'Name', 'Rating', 'Text']]
 
-cookie = 'TASSK=enc%3AAH5dcQsPLPDkyrrSj9M%2Bz8qwTsnHuINWyBkBMCBtHpuDU4YR9911PLQiCrtLUXp510pmsBvZumlYMV4mfKw8qnZV%2FbzGN1Cpx%2BlqDMRQL0F6sD3r1fVjMsw7Oevw%2BWCV%2Fw%3D%3D; ServerPool=B; PMC=V2*MS.33*MD.20180805*LD.20180805; TAUnique=%1%enc%3AdFWRrhvqgMBfLkar6teR6%2Btv%2BarZM%2FpGd0j3x5%2F3%2FM%2BnJ1iTvWkb0Q%3D%3D; TART=%1%enc%3Am%2FmKXnKmau2u3%2B7moDID3A2g70jDJDlApZ70d5NG4ZnMZnVfKARquaAfoo4hlEMXkSj9GUxjwoU%3D; BEPIN=%1%16509e329d6%3Bbak100b.b.tripadvisor.com%3A10023%3B; TATravelInfo=V2*AY.2018*AM.8*AD.19*DY.2018*DM.8*DD.20*A.2*MG.-1*HP.2*FL.3*DSM.1533470477427*AZ.1*RS.1; PAC=ABMlZcnne_4nA-39y-lfGWBJJ2z6NIgk0oaahc2HQwBIyFGPm6bFH1KID20RWK2b8pqINizqSrZJIYW1owh99tvmpJFSQGKn9mbS_7SaMzuZkCHaImHQXx4iaWXOeoKvQstIG3k72bPR4v4qxiVdTquB21gSR0223jkgMdTaJHL7; CM=%1%HanaPersist%2C%2C-1%7Cpu_vr2%2C%2C-1%7CPremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CSPHRSess%2C%2C-1%7CHanaSession%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpu_vr1%2C%2C-1%7CFtrPers%2C%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C2%2C-1%7CPremiumSURPers%2C%2C-1%7Ctvsess%2C1%2C-1%7CPremiumMCSess%2C%2C-1%7CRestPartSess%2C%2C-1%7Ccatchsess%2C10%2C-1%7Cbrandsess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CCpmPopunder_1%2C%2C-1%7CCCSess%2C1%2C-1%7CCpmPopunder_2%2C%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7C%24%2CSGD%2C0%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CPremiumSURSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CSaveFtrPers%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7CMetaFtrSess%2C%2C-1%7Cmds%2C1533472455425%2C1533558855%7CSPMCWBPers%2C%2C-1%7CRBAPers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_PERSISTANT%2C%2C-1%7CFtrSess%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7C+r_lf_1%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CSPHRPers%2C%2C-1%7CRCSess%2C%2C-1%7C+r_lf_2%2C%2C-1%7Ccatchpers%2C3%2C1534074184%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPartPers%2C%2C-1%7CRestPremRPers%2C%2C-1%7Cvr_npu2%2C%2C-1%7Csh%2C%2C-1%7CLastPopunderId%2C104-771-null%2C-1%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7Cvr_npu1%2C%2C-1%7CCCPers%2C%2C-1%7Ctvpers%2C%2C-1%7CWAR_RESTAURANT_FOOTER_SESSION%2C%2C-1%7Cbrandpers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CSPMCPers%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CWarPopunder_Session%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CWarPopunder_Persist%2C%2C-1%7CTheForkORPers%2C%2C-1%7Cr_ta_2%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7Cr_ta_1%2C%2C-1%7CSaveFtrSess%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CSPMCWBSess%2C%2C-1%7CCPNC%2C%2C-1%7CMetaFtrPers%2C%2C-1%7C; TASession=V2ID.A359B1B1C5A00212527116FD7F719C32*SQ.134*LS.PageMoniker*GR.93*TCPAR.65*TBR.23*EXEX.64*ABTR.77*PHTB.90*FS.64*CPU.20*HS.recommended*ES.relevance*AS.popularity*DS.5*SAS.popularity*FPS.oldFirst*FA.1*DF.0*MS.-1*RMS.-1*TRA.false*LD.298184; TAUD=LA-1533469189911-1*RDD-1-2018_08_05*HC-34117*HDD-1066575-2018_08_19.2018_08_20.1*G-3265525-2.1.14209292.*LD-47403891-2018.8.19.2018.8.20*LG-47403894-2.1.T.; TAReturnTo=%1%%2FHotels-g298184-Tokyo_Tokyo_Prefecture_Kanto-Hotels.html; roybatty=TNI1625!AFttDrQJgx5h94odG8WZbntaagRD%2FWfj5TpHLoIt1cPITkCEgV%2F%2B4D4Y9lfdhvoPW4B%2FVJDAbnpj5cV1XcyZ6IlaYw5q%2FJ4AzyAfd2%2FZH8fa19GtWdtFgttwopgIXJSZUuaBpgacwm3VvLqj57EfAs9ZOSxMU2TASZqeVKnJpf%2BL%2C1'
+cookie = 'TAUnique=%1%enc%3Au%2FKH8yQEGOTpTvEC%2FTHhGLajhyk61rGpblhg%2FIANva5QcF0be502LA%3D%3D; TASSK=enc%3AAB0K%2BNdZOqOGCtUTbstCNL5vY2gZLdpBZQUEc7E0qRuBvYIyTKfOqtUbY4e3K0Oc9iAidXprKZXGn5p2QGgGVtGgVB6X4kYK%2BV6I7YLn3o8L3jSl5I4pa6nHkqTV8o%2FpAQ%3D%3D; ServerPool=B; TATrkConsent=eyJvdXQiOiIiLCJpbiI6IkFMTCJ9; TART=%1%enc%3ApOeYHLVHxrVrWjk5CVfZhpAltc8Pj6KW0H3fDqxSXS%2B4mMqWzCigQdC2rgwCZb6gAUtuxWemFUE%3D; PMC=V2*MS.22*MD.20210611*LD.20210612; TATravelInfo=V2*AY.2021*AM.7*AD.4*DY.2021*DM.7*DD.5*A.2*MG.-1*HP.2*FL.3*DSM.1623472512725*RS.1; VRMCID=%1%V1*id.10568*llp.%2FHotels-g255055-Australia-Hotels%5C.html*e.1624077506410; TADCID=w-rrveYyvrwmuZW6ABQCFdpBzzOuRA-9xvCxaMyI12YZWZkPkcgUMTZ9EAaQXMSJRkCsC5Y1e_ND1KTBJjExC_7w-WWT5oPkuLQ; TAAUTHEAT=NkmTlIyUVO-yGefbABQCab7fMZ8ORguCqJF_E5GxfSXwWRNqSqahUgu3FhYlKyiXjobqtSfznpZPQesJu_m2ruTlYDiyjiSBSH7oaEv6wXuW0SJ7swIaDkojXL3clyBxDWb47CvoIg2GWBVcJjTl61B2pp3uwsmjHTeIOaA3vj9tODsP1Hn_9J_vL3xeDwtPWuEy-S7ZcMQ7TicvK9HuKyOljSH5t78UuoY; TASID=DB401263AF174A449023706E95763D55; ak_bmsc=E2BCF2EE0BC176ADF24EA8AE6F132AF4170F0E373B140000ED64C4609CA0A15F~plJ8M1WUpJXtsVBNupt4aL2mYYEJrIl33kMSOBD4Rha8q3pwm3r4AxFryS63kDS/59nEvkks4QuPJ/lLq6olTY8F5oPCHJS5sk5qc+Ggume16d0ssWUtNP72wCbq2A19RM4dwMEHq93ooDpz/0tFFQYFckw1T+jo6ATv3NMxdY5cIqyycyTQGhcdn/DFH9mBCEWeYXHslSvdidHGMm0YU2XBXsi/2bjut50FsjaTbhdVU=; PAC=AB5Mf6_jnr_X07B_2xAVaqwHmLu5CDfDl-3gc-_mX63WEpSXal_HihIdFCHV3YcvFus8n-q4HL9JWLlz7M62ltQaa7FnXqJvqjqDlv_z3kWyfiHVr7g3yzbOGwjUn2bMF-D_6_DCJ66NwlMVnAQx58NipyV6sbnOhXoykbRv5aSzPcRhwVR8pmjd3DhmJAfJOg%3D%3D; bm_sv=D2832FD81952C4946401C4CAEA2179EC~it3y8x019Z/BfrtaxMVBxpbW0HC1P7CHxGXlq1PaF20Cnzb44NMki4eQBUSD6QhhUXzpqAxw7UjoXHcDPq15cvmQM1zVZGcgF+2+5otGds3VP7W/8OZkH4Mh3sslzbTHTiSkUrwgur9h+DpwiMaRqQdXRpykOFlAVGyur6zpIgU=; roybatty=TNI1625!AF6a5wpL0lcw%2BHab58x4JLN1UIaebfbrhp47CXJ%2F2K09qGi4e3IcbImt30CwPX3D4OkLVQDOrLMOLt%2B6hyp8ZQx4754oXNGvfs0ndkxfuOPrdyCKMJMDfXhi4TOTMt%2B76NnkBIJTax5JH2TpIYCCXa4VCNAqHRiUTVn9RQOxYHG3%2C1; SRT=%1%enc%3ApOeYHLVHxrVrWjk5CVfZhpAltc8Pj6KW0H3fDqxSXS%2B4mMqWzCigQdC2rgwCZb6gAUtuxWemFUE%3D; TASession=%1%V2ID.DB401263AF174A449023706E95763D55*SQ.139*PR.40185%7C*LS.PageMoniker*GR.20*TCPAR.61*TBR.47*EXEX.69*ABTR.63*PHTB.85*FS.2*CPU.38*HS.recommended*ES.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.ABD562818D249697A8AB4E2FFBFCE092*LF.en*FA.1*DF.0*TRA.false*LD.294232; TAUD=LA-1623389669618-1*RDD-1-2021_06_11*HDD-82842988-2021_07_04.2021_07_05.1*LD-96254764-2021.7.4.2021.7.5*LG-96254766-2.1.F.; TAReturnTo=%1%%2FHotels%3Fg%3D294232%26offset%3D180%26reqNum%3D1%26puid%3DYMRtxAokJX4AA3MSKsUAAAJr%26isLastPoll%3Dfalse%26plSeed%3D1895301258%26waitTime%3D49%26paramSeqId%3D5%26changeSet%3DMAIN_META%2CPAGE_OFFSET'
 
 base_url = 'https://www.tripadvisor.com.sg/Attractions-g293961-Activities-Sri_Lanka.html'
 
 all_hotel_url = [
-    ('https://www.tripadvisor.com.sg/Hotels-g298184-oa%s-Tokyo_Tokyo_Prefecture_Kanto-Hotels.html', 21, 'Tokyo'),
-    ('https://www.tripadvisor.com.sg/Hotels-g298566-oa%s-Osaka_Osaka_Prefecture_Kinki-Hotels.html', 11, 'OSAKA'),
-    ('https://www.tripadvisor.com.sg/Hotels-g298564-oa%s-Kyoto_Kyoto_Prefecture_Kinki-Hotels.html', 14, 'Kyoto'),
-    ('https://www.tripadvisor.com.sg/Hotels-g298112-oa%s-Gifu_Gifu_Prefecture_Tokai_Chubu-Hotels.html', 2, 'Gifu'),
-    ('https://www.tripadvisor.com.sg/Hotels-g298106-oa%s-Nagoya_Aichi_Prefecture_Tokai_Chubu-Hotels.html', 4, 'NAGOYA'),
+    ('https://www.tripadvisor.in/Hotels-g294232-Japan-Hotels.html', 884),
+    # ('https://www.tripadvisor.com.sg/Hotels-g298566-oa%s-Osaka_Osaka_Prefecture_Kinki-Hotels.html', 11, 'OSAKA'),
+    # ('https://www.tripadvisor.com.sg/Hotels-g298564-oa%s-Kyoto_Kyoto_Prefecture_Kinki-Hotels.html', 14, 'Kyoto'),
+    # ('https://www.tripadvisor.com.sg/Hotels-g298112-oa%s-Gifu_Gifu_Prefecture_Tokai_Chubu-Hotels.html', 2, 'Gifu'),
+    # ('https://www.tripadvisor.com.sg/Hotels-g298106-oa%s-Nagoya_Aichi_Prefecture_Tokai_Chubu-Hotels.html', 4, 'NAGOYA'),
 ]
 
 uid_level_dict = {}
@@ -131,7 +132,7 @@ def global_rating_details(ori):
 
 
 def get_hotel_details(url):
-    html = get_request(url)
+    html = get_request_html(url, cookie)
     reg = 'class="overview_card".*?cardTitle">(.*?)<(.*?)class="separator"'
     review_page_no = get_review_page_no(html)
     star = get_star(html)
@@ -386,10 +387,11 @@ def pre_load(filename):
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
-pre_load('data/Hotel_with_date.xlsx')
-print('saved: ', len(saved_hotel))
-read_excel('data/data/Hotel.xlsx', start=1)
-write_excel('sheet2_with_date_hotel.xls', sheet2_data)
-write_excel('sheet3_with_date_hotel.xls', sheet3_data)
+print get_hotel_details('https://www.tripadvisor.com.my/Hotel_Review-g14134875-d308070-Reviews-Yokohama_Royal_Park_Hotel-Minatomirai_Nishi_Yokohama_Kanagawa_Prefecture_Kanto.html')
+# pre_load('data/Hotel_with_date.xlsx')
+# print('saved: ', len(saved_hotel))
+# read_excel('data/data/Hotel.xlsx', start=1)
+# write_excel('sheet2_with_date_hotel.xls', sheet2_data)
+# write_excel('sheet3_with_date_hotel.xls', sheet3_data)
 
 

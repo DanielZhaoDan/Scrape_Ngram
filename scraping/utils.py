@@ -17,12 +17,13 @@ def remove_html_tag(ori):
     try:
         dr = re.compile(r'<[^>]+>', re.S)
         dd = dr.sub('', ori)
-        return str(HTMLParser.HTMLParser().unescape(dd))
+        return str(HTMLParser.HTMLParser().unescape(dd)).strip()
     except Exception as e:
         return ori
 
 
 def write_excel(filename, alldata, flag=None, encoding='utf-8'):
+    print 'To Store: ', len(alldata)
     filename = 'data/' + filename
     if flag:
         filename = filename.replace('.xls', '_' + str(flag) + '.xls')
@@ -77,7 +78,7 @@ def write_html(html, filename):
 
 def get_request_html(get_url, cookie, pure=False, add_header={}):
     headers = {
-        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.67 Safari/537.36',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.192 Safari/537.36',
         'connection': 'Keep-Alive',
         'Referer': get_url,
         'accept': '*/*',

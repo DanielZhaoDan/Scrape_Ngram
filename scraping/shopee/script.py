@@ -11,34 +11,34 @@ from scraping.utils import post_request_json, get_request_html_with_status, get_
 R_ID = 1
 sheet1_data = [['ID', 'SKU des', 'Rank', 'Price', 'Brand', 'Product Url', 'Display Size', 'Seller', 'Shipping location', 'Condition']]
 
-cookie = 'SPC_IA=-1; SPC_EC=-; SPC_F=kK5l5w0eACl1hLqOB1W4CE6auqn0Isvz; REC_T_ID=36230cf2-e689-11ea-9582-9c7da3191b54; SPC_U=-; language=en; _gcl_au=1.1.917022037.1607226315; csrftoken=lYNt8WWkEL3r2S17RkycjRTpwq9wOStN; SPC_SI=mall.6lkD1MBtdMm8J7pzeIfnR8ZbpRKS2cQR; SPC_R_T_ID="M3qWDCCJYXc2nUKGxRqaTiSBYrhLxyU5eESNE0fuNDOyLlleE720IeVLxYoK5H1p4uZ8BWaI0JbXyCalDQOIZd3kkVR0Z0d0Djt3HHNmKWc="; SPC_CT_bc7ebfaa=1607654714.5gvXXENoafLJfpmfvN918OOiCREU4Zs6Mn7YdfByekLsrw3n6hWK5uf3Y5I8E1ob; SPC_T_ID="M3qWDCCJYXc2nUKGxRqaTiSBYrhLxyU5eESNE0fuNDOyLlleE720IeVLxYoK5H1p4uZ8BWaI0JbXyCalDQOIZd3kkVR0Z0d0Djt3HHNmKWc="; SPC_R_T_IV="8jqokRylzv5cJsgou4QbJg=="; SPC_T_IV="8jqokRylzv5cJsgou4QbJg=="; _ga_L4QXS6R7YG=GS1.1.1607654715.3.0.1607654715.0; AMP_TOKEN=%24NOT_FOUND; _ga=GA1.3.456797804.1598328762; _gid=GA1.3.1502265687.1607654716; _dc_gtm_UA-61914165-6=1'
+cookie = 'SPC_IA=-1; SPC_EC=-; SPC_F=beDMZUNDjW7q71gIeFphq8UUSxm4YMis; REC_T_ID=9205007e-e798-11ea-ad45-ccbbfe5df652; SPC_U=-; _gcl_au=1.1.1699378879.1615729175; SPC_SI=mall.asx1eJLhmFJruc0rU3GvNstOwh2LdE6j; csrftoken=HXi5GXLiWmTJzLrA7RC75bTWOBeuT9wu; SPC_CT_960ac9a3="1615729175.tT3RO8WmOtDpKhpuYGzE4POqh9EOF9LbKr0eJj3oGKM="; _ga_SW6D8G0HXK=GS1.1.1615729176.5.0.1615729176.60; AMP_TOKEN=%24NOT_FOUND; _ga=GA1.3.1523176960.1598445307; _gid=GA1.3.273393079.1615729177; _dc_gtm_UA-61904553-8=1; SPC_R_T_ID="CKTwoKX1481tfNAxhenGSd81uyJYKg8bsatJkU2dkOQanDZjkckztRVAZfhOAlM4DmNnXp6+4car/qD9AGhMfAcXGxNtvdv+bpt3TTjwHsY="; SPC_T_IV="6/3JTWDl+J9q7r5hLCKdzg=="; SPC_R_T_IV="6/3JTWDl+J9q7r5hLCKdzg=="; SPC_T_ID="CKTwoKX1481tfNAxhenGSd81uyJYKg8bsatJkU2dkOQanDZjkckztRVAZfhOAlM4DmNnXp6+4car/qD9AGhMfAcXGxNtvdv+bpt3TTjwHsY="'
 
 price_division = {
-    'SG': 10000,
-    'PH': 10000,
-    'MY': 10000,
-    'TH': 10000,
+    'SG': 100000,
+    'PH': 100000,
+    'MY': 100000,
+    'TH': 100000,
     'ID': 100000000,
 }
 
 urls = [
-    # ('https://shopee.sg/api/v2/search_items/?by=sales&categoryids=633&keyword=laptop&limit=50&match_id=9&order=desc&page_type=search&skip_autocorrect=1&version=2', 'SG', '50', 'ALL'),
+    ('https://shopee.sg/api/v2/search_items/?by=sales&categoryids=633&keyword=laptop&limit=50&match_id=9&order=desc&page_type=search&skip_autocorrect=1&version=2', 'SG', '50', 'ALL'),
     ('https://shopee.ph/api/v2/search_items/?by=sales&categoryids=18601&keyword=laptop&limit=50&match_id=18599&order=desc&page_type=search&skip_autocorrect=1&version=2', 'PH', '45', 'ALL'),
     ('https://shopee.com.my/api/v2/search_items/?by=sales&categoryids=741&keyword=laptop&limit=50&match_id=174&order=desc&page_type=search&skip_autocorrect=1&version=2', 'MY', '100', 'ALL'),
-    # ('https://shopee.co.th/api/v2/search_items/?by=sales&categoryids=13849&keyword=laptop&limit=50&match_id=264&newest=0&order=desc&page_type=search&skip_autocorrect=1&version=2', 'TH', '39', 'ALL'),
-    # ('https://shopee.co.id/api/v2/search_items/?by=sales&categoryids=1367&keyword=laptop&limit=50&match_id=134&order=desc&page_type=search&skip_autocorrect=1&version=2', 'ID', '100', 'ALL'),
+    ('https://shopee.co.th/api/v2/search_items/?by=sales&categoryids=13849&keyword=laptop&limit=50&match_id=264&newest=0&order=desc&page_type=search&skip_autocorrect=1&version=2', 'TH', '39', 'ALL'),
+    ('https://shopee.co.id/api/v2/search_items/?by=sales&categoryids=1367&keyword=laptop&limit=50&match_id=134&order=desc&page_type=search&skip_autocorrect=1&version=2', 'ID', '100', 'ALL'),
     #
-    # (
-    # 'https://shopee.sg/api/v2/search_items/?by=sales&categoryids=633&conditions=used&keyword=laptop&limit=50&match_id=9&order=desc&page_type=search&skip_autocorrect=1&version=2',
-    # 'SG', '50', 'USED'),
+    (
+    'https://shopee.sg/api/v2/search_items/?by=sales&categoryids=633&conditions=used&keyword=laptop&limit=50&match_id=9&order=desc&page_type=search&skip_autocorrect=1&version=2',
+    'SG', '50', 'USED'),
     (
     'https://shopee.ph/api/v2/search_items/?by=sales&categoryids=18601&conditions=used&keyword=laptop&limit=50&match_id=18599&order=desc&page_type=search&skip_autocorrect=1&version=2',
     'PH', '45', 'USED'),
     (
     'https://shopee.com.my/api/v2/search_items/?by=sales&categoryids=741&conditions=used&keyword=laptop&limit=50&match_id=174&order=desc&page_type=search&skip_autocorrect=1&version=2',
     'MY', '100', 'USED'),
-    # (
-    # 'https://shopee.co.th/api/v2/search_items/?by=sales&categoryids=13849&conditions=used&keyword=laptop&limit=50&match_id=264&newest=0&order=desc&page_type=search&skip_autocorrect=1&version=2', 'TH', '39', 'USED'),
+    (
+    'https://shopee.co.th/api/v2/search_items/?by=sales&categoryids=13849&conditions=used&keyword=laptop&limit=50&match_id=264&newest=0&order=desc&page_type=search&skip_autocorrect=1&version=2', 'TH', '39', 'USED'),
 ]
 
 shop_dict = {}
@@ -47,7 +47,8 @@ add_header = {
     'x-requested-with': 'XMLHttpRequest',
     'accept': '*/*',
     'x-shopee-language': 'en',
-    'if-none-match-': '55b03-e8919217d41032c10be5f1f314b5642d',
+    'if-none-match': '62eb7454004014eaf45fb4da06bd0356',
+    'if-none-match-': '55b03-837edf7cfe6ae5bb9f8c6e977eecd50d',
     'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,ja;q=0.7,zh-TW;q=0.6',
     'referer': 'https://shopee.co.th/search?category=55&facet=13849&keyword=laptop&noCorrection=true&page=1&sortBy=sales&subcategory=264',
     'sec-fetch-dest':'empty',
@@ -97,10 +98,14 @@ def request_sheet1(item):
                     continue
 
                 item_url = url_prefix + get_item_url(name, shopid, itemid)
-                price_max = item.get('price_max') / price_division[country]
-                price_min = item.get('price_max') / price_division[country]
 
-                price = '%d - %d' % (price_min, price_max)
+                if not item.get('price'):
+                    price_max = item.get('price_max') / price_division[country]
+                    price_min = item.get('price_max') / price_division[country]
+
+                    price = '%d - %d' % (price_min, price_max)
+                else:
+                    price = item.get('price') / price_division[country]
 
                 brand, size = request_sheet2(url_prefix, shopid, itemid)
 

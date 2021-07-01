@@ -12,14 +12,14 @@ saved_hotel = set()
 R_ID = 1
 sheet1_data = [['country', 'ID', 'SKU des', 'Rank', 'Price', 'Brand', 'Product Url', 'Display Size', 'Seller', 'Shipping location', 'Condition']]
 
-cookie = '_uab_collina=159832265769569523139964; t_fv=1598322657614; t_uid=G8MX02iNjHrV3hNjipyZb16Z3beSpsPR; lzd_cid=dca654b7-258f-4226-d098-b8aee04149be; cna=hrXCF0Ce0FMCASp4SZ6S0pYk; _bl_uid=bpk7IeXw9s7c4a1n6l5wk2ndtd7d; _ga=GA1.3.1102477189.1598322662; pdp_sfo=1; JSESSIONID=C708DB027A25EA5CC947E2B4E41BF650; lzd_sid=112be3f72deb7cf45d98de2693645d26; _tb_token_=767f61367ebf7; hng=PH|en-PH|PHP|608; userLanguageML=en; t_sid=h6E6ptdjqsjHdznImI2btiTsWqqcNE5E; utm_channel=NA; _gcl_au=1.1.74247309.1607222235; _uetsid=f61b8600376b11eba622553b9cacb1b0; _uetvid=f61bd570376b11ebbd2d333763f8a654; _gid=GA1.3.1050123479.1607222240; _gat_UA-30245404-1=1; cto_axid=Twkw7dnTzN2IrFvxqR8tAOL45mYHRbgP; xlly_s=1; tfstk=cJalB7VeBx96hAm0fag7sfVAtlSAZYYEIyzburM2ouQsjD4ViOt2bLGFiY2uJH1..; l=eBQM6iNeOYITEN3LBOfZourza77OSIRYnuPzaNbMiOCPOU5p5dz1WZRdtkT9C3GVh6yvR3uLF1-pBeYBcS0DdUoyqYmDJeHmn; isg=BHt7D24MoE469JxyKo054dyxClnl0I_SyI06TW04KXqRzJqu8KRCI9ye4GyCVufK'
+cookie = '_uab_collina=159832240685631356886046; t_fv=1598322406649; t_uid=eHKsifNYMfMR3KrPZxny9MRbxfmMCq6M; cna=hrXCF0Ce0FMCASp4SZ6S0pYk; lzd_cid=8970c25d-9c24-4b0d-a8be-796c0d176b51; _ga=GA1.3.1746694825.1598322410; lzd_sid=120fb952baa490ebede471b5da6aeee4; _tb_token_=ebb3eb3b5357e; hng=TH|th|THB|764; userLanguageML=th; _gcl_au=1.1.191635468.1615728570; _bl_uid=URkIUmgp9F97Fs2bvn0aq080R6kI; _gid=GA1.3.901189380.1615728572; cto_axid=Cu7tWyBfLFWTzrGoDV67WHgvZ3FAD7qe; xlly_s=1; JSESSIONID=1F6936606083D430A81829F9D0803169; t_sid=eNZimK7ZhJowb09uAFJPXRakSaFZ0h74; utm_channel=NA; _uetsid=4f94fae084c911eb98ba57be45e5786f; _uetvid=4f954e0084c911eb9cdb9738542206e4; _gat_UA-30236174-1=1; l=eBjasUbHOYIOrn6CBOfZnurza77OSIRASuPzaNbMiOCPOy5p5-xcW6NUUiY9CnhVh6ly-3u7Dd3MBeYBcIX1j6G7KcSisfDmn; tfstk=cx3RB_4huIC-xkFx_0KcOraxt9OcZM-YLgwGJQhb_Yrfi8_diO0iWN6BN568kIC..; isg=BAwM2vlRgBF696tnYFQsc3kU3Ww-RbDv-rxzq2bNGLda8az7jFWAfwJDlPlJlOhH'
 
 urls = [
-    ('https://www.lazada.co.th/shop-laptops/?spm=a2o4m.home.cate_1.3.1125719cxYbYGn', 'TH', '25490', '102'),
-    ('https://www.lazada.com.my/shop-laptops/?spm=a2o4k.home.cate_1.2.75f82e7eb9d11q', 'MY', '26604', '102'),
-    ('https://www.lazada.sg/shop-laptops/?page=102&spm=a2o42.home.cate_1.3.654346b5ZtkEpx', 'SG', '13550', '102'),
+    ('https://www.lazada.co.th/shop-laptops/?spm=a2o4m.searchlistcategory.cate_1.3.4eef11d6PcdJhc', 'TH', '27478', '102'),
+    ('https://www.lazada.com.my/shop-laptops/?spm=a2o4k.home.cate_1.2.68d82e7emRipEw', 'MY', '29118', '102'),
+    ('https://www.lazada.sg/shop-laptops/?spm=a2o42.home.cate_1.3.654346b5ZtkEpx', 'SG', '13550', '102'),
     ('https://www.lazada.co.id/beli-laptop/?spm=a2o4j.home.cate_1.2.57991559MMbWnz', 'ID', '11213', '102'),
-    ('https://www.lazada.com.ph/shop-laptops/?spm=a2o4l.home.cate_1.3.239e359dJdUwRF', 'PH', '15549', '102'),
+    ('https://www.lazada.com.ph/shop-laptops/?spm=a2o4l.home.cate_1.3.47ee359dUkZxwD', 'PH', '15549', '102'),
 ]
 
 uid_level_dict = {}

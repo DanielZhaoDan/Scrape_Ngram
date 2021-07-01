@@ -5,7 +5,7 @@ import sys
 from datetime import datetime
 import HTMLParser
 import xlrd
-from scraping.utils import post_request_html, get_request_html, write_html, write_excel
+from scraping.utils import post_request_html, get_request_html, write_html, write_excel, remove_html_tag, timeout, post_request_json
 
 saved_hotel = set()
 R_ID = 1
@@ -13,8 +13,9 @@ sheet1_data = [['ID', 'Hotel URL', 'Hotel Name', 'Address', 'Rating', 'Number of
 sheet2_data = [['ID', 'Hotel URL', 'Reviewer Name', 'Review Date' 'Rating', 'Text Review', 'Reviewer Location',
                 'Contributor Level', 'Travel Style']]
 sheet3_data = [['Reviewer Name', 'Reviewer url', 'Category', 'Name', 'Rating', 'Text']]
+sheet4_data = [['Reviewer Name', 'Reviewer url', 'Category', 'Name', 'Rating', 'Text']]
 
-cookie = 'TADCID=c2bevLVd4OPVw503ABQCjnFE8vTET66GHuEzPi7KfV8tUou66XdIemKmPKfsCPHQfdv4PInKBM8C97eUZrB6Eqeg3IC34pkFTk8; TAAUTHEAT=SauzFQK9qlqNoDiJABQC5pMD6MhQQX22iUWVeLafiR8EUuGQddQ1WIBUET49l7qV_Jr2uIAf3avgX9lHkuxKj-oW9jOdB5kLy_cOJxLD6Nr5FCxY13i-Y3wH1LxBaeHNiHxJEyh3nPVmlYixDfdqjmWVa-IxIRulyacayIDETTWZQ4TwH-zNWtg2ShTeQfPMseEyhzdm7wkisMyW-VFChGEFRg; TAUnique=%1%enc%3ASLqk%2B6khUnzArkIWpky3yAfBM5Uq3N0u36Bu3YaBBnSRqDIW%2BjDBvQ%3D%3D; TASSK=enc%3AAJV0znQAi190Y2FwWBbr%2FWkHmjUPreYrqWhcXgDHdP896aKkgasX%2FDbb3MqkDZqcNwAC2HmMBz2pmRDdSfDZakf6gzCjLv3IioR%2BVNux3lVRLS%2FbPyD%2BJi502ZqBoIMhvg%3D%3D; ServerPool=X; PMC=V2*MS.30*MD.20200801*LD.20200801; TART=%1%enc%3AwK5CFqZMt8hZj%2FKKyrMOeoLrh8%2BBxYvbZT82T5c4m%2BK1WaVQSdYSBg4vruuMvsFrIU%2BEqedIMpQ%3D; PAC=AJqxIMK5VMoQs3BYez76fiWqnRE1rPRWEyK5Kg2PmPwUiCUVVS9AO3KRJtvv_tvv1C5wi-IF0v3rgtdvsHte_1B8KOhWmt-6Ej0WcBsDbSCUpSj9J22n572UpGuHYuSorg%3D%3D; health_notice_dismissed=1; CM=%1%PremiumMobSess%2C%2C-1%7Ct4b-pc%2C%2C-1%7CRestAds%2FRPers%2C%2C-1%7CRCPers%2C%2C-1%7CWShadeSeen%2C%2C-1%7Cpv%2C2%2C-1%7CTheForkMCCPers%2C%2C-1%7CHomeASess%2C%2C-1%7CPremiumMCSess%2C%2C-1%7CCrisisSess%2C%2C-1%7CUVOwnersSess%2C%2C-1%7CRestPremRSess%2C%2C-1%7CRepTarMCSess%2C%2C-1%7CCCSess%2C%2C-1%7CCYLSess%2C%2C-1%7CPremRetPers%2C%2C-1%7CViatorMCPers%2C%2C-1%7Csesssticker%2C%2C-1%7CPremiumORSess%2C%2C-1%7Ct4b-sc%2C%2C-1%7CRestAdsPers%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS2%2C%2C-1%7CTSMCPers%2C%2C-1%7Cb2bmcpers%2C%2C-1%7CPremMCBtmSess%2C%2C-1%7CMC_IB_UPSELL_IB_LOGOS%2C%2C-1%7CLaFourchette+Banners%2C%2C-1%7Csess_rev%2C%2C-1%7Csessamex%2C%2C-1%7CPremiumRRSess%2C%2C-1%7CTADORSess%2C%2C-1%7CAdsRetPers%2C%2C-1%7CCOVIDMCSess%2C%2C-1%7CTARSWBPers%2C%2C-1%7CListMCSess%2C%2C-1%7CSPMCSess%2C%2C-1%7CTheForkORSess%2C%2C-1%7CTheForkRRSess%2C%2C-1%7Cpers_rev%2C%2C-1%7Cmdpers%2C1%2C1596871674%7CSPACMCSess%2C%2C-1%7Cmds%2C1596267201900%2C1596353601%7CRBAPers%2C%2C-1%7CRestAds%2FRSess%2C%2C-1%7CHomeAPers%2C%2C-1%7CPremiumMobPers%2C%2C-1%7CRCSess%2C%2C-1%7CLaFourchette+MC+Banners%2C%2C-1%7CRestAdsCCSess%2C%2C-1%7CRestPremRPers%2C%2C-1%7CRevHubRMPers%2C%2C-1%7CUVOwnersPers%2C%2C-1%7Csh%2CRuleBasedPopup%2C1596353274%7Cpssamex%2C%2C-1%7CTheForkMCCSess%2C%2C-1%7CCrisisPers%2C%2C-1%7CCYLPers%2C%2C-1%7CCCPers%2C%2C-1%7CRepTarMCPers%2C%2C-1%7Cb2bmcsess%2C%2C-1%7CTSMCSess%2C%2C-1%7CSPMCPers%2C%2C-1%7CRevHubRMSess%2C%2C-1%7CPremRetSess%2C%2C-1%7CViatorMCSess%2C%2C-1%7CPremiumMCPers%2C%2C-1%7CAdsRetSess%2C%2C-1%7CPremiumRRPers%2C%2C-1%7CCOVIDMCPers%2C%2C-1%7CRestAdsCCPers%2C%2C-1%7CTADORPers%2C%2C-1%7CSPACMCPers%2C%2C-1%7CTheForkORPers%2C%2C-1%7CPremMCBtmPers%2C%2C-1%7CTheForkRRPers%2C%2C-1%7CTARSWBSess%2C%2C-1%7CPremiumORPers%2C%2C-1%7CRestAdsSess%2C%2C-1%7CRBASess%2C%2C-1%7CSPORPers%2C%2C-1%7Cperssticker%2C%2C-1%7CListMCPers%2C%2C-1%7Cmdsess%2C-1%2C-1%7C; roybatty=TNI1625!AJyadj5RVnZNah4DgM2X5anohUOAnxcziQ2cNCLOsczG5YzlrPuVWMbk01Dv%2FTACgBk66bREsR5FGxziKM42tjoYtAQdkVezoJr5ij9hmxP4FiclKKDKbA7sMte%2Bbd0f%2BSBDcx%2FJQxdmNNETca%2BAyXKjyhn8GnrL8ydagf8DXwuQ%2C1; SRT=%1%enc%3AwK5CFqZMt8hZj%2FKKyrMOeoLrh8%2BBxYvbZT82T5c4m%2BK1WaVQSdYSBg4vruuMvsFrIU%2BEqedIMpQ%3D; __vt=HxTl2PIYChv8-PokABQCq4R_VSrMTACwWFvfTfL3vw8LExjnakEKeRr5D38LyaiGHHLMsvFM06-UC_2G0gqlnkxyMdQkTj_C98wTYdULZ8im3LsVZRruns9H7Y_qGxs7SsxALSHFIOYL1QmM1773LpBjsw; TASession=%1%V2ID.9A53E4DA9B8FF660066B23DE9688140E*SQ.209*LS.DemandLoadAjax*GR.96*TCPAR.26*TBR.50*EXEX.16*ABTR.24*PHTB.24*FS.68*CPU.18*HS.recommended*ES.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.ABD562818D249697A8AB4E2FFBFCE092*FA.1*DF.0*TRA.true*LD.298277*EAU.%5B; TATravelInfo=V2*AY.2020*AM.8*AD.9*DY.2020*DM.8*DD.10*A.2*MG.-1*HP.2*FL.3*DSM.1596267436507*AZ.1*RS.1; TAUD=LA-1596265332138-1*RDD-1-2020_08_01*ARDD-960203-2020_09_30.2020_10_01*HD-1869770-2020_08_04.2020_10_01.298301*G-1869771-2.1.298301.*LD-2104113-2020.8.4.2020.10.1*LG-2104116-2.1.T.*HDD-2104117-2020_08_09.2020_08_10; TAReturnTo=%1%%2FHotels%3Fzfn%3D%26reqNum%3D1%26ns%3D%26isLastPoll%3Dfalse%26pop%3D%26g%3D298277%26bs%3D%26puid%3DXyUa3QokLIsAA6QLD%40wAAAAg%26distFrom%3D%26c%3D1%2C2%2C3%26catTag%3D9200%2C9212%2C9230%2C9235%2C9250%2C9256%2C9261%2C9672%2C16545%2C21371%2C21372%2C21373%26blender_tag%3D%26paramSeqId%3D9%26distFromPnt%3D%26offset%3D0%26changeSet%3DFILTERS%2CMAIN_META%26zfc%3D%26zfb%3D%26amen%3D%26zfd%3D%26trating%3D%26plSeed%3D898352206%26hsf%3D%26zff%3D%26waitTime%3D287'
+cookie = 'TADCID=mTSTSmON-ZcJ-rADABQCFdpBzzOuRA-9xvCxaMyI12YZl775cNbEKvygFD-YFnz5uGYEDIZf9E8RsUkZaD7K1Z90eeTIUIebZBU; TAUnique=%1%enc%3A5EPBin1ZXG7pTvEC%2FTHhGLajhyk61rGprewN1%2FNwhmgiC9mUUqh3Gg%3D%3D; TASSK=enc%3AAGo87dKTTcwUHfbbtbZqoZnHGiilhV5a3Lxv4dEOHG7j%2B4JF%2BEMrXlfWmf7i0PKv0RRZ2bpxYxutyFImsg0niWmVqP9FmCpLukOQpPHH1HQEOsUUzBSpYasgeYUzaAkzLA%3D%3D; ServerPool=A; PMC=V2*MS.29*MD.20210612*LD.20210612; TART=%1%enc%3ApOeYHLVHxrVrWjk5CVfZhpAltc8Pj6KW0H3fDqxSXS%2B4mMqWzCigQdC2rgwCZb6gAUtuxWemFUE%3D; TATrkConsent=eyJvdXQiOiIiLCJpbiI6IkFMTCJ9; TAAUTHEAT=sHJPzWOTz1XksZaVABQCab7fMZ8ORguCqJF_E5GxfSXwl6ElhlVkVZ6J8-r81AheAlD1cF4yUjCeEvBoAAimPBEG1SfiW33GJCmTOVDTgg3U2KKHI70ZnMIJrcvu4-J4V_rt_M_5viTQxJjpYwj5Q7IEoN_HYeMz1hqkRwixEvp2Pi29Q5JW8_xkggv0WFjjEk-D9dYzhHS313C2O-AM-trHp-TbuSQ93iiH5rcG; PAC=ANMM1471r4ykvtbqgEmdoyTU8cpTBIwTIePSGLI5XJWtPdg3uSouPpl6M_7FLJnFjmtLSYHp1fGRzC4N7dA3mJaAys9fGMdsRjddra5ne9-tTEXQG0oR5knFHnA-CWpxHVuHVZ3Iey1H_eHWc4bb_suPqa-2hEyU6GJd2Uyv2pT5n1AMMsAQthBmcjFTtLlqTmCqKnlyZMZr8LdenfdMjs5HlMUHNeKAiuF6_VTcWaesdQaks6LfbHvF0JWwerp_rckVwOnDvYloUmBgKkipj1MI0lxTsz4lHrS0a3xlYhvH; TATravelInfo=V2*AY.2021*AM.7*AD.15*DY.2021*DM.7*DD.16*A.2*MG.-1*HP.2*FL.3*DSM.1623512048661*RS.1; TAReturnTo=%1%%2FHotel_Review-g14134875-d308070-Reviews-Yokohama_Royal_Park_Hotel-Minatomirai_Nishi_Yokohama_Kanagawa_Prefecture_Kanto.html; roybatty=TNI1625!AI2hEMLqV2qIgwA4QO%2BXksH3XS6gGDR5UJ%2FPRQDqjz%2B6N2AZr0t5ZM%2Bp8AH0upXFBRHvk9Vx3JNJrSvZtGw%2BH9ZBSwKlbnnc1Jc4KJlgtyTOrfOjst2MrsiCH%2Ft0F5bEeHTybrWjp3dUUPgGQowAkDscwrbTOLarbkT5McyF0VPK%2C1; TASession=%1%V2ID.79738FBCDBBB442BB1618BD9DC774A1C*SQ.52*PR.40185%7C*LS.DemandLoadAjax*GR.36*TCPAR.54*TBR.48*EXEX.94*ABTR.32*PHTB.19*FS.81*CPU.9*HS.recommended*ES.popularity*DS.5*SAS.popularity*FPS.oldFirst*TS.ABD562818D249697A8AB4E2FFBFCE092*LF.en*FA.1*DF.0*TRA.false*LD.308070*EAU.A; TAUD=LA-1623487350128-1*RDD-1-2021_06_12*HDD-24767433-2021_07_15.2021_07_16.1*LD-24773603-2021.7.15.2021.7.16*LG-24773605-2.1.F.; TASID=1BBA4BDA3C954F48A1207E51311C0183; ak_bmsc=47F5630A28D031662BF9B5BC88F5C6FEB81A35241D5E0000BA73C5607F612040~plI1bFyvlNw6X3Kim8hSRjiWGdoL1lXLnrRlBHf8lEhCp+rQrO2BchP54i3pt8P7mG8uQjsbAWq/BiavYOVguuyPJl5PwOBnuUS/Txgm7IO1jFiktBzwFC36Um4cdLSAmXwl/kgY0DtVMKMlxpC6/f1hlCcg+L8eVigCF7FYAuBDY6cEjfT58ybOJCibaRFPzz8OVxDBbwjtQL45yuG4ZBLvr+mFxTzFPALGu8nA2xUqQ=; bm_sv=A4797D803F23C7A2A686C6DBDF6279A3~9apF8uLHXyw+9IMhfSBjvsGzMAjmSFTu1dGo90FN3Pesl8IPTEXAlQ2KE+DZ84pmFse5z58dCOWSGiPMQLlucm5gLX4wv6tGTtVFiiLwwETjOjjnj2JLlElflQbazRDDzhI0QGY9GZHsU3Y3dIETBv6rnC4w0gYDYhhidkfR0Iw='
 
 urls = [
     # ('https://www.tripadvisor.com.my/Hotels-g298277-Johor-Hotels.html', 'Johor'),
@@ -32,7 +33,8 @@ urls = [
     # ('https://www.tripadvisor.com.my/Hotels-g298570-Kuala_Lumpur_Wilayah_Persekutuan-Hotels.html', 'Kuala_Lumpur'),
     # ('https://www.tripadvisor.com.my/Hotels-g298286-Labuan_Island_Sabah-Hotels.html', 'Labuan'),
     # ('https://www.tripadvisor.com.my/Hotels-g298305-Putrajaya_Wilayah_Persekutuan-Hotels.html', 'Putrajaya'),
-    ('https://www.tripadvisor.com.my/Hotels-g298302-Penang-Hotels.html', 'Penang')
+    ('https://www.tripadvisor.in/Hotels-g294232-Japan-Hotels.html', 'Japan'),
+    ('https://www.tripadvisor.in/Hotels-g255055-Australia-Hotels.html', 'Australia'),
 
 ]
 
@@ -51,13 +53,13 @@ def get_page_no(html):
 
 
 def request_sheet1(item):
-    global sheet1_data
+    global sheet1_data, sheet2_data
     url, state = item
 
     page_no = None
     i = 1
 
-    hotel_reg = 'class="listing_title".*?href="(.*?)".*?>(.*?)<.*?info-col(.*?)prw_common_rating_and_review_count_with_popup(.*?)"ReviewCount">(.*?) revi'
+    hotel_reg = 'class="listing_title".*?href="(.*?)".*?>(.*?)<(.*?)info-col(.*?)prw_common_rating_and_review_count_with_popup(.*?)"ReviewCount">(.*?) revi.*?#(.*?) Bes(.*?)prw_bl_h_special_offer'
     body = {
         'plSeed': '898352206',
         'reqNum': 1,
@@ -93,25 +95,46 @@ def request_sheet1(item):
 
             for item in data:
                 hote_url = 'https://www.tripadvisor.com.my' + item[0]
-                name = item[1]
-                classification = get_classification(item[2])
-                rating = global_rating_details(item[3])
-                no_reviews = int(item[4].replace(',', ''))
+                try :
+                    name = remove_html_tag(item[1])
+                    meta = item[2]
+                    free_cancel = 'No'
+                    if 'Free cancellation' in meta:
+                        free_cancel = 'Yes'
+                    pay_later = 'No'
+                    if 'Reserve now, pay at stay' in meta:
+                        pay_later = 'Yes'
+                    # classification = get_classification(item[2])
+                    rating = global_rating_details(item[4])
+                    no_reviews = int(item[5].replace(',', ''))
+                    rank = item[6]
+                    covid_meta = 'No'
+                    if 'Taking safety measures' in item[7]:
+                        covid_meta = 'Yes'
+                    h_id = state + '_' + rank
 
-                location, star = get_hotel_details(hote_url)
-                one_row = [state, name, hote_url, no_reviews, rating, classification, star, location]
-                sheet1_data.append(one_row)
+                    print item[0],
+                    travel_safe_list, star, rate_list, amenities_list, feature_list, types_list, hotel_style, great_list, Choice, no_tips = get_hotel_details(hote_url)
+
+                    for t in travel_safe_list:
+                        one_row = [h_id, name, hote_url, rank, covid_meta, free_cancel, pay_later, t,
+                                   no_reviews, no_tips, rating, Choice, star, hotel_style] + great_list + rate_list[1:]
+                        print one_row
+                        sheet1_data.append(one_row)
+
+                    for l in amenities_list:
+                        sheet2_data.append([h_id, name, l, 'Property Amenities'])
+                    for l in feature_list:
+                        sheet2_data.append([h_id, name, l, 'Room Features'])
+                    for l in types_list:
+                        sheet2_data.append([h_id, name, l, 'Room Types'])
+                except Exception as e:
+                    print '\n===err===', hote_url, e
 
             i += 1
         except Exception as e:
             print 'ERR---', url, i, e
-
-
-def get_classification(ori):
-    if 'class="label"' in ori:
-        reg = 'class="label">(.*?)<'
-        return re.compile(reg).findall(ori)[0]
-    return 'HOTEL'
+            i += 1
 
 
 def global_rating_details(ori):
@@ -121,39 +144,55 @@ def global_rating_details(ori):
         return data[0]
     return 0
 
-
+@timeout(3)
 def get_hotel_details(url):
     html = get_request_html(url, cookie)
-    location = 'N/A'
-    if '_3ErVArsu jke2_wbp' in html:
-        reg = '_3ErVArsu jke2_wbp">(.*?)<'
-        location = re.compile(reg).findall(html)[0]
+    reg = 'id="taplc_hr_covid_react_above_about_0(.*?)class="_3cjYfwwQ">(.*?)<(.*?)class="ui_column  ".*?Property amenities(.*?)Room features(.*?)Room types(.*?)Good to know.*?class="AZd6Ff4E".*?title="(.*?) (.*?)ui_column is-6.*?id="LOCATION"(.*?)ui_column is-4 _3UwHh_yY.*?CC_TAB_RoomTips_LABEL.*?_1aRY8Wbl">(.*?)<'
+    raw_data = re.compile(reg).findall(html)[0]
 
-    star = 'N/A'
-    star_css_score = {
-        '_3jV1TJf9': 0.5,
-        '_2cO8x-C-': 1.0,
-        'SPwwulfU': 1.5,
-        '_2MgVjxWG': 2.0,
-        '_3ll0ja_Z': 2.5,
-        '_3RprXHxE': 3.0,
-        '_2JbAlMbb': 3.5,
-        '_30WZSV_9': 4.0,
-        '_2LYcDtDf': 4.5,
-        'f33bWmtw': 5.0,
-    }
-    for k, v in star_css_score.items():
-        if k in html:
-            star = str(v)
-            break
-    if star == 'N/A':
-        if 'class="_31OQP7s_' in html:
-            reg = 'class="_31OQP7s_.*?aria-label="(.*?) '
-            star = re.compile(reg).findall(html)[0]
-    return location, star
+    covid_raw = raw_data[0]
+    detail_rate_raw = raw_data[2]
+    amenities_raw = raw_data[3]
+    room_feature = raw_data[4]
+    room_type = raw_data[5]
+    star = raw_data[6]
+    hotel_style_raw = raw_data[7]
+    location_raw = raw_data[8]
+    no_tips = raw_data[9]
+
+    travel_safe_reg = 'class="_1AOUUeGM">(.*?)<'
+    if 'class="_1AOUUeGM">' in covid_raw:
+        travel_safe_list = re.compile(travel_safe_reg).findall(covid_raw)
+    else:
+        travel_safe_list = ['N/A']
+
+    rate_reg = 'ui_bubble_rating bubble_(.*?)"'
+    rate_list = re.compile(rate_reg).findall(detail_rate_raw)
+    rate_list = [float(i) / 10 for i in rate_list]
+
+    amenities_reg = 'amenity_text.*?/span>(.*?)<'
+    amenities_list = re.compile(amenities_reg).findall(amenities_raw)
+    feature_list = re.compile(amenities_reg).findall(room_feature)
+    types_list = re.compile(amenities_reg).findall(room_type)
+
+    hotel_reg = 'class="_2dtF3ueh">(.*?)<'
+    if 'class="_2dtF3ueh"' in hotel_style_raw:
+        hotel_style = re.compile(hotel_reg).findall(hotel_style_raw)
+        hotel_style = '|'.join(hotel_style)
+    else:
+        hotel_style = 'N/A'
+
+    great_list = ['N/A' for i in range(3)]
+
+    if 'Great for walkers' in location_raw:
+        great_reg = 'class="oPMurIUj _1iwDIdby">(.*?)<.*?oPMurIUj TrfXbt7b">(.*?)<.*?oPMurIUj _1WE0iyL_">(.*?)<'
+        great_list = re.compile(great_reg).findall(location_raw)[0]
+        great_list = [i for i in great_list]
+
+    return travel_safe_list, star, rate_list, amenities_list, feature_list, types_list, hotel_style, great_list, 'Yes' if "Travellers' Choice" in html else 'No', no_tips
 
 
-def request_sheet2(row, number, hotel_url):
+def request_sheet2_old(row, number, hotel_url):
     global sheet2_data
     page_no = number / 5
     if number % 5 != 0:
@@ -178,7 +217,7 @@ def request_sheet2(row, number, hotel_url):
                 rating = int(comment[2]) / 10.0
                 review_date = get_comment_date(comment[3])
 
-                if int(review_date.split('/')[-1]) <= 2018:
+                if int(review_date.split('/')[-1]) < 2020:
                     terminate = True
                     break
 
@@ -191,8 +230,8 @@ def request_sheet2(row, number, hotel_url):
 
 def get_comment_date(ori):
     try:
-        date = datetime.strptime(ori, ' %B %Y')
-        return date.strftime('1/%m/%Y')
+        date = datetime.strptime(ori, '%Y-%m-%d')
+        return date.strftime('%d/%m/%Y')
     except:
         return ori
 
@@ -205,50 +244,240 @@ def get_user_location(ori):
     return 'N/A'
 
 
-def remove_html_tag(ori):
-    dr = re.compile(r'<[^>]+>', re.S)
-    dd = dr.sub('', ori)
-    return str(HTMLParser.HTMLParser().unescape(dd))
-
-
 def read_excel(filename, start=1):
     global R_ID, sheet2_data
     data = xlrd.open_workbook(filename, encoding_override="utf-8")
     table = data.sheets()[0]
+    visited_hotel = {}
 
     for i in range(start, table.nrows):
         row = table.row(i)
+        hotel_id = row[0].value
+        if hotel_id in visited_hotel:
+            continue
         main_url = row[2].value
+        hotel_name = row[1].value
 
         try:
-            review_no = int(row[3].value)
-            if review_no > 0:
-                request_sheet2(i, review_no, main_url)
+            review_no = int(row[8].value)
+            tip_no = int(row[9].value)
+            # if review_no > 0:
+            #     request_reviews_new(hotel_id, hotel_name, main_url)
+            if tip_no > 0:
+                request_tips(hotel_id, hotel_name, main_url, tip_no)
+            visited_hotel[hotel_id] = True
         except Exception as e:
             print main_url, e
-    write_excel('Hotel_sheet2.xls', sheet2_data)
+
+    # write_excel('sheet3.xls', sheet3_data)
+    write_excel('sheet4.xls', sheet4_data)
+
+
+def request_reviews_new(hotel_id, hotel_name, hotel_url):
+    url = 'https://www.tripadvisor.com.my/data/graphql/batched'
+
+    g_id, item_id = get_id_from_url(hotel_url)
+    i = 0
+    terminate = False
+    page_size = 5
+    header = {
+        'content-type': 'application/json',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36',
+        'x-requested-by': 'TNI1625!AK1qauweEB/vQdtumi/1GgOSlXgaEaXb6OH52zft8h889v5gcc4zScVn/2ZvhANVw7X9s2SGV02EBpceyoBjG70DHi51390O4JpQV9XNXpqOoydIc2JpzDZQ8jSkipWuRWtGqpwcFO/+9Tcfn/sg6vsklsgZHGx/9sDPqrEeceGS',
+    }
+    while not terminate and i <= 10:
+
+        data = '[{"query":"mutation LogBBMLInteraction($interaction: ClientInteractionOpaqueInput!) {\\n  logProductInteraction(interaction: $interaction)\\n}\\n","variables":{"interaction":{"productInteraction":{"interaction_type":"CLICK","site":{"site_name":"ta","site_business_unit":"Hotels","site_domain":"www.tripadvisor.com.my"},' \
+               '"pageview":{"pageview_request_uid":"YMTUNQokKWYAAYssfJUAAAAi","pageview_attributes":{"location_id":' + item_id +',"geo_id":' + g_id +'' \
+               ',"servlet_name":"Hotel_Review"}},"user":{"user_agent":"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36","site_persistent_user_uid":"web115a.47.88.134.109.179FF62F95D","unique_user_identifiers":{"session_id":"79738FBCDBBB442BB1618BD9DC774A1C"}},"search":{},' \
+               '"item_group":{"item_group_collection_key":"YMTUNQokKWYAAYssfJUAAAAi"},"item":{"product_type":"Hotels","item_id_type":"ta-location-id","item_id":' + item_id +',"item_attributes":{"element_type":"number","action_name":"REVIEW_NAV","page_number":' + str(i+1) + ',"offset":'+ str(page_size*i) +',"limit":'+ str(page_size) +'}}}}}},' \
+               '{"query":"query ReviewListQuery($locationId: Int!, $offset: Int, $limit: Int, $filters: [FilterConditionInput!], $prefs: ReviewListPrefsInput, $initialPrefs: ReviewListPrefsInput, $filterCacheKey: String, $prefsCacheKey: String, $keywordVariant: String!, $needKeywords: Boolean = true) {\\n  cachedFilters: personalCache(key: $filterCacheKey)\\n  cachedPrefs: personalCache(key: $prefsCacheKey)\\n  locations(locationIds: [$locationId]) {\\n    locationId\\n    parentGeoId\\n    name\\n    placeType\\n    reviewSummary {\\n      rating\\n      count\\n    }\\n    keywords(variant: $keywordVariant) @include(if: $needKeywords) {\\n      keywords {\\n        keyword\\n      }\\n    }\\n    ... on LocationInformation {\\n      parentGeoId\\n    }\\n    ... on LocationInformation {\\n      parentGeoId\\n    }\\n    ... on LocationInformation {\\n      name\\n      currentUserOwnerStatus {\\n        isValid\\n      }\\n    }\\n    ... on LocationInformation {\\n      locationId\\n      currentUserOwnerStatus {\\n        isValid\\n      }\\n    }\\n    ... on LocationInformation {\\n      locationId\\n      parentGeoId\\n      accommodationCategory\\n      currentUserOwnerStatus {\\n        isValid\\n      }\\n      url\\n    }\\n    reviewListPage(page: {offset: $offset, limit: $limit}, filters: $filters, prefs: $prefs, initialPrefs: $initialPrefs, filterCacheKey: $filterCacheKey, prefsCacheKey: $prefsCacheKey) {\\n      totalCount\\n      preferredReviewIds\\n      reviews {\\n        ... on Review {\\n          id\\n          url\\n          location {\\n            locationId\\n            name\\n          }\\n          createdDate\\n          publishedDate\\n          provider {\\n            isLocalProvider\\n          }\\n          userProfile {\\n            id\\n            userId: id\\n            isMe\\n            isVerified\\n            displayName\\n            username\\n            avatar {\\n              id\\n              photoSizes {\\n                url\\n                width\\n                height\\n              }\\n            }\\n            hometown {\\n              locationId\\n              fallbackString\\n              location {\\n                locationId\\n                additionalNames {\\n                  long\\n                }\\n                name\\n              }\\n            }\\n            contributionCounts {\\n              sumAllUgc\\n              helpfulVote\\n            }\\n            route {\\n              url\\n            }\\n          }\\n        }\\n        ... on Review {\\n          title\\n          language\\n          url\\n        }\\n        ... on Review {\\n          language\\n          translationType\\n        }\\n        ... on Review {\\n          roomTip\\n        }\\n        ... on Review {\\n          tripInfo {\\n            stayDate\\n          }\\n          location {\\n            placeType\\n          }\\n        }\\n        ... on Review {\\n          additionalRatings {\\n            rating\\n            ratingLabel\\n          }\\n        }\\n        ... on Review {\\n          tripInfo {\\n            tripType\\n          }\\n        }\\n        ... on Review {\\n          language\\n          translationType\\n          mgmtResponse {\\n            id\\n            language\\n            translationType\\n          }\\n        }\\n        ... on Review {\\n          text\\n          publishedDate\\n          username\\n          connectionToSubject\\n          language\\n          mgmtResponse {\\n            id\\n            text\\n            language\\n            publishedDate\\n            username\\n            connectionToSubject\\n          }\\n        }\\n        ... on Review {\\n          id\\n          locationId\\n          title\\n          text\\n          rating\\n          absoluteUrl\\n          mcid\\n          translationType\\n          mtProviderId\\n          photos {\\n            id\\n            statuses\\n            photoSizes {\\n              url\\n              width\\n              height\\n            }\\n          }\\n          userProfile {\\n            id\\n            displayName\\n            username\\n          }\\n        }\\n        ... on Review {\\n          mgmtResponse {\\n            id\\n          }\\n          provider {\\n            isLocalProvider\\n          }\\n        }\\n        ... on Review {\\n          translationType\\n          location {\\n            locationId\\n            parentGeoId\\n          }\\n          provider {\\n            isLocalProvider\\n            isToolsProvider\\n          }\\n          original {\\n            id\\n            url\\n            locationId\\n            userId\\n            language\\n            submissionDomain\\n          }\\n        }\\n        ... on Review {\\n          locationId\\n          mcid\\n          attribution\\n        }\\n        ... on Review {\\n          __typename\\n          locationId\\n          helpfulVotes\\n          photoIds\\n          route {\\n            url\\n          }\\n          socialStatistics {\\n            followCount\\n            isFollowing\\n            isLiked\\n            isReposted\\n            isSaved\\n            likeCount\\n            repostCount\\n            tripCount\\n          }\\n          status\\n          userId\\n          userProfile {\\n            id\\n            displayName\\n            isFollowing\\n          }\\n          location {\\n            __typename\\n            locationId\\n            additionalNames {\\n              normal\\n              long\\n              longOnlyParent\\n              longParentAbbreviated\\n              longOnlyParentAbbreviated\\n              longParentStateAbbreviated\\n              longOnlyParentStateAbbreviated\\n              geo\\n              abbreviated\\n              abbreviatedRaw\\n              abbreviatedStateTerritory\\n              abbreviatedStateTerritoryRaw\\n            }\\n            parent {\\n              locationId\\n              additionalNames {\\n                normal\\n                long\\n                longOnlyParent\\n                longParentAbbreviated\\n                longOnlyParentAbbreviated\\n                longParentStateAbbreviated\\n                longOnlyParentStateAbbreviated\\n                geo\\n                abbreviated\\n                abbreviatedRaw\\n                abbreviatedStateTerritory\\n                abbreviatedStateTerritoryRaw\\n              }\\n            }\\n          }\\n        }\\n        ... on Review {\\n          text\\n          language\\n        }\\n        ... on Review {\\n          locationId\\n          absoluteUrl\\n          mcid\\n          translationType\\n          mtProviderId\\n          originalLanguage\\n          rating\\n        }\\n        ... on Review {\\n          id\\n          locationId\\n          title\\n          labels\\n          rating\\n          absoluteUrl\\n          mcid\\n          translationType\\n          mtProviderId\\n          alertStatus\\n        }\\n      }\\n    }\\n    reviewAggregations {\\n      ratingCounts\\n      languageCounts\\n      alertStatusCount\\n    }\\n  }\\n}\\n","variables":' \
+               '{"locationId":' + item_id +',"offset":'+ str(page_size*i) +',"filters":[{"axis":"SEGMENT","selections":["Family"]}],"prefs":null,"initialPrefs":{},"limit":5,"filterCacheKey":null,"prefsCacheKey":"locationReviewPrefs","needKeywords":false,"keywordVariant":"location_keywords_v2_llr_order_30_en"}},{"query":"query IsSubscribed {\\n  isSubscribed: OptimusBenefits_isSubscribedToOptimus\\n}\\n","variables":{}},{"query":"query PageTargetingQuery($pageAdsRequestInput: AdContext_PageAdsRequestInput) {\\n  gptInfo: AdContext_getPageAdsBatch(requests: [$pageAdsRequestInput]) {\\n    adBase\\n    ppid\\n    pageLevelTargeting {\\n      key\\n      value\\n    }\\n  }\\n}\\n","variables":{"pageAdsRequestInput":{"hotelTravelInfo":{"checkInDate":"2021-09-25","checkOutDate":"2021-09-26","defaultDates":true},' \
+                '"locationId":' + item_id +',"pageType":"Hotel_Review","browserType":"CHROME","drs":[{"space":"ABC","sliceNum":80},{"space":"AFIL","sliceNum":7},{"space":"ATTPromo","sliceNum":75},{"space":"AUC","sliceNum":11},{"space":"BBML","sliceNum":61},{"space":"BMP","sliceNum":83},{"space":"BRDTTD","sliceNum":87},{"space":"Brand","sliceNum":44},{"space":"CAKE","sliceNum":69},{"space":"CAR","sliceNum":73},{"space":"COM","sliceNum":58},{"space":"CRS","sliceNum":51},{"space":"Community","sliceNum":53},{"space":"Content","sliceNum":71},{"space":"CoreX","sliceNum":4},{"space":"EATPIZZA","sliceNum":24},{"space":"EID","sliceNum":56},{"space":"EXP","sliceNum":88},{"space":"Engage","sliceNum":47},{"space":"FDP","sliceNum":84},{"space":"FDS","sliceNum":27},{"space":"FDU","sliceNum":5},{"space":"FLTMERCH","sliceNum":75},{"space":"FLTREV","sliceNum":1},{"space":"Filters","sliceNum":60},{"space":"Flights","sliceNum":59},{"space":"HRATF","sliceNum":39},{"space":"HSX","sliceNum":85},{"space":"HSXB","sliceNum":42},{"space":"IBEX","sliceNum":88},{"space":"ING","sliceNum":11},{"space":"INT1","sliceNum":98},{"space":"INT2","sliceNum":45},{"space":"ITR","sliceNum":23},{"space":"L10N","sliceNum":75},{"space":"ML","sliceNum":11},{"space":"ML6","sliceNum":72},{"space":"MM","sliceNum":84},{"space":"MOBILEAPP","sliceNum":-1},{"space":"MOF","sliceNum":66},{"space":"MPS","sliceNum":85},{"space":"MTA","sliceNum":68},{"space":"Me2","sliceNum":68},{"space":"Mem","sliceNum":99},{"space":"Mobile","sliceNum":3},{"space":"MobileCore","sliceNum":50},{"space":"Notifications","sliceNum":47},{"space":"Other","sliceNum":85},{"space":"P13N","sliceNum":67},{"space":"PIE","sliceNum":87},{"space":"PLS","sliceNum":64},{"space":"POS","sliceNum":31},{"space":"PRT","sliceNum":74},{"space":"RDS1","sliceNum":63},{"space":"RDS2","sliceNum":90},{"space":"RDS3","sliceNum":82},{"space":"RDS4","sliceNum":76},{"space":"RDS5","sliceNum":18},{"space":"RET","sliceNum":63},{"space":"REV","sliceNum":22},{"space":"REVB","sliceNum":8},{"space":"REVH","sliceNum":36},{"space":"REVM","sliceNum":45},{"space":"REVSD","sliceNum":94},{"space":"REVSP","sliceNum":32},{"space":"REVXS","sliceNum":51},{"space":"RNA","sliceNum":58},{"space":"RSE1","sliceNum":33},{"space":"RSE2","sliceNum":87},{"space":"Rooms","sliceNum":58},{"space":"S3PO","sliceNum":4},{"space":"SD40","sliceNum":44},{"space":"SE2O","sliceNum":60},{"space":"SEM","sliceNum":54},{"space":"SEO","sliceNum":77},{"space":"SORT1","sliceNum":72},{"space":"Sales","sliceNum":52},{"space":"Search","sliceNum":67},{"space":"SiteX","sliceNum":53},{"space":"Surveys","sliceNum":71},{"space":"T4B","sliceNum":33},{"space":"TGT","sliceNum":28},{"space":"TRP","sliceNum":37},{"space":"TTD","sliceNum":16},{"space":"TX","sliceNum":49},{"space":"Timeline","sliceNum":62},{"space":"VP","sliceNum":51},{"space":"VR","sliceNum":37},{"space":"YM","sliceNum":68},{"space":"YMB","sliceNum":40}],' \
+               '"globalContextUrlParameters":[{"key":"offset","value":"r5"},{"key":"detailId","value":"' + item_id +'"},{"key":"geoId","value":"' + g_id +'"}],"userAgentCategory":"DESKTOP"}}}]'
+        # print data
+        body = post_request_json(url, cookie, data, header)
+
+        location = None
+
+        for b in body:
+            if 'locations' in b['data']:
+                location = b['data']['locations'][0]
+                break
+
+        if location:
+            reviews = location['reviewListPage']['reviews']
+            print hotel_id, i, len(reviews)
+            for review in reviews:
+                try:
+                    create_dt = get_comment_date(review['createdDate'])
+
+                    if int(create_dt.split('/')[-1]) < 2020:
+                        terminate = True
+                        break
+
+                    displayName = review['userProfile']['displayName']
+                    user_url = review['userProfile']['route']['url']
+                    hometown = review['userProfile']['hometown']
+                    user_location = 'N/A'
+                    try:
+                        user_location = hometown['location']['additionalNames']['long']
+                    except:
+                        pass
+                    rating = review['rating']
+                    title = review['title']
+                    text = review['text']
+
+                    one_row = [hotel_id, hotel_name, displayName, user_location, rating, create_dt, user_url, title, text]
+                    sheet3_data.append(one_row)
+                except Exception as e:
+                    print 'review row error---', e
+
+        i += 1
+
+
+def request_tips(hotel_id, hotel_name, hotel_url, no_tips):
+    url = 'https://www.tripadvisor.com.my/data/graphql/batched'
+
+    g_id, item_id = get_id_from_url(hotel_url)
+    i = 0
+    terminate = False
+    page_size = 5
+    total_page = no_tips / page_size
+    header = {
+        'content-type': 'application/json',
+        'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.77 Safari/537.36',
+        'x-requested-by': 'TNI1625!AK1qauweEB/vQdtumi/1GgOSlXgaEaXb6OH52zft8h889v5gcc4zScVn/2ZvhANVw7X9s2SGV02EBpceyoBjG70DHi51390O4JpQV9XNXpqOoydIc2JpzDZQ8jSkipWuRWtGqpwcFO/+9Tcfn/sg6vsklsgZHGx/9sDPqrEeceGS',
+    }
+    while not terminate and i <= total_page:
+        data = '[{"query":"query TipsTabQuery($locationId: Int!, $offset: Int!, $limit: Int!, $loggedIn: Boolean!, $loggedInUserId: String) {\\n  currentMember: memberProfile(userId: {id: $loggedInUserId}) @include(if: $loggedIn) {\\n    ...MemberFieldsTabFragment\\n  }\\n  locations(locationIds: [$locationId]) {\\n    locationId\\n    name\\n    roomTipsCount\\n    roomTips(page: {offset: $offset, limit: $limit}) {\\n      id\\n      text\\n      rating\\n      url\\n      publishedDate\\n      userProfile {\\n        ...MemberFieldsTabFragment\\n      }\\n    }\\n  }\\n}\\n\\nfragment MemberFieldsTabFragment on MemberProfile {\\n  userId: id\\n  isMe\\n  isVerified\\n  isFollowing\\n  displayName\\n  username\\n  avatar {\\n    id\\n    photoSizes {\\n      ...PhotoSizesTabFragment\\n    }\\n  }\\n  hometown {\\n    locationId\\n    fallbackString\\n    location {\\n      locationId\\n      additionalNames {\\n        long\\n      }\\n      name\\n    }\\n  }\\n  contributionCounts {\\n    sumAllUgc\\n    helpfulVote\\n  }\\n  route {\\n    url\\n  }\\n}\\n\\nfragment PhotoSizesTabFragment on PhotoSize {\\n  url\\n  width\\n  height\\n  isHorizontal\\n}\\n","variables":' \
+               '{"locationId":' + item_id + ',"offset":' + str(page_size * i) + ',"limit":5,"loggedInUserId":"ABD562818D249697A8AB4E2FFBFCE092","loggedIn":true}}]'
+
+        # print data
+        body = post_request_json(url, cookie, data, header)
+        location = None
+
+        for b in body:
+            if 'locations' in b['data']:
+                location = b['data']['locations'][0]
+                break
+
+        if location:
+            reviews = location['roomTips']
+            print hotel_id, i, total_page
+            for review in reviews:
+                try:
+                    create_dt = get_comment_date(review['publishedDate'])
+
+                    if int(create_dt.split('/')[-1]) < 2020:
+                        terminate = True
+                        break
+
+                    displayName = review['userProfile']['displayName']
+                    user_url = review['userProfile']['route']['url']
+                    hometown = review['userProfile']['hometown']
+                    user_location = 'N/A'
+                    try:
+                        user_location = hometown['location']['additionalNames']['long']
+                    except:
+                        pass
+                    rating = review['rating']
+                    text = review['text']
+
+                    one_row = [hotel_id, hotel_name, displayName, user_location, rating, create_dt, user_url, text]
+
+                    sheet4_data.append(one_row)
+                except Exception as e:
+                    print 'review row error---', e
+        i += 1
+
+
+def get_id_from_url(url):
+    # https://www.tripadvisor.com.my/Hotel_Review-g14134875-d308070-Reviews-Yokohama_Royal_Park_Hotel-Minatomirai_Nishi_Yokohama_Kanagawa_Prefecture_Kanto.html#REVIEWS
+    temp = url.split('Review-g')[-1].split('-Reviews-')[0]
+    return temp.split('-d')
+
+
+def get_level_uid(filename, start=1):
+    global R_ID, sheet3_data
+    data = xlrd.open_workbook(filename, encoding_override="utf-8")
+    table = data.sheets()[0]
+    uid_level = {}
+
+    for i in range(start, table.nrows):
+        row = table.row(i)
+
+        url = row[6].value
+        one_row = [row[j].value for j in range(0, table.ncols)]
+
+        try:
+            if url not in uid_level:
+                level = get_level(url)
+                print url, level
+                uid_level[url] = level
+            one_row[6] = uid_level[url]
+            sheet3_data.append(one_row)
+        except Exception as e:
+            print url, e
+
+    write_excel(filename, sheet3_data)
+    # write_excel('sheet4.xls', sheet4_data)
+
+
+def get_level(url):
+    userId = url.split('/')[-1]
+    badge_url = 'https://www.tripadvisor.com.my/members-badgecollection/' + userId
+
+    html = get_request_html(badge_url, cookie)
+
+    reg = 'data-backbone-name="modules.membercenter.Level"(.*?)</div'
+    raw_data = re.compile(reg).findall(html)[0]
+    if 'tripcollectiveLevels' in raw_data:
+        reg = 'tripcollectiveLevels.*?span>(.*?)<'
+        return re.compile(reg).findall(raw_data)[0]
+    return 'N/A'
 
 
 def step_1():
     for item in urls:
         request_sheet1(item)
-        write_excel(item[1] + '_hotel.xls', sheet1_data)
+        write_excel(item[1] + '_1hotel.xls', sheet1_data)
+        write_excel(item[1] + '_2hotel.xls', sheet2_data)
 
 reload(sys)
 sys.setdefaultencoding('utf-8')
 # step_1()
-# read_excel('data/Penang_hotel1.xls')
+# read_excel('data/Australia_1hotel.xls')
+# get_level_uid('data/sheet3.xls')
+# get_level_uid('data/sheet4.xls')
 
-if True:
-    data = xlrd.open_workbook('data/Penang_hotel1.xls', encoding_override="utf-8")
-    table = data.sheets()[0]
+# if True:
+#     data = xlrd.open_workbook('data/Penang_hotel1.xls', encoding_override="utf-8")
+#     table = data.sheets()[0]
+#
+#     for i in range(1, table.nrows):
+#         row = table.row(i)
+#         main_url = row[2].value
+#
+#         try:
+#             _, star = get_hotel_details(main_url)
+#             print star
+#         except Exception as e:
+#             print main_url, e
 
-    for i in range(1, table.nrows):
-        row = table.row(i)
-        main_url = row[2].value
+data = xlrd.open_workbook('data/Australia_1hotel.xls', encoding_override="utf-8")
+table = data.sheets()[0]
+hotel_dict = {}
 
-        try:
-            _, star = get_hotel_details(main_url)
-            print star
-        except Exception as e:
-            print main_url, e
+for i in range(1, table.nrows):
+    row = table.row(i)
+
+    url = row[2].value
+
+    try:
+        if url not in hotel_dict:
+            travel_safe_list, star, rate_list, amenities_list, feature_list, types_list, hotel_style, great_list, Choice, no_tips = get_hotel_details(url)
+            hotel_dict[url] = hotel_style
+        print hotel_dict[url]
+    except Exception as e:
+        print url, e
