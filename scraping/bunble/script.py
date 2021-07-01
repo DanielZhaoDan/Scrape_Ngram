@@ -104,7 +104,7 @@ def request_one(url):
             pass
     html_source = driver.page_source
     data = html_source.encode('utf-8')
-    write(data.replace('\n', '').replace('\r', ''), '1.html')
+    write(data.replace('\n', '').replace('\r', ''), '0.html')
     return data.replace('\r', '').replace('\r', '')
 
 def request_sheet2(hotel_id, hotel_url, hotel_name, no_reviews):

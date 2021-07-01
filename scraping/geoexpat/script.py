@@ -66,7 +66,7 @@ def request_sheet0():
                 scrape_gexbaby(list)
             Topic_ID += 1
 
-    write_excel('data/data.xls', sheet0_data)
+    write_excel('data/2.xls', sheet0_data)
 
 
 def scrape_gexexpat(main_url):

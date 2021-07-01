@@ -30,7 +30,7 @@ def request_sheet1(url, topic, site):
     comment_reg = 'id="p.*?class="row".*?user-title.*?span>(.*?)<.*?"name">.*?>(.*?)<.*?datetime="(.*?)".*?itemprop="articleBody">(.*?)</div>.*?likeHeart-container.*?</div(.*?)</div'
 
     html = get_request_html(url, cookie)
-    # write_html(html, '1.html')
+    # write_html(html, '0.html')
     threads = re.compile(base_reg).findall(html)
 
     for thread in threads:

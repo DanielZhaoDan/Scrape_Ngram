@@ -1,10 +1,8 @@
 import re
 import requests
-import xlwt, xlrd
-import HTMLParser
-import os
+import xlwt
+import html
 from functools import wraps
-from selenium import webdriver
 import errno
 import os
 import signal
@@ -17,7 +15,7 @@ def remove_html_tag(ori):
     try:
         dr = re.compile(r'<[^>]+>', re.S)
         dd = dr.sub('', ori)
-        return str(HTMLParser.HTMLParser().unescape(dd))
+        return str(html.unescape(dd))
     except Exception as e:
         return ori
 
@@ -72,7 +70,7 @@ def write_html(html, filename):
     fp = open(filename, "w")
     fp.write(html)
     fp.close()
-    print "write over"
+    print("write over")
 
 
 def get_request_html(get_url, cookie, pure=False, add_header={}):
@@ -87,7 +85,7 @@ def get_request_html(get_url, cookie, pure=False, add_header={}):
         headers[k] = v
     res_data = requests.get(get_url, headers=headers, timeout=20)
 
-    res = res_data.content
+    res = str(res_data.content)
     if not pure:
         res = res.replace('\t', '').replace('\r', '').replace('\n', '').replace("&quot;", '"').replace("&#92;", '')
 
@@ -107,7 +105,7 @@ def get_request_html_with_status(get_url, cookie, pure=False, add_header={}):
     res_data = requests.get(get_url, headers=headers, timeout=20)
 
     if res_data.status_code != 200:
-        print res_data.status_code
+        print(res_data.status_code)
 
     res = res_data.content
     if not pure:
@@ -152,11 +150,11 @@ def post_request_html(get_url, cookie, data={}, add_header={}):
         'referer': get_url,
         'cookie': cookie,
     }
-    for k, v in add_header.items():
+    for k, v in add_header.itms():
         headers[k] = v
     res_data = requests.post(get_url, headers=headers, timeout=10, data=data)
-    res = res_data.content
-    res = res.replace('\t', '').replace('\r', '').replace('\n', '')
+    res = str(res_data.content)
+    res = res.replace('\\t', '').replace('\\r', '').replace('\\n', '')
 
     return res
 
@@ -197,11 +195,11 @@ def timeout(seconds=10, error_message=os.strerror(errno.ETIME)):
 
 
 def get_attachments(url, filename, timeout=5, headers={}, data={}):
-    print "Getting url", url
+    print("Getting url", url)
     response = requests.post(url, timeout=timeout, stream=True, headers=headers, data=data)
     if response.status_code == 200:
         if response.headers.get('Content-Disposition'):
-            print "Writing file to", filename
+            print("Writing file to", filename)
             open(filename, 'wb').write(response.content)
 
 

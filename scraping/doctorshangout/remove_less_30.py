@@ -53,4 +53,4 @@ def read_excel(filename, sheet_index, start=1):
     write_excel('data/res2_%d.xls' % sheet_index, sheet2_data[65531:])
 
 
-read_excel('data.xlsx', 2, start=0)
+read_excel('rawdata.xlsx', 2, start=0)

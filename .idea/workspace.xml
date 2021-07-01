@@ -2,40 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="691d6d87-fea3-423b-8175-674f843520f6" name="Default" comment="Merge branch 'master' of https://github.com/DanielZhaoDan/Scrape_Ngram&#10;update">
-      <change afterPath="$PROJECT_DIR$/scraping/FB_insight/fb_insta_insight.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/TripAdvisor/v2/Hotels.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/TripAdvisor/v2/Resaraunt.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/TripAdvisor/v2/Things.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/TripAdvisor/v2/holidayRental.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/amazonseller/onlineRetail.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/baby-kingdom/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/bestbuy/comparision.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/chiphell/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/discuss.hk/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/expat.com/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/expatforum.com/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/lazada/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/mumsnet/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/mumsnet/script_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/patientslikeme/script_2.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/shopee/script.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/warmat/chromedriver" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scraping/warmat/script.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/YouTube/YT_searchres.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/sharing.clickup/clickup scraper.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scraping/sharing.clickup/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrape_Ngram.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/CleanHtml/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/CleanHtml/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/FB_insight/page_likes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/MVM Proj/baidu_result.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/MVM Proj/baidu_result.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/TripAdvisor/Hotels.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/TripAdvisor/Hotels.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FB_search_result/Get_Fanpage_list.py" beforeDir="false" afterPath="$PROJECT_DIR$/FB_search_result/Get_Fanpage_list.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/TripAdvisor/Restaraunt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/bestbuy/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/bestbuy/script.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/google/attachments.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/google/attachments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scraping/google/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/google/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/amazonlist/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/amazonlist/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/bunble/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/bunble/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/doctorshangout/remove_less_30.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/doctorshangout/remove_less_30.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/expat.com/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/expat.com/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/geoexpat/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/geoexpat/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/openrice201910/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/openrice201910/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping/shopping_naver/shopping_naver.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/shopping_naver/shopping_naver.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scraping/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/leetcode.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/leetcode.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/util/merge_xls.py" beforeDir="false" afterPath="$PROJECT_DIR$/util/merge_xls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/util/leetcode.py" beforeDir="false" />
     </list>
-    <ignored path=".idea/dataSources.local.xml" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -141,22 +125,6 @@
   </component>
   <component name="FavoritesManager">
     <favorites_list name="Scrape_Ngram" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scraping/shopee/script.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-582">
-              <caret line="102" column="53" lean-forward="true" selection-start-line="102" selection-start-column="53" selection-end-line="102" selection-end-column="53" />
-              <folding>
-                <element signature="e#25#34#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -299,6 +267,7 @@
     <option name="width" value="1388" />
     <option name="height" value="877" />
   </component>
+  <component name="ProjectId" id="1pkMfZtfEvTewVuDZrqHEbTGb8C" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -347,49 +316,43 @@
       </pane>
     </panes>
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="FullScreen" value="false" />
     <property name="GO_FMT" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SearchEverywhereHistoryKey" value="read_ex&#9;null&#9;null&#10;open_browser_scroll&#9;null&#9;null&#10;web&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;we&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;w&#9;FILE&#9;file:///Users/zhaodan/Documents/personal/code/Scrape_Ngram/util/webFormContext.py&#10;pr&#9;FILE&#9;file:///Users/zhaodan/Documents/workspace/python/codes/zhaodan/scrape_ngram/scraping/TripAdvisor/profile_comment.py" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="add_unversioned_files" value="$PROJECT_DIR$/scraping/lowyat/1.html&#10;/Users/zhaod/Documents/Learning/Scrape_Ngram/scraping/lowyat/2.html" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/scraping/YouTube/data" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="recentsLimit" value="5" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping/YouTube/data" />
+      <recent name="$PROJECT_DIR$/scraping/YouTube" />
       <recent name="$PROJECT_DIR$/util/data" />
       <recent name="$PROJECT_DIR$/scraping/mumsnet" />
       <recent name="$PROJECT_DIR$/scraping" />
-      <recent name="$PROJECT_DIR$/scraping/expat.com" />
-      <recent name="$PROJECT_DIR$/scraping/CleanHtml/data" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scraping/sharing.clickup" />
+      <recent name="$PROJECT_DIR$/scraping/sharing.clickup/data" />
       <recent name="$PROJECT_DIR$/scraping/mumsnet/data/res" />
       <recent name="$PROJECT_DIR$/scraping/FB_insight/data" />
       <recent name="$PROJECT_DIR$/scraping/TripAdvisor/v2/data/res" />
-      <recent name="$PROJECT_DIR$/scraping/TripAdvisor/v2/data" />
-      <recent name="$PROJECT_DIR$/scraping/TripAdvisor/data/res" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
-  <component name="RunManager" selected="Python.script (3)">
+  <component name="RunManager" selected="Python.script (2)">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <module name="" />
       <working_directory value="$PROJECT_DIR$" />
@@ -518,7 +481,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="merge_xls" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="YT_searchres" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -526,12 +489,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/YouTube" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/merge_xls.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/YouTube/YT_searchres.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -540,7 +503,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="onlineRetail" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="YT_searchres2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -548,12 +511,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/amazonseller" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/YouTube" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/amazonseller/onlineRetail.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/YouTube/YT_searchres2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -584,6 +547,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="script (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Scrape_Ngram" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/sharing.clickup" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/sharing.clickup/script.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="script (3)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -598,28 +583,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/shopee/script.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="script (4)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Scrape_Ngram" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/mumsnet" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/mumsnet/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -650,7 +613,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="script_2" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Scrape_Ngram" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -658,12 +621,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping/mumsnet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/scraping" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/mumsnet/script_2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/scraping/utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -682,28 +645,29 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.script (1)" />
+      <item itemvalue="Python.1_Posts (1)" />
       <item itemvalue="Python.Employed_v2 (1)" />
-      <item itemvalue="Python.script" />
       <item itemvalue="Python.Employed_v2" />
       <item itemvalue="Python.Vacancy_v2 (1)" />
-      <item itemvalue="Python.1_Posts (1)" />
+      <item itemvalue="Python.script (1)" />
+      <item itemvalue="Python.script" />
       <item itemvalue="Python.script (3)" />
-      <item itemvalue="Python.onlineRetail" />
-      <item itemvalue="Python.script (4)" />
-      <item itemvalue="Python.script_2" />
-      <item itemvalue="Python.merge_xls" />
+      <item itemvalue="Python.YT_searchres" />
+      <item itemvalue="Python.utils" />
+      <item itemvalue="Python.YT_searchres2" />
+      <item itemvalue="Python.script (2)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.script (2)" />
+        <item itemvalue="Python.YT_searchres" />
+        <item itemvalue="Python.YT_searchres2" />
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.script (3)" />
-        <item itemvalue="Python.merge_xls" />
-        <item itemvalue="Python.script_2" />
-        <item itemvalue="Python.script (4)" />
-        <item itemvalue="Python.onlineRetail" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration>$USER_HOME$/.subversion</configuration>
   </component>
@@ -785,6 +749,8 @@
       <workItem from="1607221281190" duration="19757000" />
       <workItem from="1607358427142" duration="12978000" />
       <workItem from="1607654594271" duration="326000" />
+      <workItem from="1625140322428" duration="25000" />
+      <workItem from="1625140371069" duration="709000" />
     </task>
     <task id="LOCAL-00001" summary="ADD: google">
       <created>1493981762445</created>
@@ -1147,27 +1113,28 @@
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State />
+          </value>
+        </entry>
+        <entry key="2">
+          <value>
+            <State />
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State>
-              <option name="RECENTLY_FILTERED_USER_GROUPS">
-                <collection />
-              </option>
-              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
-                <collection />
-              </option>
-              <option name="COLUMN_ORDER">
-                <list>
-                  <option value="0" />
-                  <option value="1" />
-                  <option value="2" />
-                  <option value="3" />
-                </list>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="false" />
+                </map>
               </option>
             </State>
           </value>
@@ -1188,6 +1155,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -1608,11 +1576,6 @@
           <option name="timeStamp" value="543" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/util/leetcode.py</url>
-          <line>85</line>
-          <option name="timeStamp" value="544" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/scraping/CleanHtml/script.py</url>
           <line>28</line>
           <option name="timeStamp" value="545" />
@@ -1641,6 +1604,21 @@
           <url>file://$PROJECT_DIR$/scraping/mumsnet/script_2.py</url>
           <line>34</line>
           <option name="timeStamp" value="554" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/YouTube/YT_searchres.py</url>
+          <line>214</line>
+          <option name="timeStamp" value="565" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/YouTube/YT_searchres.py</url>
+          <line>208</line>
+          <option name="timeStamp" value="566" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/scraping/sharing.clickup/script.py</url>
+          <line>96</line>
+          <option name="timeStamp" value="571" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

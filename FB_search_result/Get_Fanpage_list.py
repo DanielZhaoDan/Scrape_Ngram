@@ -73,7 +73,7 @@ def write_excel(filename, data):
     w.save(filename)
     print filename + "===========over============"
 
-read_excel('result_data/data.xlsx', 1)
+read_excel('result_data/rawdata.xlsx', 1)
 write_excel('result_data/fanpage.xls', alldata)
 # write(get_request('https://www.facebook.com/wilawan.keajung/'), '2.html')
 

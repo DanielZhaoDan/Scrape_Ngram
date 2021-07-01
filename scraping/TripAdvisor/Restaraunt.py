@@ -640,4 +640,4 @@ def do_retry():
     write_excel('data/sheet1_retry.xls', sheet1_data)
 
 # read_excel('data/sheet1_end.xls')
-write(get_request('https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&ajax=1&availSearchEnabled=false&sortOrder=popularity&geo=298278&itags=10591&o=a30'), '1.html')
+write(get_request('https://www.tripadvisor.com.my/RestaurantSearch?Action=PAGE&ajax=1&availSearchEnabled=false&sortOrder=popularity&geo=298278&itags=10591&o=a30'), '0.html')

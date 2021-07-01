@@ -20,7 +20,7 @@ def request_sheet1(page_no):
     url = base_url + str(page_no)
     print url
     html = utils.get_request_html(url, cookie)
-    utils.write_html(html, '1.html')
+    utils.write_html(html, '0.html')
 
     reg = 'a-section aok-relative s-image-fixed-height.*?src="(.*?)".*?a-link-normal a-text-normal.*?href="(.*?)".*?a-size-medium a-color-base a-text-normal">(.*?)<'
     data_list = re.compile(reg).findall(html)
